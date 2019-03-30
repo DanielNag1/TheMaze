@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    class TileManager
+    public class TileManager
     {
         public Tile[,] Tiles { get; private set; }
         public readonly int tileSize = 64;

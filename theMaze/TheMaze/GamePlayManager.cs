@@ -12,13 +12,15 @@ namespace TheMaze
     {
         TileManager tileManager;
         Player player;
+        Lights lights;
 
         public GamePlayManager()
         {
             tileManager = new TileManager();
             player = new Player(TextureManager.CatTex, new Vector2(64, 128));
-            Game1.penumbra.Lights.Add(player.spotlight);
-            Game1.penumbra.Lights.Add(player.playerLight);
+            lights = new Lights(player);
+            Game1.penumbra.Lights.Add(lights.spotlight);
+            Game1.penumbra.Lights.Add(lights.playerLight);
             Game1.penumbra.Initialize();
         }
         
@@ -31,6 +33,7 @@ namespace TheMaze
         {
             player.Collision(tileManager);
             player.Update(gameTime);
+            lights.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -10,11 +10,10 @@ using Penumbra;
 
 namespace TheMaze
 {
-    class Player : GameObject
+    public class Player : GameObject
     {
-        public Light spotlight,playerLight;
-        public MouseState mouse;
-        public Vector2 mousePos, lightDirection;
+
+        Lights lights;
 
         public Vector2 Direction { get; private set; }
         private Vector2 oldPosition;
@@ -41,16 +40,6 @@ namespace TheMaze
         }
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
-            spotlight = new Spotlight();
-            spotlight.Scale = new Vector2(300, 300);
-            spotlight.Color = Color.White;
-            spotlight.Intensity = .75f;
-            spotlight.Enabled = false;
-            playerLight = new PointLight();
-            playerLight.Scale = new Vector2(100, 100);
-            playerLight.Color = Color.White;
-            playerLight.Intensity = .85f;
-            playerLight.Enabled = false;
 
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             nextSourceRect = currentSourceRect;
@@ -69,34 +58,6 @@ namespace TheMaze
         
         public void Update(GameTime gameTime)
         {
-            mouse = Mouse.GetState();
-            mousePos = new Vector2((float)mouse.X, (float)mouse.Y);
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Q))
-            {
-                spotlight.Enabled = true;
-                playerLight.Enabled = true;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.E))
-            {
-                spotlight.Enabled = false;
-                playerLight.Enabled = false;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D1))
-            {
-                spotlight.Color = Color.White;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D2))
-            {
-                spotlight.Color = Color.Blue;
-                spotlight.Scale = new Vector2(400, 400);
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D3))
-            {
-                spotlight.Color = Color.Red;
-                spotlight.Scale = new Vector2(450, 450);
-            }
-
             if (moving)
             {
                 timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -129,13 +90,6 @@ namespace TheMaze
                 currentSourceRect.X = frame * frameSize;
             }
 
-            spotlight.Position = new Vector2(position.X + 42, position.Y + 50);
-            playerLight.Position = new Vector2(position.X + 30, position.Y + 40);
-
-            lightDirection = mousePos - spotlight.Position;
-            lightDirection.Normalize();
-
-            spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
 
         }
 

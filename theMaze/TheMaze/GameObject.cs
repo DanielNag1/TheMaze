@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    abstract class GameObject
+    public abstract class GameObject
     {
         public Texture2D Texture { get; protected set; }
         protected Vector2 position;

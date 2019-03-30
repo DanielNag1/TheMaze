@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TheMaze
 {
-    class Tile : GameObject
+    public class Tile : GameObject
     {
         protected Rectangle sourceRect;
         public Rectangle Hitbox { get; private set; }
