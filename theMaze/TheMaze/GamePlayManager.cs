@@ -13,6 +13,7 @@ namespace TheMaze
         TileManager tileManager;
         Player player;
         Lights lights;
+        Camera camera;
 
         public GamePlayManager()
         {
@@ -22,6 +23,8 @@ namespace TheMaze
             Game1.penumbra.Lights.Add(lights.spotlight);
             Game1.penumbra.Lights.Add(lights.playerLight);
             Game1.penumbra.Initialize();
+            camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
+            Game1.penumbra.Transform = camera.Transform;
         }
         
         public Point PrefWindowSize()
@@ -33,14 +36,15 @@ namespace TheMaze
         {
             player.Collision(tileManager);
             player.Update(gameTime);
+            camera.SetPosition(player.Position);
+            Game1.penumbra.Transform = camera.Transform;
             lights.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             Game1.penumbra.BeginDraw();
-
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
             tileManager.Draw(spriteBatch);
             player.Draw(spriteBatch);
             spriteBatch.End();

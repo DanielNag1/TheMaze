@@ -12,9 +12,6 @@ namespace TheMaze
 {
     public class Player : GameObject
     {
-
-        Lights lights;
-
         public Vector2 Direction { get; private set; }
         private Vector2 oldPosition;
 
