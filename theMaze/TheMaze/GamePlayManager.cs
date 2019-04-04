@@ -12,6 +12,7 @@ namespace TheMaze
     {
         TileManager tileManager;
         Player player;
+        Enemy enemy;
         Lights lights;
         Camera camera;
 
@@ -19,6 +20,7 @@ namespace TheMaze
         {
             tileManager = new TileManager();
             player = new Player(TextureManager.CatTex, new Vector2(64, 128));
+            enemy = new Enemy(TextureManager.EvilCatTex, new Vector2(720, 728));
             lights = new Lights(player);
             Game1.penumbra.Lights.Add(lights.spotlight);
             Game1.penumbra.Lights.Add(lights.playerLight);
@@ -36,6 +38,8 @@ namespace TheMaze
         {
             player.Collision(tileManager);
             player.Update(gameTime);
+            //enemy.Collision(tileManager);
+            enemy.Update(gameTime);
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update();
@@ -47,6 +51,7 @@ namespace TheMaze
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
             tileManager.Draw(spriteBatch);
             player.Draw(spriteBatch);
+            enemy.Draw(spriteBatch);
             spriteBatch.End();
         }
     }

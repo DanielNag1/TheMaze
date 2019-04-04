@@ -13,7 +13,7 @@ namespace TheMaze
     public class Player : GameObject
     {
         public Vector2 Direction { get; private set; }
-        private Vector2 oldPosition;
+        public static Vector2 oldPosition;
 
         private Rectangle hitbox;
         public Rectangle Hitbox
