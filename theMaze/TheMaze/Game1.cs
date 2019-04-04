@@ -8,7 +8,7 @@ namespace TheMaze
 {
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+        public static GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GamePlayManager gameManager;
         public static PenumbraComponent penumbra;

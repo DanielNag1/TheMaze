@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>F:/TGSPA18h/The Fucking MAZE/themazepenumbrademo/theMaze/TheMaze/Content/cat sprite big2.png</File>
-    <File>F:/TGSPA18h/The Fucking MAZE/themazepenumbrademo/theMaze/TheMaze/Content/floor tile4.png</File>
-    <File>F:/TGSPA18h/The Fucking MAZE/themazepenumbrademo/theMaze/TheMaze/Content/wall tileset big.png</File>
-    <File>F:/TGSPA18h/The Fucking MAZE/themazepenumbrademo/theMaze/TheMaze/Content/square.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/cat sprite big2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile4.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wall tileset big.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/square.png</File>
   </SourceFiles>
 </SourceFileCollection>
