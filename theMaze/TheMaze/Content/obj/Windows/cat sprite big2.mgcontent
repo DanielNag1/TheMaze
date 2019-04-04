@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/cat sprite big2.png</SourceFile>
-  <SourceTime>2019-04-01T14:31:09.200468+02:00</SourceTime>
-  <DestFile>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/cat sprite big2.xnb</DestFile>
-  <DestTime>2019-04-01T14:38:50.2162963+02:00</DestTime>
+  <SourceFile>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/cat sprite big2.png</SourceFile>
+  <SourceTime>2019-04-04T12:53:56.2706574+02:00</SourceTime>
+  <DestFile>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/bin/Windows/cat sprite big2.xnb</DestFile>
+  <DestTime>2019-04-04T12:54:04.530974+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

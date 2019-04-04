@@ -9,6 +9,7 @@ namespace TheMaze
     public class Game1 : Game
     {
         public static GraphicsDeviceManager graphics;
+        public static GraphicsDevice graphicsDevice;
         SpriteBatch spriteBatch;
         GamePlayManager gameManager;
         public static PenumbraComponent penumbra;
@@ -24,6 +25,11 @@ namespace TheMaze
         protected override void Initialize()
         {
             //IsMouseVisible = true;
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
+            
             base.Initialize();
         }
         
@@ -32,13 +38,11 @@ namespace TheMaze
             spriteBatch = new SpriteBatch(GraphicsDevice);
             TextureManager.LoadContent(Content);
             
-            gameManager = new GamePlayManager();
+            gameManager = new GamePlayManager(GraphicsDevice);
             penumbra.AmbientColor = Color.Black;
-            graphics.PreferredBackBufferWidth = gameManager.PrefWindowSize().X;
-            graphics.PreferredBackBufferHeight = gameManager.PrefWindowSize().Y;
-            graphics.ApplyChanges();
+            
         }
-        
+
         protected override void UnloadContent()
         {
         }
@@ -47,7 +51,6 @@ namespace TheMaze
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
             gameManager.Update(gameTime);
 
             base.Update(gameTime);
@@ -57,9 +60,9 @@ namespace TheMaze
         {
             
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            gameManager.Draw(spriteBatch);
+            gameManager.Draw(spriteBatch,gameTime);
 
-            base.Draw(gameTime);
+            //base.Draw(gameTime);
         }
     }
 }

@@ -120,3 +120,106 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\The
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\floor tile4.xnb
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\square.xnb
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tileset big.xnb
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Downloads\TheMaze-kamera\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\flare.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\flare.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\floor tile4.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\square.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tileset big.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Flare3.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Flare4_00000.xnb
+F:\TGSPA18h\The Fucking MAZE\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Flare5_00000.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\flare.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Flare3.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Flare4_00000.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Flare5_00000.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\floor tile4.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\square.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tileset big.xnb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Desktop\zoomkamera ljus\TheMaze-kamera\theMaze\TheMaze\bin\Windows\x86\Debug\Content\character1trans.xnb

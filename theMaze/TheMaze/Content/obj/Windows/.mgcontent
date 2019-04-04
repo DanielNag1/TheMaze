@@ -4,9 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/cat sprite big2.png</File>
-    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile4.png</File>
-    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wall tileset big.png</File>
-    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/square.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/cat sprite big2.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/floor tile4.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/wall tileset big.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/square.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/flare.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/Flare3.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/Flare4_00000.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/Flare5_00000.png</File>
+    <File>C:/Users/Spellabb2018/Desktop/zoomkamera ljus/TheMaze-kamera/theMaze/TheMaze/Content/character1trans.jpg</File>
   </SourceFiles>
 </SourceFileCollection>

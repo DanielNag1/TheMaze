@@ -1,0 +1,67 @@
+
+TheMaze-zoomkamera,ljus.zip
+theMaze/.vs/TheMaze/DesignTimeBuild/.dtbcache
+theMaze/.vs/TheMaze/v15/.suo
+theMaze/.vs/TheMaze/v15/Server/sqlite3/storage.ide
+theMaze/.vs/TheMaze/v15/Server/sqlite3/storage.ide-shm
+theMaze/.vs/TheMaze/v15/Server/sqlite3/storage.ide-wal
+theMaze/packages/MonoGame.Penumbra.WindowsDX.1.4.0/lib/net45/MonoGame.Penumbra.xml
+theMaze/TheMaze.sln
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/cat sprite big2.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/character1trans.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/flare.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/Flare3.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/Flare4_00000.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/Flare5_00000.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/floor tile4.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/Content/wall tileset big.xnb
+theMaze/TheMaze/bin/Windows/x86/Debug/maze.txt
+theMaze/TheMaze/bin/Windows/x86/Debug/MonoGame.Penumbra.xml
+theMaze/TheMaze/bin/Windows/x86/Debug/TheMaze.exe
+theMaze/TheMaze/bin/Windows/x86/Debug/TheMaze.pdb
+theMaze/TheMaze/Camera.cs
+theMaze/TheMaze/Content/bin/Windows/cat sprite big2.xnb
+theMaze/TheMaze/Content/bin/Windows/character1trans.xnb
+theMaze/TheMaze/Content/bin/Windows/flare.xnb
+theMaze/TheMaze/Content/bin/Windows/Flare3.xnb
+theMaze/TheMaze/Content/bin/Windows/Flare4_00000.xnb
+theMaze/TheMaze/Content/bin/Windows/Flare5_00000.xnb
+theMaze/TheMaze/Content/bin/Windows/floor tile4.xnb
+theMaze/TheMaze/Content/bin/Windows/wall tileset big.xnb
+theMaze/TheMaze/Content/cat sprite big2.png
+theMaze/TheMaze/Content/character1trans.jpg
+theMaze/TheMaze/Content/Content.mgcb
+theMaze/TheMaze/Content/flare.png
+theMaze/TheMaze/Content/Flare3.png
+theMaze/TheMaze/Content/Flare4_00000.png
+theMaze/TheMaze/Content/Flare5_00000.png
+theMaze/TheMaze/Content/floor tile4.png
+theMaze/TheMaze/Content/obj/Windows/.mgcontent
+theMaze/TheMaze/Content/obj/Windows/cat sprite big2.mgcontent
+theMaze/TheMaze/Content/obj/Windows/character1trans.mgcontent
+theMaze/TheMaze/Content/obj/Windows/flare.mgcontent
+theMaze/TheMaze/Content/obj/Windows/Flare3.mgcontent
+theMaze/TheMaze/Content/obj/Windows/Flare4_00000.mgcontent
+theMaze/TheMaze/Content/obj/Windows/Flare5_00000.mgcontent
+theMaze/TheMaze/Content/obj/Windows/floor tile4.mgcontent
+theMaze/TheMaze/Content/obj/Windows/square.mgcontent
+theMaze/TheMaze/Content/obj/Windows/wall tileset big.mgcontent
+theMaze/TheMaze/Content/wall tileset big.png
+theMaze/TheMaze/Game1.cs
+theMaze/TheMaze/GameObject.cs
+theMaze/TheMaze/GamePlayManager.cs
+theMaze/TheMaze/Lights.cs
+theMaze/TheMaze/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+theMaze/TheMaze/obj/x86/Debug/TheMaze.csproj.CoreCompileInputs.cache
+theMaze/TheMaze/obj/x86/Debug/TheMaze.csproj.FileListAbsolute.txt
+theMaze/TheMaze/obj/x86/Debug/TheMaze.csprojAssemblyReference.cache
+theMaze/TheMaze/obj/x86/Debug/TheMaze.exe
+theMaze/TheMaze/obj/x86/Debug/TheMaze.pdb
+theMaze/TheMaze/packages.config
+theMaze/TheMaze/Player.cs
+theMaze/TheMaze/Program.cs
+theMaze/TheMaze/Properties/AssemblyInfo.cs
+theMaze/TheMaze/TextureManager.cs
+theMaze/TheMaze/TheMaze.csproj
+theMaze/TheMaze/Tile.cs
+theMaze/TheMaze/TileManager.cs

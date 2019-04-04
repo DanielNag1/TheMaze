@@ -12,7 +12,7 @@ namespace TheMaze
 {
     public class Player : GameObject
     {
-        public Vector2 Direction { get; private set; }
+        public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
 
         private Rectangle hitbox;
@@ -23,7 +23,8 @@ namespace TheMaze
         private int hitboxOffsetX, hitboxOffsetY;
 
         private Rectangle currentSourceRect, nextSourceRect;
-        public readonly int frameSize = 64;
+        public readonly int frameSizeX = 128;
+        public readonly int frameSizeY = 227;
 
         private int frame = 0, nrFrames = 4;
         private double timer = 100, timeIntervall = 100;
@@ -38,26 +39,26 @@ namespace TheMaze
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
 
-            currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
+            currentSourceRect = new Rectangle(0, 0, frameSizeX, frameSizeY);
             nextSourceRect = currentSourceRect;
 
-            hitboxOffsetX = frameSize / 8;
-            hitboxOffsetY = frameSize / 4 * 3;
-            hitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSize - frameSize / 4, frameSize / 5);
+            hitboxOffsetX = frameSizeX / 8;
+            hitboxOffsetY = frameSizeY / 4 * 3;
+            hitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
             oldPosition = position;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, frameSize, frameSize),
-                currentSourceRect, Color.White);
+            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY),
+                /*currentSourceRect,*/ Color.White);
         }
         
         public void Update(GameTime gameTime)
         {
             if (moving)
             {
-                timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                //timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
                 if (timer <= 0)
                 {
@@ -67,7 +68,7 @@ namespace TheMaze
                     {
                         frame = 0;
                     }
-                    currentSourceRect.X = frame * frameSize;
+                    currentSourceRect.X = frame * frameSizeX;
                 }
 
                 PlayerInput();
@@ -84,7 +85,7 @@ namespace TheMaze
                 PlayerInput();
                 frame = 0;
 
-                currentSourceRect.X = frame * frameSize;
+                currentSourceRect.X = frame * frameSizeX;
             }
 
 
@@ -96,7 +97,7 @@ namespace TheMaze
             {
                 Direction = new Vector2(0, -1);
 
-                nextSourceRect.Y = 2 * frameSize;
+                nextSourceRect.Y = 2 * frameSizeY;
 
                 moving = true;
             }
@@ -104,7 +105,7 @@ namespace TheMaze
             {
                 Direction = new Vector2(0, 1);
 
-                nextSourceRect.Y = 0 * frameSize;
+                nextSourceRect.Y = 0 * frameSizeY;
 
                 moving = true;
             }
@@ -112,7 +113,7 @@ namespace TheMaze
             {
                 Direction = new Vector2(-1, 0);
 
-                nextSourceRect.Y = 3 * frameSize;
+                nextSourceRect.Y = 3 * frameSizeY;
 
                 moving = true;
             }
@@ -120,7 +121,7 @@ namespace TheMaze
             {
                 Direction = new Vector2(1, 0);
 
-                nextSourceRect.Y = 1 * frameSize;
+                nextSourceRect.Y = 1 * frameSizeY;
 
                 moving = true;
             }

@@ -23,7 +23,7 @@ namespace TheMaze
         {
             this.isWall = isWall;
             this.sourceRect = sourceRect;
-            Hitbox = new Rectangle((int)position.X, (int)position.Y, 64, 64);
+            Hitbox = new Rectangle((int)position.X, (int)position.Y, 128, 227);
         }
 
         public override void Draw(SpriteBatch spriteBatch)

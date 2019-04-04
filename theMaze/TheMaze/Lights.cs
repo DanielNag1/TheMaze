@@ -14,19 +14,26 @@ namespace TheMaze
     {
         public Light spotlight, playerLight;
         public MouseState mouse;
-        public Vector2 mousePos, lightDirection;
+        public Vector2 mousePos, lightDirection,lampPos;
         public Player player;
+        Camera camera;
+        int r, g, b;
 
-        public Lights(Player player)
+        enum ColorState {White,Red,Blue}
+        ColorState currentColor = ColorState.White;
+        ColorState previousColor;
+
+        public Lights(Player player,Camera camera)
         {
+            this.camera = camera;
             this.player = player;
             spotlight = new Spotlight();
-            spotlight.Scale = new Vector2(300, 300);
+            spotlight.Scale = new Vector2(820, 820);
             spotlight.Color = Color.White;
-            spotlight.Intensity = .75f;
+            spotlight.Intensity = .9f;
             spotlight.Enabled = false;
             playerLight = new PointLight();
-            playerLight.Scale = new Vector2(100, 100);
+            playerLight.Scale = new Vector2(500, 500);
             playerLight.Color = Color.White;
             playerLight.Intensity = .85f;
             playerLight.Enabled = false;
@@ -35,9 +42,17 @@ namespace TheMaze
 
         public void Update()
         {
-            mouse = Mouse.GetState();
-            mousePos = new Vector2((float)mouse.X, (float)mouse.Y);
-
+            
+            ColorChange();
+            Console.WriteLine(b);
+            if (player.Direction == new Vector2(0, 1))
+            {
+                playerLight.Scale = new Vector2(500, 500);
+            }
+            if (player.Direction != new Vector2(0, 1))
+            {
+                playerLight.Scale = new Vector2(400,400);
+            }
             if (Keyboard.GetState().IsKeyDown(Keys.Q))
             {
                 spotlight.Enabled = true;
@@ -48,24 +63,129 @@ namespace TheMaze
                 spotlight.Enabled = false;
                 playerLight.Enabled = false;
             }
+
+            LightPositions();
+        }
+
+
+
+        public void ColorChange()
+        {
+            spotlight.Color = new Color(r, g, b);
+
             if (Keyboard.GetState().IsKeyDown(Keys.D1))
             {
-                spotlight.Color = Color.White;
+                currentColor = ColorState.White;
+                spotlight.Scale = new Vector2(820, 820);
+             
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
-                spotlight.Color = Color.Blue;
-                spotlight.Scale = new Vector2(400, 400);
+                currentColor = ColorState.Blue;
+                
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D3))
             {
-                spotlight.Color = Color.Red;
-                spotlight.Scale = new Vector2(450, 450);
+                currentColor = ColorState.Red;
+                
             }
 
-            spotlight.Position = new Vector2(player.Position.X + 42, player.Position.Y + 50);
-            playerLight.Position = new Vector2(player.Position.X + 30, player.Position.Y + 40);
-            lightDirection = mousePos - spotlight.Position;
+            switch (currentColor)
+            { 
+                case ColorState.White:
+                    r = 255;
+                    g = 255;
+                    b = 255;
+                    previousColor = currentColor;
+                    break;
+                case ColorState.Red:
+                    if (previousColor == ColorState.White)
+                    {
+                        if (b >= -1)
+                        {
+                            b -= 2;
+                        }
+                        
+                        if (g >= -1)
+                        {
+                            g -= 2;
+                        }
+
+                        if (b <=0 && g <= 0)
+                        {
+                            spotlight.Scale = new Vector2(920, 90);
+                            previousColor = currentColor;
+                        }
+                    }
+                    if (previousColor == ColorState.Blue)
+                    {
+                        if(b>=-1)
+                        {
+                            b -= 2;
+                        }
+                        if(r<=256)
+                        {
+                            r += 2;
+                        }
+                        g = 0;
+
+                        if (r == 255 && b < 0 && g <= 0)
+                        {
+                            spotlight.Scale = new Vector2(920, 920);
+                            previousColor = currentColor;
+                        }
+                    }
+                    
+                    break;
+                case ColorState.Blue:
+                    if (previousColor == ColorState.Red)
+                    {
+                        if (r >= -1)
+                        {
+                            r -= 2;
+                        }
+                        g = 0;
+
+                        if (b <= 256)
+                        {
+                            b += 2;
+                        }
+
+                    }
+                    if (previousColor == ColorState.White)
+                    {
+                        if(g>=-1)
+                        {
+                            g -= 2;
+                        }
+                        if(r>=-1)
+                        {
+                            r -= 2;
+                        }
+                    }
+                    if(b==255 && r<0 && g<=0)
+                    {
+                        spotlight.Scale = new Vector2(820, 820);
+                        previousColor = currentColor;
+                    }
+                    
+                    break;
+
+            }
+            
+        }
+
+        public void LightPositions()
+        {
+            mouse = Mouse.GetState();
+            mousePos = new Vector2((float)mouse.X, (float)mouse.Y);
+
+            Vector2 worldMouse = Vector2.Transform(mousePos, Matrix.Invert(camera.Transform));
+            spotlight.Position = new Vector2(player.Position.X + 23, player.Position.Y + 122);
+            lampPos = new Vector2(spotlight.Position.X-TextureManager.FlareTex.Width/2, spotlight.Position.Y - TextureManager.FlareTex.Height / 2);
+            playerLight.Position = new Vector2(player.Position.X + 70, player.Position.Y + 120);
+
+            lightDirection = worldMouse - spotlight.Position;
             lightDirection.Normalize();
 
             spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
