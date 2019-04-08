@@ -29,11 +29,6 @@ namespace TheMaze
             Game1.penumbra.Transform = camera.Transform;
         }
         
-        public Point PrefWindowSize()
-        {
-            return new Point(tileManager.Tiles.GetLength(0) * tileManager.tileSizeX, tileManager.Tiles.GetLength(1) * tileManager.tileSizeY);
-        }
-
         public void Update(GameTime gameTime)
         {
             player.Collision(tileManager);
