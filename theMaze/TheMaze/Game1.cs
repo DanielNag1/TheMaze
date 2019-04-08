@@ -25,9 +25,9 @@ namespace TheMaze
         protected override void Initialize()
         {
             //IsMouseVisible = true;
-            graphics.PreferredBackBufferWidth = ConstantValues.SCREEN_WIDTH;
-            graphics.PreferredBackBufferHeight = ConstantValues.SCREEN_HEIGHT;
-            graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = ConstantValues.screenWidth;
+            graphics.PreferredBackBufferHeight = ConstantValues.screenHeight;
+            //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             
             base.Initialize();

@@ -28,7 +28,7 @@ namespace TheMaze
 
         public Tile GetTileAtPosition(Vector2 vector)
         {
-            return Tiles[(int)vector.X / ConstantValues.TILE_WIDTH, (int)vector.Y / ConstantValues.TILE_HEIGHT];
+            return Tiles[(int)vector.X / ConstantValues.tileWidth, (int)vector.Y / ConstantValues.tileHeight];
         }
         
         private Tile[,] GenerateMap(string map)
@@ -43,7 +43,7 @@ namespace TheMaze
             {
                 for (int x = 0; x < width; x++)
                 {
-                    Vector2 tilePosition = new Vector2(x * ConstantValues.TILE_WIDTH, y * ConstantValues.TILE_HEIGHT);
+                    Vector2 tilePosition = new Vector2(x * ConstantValues.tileWidth, y * ConstantValues.tileHeight);
                     if (mapData[y][x] == '1')
                     {
                         //Create some other object if needed..

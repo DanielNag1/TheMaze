@@ -8,11 +8,11 @@ namespace TheMaze
 {
     static class ConstantValues
     {
-        public static readonly int TILE_WIDTH = 128;
-        public static readonly int TILE_HEIGHT = 128;
-        public static readonly int SCREEN_WIDTH = 1920;
-        public static readonly int SCREEN_HEIGHT = 1080;
+        public static readonly int tileWidth = 128;
+        public static readonly int tileHeight = 128;
+        public static readonly int screenWidth = 1920;
+        public static readonly int screenHeight = 1080;
 
-        public static readonly int TILE_FRAME_SIZE = 128;
+        public static readonly int tileFrameSize = 128;
     }
 }

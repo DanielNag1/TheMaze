@@ -15,7 +15,7 @@ namespace TheMaze
 
         private Rectangle sourceRect;
         private char identifier;
-        private int frameSize = ConstantValues.TILE_FRAME_SIZE;
+        private int frameSize = ConstantValues.tileFrameSize;
 
         public Rectangle Hitbox { get; private set; }
 
@@ -31,14 +31,14 @@ namespace TheMaze
             this.identifier = identifier;
             sourceRect = Rectangle.Empty;
 
-            Hitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.TILE_WIDTH, ConstantValues.TILE_HEIGHT);
+            Hitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
 
             DeterminTexture();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, ConstantValues.TILE_WIDTH, ConstantValues.TILE_HEIGHT), sourceRect, Color.White);
+            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight), sourceRect, Color.White);
         }
 
         private void DeterminTexture()

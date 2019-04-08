@@ -18,6 +18,7 @@ namespace TheMaze
         public Player player;
         Camera camera;
         int r, g, b;
+        float scaleX;
 
         enum ColorState {White,Red,Blue}
         ColorState currentColor = ColorState.White;
@@ -189,6 +190,9 @@ namespace TheMaze
             lightDirection.Normalize();
 
             spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
+
+            scaleX = Vector2.Distance(spotlight.Position, worldMouse);
+            spotlight.Scale = new Vector2(scaleX, scaleX);
 
         }
     }
