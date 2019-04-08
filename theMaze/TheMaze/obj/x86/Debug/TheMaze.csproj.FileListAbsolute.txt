@@ -150,3 +150,9 @@ C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.cs
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\evilcat.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\cat sprite big2.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\evilcat.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\floor tile4.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\square.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\wall tileset big.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\evilcat.xnb
