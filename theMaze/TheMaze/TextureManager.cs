@@ -10,6 +10,8 @@ namespace TheMaze
 {
     static class TextureManager
     {
+        public static Texture2D invMonTex { get; private set; }
+
         public static Texture2D CatTex { get; private set; }
         public static Texture2D FlareTex { get; private set; }
 
@@ -19,6 +21,8 @@ namespace TheMaze
 
         public static void LoadContent(ContentManager Content)
         {
+            invMonTex = Content.Load<Texture2D>("invMonTex");
+
             CatTex = Content.Load<Texture2D>("character1trans");
             FlareTex = Content.Load<Texture2D>("Flare5_00000");
 

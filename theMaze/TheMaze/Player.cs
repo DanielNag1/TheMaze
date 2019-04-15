@@ -95,7 +95,7 @@ namespace TheMaze
         {
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
-                Direction = new Vector2(0, -1);
+                Direction = new Vector2(0, -3);
 
                 nextSourceRect.Y = 2 * frameSizeY;
 
@@ -103,7 +103,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
             {
-                Direction = new Vector2(0, 1);
+                Direction = new Vector2(0, 3);
 
                 nextSourceRect.Y = 0 * frameSizeY;
 
@@ -111,7 +111,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
             {
-                Direction = new Vector2(-1, 0);
+                Direction = new Vector2(-3, 0);
 
                 nextSourceRect.Y = 3 * frameSizeY;
 
@@ -119,7 +119,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
             {
-                Direction = new Vector2(1, 0);
+                Direction = new Vector2(3, 0);
 
                 nextSourceRect.Y = 1 * frameSizeY;
 

@@ -12,6 +12,7 @@ namespace TheMaze
     class GamePlayManager
     {
         TileManager tileManager;
+        InvisibleMonster invMon;
         Player player;
         Lights lights;
         Camera camera;
@@ -19,6 +20,9 @@ namespace TheMaze
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
             tileManager = new TileManager();
+
+            invMon = new InvisibleMonster(TextureManager.invMonTex, new Vector2(128, 384), tileManager);
+
             player = new Player(TextureManager.CatTex, new Vector2(128, 445));
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player,camera);
@@ -36,6 +40,7 @@ namespace TheMaze
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update();
+            invMon.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch,GameTime gameTime)
@@ -44,6 +49,7 @@ namespace TheMaze
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
             tileManager.Draw(spriteBatch);
             player.Draw(spriteBatch);
+            invMon.Draw(spriteBatch);
             spriteBatch.End();
 
             Game1.penumbra.Draw(gameTime);

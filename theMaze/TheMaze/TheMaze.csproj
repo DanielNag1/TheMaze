@@ -46,6 +46,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GamePlayManager.cs" />
+    <Compile Include="InvisibleMonster.cs" />
     <Compile Include="Lights.cs" />
     <Compile Include="TileManager.cs" />
     <Compile Include="Player.cs" />
