@@ -15,7 +15,7 @@ namespace TheMaze
         
         public TileManager()
         {
-            Tiles = GenerateMap("mapZ.txt");
+            Tiles = GenerateMap("testbana.txt");
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -14,12 +14,14 @@ namespace TheMaze
     {
         public Light spotlight, playerLight;
         public MouseState mouse;
-        public Vector2 mousePos, lightDirection,lampPos;
+        public Vector2 mousePos, lightDirection,lampPos,worldMouse,hitboxPos;
         public Player player;
         Camera camera;
+        Circle attackhitbox;
+
         int r, g, b;
         float scaleX;
-
+        
         enum ColorState {White,Red,Blue}
         ColorState currentColor = ColorState.White;
         ColorState previousColor;
@@ -38,14 +40,13 @@ namespace TheMaze
             playerLight.Color = Color.White;
             playerLight.Intensity = .85f;
             playerLight.Enabled = false;
-
+            
         }
 
         public void Update()
         {
             
             ColorChange();
-            Console.WriteLine(b);
             if (player.Direction == new Vector2(0, 1))
             {
                 playerLight.Scale = new Vector2(500, 500);
@@ -66,6 +67,8 @@ namespace TheMaze
             }
 
             LightPositions();
+
+            
         }
 
 
@@ -83,7 +86,6 @@ namespace TheMaze
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
                 currentColor = ColorState.Blue;
-                
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D3))
             {
@@ -181,7 +183,7 @@ namespace TheMaze
             mouse = Mouse.GetState();
             mousePos = new Vector2((float)mouse.X, (float)mouse.Y);
 
-            Vector2 worldMouse = Vector2.Transform(mousePos, Matrix.Invert(camera.Transform));
+            worldMouse = Vector2.Transform(mousePos, Matrix.Invert(camera.Transform));
             spotlight.Position = new Vector2(player.Position.X + 23, player.Position.Y + 122);
             lampPos = new Vector2(spotlight.Position.X-TextureManager.FlareTex.Width/2, spotlight.Position.Y - TextureManager.FlareTex.Height / 2);
             playerLight.Position = new Vector2(player.Position.X + 70, player.Position.Y + 120);
@@ -191,9 +193,16 @@ namespace TheMaze
 
             spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
 
-            scaleX = Vector2.Distance(spotlight.Position, worldMouse);
+            scaleX = (Vector2.Distance(spotlight.Position, worldMouse))+250;
             spotlight.Scale = new Vector2(scaleX, scaleX);
+            hitboxPos = new Vector2(worldMouse.X, worldMouse.Y);
+            attackhitbox = new Circle(hitboxPos, 150f);
 
+        }
+
+        public void DrawHitBox(SpriteBatch spriteBatch)
+        {
+            attackhitbox.Draw(spriteBatch);
         }
     }
 }

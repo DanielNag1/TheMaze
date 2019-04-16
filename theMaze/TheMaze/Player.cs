@@ -29,7 +29,7 @@ namespace TheMaze
         private int frame = 0, nrFrames = 4;
         private double timer = 100, timeIntervall = 100;
 
-        private float speed = 2f;
+        private float speed = 3f;
         private bool moving = false;
 
         public static Vector2 ReturnPosition(Vector2 position)

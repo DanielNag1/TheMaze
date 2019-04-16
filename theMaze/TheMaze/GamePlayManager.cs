@@ -15,6 +15,7 @@ namespace TheMaze
         Player player;
         Lights lights;
         Camera camera;
+        Circle attackhitbox;
 
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
@@ -27,6 +28,7 @@ namespace TheMaze
             Game1.penumbra.Initialize();
 
             Game1.penumbra.Transform = camera.Transform;
+            attackhitbox = new Circle(lights.worldMouse, 40f);
         }
         
         public void Update(GameTime gameTime)
@@ -51,7 +53,8 @@ namespace TheMaze
 
             if (player.Direction == new Vector2(0, 1) && lights.spotlight.Enabled==true)
             { spriteBatch.Draw(TextureManager.FlareTex, lights.lampPos, Color.White); }
-            
+
+            lights.DrawHitBox(spriteBatch);
             spriteBatch.End();
         }
     }
