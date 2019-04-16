@@ -13,6 +13,7 @@ namespace TheMaze
     {
         TileManager tileManager;
         Player player;
+        Monster monster;
         Lights lights;
         Camera camera;
         Circle attackhitbox;
@@ -21,6 +22,7 @@ namespace TheMaze
         {
             tileManager = new TileManager();
             player = new Player(TextureManager.CatTex, new Vector2(128, 445));
+            monster = new Monster(TextureManager.MonsterTex, new Vector2(/*empty*/), tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player,camera);
             Game1.penumbra.Lights.Add(lights.spotlight);
@@ -35,6 +37,7 @@ namespace TheMaze
         {
             player.Collision(tileManager);
             player.Update(gameTime);
+            monster.Update(gameTime);
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update();
@@ -46,6 +49,7 @@ namespace TheMaze
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
             tileManager.Draw(spriteBatch);
             player.Draw(spriteBatch);
+            monster.Draw(spriteBatch);
             spriteBatch.End();
 
             Game1.penumbra.Draw(gameTime);
