@@ -21,8 +21,8 @@ namespace TheMaze
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
             tileManager = new TileManager();
-            player = new Player(TextureManager.CatTex, new Vector2(128, 445));
-            monster = new Monster(TextureManager.MonsterTex, new Vector2(/*empty*/), tileManager);
+            player = new Player(TextureManager.CatTex, tileManager.StartPositionPlayer);
+            monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player,camera);
             Game1.penumbra.Lights.Add(lights.spotlight);
@@ -37,7 +37,9 @@ namespace TheMaze
         {
             player.Collision(tileManager);
             player.Update(gameTime);
+
             monster.Update(gameTime);
+
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update();
@@ -47,9 +49,12 @@ namespace TheMaze
         {
             Game1.penumbra.BeginDraw();
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
+
             tileManager.Draw(spriteBatch);
-            player.Draw(spriteBatch);
+
             monster.Draw(spriteBatch);
+            player.Draw(spriteBatch);
+
             spriteBatch.End();
 
             Game1.penumbra.Draw(gameTime);

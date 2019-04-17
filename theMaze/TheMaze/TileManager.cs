@@ -12,6 +12,9 @@ namespace TheMaze
     public class TileManager
     {
         public Tile[,] Tiles { get; private set; }
+
+        public Vector2 StartPositionPlayer { get; private set; }
+        public Vector2 StartPositionMonster { get; private set; }
         
         public TileManager()
         {
@@ -46,7 +49,11 @@ namespace TheMaze
                     Vector2 tilePosition = new Vector2(x * ConstantValues.tileWidth, y * ConstantValues.tileHeight);
                     if (mapData[y][x] == '1')
                     {
-                        //Create some other object if needed..
+                        StartPositionPlayer = new Vector2(tilePosition.X, tilePosition.Y - ConstantValues.tileHeight);
+                    }
+                    if (mapData[y][x] == '2')
+                    {
+                        StartPositionMonster = tilePosition;
                     }
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }

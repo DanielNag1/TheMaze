@@ -19,17 +19,26 @@ namespace TheMaze
 
         TileManager tileManager;
 
-        List<Point> pathPointsList;
+        //List<Point> pathPointsList; 
+
+        //Konstanter för rörelse. Praktiskt för återanvänding och läsbarhet.
+        private readonly Vector2 Up = new Vector2(0, -1);
+        private readonly Vector2 Down = new Vector2(0, 1);
+        private readonly Vector2 Left = new Vector2(-1, 0);
+        private readonly Vector2 Right = new Vector2(1, 0);
 
         public Vector2 Direction { get; private set; }
+        private Vector2 destination;
+
+        private Random random;
 
         private Rectangle currentSourceRect, nextSourceRect;
-        public readonly int frameSize = 64;
+        public readonly int frameSize = 128;
 
         private int frame = 0, nrFrames = 4;
         private double timer = 100, timeIntervall = 100;
 
-        private float speed = 2f;  // Som visuell feedback kan monstrets speed minskas när man riktar ljuset mot det.
+        private float speed = 100f;  // Som visuell feedback kan monstrets speed minskas när man riktar ljuset mot det.
 
         private bool moving = false;
 
@@ -42,14 +51,8 @@ namespace TheMaze
         public Monster(Texture2D texture, Vector2 position, TileManager tileManager) : base (texture, position)
         {
             this.tileManager = tileManager;
-
-            this.position = tileManager.Tiles[1, 3].Hitbox.Center.ToVector2(); // Startposition på samma tile som player.
-
-            pathPointsList = new List<Point>();
-            // Under lägger du till koordinater/noder i ordningen du vill att monstret ska följa.
-            pathPointsList.Add(tileManager.Tiles[7, 3].Hitbox.Center); // Börjar med att gå mot höger.
-            pathPointsList.Add(tileManager.Tiles[7, 7].Hitbox.Center); // Sedan går den neråt.
-
+            
+            random = new Random();
 
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             nextSourceRect = currentSourceRect;
@@ -59,7 +62,7 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
-            if (moving) 
+            if (moving)
             {
                 timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
@@ -73,71 +76,109 @@ namespace TheMaze
                     }
                     currentSourceRect.X = frame * frameSize;
                 }
-
-                Movement();
-
                 currentSourceRect.Y = nextSourceRect.Y;
-
-                position += speed * Direction;
             }
             else
             {
-                Movement();
                 frame = 0;
-
                 currentSourceRect.X = frame * frameSize;
             }
-        }
 
-        private void Movement()
-        {
-            // Koden här tar koordinaterna som finns i pathPointsList en i taget och flyttar monstret till alla koordinater i ordning.
-
-            int x = 0;
-
-            if (position == pathPointsList[x].ToVector2())
-            {
-                if (x < pathPointsList.Count() - 1) // Skrev -1 annars kraschade programmet.
-                {
-                    x += 1; // När monstret har nått en koordinat, ta fram nästa koordinat i listan.
-                }
-            }
-
-            if (position.X > pathPointsList[x].X || position.X < pathPointsList[x].X
-                || position.Y > pathPointsList[x].Y || position.Y < pathPointsList[x].Y)
-            {
-                moving = true;
-                if (position.X > pathPointsList[x].X)
-                {
-                    Direction = new Vector2(-1, 0);
-                    nextSourceRect.Y = 3 * frameSize;
-                }
-                if (position.X < pathPointsList[x].X)
-                {
-                    Direction = new Vector2(1, 0);
-                    nextSourceRect.Y = 1 * frameSize;
-                }
-                if (position.Y > pathPointsList[x].Y)
-                {
-                    Direction = new Vector2(0, -1);
-                    nextSourceRect.Y = 2 * frameSize;
-                }
-                if (position.Y < pathPointsList[x].Y)
-                {
-                    Direction = new Vector2(0, 1);
-                    nextSourceRect.Y = 0 * frameSize;
-                }
-            }
-            else
-            {
-                moving = false;
-            }
+            UpdateSourceRectangle();
+            Moving(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, frameSize, frameSize),
-                currentSourceRect, Color.White, 0f, new Vector2(32, 50), SpriteEffects.None, 1);
+            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, 
+                ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, Color.White);
+        }
+
+        private void Moving(GameTime gameTime)
+        {
+            if (!moving)
+            {
+                NewDirection();
+
+                ChangeDirection(Direction);
+            }
+
+            else
+            {
+                position += Direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (Vector2.Distance(Position, destination) < 1)
+                {
+                    position = destination;
+                    moving = false;
+                }
+            }
+        }
+
+        private void ChangeDirection(Vector2 newDirection)
+        {
+            Direction = newDirection;
+            Vector2 newDestination = Position + Direction * ConstantValues.tileWidth;
+
+            Tile tile = tileManager.GetTileAtPosition(Direction);
+            if (tile.IsWall)
+            {
+                destination = newDestination;
+                moving = true;
+            }
+        }
+
+        private void NewDirection()
+        {
+            //Array av de fyra olika riktingarna som heter "directions"
+            Vector2[] directions = new[] { Up, Down, Left, Right };
+
+            //En ny lista av Vector2 med namn "possibleDirections", som är tom
+            List<Vector2> possibleDirections = new List<Vector2>();
+
+            //foreach loop av arrayen "directions"
+            foreach (Vector2 direction in directions)
+            {
+                //Tittar åt alla riktingar vad det är för sorts Tile
+                Tile tile = tileManager.GetTileAtPosition(position + 
+                    new Vector2(direction.X * ConstantValues.tileWidth, direction.Y * ConstantValues.tileHeight));
+
+                //Kollar om det inte är en vägg
+                if (!tile.IsWall)
+                {
+                    //Om det inte är en vägg, lägger till den i listan "possibleDirections"
+                    possibleDirections.Add(direction);
+                }
+            }
+
+            //Om det finns mer än två möjliga vägar, tar bort den förra samt inverterar den så spöket inte går bakåt.
+            if (possibleDirections.Count > 1)
+            {
+                possibleDirections.Remove(-Direction);
+            }
+
+            //Väljer en riktning slumpässigt ut av de som existerar
+            Direction = possibleDirections[random.Next(0, possibleDirections.Count)];
+        }
+
+        private void UpdateSourceRectangle()
+        {
+            if (Direction == Up)
+            {
+                nextSourceRect.Y = 2 * frameSize;
+            }
+            if (Direction == Down)
+            {
+                nextSourceRect.Y = 0 * frameSize;
+            }
+            if (Direction == Right)
+            {
+                nextSourceRect.Y = 1 * frameSize;
+            }
+            if (Direction == Left)
+            {
+                nextSourceRect.Y = 3 * frameSize;
+            }
         }
     }
 }
