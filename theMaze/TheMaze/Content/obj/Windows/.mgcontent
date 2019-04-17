@@ -4,13 +4,13 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/cat sprite big2.png</File>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/evilcat.png</File>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Floor Tile Big.png</File>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/rangecircle.png</File>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/square.png</File>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Top Tile Sheet Big.png</File>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Wall Tile Sheet Big - Copy.png</File>
-    <File>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Wall Tile Sheet Big.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/cat sprite big2.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/evilcat.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Floor Tile Big.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/rangecircle.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/square.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Top Tile Sheet Big.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Wall Tile Sheet Big - Copy.png</File>
+    <File>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Wall Tile Sheet Big.png</File>
   </SourceFiles>
 </SourceFileCollection>
