@@ -1,10 +1,10 @@
 # TheMaze
-<b> INSTRUKTIONER FÖR DEMO <b/>
+<l> INSTRUKTIONER FÖR DEMO <l/>
 
 Starta spelet genom att öppna .sln filen med Visual Studio. Tryck sedan på Start-knappen längst upp på rutan.
 
 
-<b> GAMEPLAY <b/>
+<l> GAMEPLAY <l/>
 
 WASD eller piltangenterna för rörelse.
 
