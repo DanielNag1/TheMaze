@@ -67,8 +67,6 @@ namespace TheMaze
             }
 
             LightPositions();
-
-            
         }
 
 
@@ -197,7 +195,13 @@ namespace TheMaze
             spotlight.Scale = new Vector2(scaleX, scaleX);
             hitboxPos = new Vector2(worldMouse.X, worldMouse.Y);
             attackhitbox = new Circle(hitboxPos, 150f);
+        }
 
+        public bool CollisionWithLight(Circle other) //Anropas i objektets update-klass.
+        {
+            if (attackhitbox.Intersects(other)) return true;
+
+            return false;
         }
 
         public void DrawHitBox(SpriteBatch spriteBatch)

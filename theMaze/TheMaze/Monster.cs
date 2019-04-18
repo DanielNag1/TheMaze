@@ -19,8 +19,6 @@ namespace TheMaze
 
         TileManager tileManager;
 
-        //List<Point> pathPointsList; 
-
         //Konstanter för rörelse. Praktiskt för återanvänding och läsbarhet.
         private readonly Vector2 Up = new Vector2(0, -1);
         private readonly Vector2 Down = new Vector2(0, 1);
@@ -28,9 +26,11 @@ namespace TheMaze
         private readonly Vector2 Right = new Vector2(1, 0);
 
         public Vector2 Direction { get; private set; }
-        private Vector2 destination;
+        private Vector2 destination, hitboxPos;
 
         private Random random;
+
+        public Circle hitbox;
 
         private Rectangle currentSourceRect, nextSourceRect;
         public readonly int frameSize = 128;
@@ -38,26 +38,26 @@ namespace TheMaze
         private int frame = 0, nrFrames = 4;
         private double timer = 100, timeIntervall = 100;
 
-        private float speed = 100f;  // Som visuell feedback kan monstrets speed minskas när man riktar ljuset mot det.
+        public float speed = 100f;
 
         private bool moving = false;
+        public bool isAlive = true;
 
-        public bool startMoving; // Tänkte att någonstans i spelets kod ska det finnas något som säger if player hamnar
-                                 // på en specifik tile, spawna monster och starta movement och då ska den ta en väg mot 
-                                 // spelaren eller något liknande.
+        public Color color = Color.White;
+        private Color colorFade;
 
-        // Hitbox saknas!!
+        public double health = 5;
 
-        public Monster(Texture2D texture, Vector2 position, TileManager tileManager) : base (texture, position)
+        public Monster(Texture2D texture, Vector2 position, TileManager tileManager) : base(texture, position)
         {
             this.tileManager = tileManager;
-            
+
             random = new Random();
 
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             nextSourceRect = currentSourceRect;
 
-            startMoving = false;
+            colorFade = new Color(100, 100, 100, 100);
         }
 
         public void Update(GameTime gameTime)
@@ -84,14 +84,23 @@ namespace TheMaze
                 currentSourceRect.X = frame * frameSize;
             }
 
+            hitboxPos = position + new Vector2(65, 55);
+            hitbox = new Circle(hitboxPos, 50f);
+
+
             UpdateSourceRectangle();
             Moving(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, 
-                ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, Color.White);
+            hitbox.Draw(spriteBatch);
+
+            if (isAlive)
+            {
+                spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y,
+                    ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
+            }
         }
 
         private void Moving(GameTime gameTime)
@@ -140,7 +149,7 @@ namespace TheMaze
             foreach (Vector2 direction in directions)
             {
                 //Tittar åt alla riktingar vad det är för sorts Tile
-                Tile tile = tileManager.GetTileAtPosition(position + 
+                Tile tile = tileManager.GetTileAtPosition(position +
                     new Vector2(direction.X * ConstantValues.tileWidth, direction.Y * ConstantValues.tileHeight));
 
                 //Kollar om det inte är en vägg

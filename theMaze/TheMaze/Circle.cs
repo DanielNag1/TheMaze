@@ -34,7 +34,7 @@ namespace TheMaze
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(TextureManager.rangeTex, rangeRect, Color.White);
+            //spriteBatch.Draw(TextureManager.rangeTex, rangeRect, Color.Red);
         }
     }
 }
