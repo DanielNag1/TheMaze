@@ -17,6 +17,7 @@ namespace TheMaze
         public static Texture2D FloorTileTex { get; private set; }
         public static Texture2D WallSheetTex { get; private set; }
         public static Texture2D TopWallSheetTex { get; private set; }
+        public static List<Texture2D> particleTextures = new List<Texture2D>();
 
         public static void LoadContent(ContentManager Content)
         {
@@ -27,6 +28,9 @@ namespace TheMaze
             FloorTileTex = Content.Load<Texture2D>("Floor Tile Big");
             WallSheetTex = Content.Load<Texture2D>("Wall Tile Sheet Big - Copy");
             TopWallSheetTex = Content.Load<Texture2D>("Top Tile Sheet Big");
+
+            particleTextures.Add(Content.Load<Texture2D>("particle1"));
+            particleTextures.Add(Content.Load<Texture2D>("particle2"));
         }
     }
 }

@@ -26,7 +26,8 @@ namespace TheMaze
         private readonly Vector2 Right = new Vector2(1, 0);
 
         public Vector2 Direction { get; private set; }
-        private Vector2 destination, hitboxPos;
+        private Vector2 destination;
+        public Vector2 hitboxPos;
 
         private Random random;
 
@@ -62,34 +63,37 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
-            if (moving)
+            if (isAlive)
             {
-                timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
-
-                if (timer <= 0)
+                if (moving)
                 {
-                    timer = timeIntervall;
-                    frame++;
-                    if (frame >= nrFrames)
+                    timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+
+                    if (timer <= 0)
                     {
-                        frame = 0;
+                        timer = timeIntervall;
+                        frame++;
+                        if (frame >= nrFrames)
+                        {
+                            frame = 0;
+                        }
+                        currentSourceRect.X = frame * frameSize;
                     }
+                    currentSourceRect.Y = nextSourceRect.Y;
+                }
+                else
+                {
+                    frame = 0;
                     currentSourceRect.X = frame * frameSize;
                 }
-                currentSourceRect.Y = nextSourceRect.Y;
+
+                hitboxPos = position + new Vector2(65, 55);
+                hitbox = new Circle(hitboxPos, 50f);
+
+
+                UpdateSourceRectangle();
+                Moving(gameTime);
             }
-            else
-            {
-                frame = 0;
-                currentSourceRect.X = frame * frameSize;
-            }
-
-            hitboxPos = position + new Vector2(65, 55);
-            hitbox = new Circle(hitboxPos, 50f);
-
-
-            UpdateSourceRectangle();
-            Moving(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)

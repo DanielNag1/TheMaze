@@ -17,6 +17,8 @@ namespace TheMaze
         Lights lights;
         Camera camera;
         Circle attackhitbox;
+        ParticleEngine particleEngine;
+        Random random;
 
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
@@ -29,6 +31,9 @@ namespace TheMaze
             Game1.penumbra.Lights.Add(lights.playerLight);
             Game1.penumbra.Initialize();
 
+            particleEngine = new ParticleEngine(TextureManager.particleTextures, monster.hitboxPos);
+            random = new Random();
+
             Game1.penumbra.Transform = camera.Transform;
             attackhitbox = new Circle(lights.worldMouse, 40f);
         }
@@ -40,6 +45,8 @@ namespace TheMaze
 
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
+
+            particleEngine.Update();
 
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
@@ -60,7 +67,7 @@ namespace TheMaze
 
             Game1.penumbra.Draw(gameTime);
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
-
+            particleEngine.Draw(spriteBatch);
             if (player.Direction == new Vector2(0, 1) && lights.spotlight.Enabled == true)
             { spriteBatch.Draw(TextureManager.FlareTex, lights.lampPos, Color.White); }
 
@@ -72,6 +79,11 @@ namespace TheMaze
         {
             if (lights.CollisionWithLight(monster.hitbox))
             {
+                int x = random.Next(0, 3);
+                if(x==1)
+                {
+                    particleEngine.EmitterLocation = monster.hitboxPos;
+                }
                 monster.health -= gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (monster.health <= 0)

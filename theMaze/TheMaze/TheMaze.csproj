@@ -49,6 +49,8 @@
     <Compile Include="GamePlayManager.cs" />
     <Compile Include="Lights.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="Particle.cs" />
+    <Compile Include="ParticleEngine.cs" />
     <Compile Include="TileManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
