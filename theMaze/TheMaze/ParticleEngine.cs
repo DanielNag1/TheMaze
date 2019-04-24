@@ -30,9 +30,9 @@ namespace TheMaze
 
         public void Update()
         {
-            EmitterLocation.X -= 48;
+            EmitterLocation.X -= 30;
             EmitterLocation.Y += 15;
-            int total = 10;
+            int total = 1;
 
             for (int i = 0; i < total; i++)
             {
@@ -54,12 +54,12 @@ namespace TheMaze
         {
             Texture2D texture = textures[random.Next(textures.Count)];
             Vector2 position = EmitterLocation;
-            Vector2 velocity = new Vector2(1f * (float)(random.NextDouble() * 15 - 1), 1f * (float)(random.NextDouble() * 5 - 1));
+            Vector2 velocity = new Vector2(1f * (float)(random.NextDouble() * 7 - 1), 1f * (float)(random.NextDouble() * 5 - 1));
             float angle = 0;
             float angularVelocity = 0.1f * (float)(random.NextDouble() * 2 - 1);
             Color color = Color.White;
-            float size = 1;
-            int ttl = 50 + random.Next(40);
+            float size = .3f;
+            int ttl = 10 + random.Next(40);
 
             return new Particle(texture, position, velocity, angle, angularVelocity, color, size, ttl);
         }

@@ -80,7 +80,7 @@ namespace TheMaze
             if (lights.CollisionWithLight(monster.hitbox))
             {
                 int x = random.Next(0, 3);
-                if(x==1)
+                if(x==1 && monster.isAlive)
                 {
                     particleEngine.EmitterLocation = monster.hitboxPos;
                 }
