@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Penumbra;
 
 namespace TheMaze
 {
@@ -186,5 +187,20 @@ namespace TheMaze
                     }
             }
         }
+
+        public static readonly Vector2[] tilePoints =
+        {
+            new Vector2(0, 0), new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0)
+        };
+
+        public static Hull HullFromRectangle(Rectangle bounds, int width)
+        {
+            return new Hull(tilePoints)
+            {
+                Position = new Vector2(bounds.X, bounds.Y),
+                Scale = new Vector2(bounds.Width * width, bounds.Height)
+            };
+        }
+
     }
 }

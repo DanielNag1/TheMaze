@@ -36,6 +36,9 @@ namespace TheMaze
 
             Game1.penumbra.Transform = camera.Transform;
             attackhitbox = new Circle(lights.worldMouse, 40f);
+
+            Rectangle hullRect = new Rectangle(5,3500, 50, 50);
+            Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(hullRect, 5));
         }
 
         public void Update(GameTime gameTime)

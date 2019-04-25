@@ -18,7 +18,7 @@ namespace TheMaze
         public Player player;
         Camera camera;
         Circle attackhitbox;
-
+        
         int r, g, b;
         float scaleX;
         
@@ -40,6 +40,8 @@ namespace TheMaze
             playerLight.Color = Color.White;
             playerLight.Intensity = .85f;
             playerLight.Enabled = false;
+
+
             
         }
 
