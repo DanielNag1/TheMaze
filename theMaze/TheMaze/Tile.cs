@@ -70,6 +70,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y + 50, ConstantValues.tileWidth, ConstantValues.tileHeight / 3);
                         isHull = true;
                         break;
                     }
@@ -98,6 +99,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X+40, Hitbox.Y+26, ConstantValues.tileWidth+50, ConstantValues.tileHeight/2);
                         isHull = true;
                         break;
                     }
@@ -105,6 +107,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(3 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X+50, Hitbox.Y+50, ConstantValues.tileWidth/3+10, ConstantValues.tileHeight/3);
                         isHull = true;
                         break;
                     }
@@ -112,6 +115,8 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X+40, Hitbox.Y+50, ConstantValues.tileWidth+15, ConstantValues.tileHeight/2-5);
+
                         isHull = true;
                         break;
                     }
@@ -126,6 +131,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y + 50, ConstantValues.tileWidth, ConstantValues.tileHeight / 3);
                         isHull = true;
                         break;
                     }
@@ -148,6 +154,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y+50, ConstantValues.tileWidth/3, ConstantValues.tileHeight);
                         isHull = true;
                         break;
                     }

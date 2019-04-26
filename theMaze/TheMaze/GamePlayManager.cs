@@ -43,10 +43,9 @@ namespace TheMaze
             
             foreach (Tile t in tileManager.Tiles)
             {
-                if (t.IsHull == true && t.identifier=='w')
+                if (t.IsHull == true)
                 {
                     Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
-                    
                 }
             }
             
