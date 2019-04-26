@@ -13,27 +13,33 @@ namespace TheMaze
     {
         private Texture2D texture;
         private Vector2 position;
-
         private Rectangle sourceRect;
-        private char identifier;
+        public char identifier;
         private int frameSize = ConstantValues.tileFrameSize;
 
         public Rectangle Hitbox { get; private set; }
+        public Rectangle HullHitbox { get; private set; }
 
         protected bool isWall = true;
+        protected bool isHull = false;
         public bool IsWall
         {
             get { return isWall; }
         }
+        public bool IsHull
+        {
+            get { return isHull; }
+        }
 
         public Tile(Vector2 position, char identifier)
         {
+            
             this.position = position;
             this.identifier = identifier;
             sourceRect = Rectangle.Empty;
-
             Hitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
-
+            
+            
             DeterminTexture();
         }
 
@@ -50,84 +56,99 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'p':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'b':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'd':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(3 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'a':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'e':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'c':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'o':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(3 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'x':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'v':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(3 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'z':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 's':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'w':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y + 50, ConstantValues.tileWidth, ConstantValues.tileHeight / 3);
+                        isHull = true;
                         break;
                     }
                 case 'm':
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        isHull = true;
                         break;
                     }
                 case 'H':

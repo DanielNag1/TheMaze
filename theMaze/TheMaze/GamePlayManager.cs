@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-
+using Penumbra;
 namespace TheMaze
 {
     class GamePlayManager
@@ -19,26 +19,37 @@ namespace TheMaze
         Circle attackhitbox;
         ParticleEngine particleEngine;
         Random random;
+        
+        
 
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
+            
             tileManager = new TileManager();
             player = new Player(TextureManager.CatTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
+            
             Game1.penumbra.Lights.Add(lights.spotlight);
             Game1.penumbra.Lights.Add(lights.playerLight);
             Game1.penumbra.Initialize();
-
+            lights.spotlight.ShadowType = Penumbra.ShadowType.Occluded;
             particleEngine = new ParticleEngine(TextureManager.particleTextures, monster.hitboxPos);
             random = new Random();
 
             Game1.penumbra.Transform = camera.Transform;
             attackhitbox = new Circle(lights.worldMouse, 40f);
-
-            Rectangle hullRect = new Rectangle(5,3500, 50, 50);
-            Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(hullRect, 5));
+            
+            foreach (Tile t in tileManager.Tiles)
+            {
+                if (t.IsHull == true && t.identifier=='w')
+                {
+                    Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
+                    
+                }
+            }
+            
         }
 
         public void Update(GameTime gameTime)
@@ -54,6 +65,8 @@ namespace TheMaze
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update();
+
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -62,7 +75,6 @@ namespace TheMaze
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
 
             tileManager.Draw(spriteBatch);
-
             monster.Draw(spriteBatch);
             player.Draw(spriteBatch);
 

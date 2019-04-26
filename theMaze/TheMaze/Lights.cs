@@ -36,7 +36,7 @@ namespace TheMaze
             spotlight.Intensity = .9f;
             spotlight.Enabled = false;
             playerLight = new PointLight();
-            playerLight.Scale = new Vector2(500, 500);
+            playerLight.Scale = new Vector2(700, 700);
             playerLight.Color = Color.White;
             playerLight.Intensity = .85f;
             playerLight.Enabled = false;
