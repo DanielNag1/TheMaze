@@ -32,9 +32,11 @@ namespace TheMaze
             return ((other.Center - Center).Length() < (other.Radius + Radius));
         }
 
+        
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(TextureManager.rangeTex, rangeRect, Color.Red);
+            spriteBatch.Draw(TextureManager.rangeTex, rangeRect, Color.Red);
         }
     }
 }

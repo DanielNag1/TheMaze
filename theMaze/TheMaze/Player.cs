@@ -14,6 +14,8 @@ namespace TheMaze
     {
         public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
+        public Vector2 hitBoxPos;
+        
 
         private Rectangle hitbox;
         public Rectangle Hitbox
@@ -88,7 +90,7 @@ namespace TheMaze
                 currentSourceRect.X = frame * frameSizeX;
             }
 
-
+            hitBoxPos = position + new Vector2(frameSizeX/2, frameSizeY/2);
         }
 
         private void PlayerInput()

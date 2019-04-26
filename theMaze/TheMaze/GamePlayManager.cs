@@ -13,7 +13,7 @@ namespace TheMaze
     {
         TileManager tileManager;
         Player player;
-        Monster monster;
+        Monster monster, glitchMonster;
         Lights lights;
         Camera camera;
         Circle attackhitbox;
@@ -25,6 +25,7 @@ namespace TheMaze
             tileManager = new TileManager();
             player = new Player(TextureManager.PlayerTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
+            glitchMonster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             Game1.penumbra.Lights.Add(lights.spotlight);
@@ -44,7 +45,9 @@ namespace TheMaze
             player.Update(gameTime);
 
             monster.Update(gameTime);
+            glitchMonster.Update(gameTime);
             MonsterLightCollision(gameTime);
+            GlitchMonsterCollision();
 
             particleEngine.Update();
 
@@ -61,6 +64,7 @@ namespace TheMaze
             tileManager.Draw(spriteBatch);
 
             monster.Draw(spriteBatch);
+            glitchMonster.Draw(spriteBatch);
             player.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -107,6 +111,21 @@ namespace TheMaze
                     monster.color = new Color(100, 100, 100, 100);
                 }
             }
+        }
+
+        public void GlitchMonsterCollision()
+        {
+            if (Vector2.Distance(player.hitBoxPos, glitchMonster.hitboxPos)<=200)
+            {
+                glitchMonster.color = Color.Blue;
+            }
+
+            else
+            {
+                glitchMonster.color = Color.White;
+            }
+
+            Console.WriteLine(Vector2.Distance(player.Position, glitchMonster.hitboxPos));
         }
     }
 }

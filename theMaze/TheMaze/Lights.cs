@@ -206,7 +206,7 @@ namespace TheMaze
 
         public void DrawHitBox(SpriteBatch spriteBatch)
         {
-            attackhitbox.Draw(spriteBatch);
+            //attackhitbox.Draw(spriteBatch);
         }
     }
 }
