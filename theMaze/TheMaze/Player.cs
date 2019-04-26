@@ -23,8 +23,8 @@ namespace TheMaze
         private int hitboxOffsetX, hitboxOffsetY;
 
         private Rectangle currentSourceRect, nextSourceRect;
-        public readonly int frameSizeX = 128;
-        public readonly int frameSizeY = 227;
+        public readonly int frameSizeX = 125;
+        public readonly int frameSizeY = 210;
 
         private int frame = 0, nrFrames = 4;
         private double timer = 100, timeIntervall = 100;
@@ -51,7 +51,7 @@ namespace TheMaze
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY),
-                /*currentSourceRect,*/ Color.White);
+                currentSourceRect, Color.White);
         }
         
         public void Update(GameTime gameTime)
@@ -97,7 +97,7 @@ namespace TheMaze
             {
                 Direction = new Vector2(0, -1);
 
-                nextSourceRect.Y = 2 * frameSizeY;
+                nextSourceRect.Y = 1 * frameSizeY;
 
                 moving = true;
             }
@@ -113,7 +113,7 @@ namespace TheMaze
             {
                 Direction = new Vector2(-1, 0);
 
-                nextSourceRect.Y = 3 * frameSizeY;
+                nextSourceRect.Y = 2 * frameSizeY;
 
                 moving = true;
             }
@@ -121,7 +121,7 @@ namespace TheMaze
             {
                 Direction = new Vector2(1, 0);
 
-                nextSourceRect.Y = 1 * frameSizeY;
+                nextSourceRect.Y = 3 * frameSizeY;
 
                 moving = true;
             }

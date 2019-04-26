@@ -23,7 +23,7 @@ namespace TheMaze
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
             tileManager = new TileManager();
-            player = new Player(TextureManager.CatTex, tileManager.StartPositionPlayer);
+            player = new Player(TextureManager.PlayerTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);

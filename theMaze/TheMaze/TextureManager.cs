@@ -10,7 +10,7 @@ namespace TheMaze
 {
     static class TextureManager
     {
-        public static Texture2D CatTex { get; private set; }
+        public static Texture2D PlayerTex { get; private set; }
         public static Texture2D MonsterTex { get; private set; }
         public static Texture2D FlareTex { get; private set; }
         public static Texture2D rangeTex { get; private set; }
@@ -21,7 +21,7 @@ namespace TheMaze
 
         public static void LoadContent(ContentManager Content)
         {
-            CatTex = Content.Load<Texture2D>("character1trans");
+            PlayerTex = Content.Load<Texture2D>("characterspritesheet1");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
             FlareTex = Content.Load<Texture2D>("Flare5_00000");
             rangeTex = Content.Load<Texture2D>("rangecircle");
