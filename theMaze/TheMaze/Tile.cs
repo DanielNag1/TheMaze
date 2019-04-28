@@ -56,6 +56,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X, Hitbox.Y + 40, ConstantValues.tileWidth-30, ConstantValues.tileHeight / 3 + 20);
                         isHull = true;
                         break;
                     }
@@ -63,6 +64,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X+25, Hitbox.Y+40, ConstantValues.tileWidth + 50, ConstantValues.tileHeight/3+20);
                         isHull = true;
                         break;
                     }
@@ -70,7 +72,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 2 * frameSize, frameSize, frameSize);
-                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y + 50, ConstantValues.tileWidth, ConstantValues.tileHeight / 3);
+                        HullHitbox = new Rectangle(Hitbox.X + 35, Hitbox.Y+30, ConstantValues.tileWidth/2+60, ConstantValues.tileHeight/3);
                         isHull = true;
                         break;
                     }
@@ -78,6 +80,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(3 * frameSize, 2 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X + 40, Hitbox.Y -35, ConstantValues.tileWidth/3+22, ConstantValues.tileHeight / 3+20);
                         isHull = true;
                         break;
                     }
@@ -85,6 +88,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X + 35, Hitbox.Y-20, ConstantValues.tileWidth / 3 + 10, ConstantValues.tileHeight / 2+30);
                         isHull = true;
                         break;
                     }
@@ -92,6 +96,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X+50, Hitbox.Y + 26, ConstantValues.tileWidth / 3, ConstantValues.tileHeight+40);
                         isHull = true;
                         break;
                     }
@@ -107,7 +112,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(3 * frameSize, 1 * frameSize, frameSize, frameSize);
-                        HullHitbox = new Rectangle(Hitbox.X+50, Hitbox.Y+50, ConstantValues.tileWidth/3+10, ConstantValues.tileHeight/3);
+                        HullHitbox = new Rectangle(Hitbox.X+25, Hitbox.Y+50, ConstantValues.tileWidth/3+20, ConstantValues.tileHeight/3);
                         isHull = true;
                         break;
                     }
@@ -116,7 +121,6 @@ namespace TheMaze
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 3 * frameSize, frameSize, frameSize);
                         HullHitbox = new Rectangle(Hitbox.X+40, Hitbox.Y+50, ConstantValues.tileWidth+15, ConstantValues.tileHeight/2-5);
-
                         isHull = true;
                         break;
                     }
@@ -124,6 +128,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(3 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y - 25, ConstantValues.tileWidth / 3, ConstantValues.tileHeight + 75);
                         isHull = true;
                         break;
                     }
@@ -139,6 +144,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 3 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X - 20, Hitbox.Y + 25, ConstantValues.tileWidth + 70, ConstantValues.tileHeight / 3);
                         isHull = true;
                         break;
                     }
@@ -146,7 +152,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(2 * frameSize, 0 * frameSize, frameSize, frameSize);
-                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y + 50, ConstantValues.tileWidth, ConstantValues.tileHeight / 3);
+                        HullHitbox = new Rectangle(Hitbox.X-20, Hitbox.Y + 25, ConstantValues.tileWidth+70, ConstantValues.tileHeight / 3);
                         isHull = true;
                         break;
                     }
@@ -154,7 +160,7 @@ namespace TheMaze
                     {
                         texture = TextureManager.TopWallSheetTex;
                         sourceRect = new Rectangle(1 * frameSize, 0 * frameSize, frameSize, frameSize);
-                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y+50, ConstantValues.tileWidth/3, ConstantValues.tileHeight);
+                        HullHitbox = new Rectangle(Hitbox.X + 50, Hitbox.Y-25, ConstantValues.tileWidth/3, ConstantValues.tileHeight+75);
                         isHull = true;
                         break;
                     }

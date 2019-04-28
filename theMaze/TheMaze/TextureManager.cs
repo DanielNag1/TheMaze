@@ -29,7 +29,7 @@ namespace TheMaze
             WallSheetTex = Content.Load<Texture2D>("Wall Tile Sheet Big - Copy");
             TopWallSheetTex = Content.Load<Texture2D>("Top Tile Sheet Big");
 
-            particleTextures.Add(Content.Load<Texture2D>("particle1"));
+            //particleTextures.Add(Content.Load<Texture2D>("particle1"));
             particleTextures.Add(Content.Load<Texture2D>("particle2"));
         }
     }

@@ -13,14 +13,18 @@ namespace TheMaze
     {
         TileManager tileManager;
         Player player;
+        Saferoom saferoom;
         Monster monster;
         Lights lights;
         Camera camera;
         Circle attackhitbox;
-        ParticleEngine particleEngine;
+        ParticleEngine particleEngine,particleEngine2;
         Random random;
-        
-        
+        public static MouseState mouse;
+        public  Vector2 mousePos;
+        public Rectangle mouseRect;
+        Color selectedColor;
+        public bool isMouseVisible;
 
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
@@ -30,12 +34,14 @@ namespace TheMaze
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
-            
-            Game1.penumbra.Lights.Add(lights.spotlight);
+            saferoom = new Saferoom();
+            Game1.penumbra.Lights.Add(lights.spotLight);
             Game1.penumbra.Lights.Add(lights.playerLight);
             Game1.penumbra.Initialize();
-            lights.spotlight.ShadowType = Penumbra.ShadowType.Occluded;
+
+            lights.spotLight.ShadowType = Penumbra.ShadowType.Occluded;
             particleEngine = new ParticleEngine(TextureManager.particleTextures, monster.hitboxPos);
+            particleEngine2 = new ParticleEngine(TextureManager.particleTextures, Vector2.Zero);
             random = new Random();
 
             Game1.penumbra.Transform = camera.Transform;
@@ -55,17 +61,21 @@ namespace TheMaze
         {
             player.Collision(tileManager);
             player.Update(gameTime);
+            saferoom.Update(gameTime);
+
+            SafeRoomInteraction();
 
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
 
-            particleEngine.Update();
-
+            particleEngine.Update(gameTime);
+            
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update();
+            Console.WriteLine(player.Position);
 
-            
+
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -76,16 +86,18 @@ namespace TheMaze
             tileManager.Draw(spriteBatch);
             monster.Draw(spriteBatch);
             player.Draw(spriteBatch);
-
+            saferoom.Draw(spriteBatch);
             spriteBatch.End();
 
             Game1.penumbra.Draw(gameTime);
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
             particleEngine.Draw(spriteBatch);
-            if (player.Direction == new Vector2(0, 1) && lights.spotlight.Enabled == true)
+
+            if (player.Direction == new Vector2(0, 1) && lights.spotLight.Enabled == true)
             { spriteBatch.Draw(TextureManager.FlareTex, lights.lampPos, Color.White); }
 
             lights.DrawHitBox(spriteBatch);
+            spriteBatch.Draw(TextureManager.FlareTex,mouseRect,Color.White);
             spriteBatch.End();
         }
 
@@ -122,5 +134,106 @@ namespace TheMaze
                 }
             }
         }
-    }
+
+        public void SafeRoomInteraction()
+        {
+            
+            if (player.Hitbox.Intersects(saferoom.rectangle))
+            {
+                isMouseVisible = true;
+                saferoom.visible = true;
+                lights.playerLight.Enabled = false;
+                lights.spotLight.Enabled = false;
+                lights.canChangeWeapon = false;
+                ChooseWeapon();
+            }
+            else
+            {
+                isMouseVisible = false;
+                saferoom.visible = false;
+                lights.canChangeWeapon = true;
+                lights.playerLight.Color = Color.White;
+            }
+
+        }
+
+        public void ChooseWeapon()
+        {
+            if (lights.mouseRect.Intersects(saferoom.attackLight1rectangle))
+            {
+                selectedColor = Color.Red;
+
+                {
+                    if(Keyboard.GetState().IsKeyDown(Keys.D1))
+                    {
+                        lights.weapon1.Color = selectedColor;
+                        lights.playerLight.Color = selectedColor;
+                        lights.playerLight.Enabled = true;
+                    }
+                    if (Keyboard.GetState().IsKeyDown(Keys.D2))
+                    {
+                        lights.weapon2.Color = selectedColor;
+                        lights.playerLight.Color = selectedColor;
+                        lights.playerLight.Enabled = true;
+                    }
+                    if (Keyboard.GetState().IsKeyDown(Keys.D3))
+                    {
+                        lights.weapon3.Color = selectedColor;
+                        lights.playerLight.Color = selectedColor;
+                        lights.playerLight.Enabled = true;
+                    }
+                }
+                
+
+            }
+            if (lights.mouseRect.Intersects(saferoom.attackLight2rectangle))
+            {
+                selectedColor = Color.Yellow;
+
+                if (Keyboard.GetState().IsKeyDown(Keys.D1))
+                {
+                    lights.weapon1.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D2))
+                {
+                    lights.weapon2.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D3))
+                {
+                    lights.weapon3.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+            }
+            if (lights.mouseRect.Intersects(saferoom.attackLight3rectangle))
+            {
+                selectedColor = Color.Green;
+
+                if (Keyboard.GetState().IsKeyDown(Keys.D1))
+                {
+                    lights.weapon1.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D2))
+                {
+                    lights.weapon2.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D3))
+                {
+                    lights.weapon3.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+                
+            }
+        }
+
+}
 }

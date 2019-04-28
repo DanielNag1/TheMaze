@@ -24,10 +24,9 @@ namespace TheMaze
 
         protected override void Initialize()
         {
-            IsMouseVisible = true;
             graphics.PreferredBackBufferWidth = ConstantValues.screenWidth;
             graphics.PreferredBackBufferHeight = ConstantValues.screenHeight;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             
             base.Initialize();
@@ -40,7 +39,6 @@ namespace TheMaze
             
             gameManager = new GamePlayManager(GraphicsDevice);
             penumbra.AmbientColor = Color.Black;
-            
         }
 
         protected override void UnloadContent()
@@ -51,9 +49,16 @@ namespace TheMaze
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            if(gameManager.isMouseVisible)
+            {
+                IsMouseVisible = true;
+            }
+            else
+            {
+                IsMouseVisible = false;
+            }
             gameManager.Update(gameTime);
-
+            
             base.Update(gameTime);
         }
         

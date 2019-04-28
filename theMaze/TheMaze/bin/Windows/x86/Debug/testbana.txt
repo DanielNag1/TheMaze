@@ -14,12 +14,12 @@ m-m-bwd-cwv-e-cwwwzwo-m-pwwwwwv-m-m
 m-m-jHi-jHm-m-jHHHHHi-m-mHHHHHm-m-m
 m-m-JBI-JBm-m-JBBBBBI-m-mBBBBBm-m-m
 m-m-------m-m---------m-m-----m-m-m
-m-bwq-cwwwd-m-mwwwwwm-m-a-e-e-a-a-m
+m-bwq-cwwwd-m-pwwwwwq-m-a-e-e-a-a-m
 m-jHm-jHHHi-m-mHHHHHm-m-l-m-m-l-l-m
 m-JBm-JBBBI-m-mBBBBBm-m-L-m-m-L-L-m
 m---m-------m-m-----m-m---m-m-----m
 xwo-bwo-pwo-m-m-----m-bwq-m-bwwwwwv
-mHi-jHi-mHi-m-m-----m-jHm-m-jHHHHHm
+mHi-jHi-mHi-m-m--1--m-jHm-m-jHHHHHm
 mBI-JBI-mBI-m-m-----m-JBm-m-JBBBBBm
 m-------m---m-m-----m---m-m-------m
 m-cwswwwv-pwd-bwo-cwd-e-m-m-cwwwq-m
@@ -37,7 +37,7 @@ m-----------m-------m-m-----m-m---m
 xwo-cwswwwo-m-cwwwq-bwzwwwwwd-xwo-m
 mHi-jHmHHHi-m-jHHHm-jHHHHHHHi-mHi-m
 mBI-JBmBBBI-m-JBBBm-JBBBBBBBI-mBI-m
-m1-2--m-----m-----m-----------m---m
-bwwwwwzwwwwwwwwwwwwwwwwwwwwwwwwwwwd
+m--2--m-----m-----m-----------m---m
+bwwwwwzwwwwwzwwwwwwwwwwwwwwwwwwwwwd
 jHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHi
 JBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBI
