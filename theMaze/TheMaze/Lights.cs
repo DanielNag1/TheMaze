@@ -12,21 +12,27 @@ namespace TheMaze
 {
     public class Lights
     {
-        public Light spotLight,weapon1,weapon2,weapon3, playerLight;
+        public Light spotLight,weapon1,weapon2,weapon3,weapon4, playerLight;
         public List<Light> weaponList;
         public Vector2 lightDirection, lampPos, mousePos, worldMouse,hitboxPos;
         public Player player;
         Camera camera;
         Circle attackhitbox;
-        int r, g, b;
+        public Color weaponColor;
+        public int r, g, b;
         float scaleX;
-        MouseState mouse;
+        public MouseState mouse;
         public Rectangle mouseRect;
         public bool canChangeWeapon;
+        public float weapon1Power, weapon2Power, weapon3Power, weapon4Power;
 
-        enum ColorState {White,Red,Blue}
+        enum ColorState {White,Red,Yellow,Green}
         ColorState currentColor = ColorState.White;
         ColorState previousColor;
+
+
+        enum Weapons {Weapon1,Weapon2,Weapon3,Weapon4}
+        Weapons currentWeapon=Weapons.Weapon1;
 
         public Lights(Player player,Camera camera)
         {
@@ -34,23 +40,34 @@ namespace TheMaze
             this.player = player;
 
 
+            weapon1Power = .9f;
+            weapon2Power = .9f;
+            weapon3Power = .9f;
+            weapon4Power = .9f;
+
             weapon1 = new Spotlight();
             weapon2 = new Spotlight();
             weapon3 = new Spotlight();
+            weapon4 = new Spotlight();
 
             weaponList = new List<Light>();
-            weapon1.Intensity = .9f;
+
+            weapon1.Intensity = weapon1Power;
             weapon1.Enabled = false;
 
-            weapon2.Intensity = .9f;
+            weapon2.Intensity = weapon2Power;
             weapon2.Enabled = false;
 
-            weapon3.Intensity = .9f;
+            weapon3.Intensity = weapon3Power;
             weapon3.Enabled = false;
+
+            weapon4.Intensity = weapon4Power;
+            weapon4.Enabled = false;
 
             weaponList.Add(weapon1);
             weaponList.Add(weapon2);
             weaponList.Add(weapon3);
+            weaponList.Add(weapon4);
 
 
             spotLight = new Spotlight();
@@ -63,12 +80,14 @@ namespace TheMaze
             playerLight.Intensity = .85f;
             playerLight.Enabled = false;
 
+
+            r = 0;
+            b = 0;
+            g = 0;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            
-            //ColorChange();
             if (player.Direction == new Vector2(0, 1))
             {
                 playerLight.Scale = new Vector2(500, 500);
@@ -78,8 +97,15 @@ namespace TheMaze
                 playerLight.Scale = new Vector2(400,400);
             }
 
+            Console.WriteLine(weapon1Power);
+            Console.WriteLine(weapon2Power);
+            Console.WriteLine(weapon3Power);
+            Console.WriteLine(weapon4Power);
+
             if (canChangeWeapon)
             {
+                
+                PowerDrain(gameTime);
                 ChangeWeapon();
                 if (Keyboard.GetState().IsKeyDown(Keys.Q))
                 {
@@ -92,6 +118,7 @@ namespace TheMaze
                     playerLight.Enabled = false;
                 }
             }
+
             LightPositions();
         }
 
@@ -99,125 +126,172 @@ namespace TheMaze
 
         public void ChangeWeapon()
         {
+            weaponColor = new Color(r, g, b);
             
+            switch(currentWeapon)
+            {
+                case Weapons.Weapon1:
+                    spotLight.Color = weapon1.Color;
+                    break;
+                case Weapons.Weapon2:
+
+                    if (weapon2.Color != Color.Green)
+                    {
+                        spotLight.Color = weapon2.Color;
+                    }
+                    if (weapon2.Color == Color.Green)
+                    {
+                        playerLight.Color = Color.Green;
+                    }
+                    break;
+                case Weapons.Weapon3:
+
+                    if (weapon3.Color != Color.Green)
+                    {
+                        spotLight.Color = weapon3.Color;
+                    }
+                    if (weapon3.Color == Color.Green)
+                    {
+                        playerLight.Color = Color.Green;
+                    }
+                    break;
+                case Weapons.Weapon4:
+                    if (weapon4.Color != Color.Green)
+                    {
+                        spotLight.Color = weapon4.Color;
+                    }
+                    if (weapon4.Color == Color.Green)
+                    {
+                        playerLight.Color = Color.Green;
+                    }
+                    break;
+            }
+
             if (Keyboard.GetState().IsKeyDown(Keys.D1))
             {
-                spotLight.Color = weapon1.Color;
+                currentWeapon = Weapons.Weapon1;
             }
+
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
-                spotLight.Color = weapon2.Color;
+                currentWeapon = Weapons.Weapon2;
             }
+
             if (Keyboard.GetState().IsKeyDown(Keys.D3))
             {
-                spotLight.Color = weapon3.Color;
+                currentWeapon = Weapons.Weapon3;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.D4))
+            {
+                currentWeapon = Weapons.Weapon4;
             }
         }
 
-        public void ColorChange()
-        {
-            spotLight.Color = new Color(r, g, b);
+        //public void ColorChange()
+        //{
+        //    spotLight.Color = new Color(r, g, b);
 
-            if (Keyboard.GetState().IsKeyDown(Keys.D1))
-            {
-                currentColor = ColorState.White;
-                spotLight.Scale = new Vector2(820, 820);
+        //    if (Keyboard.GetState().IsKeyDown(Keys.D1))
+        //    {
+        //        currentColor = ColorState.White;
+        //        spotLight.Scale = new Vector2(820, 820);
              
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D2))
-            {
-                currentColor = ColorState.Blue;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D3))
-            {
-                currentColor = ColorState.Red;
+        //    }
+        //    if (Keyboard.GetState().IsKeyDown(Keys.D2))
+        //    {
+        //        currentColor = ColorState.Blue;
+        //    }
+        //    if (Keyboard.GetState().IsKeyDown(Keys.D3))
+        //    {
+        //        currentColor = ColorState.Red;
                 
-            }
+        //    }
 
-            switch (currentColor)
-            { 
-                case ColorState.White:
-                    r = 255;
-                    g = 255;
-                    b = 255;
-                    previousColor = currentColor;
-                    break;
-                case ColorState.Red:
-                    if (previousColor == ColorState.White)
-                    {
-                        if (b >= -1)
-                        {
-                            b -= 2;
-                        }
+        //    switch (currentColor)
+        //    { 
+        //        case ColorState.White:
+        //            r = 255;
+        //            g = 255;
+        //            b = 255;
+        //            previousColor = currentColor;
+        //            break;
+        //        case ColorState.Red:
+        //            if (previousColor == ColorState.White)
+        //            {
+        //                if (b >= -1)
+        //                {
+        //                    b -= 2;
+        //                }
                         
-                        if (g >= -1)
-                        {
-                            g -= 2;
-                        }
+        //                if (g >= -1)
+        //                {
+        //                    g -= 2;
+        //                }
 
-                        if (b <=0 && g <= 0)
-                        {
-                            spotLight.Scale = new Vector2(920, 90);
-                            previousColor = currentColor;
-                        }
-                    }
-                    if (previousColor == ColorState.Blue)
-                    {
-                        if(b>=-1)
-                        {
-                            b -= 2;
-                        }
-                        if(r<=256)
-                        {
-                            r += 2;
-                        }
-                        g = 0;
+        //                if (b <=0 && g <= 0)
+        //                {
+        //                    spotLight.Scale = new Vector2(920, 90);
+        //                    previousColor = currentColor;
+        //                }
+        //            }
+        //            if (previousColor == ColorState.Blue)
+        //            {
+        //                if(b>=-1)
+        //                {
+        //                    b -= 2;
+        //                }
+        //                if(r<=256)
+        //                {
+        //                    r += 2;
+        //                }
+        //                g = 0;
 
-                        if (r == 255 && b < 0 && g <= 0)
-                        {
-                            spotLight.Scale = new Vector2(920, 920);
-                            previousColor = currentColor;
-                        }
-                    }
+        //                if (r == 255 && b < 0 && g <= 0)
+        //                {
+        //                    spotLight.Scale = new Vector2(920, 920);
+        //                    previousColor = currentColor;
+        //                }
+        //            }
                     
-                    break;
-                case ColorState.Blue:
-                    if (previousColor == ColorState.Red)
-                    {
-                        if (r >= -1)
-                        {
-                            r -= 2;
-                        }
-                        g = 0;
+        //            break;
+        //        case ColorState.Blue:
+        //            if (previousColor == ColorState.Red)
+        //            {
+        //                if (r >= -1)
+        //                {
+        //                    r -= 2;
+        //                }
+        //                g = 0;
 
-                        if (b <= 256)
-                        {
-                            b += 2;
-                        }
+        //                if (b <= 256)
+        //                {
+        //                    b += 2;
+        //                }
 
-                    }
-                    if (previousColor == ColorState.White)
-                    {
-                        if(g>=-1)
-                        {
-                            g -= 2;
-                        }
-                        if(r>=-1)
-                        {
-                            r -= 2;
-                        }
-                    }
-                    if(b==255 && r<0 && g<=0)
-                    {
-                        spotLight.Scale = new Vector2(820, 820);
-                        previousColor = currentColor;
-                    }
+        //            }
+        //            if (previousColor == ColorState.White)
+        //            {
+        //                if(g>=-1)
+        //                {
+        //                    g -= 2;
+        //                }
+        //                if(r>=-1)
+        //                {
+        //                    r -= 2;
+        //                }
+        //            }
+        //            if(b==255 && r<0 && g<=0)
+        //            {
+        //                spotLight.Scale = new Vector2(820, 820);
+        //                previousColor = currentColor;
+        //            }
                     
-                    break;
+        //            break;
 
-            }
+        //    }
             
-        }
+        //}
 
         public void LightPositions()
         {
@@ -255,5 +329,44 @@ namespace TheMaze
         {
             attackhitbox.Draw(spriteBatch);
         }
+
+
+        public void PowerDrain(GameTime gameTime)
+        {
+            weapon1.Intensity = weapon1Power;
+            weapon2.Intensity = weapon2Power;
+            weapon3.Intensity = weapon3Power;
+            weapon4.Intensity = weapon4Power;
+
+            if (spotLight.Enabled == true)
+            {
+                switch (currentWeapon)
+                {
+                    case Weapons.Weapon1:
+                        spotLight.Intensity = weapon1Power;
+                        weapon1Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
+                        break;
+                    case Weapons.Weapon2:
+                        if (weapon2.Color !=Color.White)
+                        {
+                            weapon2Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
+                        }
+                        break;
+                    case Weapons.Weapon3:
+                        if (weapon3.Color != Color.White)
+                        {
+                            weapon3Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
+                        }
+                        break;
+                    case Weapons.Weapon4:
+                        if (weapon4.Color != Color.White)
+                        {
+                            weapon4Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
+                        }
+                        break;
+                }
+            }
+        }
+       
     }
 }

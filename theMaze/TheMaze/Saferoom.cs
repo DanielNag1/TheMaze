@@ -19,29 +19,40 @@ namespace TheMaze
         ParticleEngine particleEngineRed,particleEngineYellow,particleEngineGreen;
         public Rectangle rectangle,attackLight1rectangle,attackLight2rectangle,attackLight3rectangle;
         public bool visible;
-        public Color weapon1,weapon2,weapon3;
-
+        public Color weapon1,weapon2,weapon3,room;
+        int r, g, b;
         public Saferoom()
         {
             particleEngineList = new List<ParticleEngine>();
             SafeRoomLights();
             SafeRoomParticles();
-            rectangle = new Rectangle(1906, 2266, 540, 956);
+            rectangle = new Rectangle(1906, 2266, 640, 956);
         }
 
         public void Update(GameTime gameTime)
         {
             VisibleCheck();
+            room = new Color(r, g, b);
+            
+            foreach(Light l in saferoomLights)
+            {
+                l.Color = room;
+            }
 
             if (visible)
             {
-                
+
+                LightsOn();
                 foreach (SaferoomParticleEngine p in particleEngineList)
                 {
                     p.Update(gameTime);
                 }
 
                 SafeRoomParticlesUpdate();
+            }
+            else
+            {
+                LightsOff();
             }
         }
 
@@ -79,7 +90,6 @@ namespace TheMaze
             foreach (Light l in saferoomLights)
             {
                 l.Scale = new Vector2(700, 700);
-                l.Color = Color.White;
                 l.Intensity = .5f;
                 Game1.penumbra.Lights.Add(l);
             }
@@ -136,17 +146,7 @@ namespace TheMaze
 
         public void VisibleCheck()
         {
-            foreach (Light l in saferoomLights)
-            {
-                if (visible)
-                {
-                    l.Enabled = true;
-                }
-                else
-                {
-                    l.Enabled = false;
-                }
-            }
+            
             foreach (Light l in attackLights)
             {
                 if (visible)
@@ -160,5 +160,36 @@ namespace TheMaze
             }
         }
         
+        public void LightsOn()
+        {
+            if (r <= 255)
+            {
+                r+=2;
+            }
+            if (b <= 255)
+            {
+                b+=2;
+            }
+            if (g <= 255)
+            {
+                g+=2;
+            }
+        }
+
+        public void LightsOff()
+        {
+            if (r >= 0)
+            {
+                r-=2;
+            }
+            if (b >= 0)
+            {
+                b-=2;
+            }
+            if (g >= 0)
+            {
+                g-=2;
+            }
+        }
     }
 }

@@ -72,9 +72,8 @@ namespace TheMaze
             
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
-            lights.Update();
-            Console.WriteLine(player.Position);
-
+            lights.Update(gameTime);
+            
 
         }
 
@@ -146,6 +145,11 @@ namespace TheMaze
                 lights.spotLight.Enabled = false;
                 lights.canChangeWeapon = false;
                 ChooseWeapon();
+
+                lights.weapon1Power = .9f;
+                lights.weapon2Power = .9f;
+                lights.weapon3Power = .9f;
+                lights.weapon4Power = .9f;
             }
             else
             {
@@ -164,13 +168,7 @@ namespace TheMaze
                 selectedColor = Color.Red;
 
                 {
-                    if(Keyboard.GetState().IsKeyDown(Keys.D1))
-                    {
-                        lights.weapon1.Color = selectedColor;
-                        lights.playerLight.Color = selectedColor;
-                        lights.playerLight.Enabled = true;
-                    }
-                    if (Keyboard.GetState().IsKeyDown(Keys.D2))
+                    if(Keyboard.GetState().IsKeyDown(Keys.D2))
                     {
                         lights.weapon2.Color = selectedColor;
                         lights.playerLight.Color = selectedColor;
@@ -182,6 +180,12 @@ namespace TheMaze
                         lights.playerLight.Color = selectedColor;
                         lights.playerLight.Enabled = true;
                     }
+                    if (Keyboard.GetState().IsKeyDown(Keys.D4))
+                    {
+                        lights.weapon4.Color = selectedColor;
+                        lights.playerLight.Color = selectedColor;
+                        lights.playerLight.Enabled = true;
+                    }
                 }
                 
 
@@ -190,12 +194,6 @@ namespace TheMaze
             {
                 selectedColor = Color.Yellow;
 
-                if (Keyboard.GetState().IsKeyDown(Keys.D1))
-                {
-                    lights.weapon1.Color = selectedColor;
-                    lights.playerLight.Color = selectedColor;
-                    lights.playerLight.Enabled = true;
-                }
                 if (Keyboard.GetState().IsKeyDown(Keys.D2))
                 {
                     lights.weapon2.Color = selectedColor;
@@ -205,6 +203,12 @@ namespace TheMaze
                 if (Keyboard.GetState().IsKeyDown(Keys.D3))
                 {
                     lights.weapon3.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D4))
+                {
+                    lights.weapon4.Color = selectedColor;
                     lights.playerLight.Color = selectedColor;
                     lights.playerLight.Enabled = true;
                 }
@@ -212,13 +216,7 @@ namespace TheMaze
             if (lights.mouseRect.Intersects(saferoom.attackLight3rectangle))
             {
                 selectedColor = Color.Green;
-
-                if (Keyboard.GetState().IsKeyDown(Keys.D1))
-                {
-                    lights.weapon1.Color = selectedColor;
-                    lights.playerLight.Color = selectedColor;
-                    lights.playerLight.Enabled = true;
-                }
+                
                 if (Keyboard.GetState().IsKeyDown(Keys.D2))
                 {
                     lights.weapon2.Color = selectedColor;
@@ -228,6 +226,12 @@ namespace TheMaze
                 if (Keyboard.GetState().IsKeyDown(Keys.D3))
                 {
                     lights.weapon3.Color = selectedColor;
+                    lights.playerLight.Color = selectedColor;
+                    lights.playerLight.Enabled = true;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.D4))
+                {
+                    lights.weapon4.Color = selectedColor;
                     lights.playerLight.Color = selectedColor;
                     lights.playerLight.Enabled = true;
                 }
