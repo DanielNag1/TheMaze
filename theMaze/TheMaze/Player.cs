@@ -33,6 +33,7 @@ namespace TheMaze
 
         private float speed = 3f;
         private bool moving = false;
+        public bool IsInverse = false;
 
         public static Vector2 ReturnPosition(Vector2 position)
         {
@@ -95,9 +96,11 @@ namespace TheMaze
 
         private void PlayerInput()
         {
+            Vector2 newDirection;
+
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
-                Direction = new Vector2(0, -1);
+                newDirection = new Vector2(0, -1);
 
                 nextSourceRect.Y = 1 * frameSizeY;
 
@@ -105,7 +108,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
             {
-                Direction = new Vector2(0, 1);
+                newDirection = new Vector2(0, 1);
 
                 nextSourceRect.Y = 0 * frameSizeY;
 
@@ -113,7 +116,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
             {
-                Direction = new Vector2(-1, 0);
+                newDirection = new Vector2(-1, 0);
 
                 nextSourceRect.Y = 2 * frameSizeY;
 
@@ -121,7 +124,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
             {
-                Direction = new Vector2(1, 0);
+                newDirection = new Vector2(1, 0);
 
                 nextSourceRect.Y = 3 * frameSizeY;
 
@@ -129,8 +132,18 @@ namespace TheMaze
             }
             else
             {
+                newDirection = new Vector2();
+
                 moving = false;
             }
+
+            if (IsInverse)
+            {
+                newDirection.X *= -1;
+                newDirection.Y *= -1;
+            }
+
+            Direction = newDirection;
         }
 
         public void Collision(TileManager tileManager)

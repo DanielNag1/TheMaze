@@ -418,3 +418,39 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\characterspritesheet1.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\characterspritesheet1.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\evilcat.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Floor Tile Big.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\rangecircle.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\square.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Top Tile Sheet Big.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big - Copy.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big.xnb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+E:\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb

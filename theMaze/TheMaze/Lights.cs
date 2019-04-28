@@ -16,6 +16,9 @@ namespace TheMaze
         public MouseState mouse;
         public Vector2 mousePos, lightDirection,lampPos,worldMouse,hitboxPos;
         public Player player;
+        public bool IsInverse = false;
+        private bool IsQPressed = false;
+        private bool IsEPressed = false;
         Camera camera;
         Circle attackhitbox;
 
@@ -55,15 +58,36 @@ namespace TheMaze
             {
                 playerLight.Scale = new Vector2(400,400);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Q))
+            if (IsQPressed == false && Keyboard.GetState().IsKeyDown(Keys.Q))
             {
+                IsQPressed = true;
                 spotlight.Enabled = true;
                 playerLight.Enabled = true;
+
+                if (IsInverse)
+                {
+                    spotlight.Enabled = false;
+                    playerLight.Enabled = false;
+                }
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.Q))
+            {
+                IsQPressed = false;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.E))
             {
                 spotlight.Enabled = false;
                 playerLight.Enabled = false;
+
+                if (IsInverse)
+                {
+                    spotlight.Enabled = true;
+                    playerLight.Enabled = true;
+                }
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.E))
+            {
+                IsEPressed = false;
             }
 
             LightPositions();
@@ -189,7 +213,15 @@ namespace TheMaze
             lightDirection = worldMouse - spotlight.Position;
             lightDirection.Normalize();
 
-            spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
+            //spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
+            if (IsInverse)
+            {
+                spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(-90f);
+            }
+            else
+            {
+                spotlight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
+            }
 
             scaleX = (Vector2.Distance(spotlight.Position, worldMouse))+250;
             spotlight.Scale = new Vector2(scaleX, scaleX);

@@ -47,6 +47,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GamePlayManager.cs" />
+    <Compile Include="Glitch Monster.cs" />
     <Compile Include="Lights.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Particle.cs" />

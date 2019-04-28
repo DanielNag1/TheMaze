@@ -38,7 +38,7 @@ namespace TheMaze
             spriteBatch = new SpriteBatch(GraphicsDevice);
             TextureManager.LoadContent(Content);
             
-            gameManager = new GamePlayManager(GraphicsDevice);
+            gameManager = new GamePlayManager(GraphicsDevice, this);
             penumbra.AmbientColor = Color.Black;
             
         }

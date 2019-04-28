@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +20,15 @@ namespace TheMaze
         Circle attackhitbox;
         ParticleEngine particleEngine;
         Random random;
+        Stopwatch timer = new Stopwatch();
+        Game1 game1;
 
-        public GamePlayManager(GraphicsDevice graphicsDevice)
+        public GamePlayManager(GraphicsDevice graphicsDevice, Game1 game1)
         {
             tileManager = new TileManager();
             player = new Player(TextureManager.PlayerTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
-            glitchMonster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
+            glitchMonster = new GlitchMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             Game1.penumbra.Lights.Add(lights.spotlight);
@@ -37,6 +40,8 @@ namespace TheMaze
 
             Game1.penumbra.Transform = camera.Transform;
             attackhitbox = new Circle(lights.worldMouse, 40f);
+
+            this.game1 = game1;
         }
 
         public void Update(GameTime gameTime)
@@ -118,11 +123,25 @@ namespace TheMaze
             if (Vector2.Distance(player.hitBoxPos, glitchMonster.hitboxPos)<=200)
             {
                 glitchMonster.color = Color.Blue;
+                player.IsInverse = true;
+                lights.IsInverse = true;
             }
 
-            else
+            if (player.IsInverse && lights.IsInverse)
             {
-                glitchMonster.color = Color.White;
+                timer.Start();
+
+                if (lights.spotlight.Enabled == false)
+                {
+                    glitchMonster.color = Color.White;
+                    player.IsInverse = false;
+                    lights.IsInverse = false;
+                    timer.Reset();
+                }
+                else if (timer.ElapsedMilliseconds >= 4000)
+                {
+                    game1.Exit();
+                }
             }
 
             Console.WriteLine(Vector2.Distance(player.Position, glitchMonster.hitboxPos));
