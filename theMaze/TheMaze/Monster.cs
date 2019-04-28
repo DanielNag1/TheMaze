@@ -32,11 +32,11 @@ namespace TheMaze
 
         public Circle hitbox;
 
-        private Rectangle currentSourceRect, nextSourceRect;
-        public readonly int frameSize = 128;
+        protected Rectangle currentSourceRect, nextSourceRect;
+        public int frameSize;
 
-        private int frame = 0, nrFrames = 4;
-        private double timer = 100, timeIntervall = 100;
+        protected int frame = 0, nrFrames = 4;
+        protected double timer = 100, timeIntervall = 100;
 
         public float speed = 100f;
 
@@ -51,7 +51,7 @@ namespace TheMaze
         public Monster(Texture2D texture, Vector2 position, TileManager tileManager) : base(texture, position)
         {
             this.tileManager = tileManager;
-
+            frameSize = 128;
             random = new Random();
 
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
@@ -60,7 +60,7 @@ namespace TheMaze
             colorFade = new Color(100, 100, 100, 100);
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             if (moving)
             {
@@ -103,7 +103,7 @@ namespace TheMaze
             }
         }
 
-        private void Moving(GameTime gameTime)
+        protected void Moving(GameTime gameTime)
         {
             if (!moving)
             {

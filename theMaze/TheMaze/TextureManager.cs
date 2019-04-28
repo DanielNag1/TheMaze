@@ -12,6 +12,7 @@ namespace TheMaze
     {
         public static Texture2D CatTex { get; private set; }
         public static Texture2D MonsterTex { get; private set; }
+        public static Texture2D Monster2Tex { get; private set; }
         public static Texture2D FlareTex { get; private set; }
         public static Texture2D rangeTex { get; private set; }
         public static Texture2D FloorTileTex { get; private set; }
@@ -22,6 +23,7 @@ namespace TheMaze
         {
             CatTex = Content.Load<Texture2D>("character1trans");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
+            Monster2Tex = Content.Load<Texture2D>("spritesheet1.1");
             FlareTex = Content.Load<Texture2D>("Flare5_00000");
             rangeTex = Content.Load<Texture2D>("rangecircle");
             FloorTileTex = Content.Load<Texture2D>("Floor Tile Big");

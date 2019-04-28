@@ -14,6 +14,8 @@ namespace TheMaze
         TileManager tileManager;
         Player player;
         Monster monster;
+        Imbaku imbaku;
+
         Lights lights;
         Camera camera;
         Circle attackhitbox;
@@ -23,6 +25,7 @@ namespace TheMaze
             tileManager = new TileManager();
             player = new Player(TextureManager.CatTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
+            imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             Game1.penumbra.Lights.Add(lights.spotlight);
@@ -39,6 +42,7 @@ namespace TheMaze
             player.Update(gameTime);
 
             monster.Update(gameTime);
+            imbaku.Update(gameTime);
             MonsterLightCollision(gameTime);
 
             camera.SetPosition(player.Position);
@@ -54,6 +58,7 @@ namespace TheMaze
             tileManager.Draw(spriteBatch);
 
             monster.Draw(spriteBatch);
+            imbaku.Draw(spriteBatch);
             player.Draw(spriteBatch);
 
             spriteBatch.End();

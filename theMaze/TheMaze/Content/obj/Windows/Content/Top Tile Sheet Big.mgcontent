@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Top Tile Sheet Big.png</SourceFile>
-  <SourceTime>2019-04-16T22:18:18.2702023+02:00</SourceTime>
-  <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Top Tile Sheet Big.xnb</DestFile>
-  <DestTime>2019-04-16T22:24:25.9857717+02:00</DestTime>
+  <SourceFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Top Tile Sheet Big.png</SourceFile>
+  <SourceTime>2019-04-17T18:48:24.3692126+02:00</SourceTime>
+  <DestFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Top Tile Sheet Big.xnb</DestFile>
+  <DestTime>2019-04-28T12:49:59.7565863+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
