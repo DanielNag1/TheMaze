@@ -97,10 +97,7 @@ namespace TheMaze
                 playerLight.Scale = new Vector2(400,400);
             }
 
-            Console.WriteLine(weapon1Power);
-            Console.WriteLine(weapon2Power);
-            Console.WriteLine(weapon3Power);
-            Console.WriteLine(weapon4Power);
+            Console.WriteLine(spotLight.Intensity);
 
             if (canChangeWeapon)
             {
@@ -142,6 +139,7 @@ namespace TheMaze
                     if (weapon2.Color == Color.Green)
                     {
                         playerLight.Color = Color.Green;
+                        
                     }
                     break;
                 case Weapons.Weapon3:
@@ -153,6 +151,7 @@ namespace TheMaze
                     if (weapon3.Color == Color.Green)
                     {
                         playerLight.Color = Color.Green;
+                        
                     }
                     break;
                 case Weapons.Weapon4:
@@ -163,6 +162,7 @@ namespace TheMaze
                     if (weapon4.Color == Color.Green)
                     {
                         playerLight.Color = Color.Green;
+                        
                     }
                     break;
             }
@@ -174,17 +174,26 @@ namespace TheMaze
 
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
-                currentWeapon = Weapons.Weapon2;
+                if (weapon2.Color != Color.White)
+                {
+                    currentWeapon = Weapons.Weapon2;
+                }
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.D3))
             {
-                currentWeapon = Weapons.Weapon3;
+                if (weapon3.Color != Color.White)
+                {
+                    currentWeapon = Weapons.Weapon3;
+                }
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.D4))
             {
-                currentWeapon = Weapons.Weapon4;
+                if (weapon4.Color != Color.White)
+                {
+                    currentWeapon = Weapons.Weapon4;
+                }
             }
         }
 
@@ -344,25 +353,25 @@ namespace TheMaze
                 {
                     case Weapons.Weapon1:
                         spotLight.Intensity = weapon1Power;
-                        weapon1Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
+                        weapon1Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
                         break;
                     case Weapons.Weapon2:
-                        if (weapon2.Color !=Color.White)
-                        {
-                            weapon2Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
-                        }
+                        spotLight.Intensity = weapon2Power;
+                        
+                            weapon2Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+                        
                         break;
                     case Weapons.Weapon3:
-                        if (weapon3.Color != Color.White)
-                        {
-                            weapon3Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
-                        }
+                        spotLight.Intensity = weapon3Power;
+                        
+                            weapon3Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+                        
                         break;
                     case Weapons.Weapon4:
-                        if (weapon4.Color != Color.White)
-                        {
-                            weapon4Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000000;
-                        }
+                        spotLight.Intensity = weapon4Power;
+                        
+                            weapon4Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+                        
                         break;
                 }
             }
