@@ -20,6 +20,7 @@ namespace TheMaze
         Circle attackhitbox;
         ParticleEngine particleEngine,particleEngine2;
         Random random;
+        Imbaku imbaku;
         public static MouseState mouse;
         public  Vector2 mousePos;
         public Rectangle mouseRect;
@@ -32,6 +33,7 @@ namespace TheMaze
             tileManager = new TileManager();
             player = new Player(TextureManager.CatTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
+            imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
@@ -40,7 +42,7 @@ namespace TheMaze
             Game1.penumbra.Initialize();
 
             lights.spotLight.ShadowType = Penumbra.ShadowType.Occluded;
-            particleEngine = new ParticleEngine(TextureManager.particleTextures, monster.hitboxPos);
+            //particleEngine = new ParticleEngine(TextureManager.particleTextures, monster.hitboxPos);
             particleEngine2 = new ParticleEngine(TextureManager.particleTextures, Vector2.Zero);
             random = new Random();
 
@@ -62,13 +64,13 @@ namespace TheMaze
             player.Collision(tileManager);
             player.Update(gameTime);
             saferoom.Update(gameTime);
-
+            imbaku.Update(gameTime);
             SafeRoomInteraction();
 
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
 
-            particleEngine.Update(gameTime);
+            //particleEngine.Update(gameTime);
             
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
@@ -84,13 +86,14 @@ namespace TheMaze
 
             tileManager.Draw(spriteBatch);
             monster.Draw(spriteBatch);
+            imbaku.Draw(spriteBatch);
             player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
             spriteBatch.End();
 
             Game1.penumbra.Draw(gameTime);
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
-            particleEngine.Draw(spriteBatch);
+            //particleEngine.Draw(spriteBatch);
 
             if (player.Direction == new Vector2(0, 1) && lights.spotLight.Enabled == true)
             { spriteBatch.Draw(TextureManager.FlareTex, lights.lampPos, Color.White); }
@@ -107,7 +110,7 @@ namespace TheMaze
                 int x = random.Next(0, 3);
                 if(x==1 && monster.isAlive)
                 {
-                    particleEngine.EmitterLocation = monster.hitboxPos;
+                    //particleEngine.EmitterLocation = monster.hitboxPos;
                 }
                 monster.health -= gameTime.ElapsedGameTime.TotalSeconds;
 

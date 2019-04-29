@@ -26,18 +26,17 @@ namespace TheMaze
         private readonly Vector2 Right = new Vector2(1, 0);
 
         public Vector2 Direction { get; private set; }
-        private Vector2 destination;
-        public Vector2 hitboxPos;
+        private Vector2 destination, hitboxPos;
 
         private Random random;
 
         public Circle hitbox;
 
-        private Rectangle currentSourceRect, nextSourceRect;
-        public readonly int frameSize = 128;
+        protected Rectangle currentSourceRect, nextSourceRect;
+        public int frameSize;
 
-        private int frame = 0, nrFrames = 4;
-        private double timer = 100, timeIntervall = 100;
+        protected int frame = 0, nrFrames = 4;
+        protected double timer = 100, timeIntervall = 100;
 
         public float speed = 100f;
 
@@ -52,7 +51,7 @@ namespace TheMaze
         public Monster(Texture2D texture, Vector2 position, TileManager tileManager) : base(texture, position)
         {
             this.tileManager = tileManager;
-
+            frameSize = 128;
             random = new Random();
 
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
@@ -61,39 +60,36 @@ namespace TheMaze
             colorFade = new Color(100, 100, 100, 100);
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
-            if (isAlive)
+            if (moving)
             {
-                if (moving)
-                {
-                    timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
-                    if (timer <= 0)
-                    {
-                        timer = timeIntervall;
-                        frame++;
-                        if (frame >= nrFrames)
-                        {
-                            frame = 0;
-                        }
-                        currentSourceRect.X = frame * frameSize;
-                    }
-                    currentSourceRect.Y = nextSourceRect.Y;
-                }
-                else
+                if (timer <= 0)
                 {
-                    frame = 0;
+                    timer = timeIntervall;
+                    frame++;
+                    if (frame >= nrFrames)
+                    {
+                        frame = 0;
+                    }
                     currentSourceRect.X = frame * frameSize;
                 }
-
-                hitboxPos = position + new Vector2(65, 55);
-                hitbox = new Circle(hitboxPos, 50f);
-
-
-                UpdateSourceRectangle();
-                Moving(gameTime);
+                currentSourceRect.Y = nextSourceRect.Y;
             }
+            else
+            {
+                frame = 0;
+                currentSourceRect.X = frame * frameSize;
+            }
+
+            hitboxPos = position + new Vector2(65, 55);
+            hitbox = new Circle(hitboxPos, 50f);
+
+
+            UpdateSourceRectangle();
+            Moving(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -107,7 +103,7 @@ namespace TheMaze
             }
         }
 
-        private void Moving(GameTime gameTime)
+        protected void Moving(GameTime gameTime)
         {
             if (!moving)
             {
@@ -195,3 +191,4 @@ namespace TheMaze
         }
     }
 }
+
