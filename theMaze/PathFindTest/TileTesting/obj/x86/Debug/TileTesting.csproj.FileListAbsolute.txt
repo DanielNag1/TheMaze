@@ -1,0 +1,176 @@
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\floor tile4.xnb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet.xnb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet.xnb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\TileTesting.exe
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\TileTesting.pdb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Malin\Desktop\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csprojAssemblyReference.cache
+C:\Users\Malin\Desktop\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csproj.CoreCompileInputs.cache
+C:\Users\Malin\Desktop\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csproj.CopyComplete
+C:\Users\Malin\Desktop\TileTesting\TileTesting\obj\x86\Debug\TileTesting.exe
+C:\Users\Malin\Desktop\TileTesting\TileTesting\obj\x86\Debug\TileTesting.pdb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Floor Tile Big.xnb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet Big.xnb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Fish Big.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Floor Tile Big.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\floor tile4.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet Big.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet.xnb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\TileTesting.exe
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\TileTesting.pdb
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csprojAssemblyReference.cache
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csproj.CoreCompileInputs.cache
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csproj.CopyComplete
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\obj\x86\Debug\TileTesting.exe
+C:\Users\Malin\Desktop\theMaze Stuff\TileTesting\TileTesting\obj\x86\Debug\TileTesting.pdb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Fish Big.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Fish Big.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Floor Tile Big.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\floor tile4.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet Big.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet.xnb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\TileTesting.exe
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\TileTesting.pdb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csprojAssemblyReference.cache
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csproj.CoreCompileInputs.cache
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\obj\x86\Debug\TileTesting.csproj.CopyComplete
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\obj\x86\Debug\TileTesting.exe
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\obj\x86\Debug\TileTesting.pdb
+C:\Users\Malin\Desktop\System utveckling\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\cat.xnb
+C:\Users\Malin\Desktop\TileTesting\TileTesting\bin\Windows\x86\Debug\Content\cat.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\cat.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Fish Big.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Floor Tile Big.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\floor tile4.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet Big.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet.xnb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\TileTesting.exe
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\TileTesting.pdb
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.csprojAssemblyReference.cache
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.csproj.CoreCompileInputs.cache
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.csproj.CopyComplete
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.exe
+C:\Users\zirko\Desktop\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.pdb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\cat sprite big2.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\cat.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\Fish Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\Floor Tile Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\floor tile4.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\Top Tile Sheet Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\Top Tile Sheet.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\Wall Tile Sheet Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Content\Wall Tile Sheet.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\cat.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Fish Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Floor Tile Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\floor tile4.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Top Tile Sheet.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\Content\Wall Tile Sheet.xnb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\TileTesting.exe
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\TileTesting.pdb
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\MonoGame.Framework.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.XInput.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.csprojAssemblyReference.cache
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.csproj.CoreCompileInputs.cache
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.csproj.CopyComplete
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.exe
+F:\TGSPA18h\The Fucking MAZE\PathFindTest\TileTesting\obj\x86\Debug\TileTesting.pdb

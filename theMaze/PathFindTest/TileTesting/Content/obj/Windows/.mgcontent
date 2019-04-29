@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/floor tile4.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/Top Tile Sheet.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/Wall Tile Sheet.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/Floor Tile Big.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/Top Tile Sheet Big.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/Wall Tile Sheet Big.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/cat sprite big2.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/Fish Big.png</File>
+    <File>F:/TGSPA18h/The Fucking MAZE/PathFindTest/TileTesting/Content/cat.png</File>
+  </SourceFiles>
+</SourceFileCollection>
