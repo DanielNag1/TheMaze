@@ -10,7 +10,7 @@ namespace TheMaze
 {
     public abstract class GameObject
     {
-        public Texture2D Texture { get; protected set; }
+        public Texture2D texture { get; protected set; }
         protected Vector2 position;
         public Vector2 Position
         {
@@ -19,7 +19,7 @@ namespace TheMaze
 
         public GameObject(Texture2D texture, Vector2 position)
         {
-            Texture = texture;
+            this.texture = texture;
             this.position = position;
         }
 

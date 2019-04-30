@@ -21,6 +21,8 @@ namespace TheMaze
         public bool visible;
         public Color weapon1,weapon2,weapon3,room;
         int r, g, b;
+        public int numberOfCollectibles;
+
         public Saferoom()
         {
             particleEngineList = new List<ParticleEngine>();

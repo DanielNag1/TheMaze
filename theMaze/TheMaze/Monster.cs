@@ -98,7 +98,7 @@ namespace TheMaze
 
             if (isAlive)
             {
-                spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y,
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
                     ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
             }
         }

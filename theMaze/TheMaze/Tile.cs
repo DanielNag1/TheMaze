@@ -22,6 +22,7 @@ namespace TheMaze
 
         protected bool isWall = true;
         protected bool isHull = false;
+        
         public bool IsWall
         {
             get { return isWall; }

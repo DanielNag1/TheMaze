@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="Collectible.cs" />
     <Compile Include="ConstantValues.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />

@@ -50,8 +50,9 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY),
-                /*currentSourceRect,*/ Color.White);
+            
+            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY),
+                /*currentSourceRect*/ Color.White);
         }
         
         public void Update(GameTime gameTime)
