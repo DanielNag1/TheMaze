@@ -22,7 +22,7 @@ namespace TheMaze
 
         public static void LoadContent(ContentManager Content)
         {
-            CatTex = Content.Load<Texture2D>("character1trans");
+            CatTex = Content.Load<Texture2D>("characterspritesheet1");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
             Monster2Tex = Content.Load<Texture2D>("spritesheet1.1");
             FlareTex = Content.Load<Texture2D>("Flare5_00000");
