@@ -26,10 +26,7 @@ namespace TheMaze
         public Rectangle mouseRect;
         Color selectedColor;
         public bool isMouseVisible;
-
-        Collectible collectible;
-        List<Collectible> collectibles;
-
+        
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
             
@@ -39,8 +36,7 @@ namespace TheMaze
             imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
-            collectibles = new List<Collectible>();
-
+            
             saferoom = new Saferoom();
             Game1.penumbra.Lights.Add(lights.spotLight);
             Game1.penumbra.Lights.Add(lights.playerLight);
@@ -61,9 +57,7 @@ namespace TheMaze
                     Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
                 }
             }
-
-            collectible = new Collectible(TextureManager.CollectibleTex, tileManager.CollectiblePos);
-            collectibles.Add(collectible);
+            
         }
 
         public void Update(GameTime gameTime)
@@ -96,7 +90,7 @@ namespace TheMaze
             imbaku.Draw(spriteBatch);
             player.Draw(spriteBatch);
 
-            foreach (Collectible c in collectibles)
+            foreach (Collectible c in tileManager.collectibles)
             {
                 c.Draw(spriteBatch);
             }
@@ -258,11 +252,11 @@ namespace TheMaze
 
         public void TakeItem()
         {
-            foreach (Collectible c in collectibles)
+            foreach (Collectible c in tileManager.collectibles)
             {
                 if (player.Hitbox.Intersects(c.hitbox) && Keyboard.GetState().IsKeyDown(Keys.F))
                 {
-                    collectibles.Remove(c);
+                    tileManager.collectibles.Remove(c);
                     saferoom.numberOfCollectibles++;
                     break;
                 }

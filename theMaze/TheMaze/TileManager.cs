@@ -15,6 +15,8 @@ namespace TheMaze
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionMonster { get; private set; }
         public Vector2 CollectiblePos { get; private set; }
+        public List<Collectible> collectibles;
+        public Collectible collectible;
 
         public TileManager()
         {
@@ -37,7 +39,7 @@ namespace TheMaze
         private Tile[,] GenerateMap(string map)
         {
             string[] mapData = File.ReadAllLines(map);
-
+            collectibles = new List<Collectible>();
             int width = mapData[0].Length;
             int height = mapData.Length;
             Tile[,] tiles = new Tile[width, height];
@@ -58,7 +60,8 @@ namespace TheMaze
                     if (mapData[y][x] == '3')
                     {
                         CollectiblePos = new Vector2(tilePosition.X+ConstantValues.tileWidth/4,tilePosition.Y+ConstantValues.tileHeight/4);
-
+                        collectible = new Collectible(TextureManager.CollectibleTex, CollectiblePos);
+                        collectibles.Add(collectible);
                     }
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }
