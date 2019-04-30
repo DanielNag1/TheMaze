@@ -21,7 +21,7 @@ namespace TheMaze
         public Color weaponColor;
         public int r, g, b;
         float scaleX;
-        public MouseState mouse;
+        public MouseState mouseState,oldmouseState;
         public Rectangle mouseRect;
         public bool canChangeWeapon;
         public float weapon1Power, weapon2Power, weapon3Power, weapon4Power;
@@ -84,6 +84,9 @@ namespace TheMaze
             r = 0;
             b = 0;
             g = 0;
+
+            mouseState = Mouse.GetState();
+            oldmouseState = mouseState;
         }
 
         public void Update(GameTime gameTime)
@@ -97,8 +100,7 @@ namespace TheMaze
                 playerLight.Scale = new Vector2(400,400);
             }
 
-            Console.WriteLine(spotLight.Intensity);
-
+            
             if (canChangeWeapon)
             {
                 
@@ -304,9 +306,9 @@ namespace TheMaze
 
         public void LightPositions()
         {
-
-            mouse = Mouse.GetState();
-            mousePos = new Vector2((float)mouse.X, (float)mouse.Y);
+            oldmouseState = mouseState;
+            mouseState = Mouse.GetState();
+            mousePos = new Vector2((float)mouseState.X, (float)mouseState.Y);
             
             worldMouse = Vector2.Transform(mousePos, Matrix.Invert(camera.Transform));
             mouseRect = new Rectangle((int)worldMouse.X-30, (int)worldMouse.Y-30, 60, 60);
@@ -325,6 +327,7 @@ namespace TheMaze
             spotLight.Scale = new Vector2(scaleX, scaleX);
             hitboxPos = new Vector2(worldMouse.X, worldMouse.Y);
             attackhitbox = new Circle(hitboxPos, 150f);
+            
         }
 
         public bool CollisionWithLight(Circle other) //Anropas i objektets update-klass.

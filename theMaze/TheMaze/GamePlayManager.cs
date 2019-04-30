@@ -21,8 +21,7 @@ namespace TheMaze
         ParticleEngine particleEngine,particleEngine2;
         Random random;
         Imbaku imbaku;
-        public static MouseState mouse;
-        public  Vector2 mousePos;
+        public Vector2 mousePos;
         public Rectangle mouseRect;
         Color selectedColor;
         public bool isMouseVisible;
@@ -62,6 +61,7 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
+
             player.Collision(tileManager);
             player.Update(gameTime);
             saferoom.Update(gameTime);
@@ -88,6 +88,7 @@ namespace TheMaze
             tileManager.Draw(spriteBatch);
             monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
+            saferoom.Draw(spriteBatch);
             player.Draw(spriteBatch);
 
             foreach (Collectible c in tileManager.collectibles)
@@ -95,8 +96,7 @@ namespace TheMaze
                 c.Draw(spriteBatch);
             }
 
-
-            saferoom.Draw(spriteBatch);
+            
             spriteBatch.End();
 
             Game1.penumbra.Draw(gameTime);
@@ -147,7 +147,7 @@ namespace TheMaze
 
         public void SafeRoomInteraction()
         {
-            
+
             if (player.Hitbox.Intersects(saferoom.rectangle))
             {
                 isMouseVisible = true;
@@ -161,6 +161,11 @@ namespace TheMaze
                 lights.weapon2Power = .9f;
                 lights.weapon3Power = .9f;
                 lights.weapon4Power = .9f;
+
+                if (lights.mouseRect.Intersects(saferoom.desk) && lights.mouseState.LeftButton==ButtonState.Pressed && lights.oldmouseState.LeftButton==ButtonState.Released)
+                {
+                    saferoom.DeskInteraction();
+                }
             }
             else
             {

@@ -15,20 +15,30 @@ namespace TheMaze
         public Light saferoomLight1, saferoomLight2, saferoomLight3, saferoomLight4, saferoomLight5;
         public Light attackLight1, attackLight2, attackLight3;
         public List<Light> saferoomLights, attackLights;
+        public List<Collectible> collected;
         private List<ParticleEngine> particleEngineList;
         ParticleEngine particleEngineRed,particleEngineYellow,particleEngineGreen;
         public Rectangle rectangle,attackLight1rectangle,attackLight2rectangle,attackLight3rectangle;
-        public bool visible;
+        public Rectangle desk;
+        public bool visible,inDesk;
         public Color weapon1,weapon2,weapon3,room;
-        int r, g, b;
+        int r, g, b,x,y;
         public int numberOfCollectibles;
+        Collectible collectible;
+
+        enum InterActionState {Room,Desk}
+        InterActionState currentInteraction;
 
         public Saferoom()
         {
             particleEngineList = new List<ParticleEngine>();
+            collected = new List<Collectible>();
             SafeRoomLights();
             SafeRoomParticles();
             rectangle = new Rectangle(1906, 2266, 640, 956);
+            desk = new Rectangle(1926, 2655, 120, 170);
+            x = 1940;
+            y = 2655;
         }
 
         public void Update(GameTime gameTime)
@@ -43,7 +53,6 @@ namespace TheMaze
 
             if (visible)
             {
-
                 LightsOn();
                 foreach (SaferoomParticleEngine p in particleEngineList)
                 {
@@ -51,6 +60,7 @@ namespace TheMaze
                 }
 
                 SafeRoomParticlesUpdate();
+                
             }
             else
             {
@@ -63,10 +73,30 @@ namespace TheMaze
 
             if (visible)
             {
+
+                spriteBatch.Draw(TextureManager.CollectibleTex, desk, Color.White);
                 foreach (SaferoomParticleEngine p in particleEngineList)
                 {
                     p.Draw(spriteBatch);
                 }
+                switch (currentInteraction)
+                {
+                    case InterActionState.Room:
+                        {
+                            break;
+                        }
+                    case InterActionState.Desk:
+                        {
+                            foreach (Collectible c in collected)
+                            {
+                                c.Draw(spriteBatch);
+                            }
+
+                            
+                            break;
+                        }
+                }
+                
             }
         }
 
@@ -193,5 +223,19 @@ namespace TheMaze
                 g-=2;
             }
         }
+
+        public void DeskInteraction()
+        {
+            currentInteraction = InterActionState.Desk;
+
+            for (int i = 0; i < numberOfCollectibles; i++)
+                {
+                    x += 120;
+                    collectible = new Collectible(TextureManager.CollectibleTex, new Vector2(x, y));
+                    collected.Add(collectible);
+                }
+            
+        }
+        
     }
 }
