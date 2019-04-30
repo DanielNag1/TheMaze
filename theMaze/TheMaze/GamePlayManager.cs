@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 using Penumbra;
+using System.Diagnostics;
+
 namespace TheMaze
 {
     class GamePlayManager
@@ -14,12 +16,14 @@ namespace TheMaze
         TileManager tileManager;
         Player player;
         Saferoom saferoom;
-        Monster monster;
+        Monster monster, glitchMonster;
         Lights lights;
         Camera camera;
         Circle attackhitbox;
         ParticleEngine particleEngine,particleEngine2;
         Random random;
+
+        Stopwatch timer;
         Imbaku imbaku;
         public static MouseState mouse;
         public  Vector2 mousePos;
@@ -34,9 +38,12 @@ namespace TheMaze
             player = new Player(TextureManager.CatTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
+            glitchMonster = new GlitchMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
+            timer = new Stopwatch();
+
             Game1.penumbra.Lights.Add(lights.spotLight);
             Game1.penumbra.Lights.Add(lights.playerLight);
             Game1.penumbra.Initialize();
@@ -65,7 +72,10 @@ namespace TheMaze
             player.Update(gameTime);
             saferoom.Update(gameTime);
             imbaku.Update(gameTime);
+            glitchMonster.Update(gameTime);
             SafeRoomInteraction();
+
+            GlitchMonsterCollision();
 
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
@@ -87,6 +97,7 @@ namespace TheMaze
             tileManager.Draw(spriteBatch);
             //monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
+            glitchMonster.Draw(spriteBatch);
             player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
             spriteBatch.End();
@@ -241,6 +252,36 @@ namespace TheMaze
                 
             }
         }
+        public void GlitchMonsterCollision()
+        {
+            if (Vector2.Distance(player.hitBoxPos, glitchMonster.hitboxPos) <= 200)
+            {
+                glitchMonster.color = Color.Blue;
+                player.isInverse = true;
+                lights.isInverse = true;
+            }
 
-}
+            if (player.isInverse && lights.isInverse)
+            {
+                timer.Start();
+
+                if (lights.spotLight.Enabled == false)
+                {
+                    glitchMonster.color = Color.White;
+                    player.isInverse = false;
+                    lights.isInverse = false;
+                    timer.Reset();
+                }
+                else if (timer.ElapsedMilliseconds >= 4000)
+                {
+
+                }
+            }
+
+            //Console.WriteLine(Vector2.Distance(player.Position, glitchMonster.hitboxPos));
+        }
+
+
+
+    }
 }

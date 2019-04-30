@@ -26,7 +26,7 @@ namespace TheMaze
         private readonly Vector2 Right = new Vector2(1, 0);
 
         public Vector2 Direction { get; private set; }
-        private Vector2 destination, hitboxPos;
+        public Vector2 destination, hitboxPos;
 
         private Random random;
 

@@ -13,9 +13,9 @@ namespace TheMaze
 
         Rectangle fixedPos;
 
+
         public Imbaku(Texture2D texture, Vector2 position, TileManager tileManager):base(texture,position,tileManager)
         {
-
             frameSize = 0;
             currentSourceRect = new Rectangle(frame, frameSize, 304, 462);
             
@@ -55,7 +55,7 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //base.Draw(spriteBatch);
+            
             spriteBatch.Draw(Texture, fixedPos, currentSourceRect, Color.White);
             
 

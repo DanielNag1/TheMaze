@@ -12,10 +12,13 @@ namespace TheMaze
 {
     public class Lights
     {
-        public Light spotLight,weapon1,weapon2,weapon3,weapon4, playerLight;
+        public Light spotLight, weapon1, weapon2, weapon3, weapon4, playerLight;
         public List<Light> weaponList;
-        public Vector2 lightDirection, lampPos, mousePos, worldMouse,hitboxPos;
+        public Vector2 lightDirection, lampPos, mousePos, worldMouse, hitboxPos;
         public Player player;
+        public bool isInverse = false;
+        public bool isQPressed = false;
+
         Camera camera;
         Circle attackhitbox;
         public Color weaponColor;
@@ -26,15 +29,15 @@ namespace TheMaze
         public bool canChangeWeapon;
         public float weapon1Power, weapon2Power, weapon3Power, weapon4Power;
 
-        enum ColorState {White,Red,Yellow,Green}
+        enum ColorState { White, Red, Yellow, Green }
         ColorState currentColor = ColorState.White;
         ColorState previousColor;
 
 
-        enum Weapons {Weapon1,Weapon2,Weapon3,Weapon4}
-        Weapons currentWeapon=Weapons.Weapon1;
+        enum Weapons { Weapon1, Weapon2, Weapon3, Weapon4 }
+        Weapons currentWeapon = Weapons.Weapon1;
 
-        public Lights(Player player,Camera camera)
+        public Lights(Player player, Camera camera)
         {
             this.camera = camera;
             this.player = player;
@@ -94,25 +97,38 @@ namespace TheMaze
             }
             if (player.Direction != new Vector2(0, 1))
             {
-                playerLight.Scale = new Vector2(400,400);
+                playerLight.Scale = new Vector2(400, 400);
             }
 
             Console.WriteLine(spotLight.Intensity);
 
             if (canChangeWeapon)
             {
-                
                 PowerDrain(gameTime);
                 ChangeWeapon();
                 if (Keyboard.GetState().IsKeyDown(Keys.Q))
                 {
                     spotLight.Enabled = true;
                     playerLight.Enabled = true;
+
+                    if (isInverse)
+                    {
+                        spotLight.Enabled = false;
+                        playerLight.Enabled = false;
+                    }
                 }
+
+                
                 if (Keyboard.GetState().IsKeyDown(Keys.E))
                 {
                     spotLight.Enabled = false;
                     playerLight.Enabled = false;
+
+                    if (isInverse)
+                    {
+                        spotLight.Enabled = true;
+                        playerLight.Enabled = true;
+                    }
                 }
             }
 
@@ -124,8 +140,8 @@ namespace TheMaze
         public void ChangeWeapon()
         {
             weaponColor = new Color(r, g, b);
-            
-            switch(currentWeapon)
+
+            switch (currentWeapon)
             {
                 case Weapons.Weapon1:
                     spotLight.Color = weapon1.Color;
@@ -139,7 +155,7 @@ namespace TheMaze
                     if (weapon2.Color == Color.Green)
                     {
                         playerLight.Color = Color.Green;
-                        
+
                     }
                     break;
                 case Weapons.Weapon3:
@@ -151,7 +167,7 @@ namespace TheMaze
                     if (weapon3.Color == Color.Green)
                     {
                         playerLight.Color = Color.Green;
-                        
+
                     }
                     break;
                 case Weapons.Weapon4:
@@ -162,7 +178,7 @@ namespace TheMaze
                     if (weapon4.Color == Color.Green)
                     {
                         playerLight.Color = Color.Green;
-                        
+
                     }
                     break;
             }
@@ -205,7 +221,7 @@ namespace TheMaze
         //    {
         //        currentColor = ColorState.White;
         //        spotLight.Scale = new Vector2(820, 820);
-             
+
         //    }
         //    if (Keyboard.GetState().IsKeyDown(Keys.D2))
         //    {
@@ -214,7 +230,7 @@ namespace TheMaze
         //    if (Keyboard.GetState().IsKeyDown(Keys.D3))
         //    {
         //        currentColor = ColorState.Red;
-                
+
         //    }
 
         //    switch (currentColor)
@@ -232,7 +248,7 @@ namespace TheMaze
         //                {
         //                    b -= 2;
         //                }
-                        
+
         //                if (g >= -1)
         //                {
         //                    g -= 2;
@@ -262,7 +278,7 @@ namespace TheMaze
         //                    previousColor = currentColor;
         //                }
         //            }
-                    
+
         //            break;
         //        case ColorState.Blue:
         //            if (previousColor == ColorState.Red)
@@ -295,11 +311,11 @@ namespace TheMaze
         //                spotLight.Scale = new Vector2(820, 820);
         //                previousColor = currentColor;
         //            }
-                    
+
         //            break;
 
         //    }
-            
+
         //}
 
         public void LightPositions()
@@ -307,12 +323,12 @@ namespace TheMaze
 
             mouse = Mouse.GetState();
             mousePos = new Vector2((float)mouse.X, (float)mouse.Y);
-            
+
             worldMouse = Vector2.Transform(mousePos, Matrix.Invert(camera.Transform));
-            mouseRect = new Rectangle((int)worldMouse.X-30, (int)worldMouse.Y-30, 60, 60);
+            mouseRect = new Rectangle((int)worldMouse.X - 30, (int)worldMouse.Y - 30, 60, 60);
 
             spotLight.Position = new Vector2(player.Position.X + 23, player.Position.Y + 122);
-            lampPos = new Vector2(spotLight.Position.X-TextureManager.FlareTex.Width/2, spotLight.Position.Y - TextureManager.FlareTex.Height / 2);
+            lampPos = new Vector2(spotLight.Position.X - TextureManager.FlareTex.Width / 2, spotLight.Position.Y - TextureManager.FlareTex.Height / 2);
             playerLight.Position = new Vector2(player.Position.X + 70, player.Position.Y + 120);
 
             lightDirection = worldMouse - spotLight.Position;
@@ -320,8 +336,8 @@ namespace TheMaze
 
             spotLight.Rotation = (Convert.ToSingle(Math.Atan2(lightDirection.X, -lightDirection.Y))) - MathHelper.ToRadians(90f);
 
-            scaleX = (Vector2.Distance(spotLight.Position, worldMouse))+250;
-            
+            scaleX = (Vector2.Distance(spotLight.Position, worldMouse)) + 250;
+
             spotLight.Scale = new Vector2(scaleX, scaleX);
             hitboxPos = new Vector2(worldMouse.X, worldMouse.Y);
             attackhitbox = new Circle(hitboxPos, 150f);
@@ -357,25 +373,25 @@ namespace TheMaze
                         break;
                     case Weapons.Weapon2:
                         spotLight.Intensity = weapon2Power;
-                        
-                            weapon2Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
-                        
+
+                        weapon2Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+
                         break;
                     case Weapons.Weapon3:
                         spotLight.Intensity = weapon3Power;
-                        
-                            weapon3Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
-                        
+
+                        weapon3Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+
                         break;
                     case Weapons.Weapon4:
                         spotLight.Intensity = weapon4Power;
-                        
-                            weapon4Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
-                        
+
+                        weapon4Power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+
                         break;
                 }
             }
         }
-       
+
     }
 }
