@@ -11,21 +11,29 @@ namespace TheMaze
     public class Imbaku:Monster
     {
 
-        
+        Rectangle fixedPos;
 
         public Imbaku(Texture2D texture, Vector2 position, TileManager tileManager):base(texture,position,tileManager)
         {
 
-            frameSize = 200;
-            currentSourceRect = new Rectangle(frame, frameSize, 300, 400);
+            frameSize = 0;
+            currentSourceRect = new Rectangle(frame, frameSize, 304, 462);
             
-            nrFrames = 1;
-            timeIntervall = 800;
-            
+            nrFrames = 5;
+            timeIntervall = 120;
+
+            fixedPos = new Rectangle((int)position.X, (int)position.Y,
+                        304 - ConstantValues.tileWidth, 462 - ConstantValues.tileHeight);
         }
 
         public override void Update(GameTime gameTime)
         {
+            currentSourceRect.X = frame * 292;
+            currentSourceRect.Y = frameSize * 462;
+
+            fixedPos.X = (int)position.X - currentSourceRect.Width/4+50;
+            fixedPos.Y = (int)position.Y - currentSourceRect.Height/4-57;
+
             //base.Update(gameTime);
             timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
@@ -37,25 +45,24 @@ namespace TheMaze
                 {
                     frame = 0;
                 }
-                currentSourceRect.X = frame * frameSize;
+                
             }
-            currentSourceRect.Y = nextSourceRect.Y;
 
-
+            //fixedPos = new Rectangle((int)position.X, (int)position.Y,
+            //            304 - ConstantValues.tileWidth, 462 - ConstantValues.tileHeight);
             Moving(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            base.Draw(spriteBatch);
-            //spriteBatch.Draw(Texture, position, currentSourceRect, Color.White, 0f, new Vector2(),
-            //    1f, SpriteEffects.None, 0f);
+            //base.Draw(spriteBatch);
+            spriteBatch.Draw(Texture, fixedPos, currentSourceRect, Color.White);
+            
 
             //spriteBatch.Draw(TextureManager.rangeTex, currentSourceRect, Color.Red);
 
 
         }
-
-
+        
     }
 }

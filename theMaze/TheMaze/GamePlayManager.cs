@@ -85,7 +85,7 @@ namespace TheMaze
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.Transform);
 
             tileManager.Draw(spriteBatch);
-            monster.Draw(spriteBatch);
+            //monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
             player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
