@@ -55,6 +55,7 @@
     <Compile Include="ParticleEngine.cs" />
     <Compile Include="Saferoom.cs" />
     <Compile Include="SaferoomParticleEngine.cs" />
+    <Compile Include="SoundManager.cs" />
     <Compile Include="TileManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

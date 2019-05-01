@@ -12,8 +12,16 @@
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Top Tile Sheet Big.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Wall Tile Sheet Big - Copy.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Wall Tile Sheet Big.png</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/particle1.png</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/particle2.png</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.1.png</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
