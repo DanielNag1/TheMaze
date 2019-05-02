@@ -25,7 +25,7 @@ namespace TheMaze
 
         public void DrawCollectibles(SpriteBatch spriteBatch)
         {
-
+            
         }
     }
 }

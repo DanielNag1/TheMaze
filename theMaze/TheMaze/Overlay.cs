@@ -11,7 +11,7 @@ namespace TheMaze
 {
     class Overlay
     {
-        public Vector2 CentereredPlayerPosition;
+        public static Vector2 CentereredPlayerPosition;
 
         public Overlay(Vector2 PlayerPos)
         {

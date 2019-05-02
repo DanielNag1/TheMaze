@@ -90,14 +90,15 @@ namespace TheMaze
             tileManager.Draw(spriteBatch);
             monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
-            player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
 
             foreach (Collectible c in tileManager.collectibles)
             {
                 c.Draw(spriteBatch);
             }
-            
+
+            player.Draw(spriteBatch);
+
             spriteBatch.End();
 
             Game1.penumbra.Draw(gameTime);
@@ -111,7 +112,14 @@ namespace TheMaze
 
             lights.DrawHitBox(spriteBatch);
             spriteBatch.Draw(TextureManager.FlareTex,mouseRect,Color.White);
+
             overlay.Draw(spriteBatch);
+
+            if (saferoom.currentInteraction==Saferoom.InterActionState.Desk)
+            {
+                saferoom.DeskDraw(spriteBatch);
+            }
+            
             spriteBatch.End();
         }
 
@@ -168,6 +176,7 @@ namespace TheMaze
 
                 if (lights.mouseRect.Intersects(saferoom.desk) && lights.mouseState.LeftButton==ButtonState.Pressed && lights.oldmouseState.LeftButton==ButtonState.Released)
                 {
+                    saferoom.currentInteraction = Saferoom.InterActionState.Desk;
                     saferoom.DeskInteraction();
                 }
             }
@@ -272,8 +281,7 @@ namespace TheMaze
                 }
             }
         }
-
-        public void 
+        
         
 }
 }

@@ -311,7 +311,7 @@ namespace TheMaze
             mousePos = new Vector2((float)mouseState.X, (float)mouseState.Y);
             
             worldMouse = Vector2.Transform(mousePos, Matrix.Invert(camera.Transform));
-            mouseRect = new Rectangle((int)worldMouse.X-30, (int)worldMouse.Y-30, 60, 60);
+            mouseRect = new Rectangle((int)worldMouse.X-10, (int)worldMouse.Y-10, 20, 20);
 
             spotLight.Position = new Vector2(player.Position.X + 23, player.Position.Y + 122);
             lampPos = new Vector2(spotLight.Position.X-TextureManager.FlareTex.Width/2, spotLight.Position.Y - TextureManager.FlareTex.Height / 2);

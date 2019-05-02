@@ -22,7 +22,7 @@ namespace TheMaze
         public Rectangle desk;
         public bool visible,inDesk;
         public Color weapon1,weapon2,weapon3,room;
-        int r, g, b,x,y;
+        int r, g, b,storyPanelPosX,storyPanelPosY;
         public int numberOfCollectibles;
         Collectible collectible;
         CollectibleViewer collectibleViewer= new CollectibleViewer(GamePlayManager.overlay);
@@ -36,9 +36,10 @@ namespace TheMaze
             SafeRoomLights();
             SafeRoomParticles();
             rectangle = new Rectangle(1906, 2266, 640, 956);
-            desk = new Rectangle(1926, 2655, 120, 170);
-            x = 1940;
-            y = 2655;
+            desk = new Rectangle(1926, 2655, 100, 150);
+            storyPanelPosX = (int)Overlay.CentereredPlayerPosition.X - 300;
+            storyPanelPosY = (int)Overlay.CentereredPlayerPosition.Y - 300;
+            numberOfCollectibles = 3;
         }
 
         public void Update(GameTime gameTime)
@@ -225,8 +226,8 @@ namespace TheMaze
 
             for (int i = 0; i < numberOfCollectibles; i++)
                 {
-                    x += 120;
-                    collectible = new Collectible(TextureManager.CollectibleTex, new Vector2(x, y));
+                    storyPanelPosX += 240;
+                    collectible = new Collectible(TextureManager.StoryPanelTex, new Vector2(storyPanelPosX, storyPanelPosY));
                     collected.Add(collectible);
                 }
         }
@@ -239,6 +240,11 @@ namespace TheMaze
         public void DeskDraw(SpriteBatch spriteBatch)
         {
             collectibleViewer.DrawMenu(spriteBatch);
+
+            foreach(Collectible c in collected)
+            {
+                c.Draw(spriteBatch);
+            }
         }
 
         public void SafeRoomInterAction()
