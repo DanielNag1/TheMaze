@@ -44,6 +44,7 @@
     <Compile Include="Camera.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Collectible.cs" />
+    <Compile Include="CollectibleViewer.cs" />
     <Compile Include="ConstantValues.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Imbaku.cs" />
     <Compile Include="Lights.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="Overlay.cs" />
     <Compile Include="Particle.cs" />
     <Compile Include="ParticleEngine.cs" />
     <Compile Include="Saferoom.cs" />

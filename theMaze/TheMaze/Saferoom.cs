@@ -25,9 +25,9 @@ namespace TheMaze
         int r, g, b,x,y;
         public int numberOfCollectibles;
         Collectible collectible;
-
-        enum InterActionState {Room,Desk}
-        InterActionState currentInteraction;
+        CollectibleViewer collectibleViewer= new CollectibleViewer(GamePlayManager.overlay);
+        public enum InterActionState {Room,Desk}
+        public InterActionState currentInteraction;
 
         public Saferoom()
         {
@@ -60,7 +60,7 @@ namespace TheMaze
                 }
 
                 SafeRoomParticlesUpdate();
-                
+                SafeRoomInterAction();
             }
             else
             {
@@ -75,6 +75,7 @@ namespace TheMaze
             {
 
                 spriteBatch.Draw(TextureManager.CollectibleTex, desk, Color.White);
+
                 foreach (SaferoomParticleEngine p in particleEngineList)
                 {
                     p.Draw(spriteBatch);
@@ -87,12 +88,6 @@ namespace TheMaze
                         }
                     case InterActionState.Desk:
                         {
-                            foreach (Collectible c in collected)
-                            {
-                                c.Draw(spriteBatch);
-                            }
-
-                            
                             break;
                         }
                 }
@@ -234,8 +229,26 @@ namespace TheMaze
                     collectible = new Collectible(TextureManager.CollectibleTex, new Vector2(x, y));
                     collected.Add(collectible);
                 }
-            
+        }
+
+        public void RoomInterAction()
+        {
+            currentInteraction = InterActionState.Room;
+        }
+
+        public void DeskDraw(SpriteBatch spriteBatch)
+        {
+            collectibleViewer.DrawMenu(spriteBatch);
+        }
+
+        public void SafeRoomInterAction()
+        {
+            if(Keyboard.GetState().IsKeyDown(Keys.Space))
+            {
+                currentInteraction = InterActionState.Room;
+            }
         }
         
+
     }
 }

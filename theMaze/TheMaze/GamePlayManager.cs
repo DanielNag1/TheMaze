@@ -13,6 +13,7 @@ namespace TheMaze
     {
         TileManager tileManager;
         Player player;
+        public static Overlay overlay;
         Saferoom saferoom;
         Monster monster;
         Lights lights;
@@ -35,7 +36,7 @@ namespace TheMaze
             imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
-            
+            overlay = new Overlay(player.Position);
             saferoom = new Saferoom();
             Game1.penumbra.Lights.Add(lights.spotLight);
             Game1.penumbra.Lights.Add(lights.playerLight);
@@ -64,6 +65,7 @@ namespace TheMaze
 
             player.Collision(tileManager);
             player.Update(gameTime);
+            overlay.Update(gameTime, player.Position);
             saferoom.Update(gameTime);
             imbaku.Update(gameTime);
             SafeRoomInteraction();
@@ -88,14 +90,13 @@ namespace TheMaze
             tileManager.Draw(spriteBatch);
             monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
-            saferoom.Draw(spriteBatch);
             player.Draw(spriteBatch);
+            saferoom.Draw(spriteBatch);
 
             foreach (Collectible c in tileManager.collectibles)
             {
                 c.Draw(spriteBatch);
             }
-
             
             spriteBatch.End();
 
@@ -104,10 +105,13 @@ namespace TheMaze
             //particleEngine.Draw(spriteBatch);
 
             if (player.Direction == new Vector2(0, 1) && lights.spotLight.Enabled == true)
-            { spriteBatch.Draw(TextureManager.FlareTex, lights.lampPos, Color.White); }
+            {
+                spriteBatch.Draw(TextureManager.FlareTex, lights.lampPos, Color.White);
+            }
 
             lights.DrawHitBox(spriteBatch);
             spriteBatch.Draw(TextureManager.FlareTex,mouseRect,Color.White);
+            overlay.Draw(spriteBatch);
             spriteBatch.End();
         }
 
@@ -169,6 +173,7 @@ namespace TheMaze
             }
             else
             {
+                saferoom.RoomInterAction();
                 isMouseVisible = false;
                 saferoom.visible = false;
                 lights.canChangeWeapon = true;
@@ -267,5 +272,8 @@ namespace TheMaze
                 }
             }
         }
+
+        public void 
+        
 }
 }
