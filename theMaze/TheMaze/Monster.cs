@@ -137,7 +137,7 @@ namespace TheMaze
             }
         }
 
-        private void NewDirection()
+        protected void NewDirection()
         {
             //Array av de fyra olika riktingarna som heter "directions"
             Vector2[] directions = new[] { Up, Down, Left, Right };
@@ -170,23 +170,35 @@ namespace TheMaze
             Direction = possibleDirections[random.Next(0, possibleDirections.Count)];
         }
 
-        private void UpdateSourceRectangle()
+        //protected void UpdateSourceRectangle()
+        //{
+        //    if (Direction == Up)
+        //    {
+        //        nextSourceRect.Y = 0 * frameSize;
+        //    }
+        //    if (Direction == Down)
+        //    {
+        //        nextSourceRect.Y = 0 * frameSize;
+        //    }
+        //    if (Direction == Right)
+        //    {
+        //        nextSourceRect.Y = 1 * frameSize;
+        //    }
+        //    if (Direction == Left)
+        //    {
+        //        nextSourceRect.Y = 0 * frameSize;
+        //    }
+        //}
+
+        protected void UpdateSourceRectangle()
         {
-            if (Direction == Up)
-            {
-                nextSourceRect.Y = 2 * frameSize;
-            }
-            if (Direction == Down)
-            {
-                nextSourceRect.Y = 0 * frameSize;
-            }
             if (Direction == Right)
             {
-                nextSourceRect.Y = 1 * frameSize;
+                frameSize = 1;
             }
             if (Direction == Left)
             {
-                nextSourceRect.Y = 3 * frameSize;
+                frameSize = 0;
             }
         }
     }

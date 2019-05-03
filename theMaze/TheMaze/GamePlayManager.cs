@@ -76,7 +76,7 @@ namespace TheMaze
             SafeRoomInteraction();
 
             GlitchMonsterCollision();
-
+            //ImbakuCollision();
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
 
@@ -279,6 +279,19 @@ namespace TheMaze
             }
 
             //Console.WriteLine(Vector2.Distance(player.Position, glitchMonster.hitboxPos));
+        }
+
+        public void ImbakuCollision()
+        {
+            if (Vector2.Distance(player.hitBoxPos, imbaku.hitboxPos) <= 800)
+            {
+                imbaku.speed = 0;
+            }
+
+            else
+            {
+                imbaku.speed = 100;
+            }
         }
 
 

@@ -577,3 +577,43 @@ C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\The
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.1.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\characterspritesheet1.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\cat sprite big2.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\characterspritesheet1.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\evilcat.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Floor Tile Big.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\rangecircle.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.1.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\square.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Top Tile Sheet Big.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big - Copy.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Wall Tile Sheet Big.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\hitboxpos.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.2.xnb
+C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.3.xnb
