@@ -30,6 +30,9 @@ namespace TheMaze
 
         private Random random;
 
+        protected float angle;
+        protected Vector2 origin;
+
         public Circle hitbox;
 
         protected Rectangle currentSourceRect, nextSourceRect;
@@ -54,6 +57,7 @@ namespace TheMaze
             frameSize = 128;
             random = new Random();
 
+            origin = new Vector2(0, 0);
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             nextSourceRect = currentSourceRect;
 
@@ -201,6 +205,8 @@ namespace TheMaze
                 frameSize = 0;
             }
         }
+
+        
     }
 }
 

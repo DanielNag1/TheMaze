@@ -12,6 +12,7 @@ namespace TheMaze
     {
 
         Rectangle fixedPos;
+        public Vector2 rotationDir;
 
         public Imbaku(Texture2D texture, Vector2 position, TileManager tileManager) : base(texture, position, tileManager)
         {
@@ -24,8 +25,6 @@ namespace TheMaze
 
             fixedPos = new Rectangle((int)position.X, (int)position.Y,
                         304 - ConstantValues.tileWidth, 462 - ConstantValues.tileHeight);
-
-
 
         }
 

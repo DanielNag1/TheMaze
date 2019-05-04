@@ -25,6 +25,7 @@ namespace TheMaze
 
         Stopwatch timer;
         Imbaku imbaku;
+        WallMonster wallMonster;
         public static MouseState mouse;
         public  Vector2 mousePos;
         public Rectangle mouseRect;
@@ -43,6 +44,7 @@ namespace TheMaze
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
             timer = new Stopwatch();
+            
 
             Game1.penumbra.Lights.Add(lights.spotLight);
             Game1.penumbra.Lights.Add(lights.playerLight);
@@ -76,9 +78,10 @@ namespace TheMaze
             SafeRoomInteraction();
 
             GlitchMonsterCollision();
-            //ImbakuCollision();
+            ImbakuCollision();
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
+            MonsterFacePlayer();
 
             //particleEngine.Update(gameTime);
             
@@ -292,8 +295,21 @@ namespace TheMaze
             {
                 imbaku.speed = 100;
             }
+            
         }
 
+        public void MonsterFacePlayer()
+        {
+            if (player.hitBoxPos.X > imbaku.hitboxPos.X)
+            {
+                imbaku.frameSize = 1;
+            }
+
+            else if (player.hitBoxPos.X < imbaku.hitboxPos.X)
+            {
+                imbaku.frameSize = 0;
+            }
+        }
 
 
     }
