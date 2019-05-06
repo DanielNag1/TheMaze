@@ -19,9 +19,15 @@ namespace TheMaze
 
         public LevelManager()
         {
+        }
+        public void ReadLiveMap()
+        {
             Tiles = GenerateMap("testbana.txt");
         }
-
+        public void ReadDeathMap()
+        {
+            Tiles = GenerateMap("deathbana.txt");
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (Tile t in Tiles)

@@ -14,12 +14,23 @@ namespace TheMaze
     {
         enum LevelState {Live,Death}
         LevelState currentState=LevelState.Live;
-        LevelManager levelManager;
+        LevelManager levelManager,deathManager;
         Player player;
         
         public GamePlayManager ()
         {
             levelManager = new LevelManager();
+            
+            switch (currentState)
+            {
+                case LevelState.Live:
+                    levelManager.ReadLiveMap();
+                    break;
+                case LevelState.Death:
+                    levelManager.ReadDeathMap();
+                    break;
+            }
+
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             
             X.player = player;
@@ -39,37 +50,53 @@ namespace TheMaze
         
         public void Update(GameTime gameTime)
         {
-            player.Collision(levelManager);
+                if (X.keyboardState.IsKeyDown(Keys.Enter) && X.oldkeyboardState.IsKeyUp(Keys.Enter))
+                {
+                    currentState = LevelState.Death;
+                }
+            
+            
             player.Update(gameTime);
-            Game1.penumbra.Transform = X.camera.Transform;
 
             switch (currentState)
             {
                 case LevelState.Live:
+                    Game1.penumbra.Transform = X.camera.Transform;
+                    player.Collision(levelManager);
                     break;
 
                 case LevelState.Death:
+                    deathManager = new LevelManager();
+                    deathManager.ReadDeathMap();
+
+                    player.Collision(deathManager);
+                    
                     break;
             }
         }
 
         public void Draw(SpriteBatch spriteBatch,GameTime gameTime)
         {
-            Game1.penumbra.BeginDraw();
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
-            levelManager.Draw(spriteBatch);
-            player.Draw(spriteBatch);
-            spriteBatch.End();
-            Game1.penumbra.Draw(gameTime);
-            spriteBatch.Begin();
-            spriteBatch.End();
-
+            
             switch (currentState)
             {
                 case LevelState.Live:
+                    Game1.penumbra.BeginDraw();
+                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
+                    levelManager.Draw(spriteBatch);
+                    player.Draw(spriteBatch);
+                    spriteBatch.End();
+                    Game1.penumbra.Draw(gameTime);
+                    spriteBatch.Begin();
+                    spriteBatch.End();
                     break;
                     
                 case LevelState.Death:
+                    spriteBatch.End();
+                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
+                    deathManager.Draw(spriteBatch);
+                    player.Draw(spriteBatch);
+                    spriteBatch.End();
                     break;
             }
         }

@@ -26,6 +26,7 @@ namespace TheMaze
         {
             X.Update(gameTime);
             PauseGame(gameTime);
+
             switch(currentGameState)
             {
                 case GameState.Play:

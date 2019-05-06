@@ -4,11 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>E:/TheMaze/theMaze/TheMaze/Content/red.png</File>
-    <File>E:/TheMaze/theMaze/TheMaze/Content/floor tile 2.png</File>
-    <File>E:/TheMaze/theMaze/TheMaze/Content/top tile sprite 2.png</File>
-    <File>E:/TheMaze/theMaze/TheMaze/Content/wall tile 2.png</File>
-    <File>E:/TheMaze/theMaze/TheMaze/Content/characterspritesheet1.png</File>
-    <File>E:/TheMaze/theMaze/TheMaze/Content/pauseScreen.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/red.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/top tile sprite 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wall tile 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/characterspritesheet1.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/pauseScreen.png</File>
   </SourceFiles>
 </SourceFileCollection>

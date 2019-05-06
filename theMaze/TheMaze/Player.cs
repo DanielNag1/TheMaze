@@ -44,6 +44,7 @@ namespace TheMaze
         public List<Weapon> weapons;
         public static Color selectedColor;
 
+        
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
             playerLights = new List<Light>();
@@ -97,6 +98,7 @@ namespace TheMaze
 
             UpdateLights();
             PowerDrain(gameTime);
+
         }
 
         public override void Draw(SpriteBatch spriteBatch)
