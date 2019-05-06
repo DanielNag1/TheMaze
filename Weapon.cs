@@ -11,13 +11,19 @@ namespace TheMaze
 {
     public class Weapon
     {
-        Color color;
-        float Power;
-        int r, g, b;
+        public Color color;
+        public float power;
+        public int r, g, b;
+        public bool enabled;
 
         public Weapon()
         {
+            r = 0;
+            g = 0;
+            b = 0;
             color = new Color(r, g, b);
+            power = .9f;
+            enabled = false;
         }
     }
 }

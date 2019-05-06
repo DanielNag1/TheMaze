@@ -4,11 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>c:/users/spellabb2018/source/repos/TheMaze/TheMaze/Content/red.png</File>
-    <File>c:/users/spellabb2018/source/repos/TheMaze/TheMaze/Content/floor tile 2.png</File>
-    <File>c:/users/spellabb2018/source/repos/TheMaze/TheMaze/Content/top tile sprite 2.png</File>
-    <File>c:/users/spellabb2018/source/repos/TheMaze/TheMaze/Content/wall tile 2.png</File>
-    <File>c:/users/spellabb2018/source/repos/TheMaze/TheMaze/Content/characterspritesheet1.png</File>
-    <File>c:/users/spellabb2018/source/repos/TheMaze/TheMaze/Content/pauseScreen.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/TheMaze/Content/red.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/TheMaze/Content/floor tile 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/TheMaze/Content/top tile sprite 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/TheMaze/Content/wall tile 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/TheMaze/Content/characterspritesheet1.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/TheMaze/Content/pauseScreen.png</File>
   </SourceFiles>
 </SourceFileCollection>
