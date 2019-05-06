@@ -10,10 +10,18 @@ namespace TheMaze
     class SFX
     {
         enum PlayState { playStep1, playStep2}
-        PlayState playState = PlayState.playStep1;
+        PlayState playState;
 
-        public SoundEffectInstance step1 = SoundManager.step1.CreateInstance();
-        public SoundEffectInstance step2 = SoundManager.step2.CreateInstance();
+        private SoundEffectInstance step1;
+        private SoundEffectInstance step2;
+
+        public SFX()
+        {
+            playState = PlayState.playStep1;
+
+            step1 = SoundManager.step1.CreateInstance();
+            step2 = SoundManager.step2.CreateInstance();
+        }
 
         public void Walking()
         {

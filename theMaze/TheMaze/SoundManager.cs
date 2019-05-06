@@ -14,6 +14,8 @@ namespace TheMaze
         public static SoundEffect step1 { get; private set; }
         public static SoundEffect step2 { get; private set; }
 
+        public static Song 
+
         public static void LoadContent(ContentManager content)
         {
             step1 = content.Load<SoundEffect>("Audio/SFX/step1");
