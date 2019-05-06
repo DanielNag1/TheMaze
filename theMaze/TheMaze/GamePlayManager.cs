@@ -316,7 +316,7 @@ namespace TheMaze
 
         public void WallMonsterCollision()
         {
-            if (player.Hitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.active)
+            if (player.middleHitbox.Intersects(wallMonster.hitBoxRect))
             {
                 player.moving = false;
                 wallMonster.active = true;

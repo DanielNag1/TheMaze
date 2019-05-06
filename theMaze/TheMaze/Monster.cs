@@ -60,6 +60,8 @@ namespace TheMaze
             origin = new Vector2(0, 0);
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             nextSourceRect = currentSourceRect;
+            hitboxPos = position + new Vector2(65, 55);
+            hitbox = new Circle(hitboxPos, 50f);
 
             colorFade = new Color(100, 100, 100, 100);
         }

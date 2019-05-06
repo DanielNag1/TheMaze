@@ -15,8 +15,10 @@ namespace TheMaze
         public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
         public Vector2 hitBoxPos;
+        public Rectangle middleHitbox;
 
         private Rectangle hitbox;
+
         public Rectangle Hitbox
         {
             get { return hitbox; }
@@ -44,18 +46,23 @@ namespace TheMaze
             currentSourceRect = new Rectangle(0, 0, frameSizeX, frameSizeY);
             nextSourceRect = currentSourceRect;
 
+
+
             hitboxOffsetX = frameSizeX / 8;
             hitboxOffsetY = frameSizeY / 4 * 3;
             hitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
-            oldPosition = position;
+
+            middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width/8, currentSourceRect.Height);
+                oldPosition = position;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY),
                 currentSourceRect, Color.White);
+            spriteBatch.Draw(TextureManager.hitboxPosTex, middleHitbox, Color.Red);
         }
-        
+
         public void Update(GameTime gameTime)
         {
             if (moving)
@@ -91,6 +98,8 @@ namespace TheMaze
             }
 
             hitBoxPos = position + new Vector2(frameSizeX / 2, frameSizeY / 2);
+            middleHitbox.X = (int)position.X + hitbox.Width/2;
+            middleHitbox.Y = (int)position.Y;
         }
 
         private void PlayerInput()
