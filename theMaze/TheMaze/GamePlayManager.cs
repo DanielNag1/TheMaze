@@ -80,9 +80,10 @@ namespace TheMaze
 
             GlitchMonsterCollision();
             ImbakuCollision();
+            WallMonsterCollision();
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
-            MonsterFacePlayer();
+            ImbakuFacePlayer();
 
             //particleEngine.Update(gameTime);
             
@@ -283,7 +284,7 @@ namespace TheMaze
                 }
             }
 
-            //Console.WriteLine(Vector2.Distance(player.Position, glitchMonster.hitboxPos));
+            
         }
 
         public void ImbakuCollision()
@@ -300,7 +301,7 @@ namespace TheMaze
             
         }
 
-        public void MonsterFacePlayer()
+        public void ImbakuFacePlayer()
         {
             if (player.hitBoxPos.X > imbaku.hitboxPos.X)
             {
@@ -311,6 +312,23 @@ namespace TheMaze
             {
                 imbaku.frameSize = 0;
             }
+        }
+
+        public void WallMonsterCollision()
+        {
+            if (player.Hitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.active)
+            {
+                player.moving = false;
+                wallMonster.active = true;
+            }
+
+            if (lights.attackhitbox.Intersects(wallMonster.hitbox) && wallMonster.active)
+            {
+                player.moving = true;
+
+            }
+
+
         }
 
 

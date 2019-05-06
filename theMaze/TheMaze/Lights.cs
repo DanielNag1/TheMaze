@@ -20,7 +20,7 @@ namespace TheMaze
         public bool isQPressed = false;
 
         Camera camera;
-        Circle attackhitbox;
+        public Circle attackhitbox;
         public Color weaponColor;
         public int r, g, b;
         float scaleX;

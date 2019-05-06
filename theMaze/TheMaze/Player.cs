@@ -31,7 +31,7 @@ namespace TheMaze
         private double timer = 100, timeIntervall = 100;
 
         private float speed = 3f;
-        private bool moving = false;
+        public bool moving = false;
         public bool isInverse = false;
 
         public static Vector2 ReturnPosition(Vector2 position)
