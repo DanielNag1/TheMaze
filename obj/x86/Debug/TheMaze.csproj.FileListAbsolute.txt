@@ -1,0 +1,33 @@
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\Content\red.xnb
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\Content\floor tile 2.xnb
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\Content\top tile sprite 2.xnb
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tile 2.xnb
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\Content\characterspritesheet1.xnb
+c:\users\spellabb2018\source\repos\TheMaze\TheMaze\bin\Windows\x86\Debug\Content\pauseScreen.xnb
