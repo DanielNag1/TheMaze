@@ -12,6 +12,6 @@ namespace TheMaze
         public static readonly int tileHeight = 128;
         public static readonly int screenWidth = 1920;
         public static readonly int screenHeight = 1080;
-        public static readonly int tileFrameSize = 128;
+        public static readonly int tileFrameSize = 200;
     }
 }

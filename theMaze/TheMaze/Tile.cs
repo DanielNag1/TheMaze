@@ -167,13 +167,13 @@ namespace TheMaze
                 case 'H':
                     {
                         texture = TextureManager.WallSheetTex;
-                        sourceRect = new Rectangle(3 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
                         break;
                     }
                 case 'B':
                     {
                         texture = TextureManager.WallSheetTex;
-                        sourceRect = new Rectangle(3 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
                         break;
                     }
                 case 'l':
@@ -191,25 +191,25 @@ namespace TheMaze
                 case 'i':
                     {
                         texture = TextureManager.WallSheetTex;
-                        sourceRect = new Rectangle(2 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
                         break;
                     }
                 case 'I':
                     {
                         texture = TextureManager.WallSheetTex;
-                        sourceRect = new Rectangle(2 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
                         break;
                     }
                 case 'j':
                     {
                         texture = TextureManager.WallSheetTex;
-                        sourceRect = new Rectangle(1 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
                         break;
                     }
                 case 'J':
                     {
                         texture = TextureManager.WallSheetTex;
-                        sourceRect = new Rectangle(1 * frameSize, 1 * frameSize, frameSize, frameSize);
+                        sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
                         break;
                     }
                 default:

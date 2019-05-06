@@ -28,9 +28,9 @@ namespace TheMaze
             Monster2Tex = Content.Load<Texture2D>("spritesheet1.3");
             FlareTex = Content.Load<Texture2D>("Flare5_00000");
             rangeTex = Content.Load<Texture2D>("rangecircle");
-            FloorTileTex = Content.Load<Texture2D>("Floor Tile Big");
-            WallSheetTex = Content.Load<Texture2D>("Wall Tile Sheet Big - Copy");
-            TopWallSheetTex = Content.Load<Texture2D>("Top Tile Sheet Big");
+            FloorTileTex = Content.Load<Texture2D>("floor tile 2");
+            WallSheetTex = Content.Load<Texture2D>("wall tile 2");
+            TopWallSheetTex = Content.Load<Texture2D>("top tile sprite 2");
             hitboxPosTex = Content.Load<Texture2D>("hitboxpos");
             
             particleTextures.Add(Content.Load<Texture2D>("particle2"));
