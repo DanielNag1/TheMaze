@@ -41,7 +41,7 @@ namespace TheMaze
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             glitchMonster = new GlitchMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
-            armMonster = new ArmMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
+            armMonster = new ArmMonster(TextureManager.MonsterTex, tileManager.StartPositionArmMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
@@ -77,10 +77,13 @@ namespace TheMaze
             saferoom.Update(gameTime);
             imbaku.Update(gameTime);
             glitchMonster.Update(gameTime);
+            armMonster.Update(gameTime);
             SafeRoomInteraction();
+            armMonster.Cooldown(gameTime);
 
             GlitchMonsterCollision();
             ImbakuCollision();
+            ArmMonsterAcivation();
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
             MonsterFacePlayer();
@@ -103,6 +106,7 @@ namespace TheMaze
             //monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
             glitchMonster.Draw(spriteBatch);
+            armMonster.Draw(spriteBatch);
             player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
             spriteBatch.End();
@@ -257,6 +261,15 @@ namespace TheMaze
                 
             }
         }
+
+        public void ArmMonsterAcivation()
+        {
+            if (Vector2.Distance(player.hitBoxPos, armMonster.hitboxSpawnPos) <= 200)
+            {
+                armMonster.Activating();
+            }
+        }
+
         public void GlitchMonsterCollision()
         {
             if (Vector2.Distance(player.hitBoxPos, glitchMonster.hitboxPos) <= 200)
