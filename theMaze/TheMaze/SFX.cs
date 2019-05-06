@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Audio;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,40 +10,77 @@ namespace TheMaze
 {
     class SFX
     {
-        enum PlayState { playStep1, playStep2}
+        enum PlayState { Step1, Step2 }
         PlayState playState;
 
         private SoundEffectInstance step1;
         private SoundEffectInstance step2;
 
+        double stepTimer;
+        bool startStepTimer, playStep1, playStep2;
+
         public SFX()
         {
-            playState = PlayState.playStep1;
+            playState = PlayState.Step1;
 
             step1 = SoundManager.step1.CreateInstance();
             step2 = SoundManager.step2.CreateInstance();
+
+            stepTimer = 1000;
+
+            startStepTimer = false;
+            playStep1 = true;
+            playStep2 = false;
         }
 
-        public void Walking()
+        public void Footsteps(GameTime gameTime)
         {
-            switch (playState)
+            switch (playState)                 //efter andra steget så tar det tre sekunder att spela upp första steget igen
             {
-                case PlayState.playStep1:
+                case PlayState.Step1:
                     {
-                        if (step1.State == SoundState.Stopped && step2.State == SoundState.Stopped)
+                        if (playStep1)
                         {
                             step1.Play();
-                            playState = PlayState.playStep2;
+
+                            playStep1 = false;
+                            startStepTimer = true;
+                        }
+
+                        if (startStepTimer)
+                        {
+                            stepTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                            if (stepTimer <= 0)
+                            {
+                                startStepTimer = false;
+                                stepTimer = 1000;
+                                playStep2 = true;
+                                playState = PlayState.Step2;
+                            }
                         }
 
                         break;
                     }
-                case PlayState.playStep2:
+                case PlayState.Step2:
                     {
-                        if (step1.State == SoundState.Stopped && step2.State == SoundState.Stopped)
+                        if (playStep2)
                         {
                             step2.Play();
-                            playState = PlayState.playStep1;
+
+                            playStep2 = false;
+                            startStepTimer = true;
+                        }
+
+                        if (startStepTimer)
+                        {
+                            stepTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+                            if (stepTimer <= 0)
+                            {
+                                startStepTimer = false;
+                                stepTimer = 1000;
+                                playStep1 = true;
+                                playState = PlayState.Step1;
+                            }
                         }
 
                         break;

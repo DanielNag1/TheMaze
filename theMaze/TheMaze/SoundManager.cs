@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,9 @@ namespace TheMaze
 {
     public static class SoundManager
     {
-        public static SoundEffect SafeRoomBGM { get; private set; }
+        public static Song SafeRoomBGM { get; private set; }
         public static SoundEffect step1 { get; private set; }
         public static SoundEffect step2 { get; private set; }
-
-        public static Song 
 
         public static void LoadContent(ContentManager content)
         {

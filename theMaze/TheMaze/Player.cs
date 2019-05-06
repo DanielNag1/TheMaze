@@ -75,7 +75,7 @@ namespace TheMaze
                     currentSourceRect.X = frame * frameSizeX;
                 }
 
-                sfx.Walking();
+                sfx.Footsteps(gameTime);
 
                 PlayerInput();
 

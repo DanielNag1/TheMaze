@@ -589,3 +589,5 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet1.1.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step1.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step2.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step1.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step2.xnb
