@@ -25,7 +25,7 @@ namespace TheMaze
         {
             CatTex = Content.Load<Texture2D>("characterspritesheet1");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
-            Monster2Tex = Content.Load<Texture2D>("spritesheet1.3");
+            Monster2Tex = Content.Load<Texture2D>("spritesheet1.4");
             FlareTex = Content.Load<Texture2D>("Flare5_00000");
             rangeTex = Content.Load<Texture2D>("rangecircle");
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");

@@ -206,6 +206,11 @@ namespace TheMaze
             {
                 frameSize = 0;
             }
+
+            if (Direction == Down)
+            {
+                frameSize = 2;
+            }
         }
 
         

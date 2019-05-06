@@ -24,7 +24,7 @@ namespace TheMaze
             hitBoxRect = new Rectangle((int)position.X+ConstantValues.tileWidth/2, (int)position.Y+ConstantValues.tileHeight*2, ConstantValues.tileWidth/8, ConstantValues.tileHeight);
             active = false;
             coolDownTimer = new Stopwatch();
-            hitbox = 
+            
             
         }
 
