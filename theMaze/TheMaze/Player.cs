@@ -60,7 +60,7 @@ namespace TheMaze
         {
             spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY),
                 currentSourceRect, Color.White);
-            spriteBatch.Draw(TextureManager.hitboxPosTex, middleHitbox, Color.Red);
+            //spriteBatch.Draw(TextureManager.hitboxPosTex, middleHitbox, Color.Red);
         }
 
         public void Update(GameTime gameTime)

@@ -38,7 +38,7 @@ namespace TheMaze
             TextureManager.LoadContent(Content);
             
             gameManager = new GamePlayManager(GraphicsDevice);
-            penumbra.AmbientColor = Color.White;
+            penumbra.AmbientColor = Color.Black;
         }
 
         protected override void UnloadContent()

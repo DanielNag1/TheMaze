@@ -20,21 +20,21 @@ namespace TheMaze
         Lights lights;
         Camera camera;
         Circle attackhitbox;
-        ParticleEngine particleEngine,particleEngine2;
+        ParticleEngine particleEngine, particleEngine2;
         Random random;
 
         Stopwatch timer;
         Imbaku imbaku;
         WallMonster wallMonster;
         public static MouseState mouse;
-        public  Vector2 mousePos;
+        public Vector2 mousePos;
         public Rectangle mouseRect;
         Color selectedColor;
         public bool isMouseVisible;
 
         public GamePlayManager(GraphicsDevice graphicsDevice)
         {
-            
+
             tileManager = new TileManager();
             player = new Player(TextureManager.CatTex, tileManager.StartPositionPlayer);
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
@@ -45,7 +45,7 @@ namespace TheMaze
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
             timer = new Stopwatch();
-            
+
 
             Game1.penumbra.Lights.Add(lights.spotLight);
             Game1.penumbra.Lights.Add(lights.playerLight);
@@ -58,7 +58,7 @@ namespace TheMaze
 
             Game1.penumbra.Transform = camera.Transform;
             attackhitbox = new Circle(lights.worldMouse, 40f);
-            
+
             foreach (Tile t in tileManager.Tiles)
             {
                 if (t.IsHull == true)
@@ -66,7 +66,7 @@ namespace TheMaze
                     Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
                 }
             }
-            
+
         }
 
         public void Update(GameTime gameTime)
@@ -76,6 +76,7 @@ namespace TheMaze
             saferoom.Update(gameTime);
             imbaku.Update(gameTime);
             glitchMonster.Update(gameTime);
+            wallMonster.Update(gameTime);
             SafeRoomInteraction();
 
             GlitchMonsterCollision();
@@ -85,12 +86,13 @@ namespace TheMaze
             MonsterLightCollision(gameTime);
             ImbakuFacePlayer();
 
+
             //particleEngine.Update(gameTime);
-            
+
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update(gameTime);
-            
+
 
         }
 
@@ -116,7 +118,7 @@ namespace TheMaze
             { spriteBatch.Draw(TextureManager.FlareTex, lights.lampPos, Color.White); }
 
             lights.DrawHitBox(spriteBatch);
-            spriteBatch.Draw(TextureManager.FlareTex,mouseRect,Color.White);
+            spriteBatch.Draw(TextureManager.FlareTex, mouseRect, Color.White);
             spriteBatch.End();
         }
 
@@ -125,7 +127,7 @@ namespace TheMaze
             if (lights.CollisionWithLight(monster.hitbox))
             {
                 int x = random.Next(0, 3);
-                if(x==1 && monster.isAlive)
+                if (x == 1 && monster.isAlive)
                 {
                     //particleEngine.EmitterLocation = monster.hitboxPos;
                 }
@@ -156,7 +158,7 @@ namespace TheMaze
 
         public void SafeRoomInteraction()
         {
-            
+
             if (player.Hitbox.Intersects(saferoom.rectangle))
             {
                 isMouseVisible = true;
@@ -188,7 +190,7 @@ namespace TheMaze
                 selectedColor = Color.Red;
 
                 {
-                    if(Keyboard.GetState().IsKeyDown(Keys.D2))
+                    if (Keyboard.GetState().IsKeyDown(Keys.D2))
                     {
                         lights.weapon2.Color = selectedColor;
                         lights.playerLight.Color = selectedColor;
@@ -207,7 +209,7 @@ namespace TheMaze
                         lights.playerLight.Enabled = true;
                     }
                 }
-                
+
 
             }
             if (lights.mouseRect.Intersects(saferoom.attackLight2rectangle))
@@ -236,7 +238,7 @@ namespace TheMaze
             if (lights.mouseRect.Intersects(saferoom.attackLight3rectangle))
             {
                 selectedColor = Color.Green;
-                
+
                 if (Keyboard.GetState().IsKeyDown(Keys.D2))
                 {
                     lights.weapon2.Color = selectedColor;
@@ -255,7 +257,7 @@ namespace TheMaze
                     lights.playerLight.Color = selectedColor;
                     lights.playerLight.Enabled = true;
                 }
-                
+
             }
         }
         public void GlitchMonsterCollision()
@@ -284,7 +286,7 @@ namespace TheMaze
                 }
             }
 
-            
+
         }
 
         public void ImbakuCollision()
@@ -298,7 +300,7 @@ namespace TheMaze
             {
                 imbaku.speed = 100;
             }
-            
+
         }
 
         public void ImbakuFacePlayer()
@@ -316,17 +318,26 @@ namespace TheMaze
 
         public void WallMonsterCollision()
         {
-            if (player.middleHitbox.Intersects(wallMonster.hitBoxRect))
+            if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
+            {
+                wallMonster.active = true;
+                
+            }
+
+            if (wallMonster.active)
             {
                 player.moving = false;
-                wallMonster.active = true;
+                
             }
 
             if (lights.attackhitbox.Intersects(wallMonster.hitbox) && wallMonster.active)
             {
-                player.moving = true;
-
+                wallMonster.coolDown = true;
             }
+
+            
+
+            
 
 
         }
