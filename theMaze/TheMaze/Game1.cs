@@ -35,6 +35,7 @@ namespace TheMaze
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            SoundManager.LoadContent(Content);
             TextureManager.LoadContent(Content);
             
             gameManager = new GamePlayManager(GraphicsDevice);

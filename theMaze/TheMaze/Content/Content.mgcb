@@ -13,12 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Audio/SFX/walking.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/SFX/walking.wav
-
 #begin cat sprite big2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -162,4 +156,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Wall Tile Sheet Big.png
+
+#begin Audio/SFX/step1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step1.wav
+
+#begin Audio/SFX/step2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step2.wav
 

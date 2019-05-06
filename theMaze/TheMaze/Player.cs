@@ -12,6 +12,8 @@ namespace TheMaze
 {
     public class Player : GameObject
     {
+        private SFX sfx;
+
         public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
 
@@ -38,6 +40,7 @@ namespace TheMaze
         }
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
+            sfx = new SFX();
 
             currentSourceRect = new Rectangle(0, 0, frameSizeX, frameSizeY);
             nextSourceRect = currentSourceRect;
@@ -57,6 +60,7 @@ namespace TheMaze
         
         public void Update(GameTime gameTime)
         {
+            SoundManager.step1.Play();
             if (moving)
             {
                 //timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -71,6 +75,7 @@ namespace TheMaze
                     }
                     currentSourceRect.X = frame * frameSizeX;
                 }
+                sfx.Walking();
 
                 PlayerInput();
 

@@ -10,14 +10,14 @@ namespace TheMaze
 {
     public static class SoundManager
     {
-        public static SoundEffect StepsSFX { get; private set; }
         public static SoundEffect SafeRoomBGM { get; private set; }
-
+        public static SoundEffect step1 { get; private set; }
+        public static SoundEffect step2 { get; private set; }
 
         public static void LoadContent(ContentManager content)
         {
-            StepsSFX = content.Load<SoundEffect>("walking");
-
+            step1 = content.Load<SoundEffect>("Audio/SFX/step1");
+            step2 = content.Load<SoundEffect>("Audio/SFX/step2");
 
         }
 
