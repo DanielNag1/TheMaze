@@ -14,7 +14,8 @@ namespace TheMaze
         public Tile[,] Tiles { get; private set; }
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionMonster { get; private set; }
-        public Vector2 StartPositionWallMonster { get; private set; }
+        public List<WallMonster> wallMonsters;
+        public WallMonster wallMonster;
 
 
         public TileManager()
@@ -59,7 +60,7 @@ namespace TheMaze
 
                     if (mapData[y][x] == '4')
                     {
-                        StartPositionWallMonster = tilePosition;
+                         wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition, );
                     }
                     
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);

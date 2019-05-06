@@ -26,8 +26,7 @@ namespace TheMaze
         Stopwatch timer;
         Imbaku imbaku;
         WallMonster wallMonster;
-        public static MouseState mouse;
-        public Vector2 mousePos;
+        
         public Rectangle mouseRect;
         Color selectedColor;
         public bool isMouseVisible;
@@ -40,7 +39,7 @@ namespace TheMaze
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             glitchMonster = new GlitchMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
-            wallMonster = new WallMonster(TextureManager.MonsterTex, tileManager.StartPositionWallMonster, tileManager);
+            
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
@@ -81,7 +80,7 @@ namespace TheMaze
 
             GlitchMonsterCollision();
             ImbakuCollision();
-            WallMonsterCollision();
+            //WallMonsterCollision();
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
             ImbakuFacePlayer();
@@ -321,23 +320,31 @@ namespace TheMaze
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
             {
                 wallMonster.active = true;
-                
+
             }
 
             if (wallMonster.active)
             {
                 player.moving = false;
-                
+
             }
 
             if (lights.attackhitbox.Intersects(wallMonster.hitbox) && wallMonster.active)
             {
-                wallMonster.coolDown = true;
+                
+                timer.Start();
+
+                if (timer.ElapsedMilliseconds >= 3000)
+                {
+                    wallMonster.coolDown = true;
+                    timer.Reset();
+                }
+
             }
 
-            
 
-            
+
+
 
 
         }
