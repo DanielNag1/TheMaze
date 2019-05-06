@@ -9,19 +9,36 @@ namespace TheMaze
 {
     class SFX
     {
-        public SoundEffectInstance step1, step2;
+        enum PlayState { playStep1, playStep2}
+        PlayState playState = PlayState.playStep1;
 
-        public SFX()
-        {
-            step1 = SoundManager.step1.CreateInstance();
-            step2 = SoundManager.step1.CreateInstance();
-        }
+        public SoundEffectInstance step1 = SoundManager.step1.CreateInstance();
+        public SoundEffectInstance step2 = SoundManager.step2.CreateInstance();
 
         public void Walking()
         {
-            if (step1.State == SoundState.Stopped)
+            switch (playState)
             {
-                step1.Play();
+                case PlayState.playStep1:
+                    {
+                        if (step1.State == SoundState.Stopped && step2.State == SoundState.Stopped)
+                        {
+                            step1.Play();
+                            playState = PlayState.playStep2;
+                        }
+
+                        break;
+                    }
+                case PlayState.playStep2:
+                    {
+                        if (step1.State == SoundState.Stopped && step2.State == SoundState.Stopped)
+                        {
+                            step2.Play();
+                            playState = PlayState.playStep1;
+                        }
+
+                        break;
+                    }
             }
         }
     }

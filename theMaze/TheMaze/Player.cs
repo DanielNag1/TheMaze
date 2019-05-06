@@ -60,7 +60,6 @@ namespace TheMaze
         
         public void Update(GameTime gameTime)
         {
-            SoundManager.step1.Play();
             if (moving)
             {
                 //timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -75,6 +74,7 @@ namespace TheMaze
                     }
                     currentSourceRect.X = frame * frameSizeX;
                 }
+
                 sfx.Walking();
 
                 PlayerInput();
