@@ -22,6 +22,7 @@ namespace TheMaze
         Circle attackhitbox;
         ParticleEngine particleEngine,particleEngine2;
         Random random;
+        Button testButton;
 
         Stopwatch timer;
         Imbaku imbaku;
@@ -45,7 +46,7 @@ namespace TheMaze
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
             timer = new Stopwatch();
-            
+            testButton = new Button(TextureManager.testButtonTex, new Vector2(200, 200) );
 
             Game1.penumbra.Lights.Add(lights.spotLight);
             Game1.penumbra.Lights.Add(lights.playerLight);
@@ -90,8 +91,8 @@ namespace TheMaze
             camera.SetPosition(player.Position);
             Game1.penumbra.Transform = camera.Transform;
             lights.Update(gameTime);
-            
 
+            TestButton();
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -117,6 +118,12 @@ namespace TheMaze
 
             lights.DrawHitBox(spriteBatch);
             spriteBatch.Draw(TextureManager.FlareTex,mouseRect,Color.White);
+            spriteBatch.End();
+
+
+            //Alla knappar ritas ut like dis
+            spriteBatch.Begin();
+            //testButton.Draw(spriteBatch); //TESTKNAPP
             spriteBatch.End();
         }
 
@@ -331,6 +338,12 @@ namespace TheMaze
 
         }
 
-
+        public void TestButton()
+        {
+            if (testButton.IsClicked())
+            {
+                testButton.color = Color.Blue;
+            }
+        }
     }
 }

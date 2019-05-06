@@ -10,9 +10,9 @@ namespace TheMaze
 {
     public class Camera
     {
-        private Matrix transform; //håller en transformation från position i "spelvärden" till position i fönstret;
+        private Matrix transform; //håller en transformation från position i "spelvärlden" till position i fönstret;
         private Vector2 position; //spelarens position
-        private Viewport view; //kamera vyn, (det som hela spelrutan visar?)
+        public Viewport view; //kamera vyn, (det som hela spelrutan visar?)
         private Vector2 Zoom = new Vector2(1f,1.5f);
 
         public Matrix Transform
