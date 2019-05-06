@@ -16,14 +16,12 @@ namespace TheMaze
         LevelState currentState=LevelState.Live;
         LevelManager levelManager;
         Player player;
-        Lights lights;
-
+        
         public GamePlayManager ()
         {
             levelManager = new LevelManager();
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
-            lights = new Lights();
-
+            
             X.player = player;
             X.LoadCamera();
             Game1.penumbra.Initialize();
@@ -48,7 +46,6 @@ namespace TheMaze
             switch (currentState)
             {
                 case LevelState.Live:
-                    lights.Update(gameTime);
                     break;
 
                 case LevelState.Death:
