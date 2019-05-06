@@ -40,6 +40,7 @@ namespace TheMaze
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             glitchMonster = new GlitchMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
+            wallMonster = new WallMonster(TextureManager.MonsterTex, tileManager.StartPositionWallMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             saferoom = new Saferoom();
@@ -101,6 +102,7 @@ namespace TheMaze
             //monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
             glitchMonster.Draw(spriteBatch);
+            wallMonster.Draw(spriteBatch);
             player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
             spriteBatch.End();

@@ -8,27 +8,23 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    public class WallMonster
+    public class WallMonster:Monster
     {
-        public Texture2D texture;
-        public Color color;
-        public Rectangle destinationRectangle;
 
-        public WallMonster(Texture2D texture)
+        public WallMonster(Texture2D texture, Vector2 position, TileManager tileManager):base(texture,position,tileManager)
         {
-            this.texture = texture;
-            color = Color.White;
+            
             
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture,destinationRectangle, color);
+            base.Draw(spriteBatch);
         }
 
 

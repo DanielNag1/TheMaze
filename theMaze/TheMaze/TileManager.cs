@@ -14,7 +14,9 @@ namespace TheMaze
         public Tile[,] Tiles { get; private set; }
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionMonster { get; private set; }
-        
+        public Vector2 StartPositionWallMonster { get; private set; }
+
+
         public TileManager()
         {
             Tiles = GenerateMap("testbana.txt");
@@ -55,6 +57,10 @@ namespace TheMaze
                         StartPositionMonster = tilePosition;
                     }
 
+                    if (mapData[y][x] == '4')
+                    {
+                        StartPositionWallMonster = tilePosition;
+                    }
                     
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }

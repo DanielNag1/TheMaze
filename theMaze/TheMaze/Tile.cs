@@ -212,6 +212,12 @@ namespace TheMaze
                         sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
                         break;
                     }
+                case '4':
+                    {
+                        texture = TextureManager.WallSheetTex;
+                        sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        break;
+                    }
                 default:
                     {
                         texture = TextureManager.FloorTileTex;
