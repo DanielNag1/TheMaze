@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.1.png</SourceFile>
-  <SourceTime>2019-05-03T20:06:36.3098241+02:00</SourceTime>
-  <DestFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/spritesheet1.1.xnb</DestFile>
-  <DestTime>2019-05-03T20:06:41.4511976+02:00</DestTime>
+  <SourceFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.1.png</SourceFile>
+  <SourceTime>2019-05-06T02:11:49.3154069+02:00</SourceTime>
+  <DestFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/spritesheet1.1.xnb</DestFile>
+  <DestTime>2019-05-06T02:12:57.9375215+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

@@ -17,6 +17,7 @@ namespace TheMaze
         Player player;
         Saferoom saferoom;
         Monster monster, glitchMonster;
+        ArmMonster armMonster;
         Lights lights;
         Camera camera;
         Circle attackhitbox;
@@ -40,6 +41,7 @@ namespace TheMaze
             monster = new Monster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             imbaku = new Imbaku(TextureManager.Monster2Tex, tileManager.StartPositionMonster, tileManager);
             glitchMonster = new GlitchMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
+            armMonster = new ArmMonster(TextureManager.MonsterTex, tileManager.StartPositionMonster, tileManager);
             camera = new Camera(Game1.graphics.GraphicsDevice.Viewport);
             lights = new Lights(player, camera);
             saferoom = new Saferoom();

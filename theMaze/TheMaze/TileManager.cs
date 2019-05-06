@@ -14,6 +14,7 @@ namespace TheMaze
         public Tile[,] Tiles { get; private set; }
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionMonster { get; private set; }
+        public Vector2 StartPositionArmMonster { get; private set; }
         
         public TileManager()
         {
@@ -54,8 +55,12 @@ namespace TheMaze
                     {
                         StartPositionMonster = tilePosition;
                     }
+                    if (mapData[y][x] == '3')
+                    {
+                        StartPositionArmMonster = tilePosition;
+                    }
 
-                    
+
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }
             }
