@@ -14,6 +14,7 @@ namespace TheMaze
         public Tile[,] Tiles { get; private set; }
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionMonster { get; private set; }
+        public Vector2 WallMonsterPos { get; private set; }
         public List<WallMonster> wallMonsters;
         public WallMonster wallMonster;
 
@@ -39,7 +40,7 @@ namespace TheMaze
         private Tile[,] GenerateMap(string map)
         {
             string[] mapData = File.ReadAllLines(map);
-
+            wallMonsters = new List<WallMonster>();
             int width = mapData[0].Length;
             int height = mapData.Length;
             Tile[,] tiles = new Tile[width, height];
@@ -60,7 +61,7 @@ namespace TheMaze
 
                     if (mapData[y][x] == '4')
                     {
-                         wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
+                        wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
                     }
                     

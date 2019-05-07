@@ -75,12 +75,18 @@ namespace TheMaze
             saferoom.Update(gameTime);
             imbaku.Update(gameTime);
             glitchMonster.Update(gameTime);
-            wallMonster.Update(gameTime);
+
+
+            foreach (WallMonster wM in tileManager.wallMonsters)
+            {
+                wM.Update(gameTime);
+                WallMonsterCollision(wM);
+            }
+            
             SafeRoomInteraction();
 
             GlitchMonsterCollision();
             ImbakuCollision();
-            //WallMonsterCollision();
             monster.Update(gameTime);
             MonsterLightCollision(gameTime);
             //ImbakuFacePlayer();
@@ -105,8 +111,11 @@ namespace TheMaze
             imbaku.Draw(spriteBatch);
             glitchMonster.Draw(spriteBatch);
 
+            foreach (WallMonster wM in tileManager.wallMonsters)
+            {
+                wM.Draw(spriteBatch);
+            }
             
-            wallMonster.Draw(spriteBatch);
             player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
             spriteBatch.End();
@@ -322,7 +331,7 @@ namespace TheMaze
             }
         }
 
-        public void WallMonsterCollision()
+        public void WallMonsterCollision(WallMonster wallMonster)
         {
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
             {
