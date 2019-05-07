@@ -46,6 +46,10 @@ namespace TheMaze
         public List<Weapon> weapons;
         public static Color selectedColor;
 
+        public void SetPosition(Vector2 newPosition)
+        {
+            position = newPosition;
+        }
         
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {

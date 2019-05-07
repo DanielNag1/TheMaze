@@ -20,16 +20,19 @@ namespace TheMaze
         public GamePlayManager ()
         {
             levelManager = new LevelManager();
-            
-            switch (currentState)
-            {
-                case LevelState.Live:
-                    levelManager.ReadLiveMap();
-                    break;
-                case LevelState.Death:
-                    levelManager.ReadDeathMap();
-                    break;
-            }
+            levelManager.ReadLiveMap();
+            deathManager = new LevelManager(); //detta var del av problemet - deathManager inte skapad
+            deathManager.ReadDeathMap();
+
+            //switch (currentState)
+            //{
+            //    case LevelState.Live:
+            //        levelManager.ReadLiveMap();
+            //        break;
+            //    case LevelState.Death:
+            //        deathManager.ReadDeathMap();
+            //        break;
+            //}
 
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             
@@ -50,10 +53,19 @@ namespace TheMaze
         
         public void Update(GameTime gameTime)
         {
-                if (X.keyboardState.IsKeyDown(Keys.Enter) && X.oldkeyboardState.IsKeyUp(Keys.Enter))
+            if (X.IsKeyPressed(Keys.Enter))
+            {
+                if (currentState == LevelState.Live) //Gjort så att man kan testa att gå fram och tillbaka mellan dem
                 {
                     currentState = LevelState.Death;
+                    player.SetPosition(deathManager.StartPositionPlayer); //detta var andra delen av problemet
                 }
+                else
+                {
+                    currentState = LevelState.Live;
+                    player.SetPosition(levelManager.StartPositionPlayer);
+                }
+            }
             
             
             player.Update(gameTime);

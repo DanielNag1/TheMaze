@@ -29,7 +29,7 @@ namespace TheMaze
         public PathfindMob(LevelManager levelManager, Vector2 startPosition)
         {
             Position = startPosition;
-            texture = TextureManager.CatTex;
+            //texture = TextureManager.CatTex;
 
             this.levelManager = levelManager;
 
