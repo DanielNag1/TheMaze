@@ -22,7 +22,7 @@ namespace TheMaze
             Components.Add(penumbra);
             Content.RootDirectory = "Content";
         }
-        
+
         protected override void Initialize()
         {
             graphics.PreferredBackBufferWidth = ConstantValues.screenWidth;
@@ -45,6 +45,7 @@ namespace TheMaze
 
         protected override void UnloadContent()
         {
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,7 +59,7 @@ namespace TheMaze
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             gameStateManager.Draw(spriteBatch,gameTime);
-            
+
         }
     }
 }

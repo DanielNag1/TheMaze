@@ -47,6 +47,7 @@ namespace TheMaze
             //DarkOverlay = Content.Load<Texture2D>("darkOverlay");
             //CollectibleMenu = Content.Load<Texture2D>("collectiblemenu2");
             //StoryPanelTex = Content.Load<Texture2D>("storypanel");
+            Monster2Tex = Content.Load<Texture2D>("spritesheet1.4");
 
             PauseScreen = Content.Load<Texture2D>("pauseScreen");
             RedTexture = Content.Load<Texture2D>("red");
