@@ -61,6 +61,7 @@ namespace TheMaze
                     if (mapData[y][x] == '4')
                     {
                          wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
+                        wallMonsters.Add(wallMonster);
                     }
                     
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);

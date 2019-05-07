@@ -1,1 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile 2.png","C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/floor tile 2.xnb","TextureProcessor","Texture2DContent",38297,160085,0
+"C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/hitboxpos.png","C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/hitboxpos.xnb","TextureProcessor","Texture2DContent",662,188245,0
+"C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/particle2.png","C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/particle2.xnb","TextureProcessor","Texture2DContent",29384,81305,0
+"C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/square.png","C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/square.xnb","TextureProcessor","Texture2DContent",371,40085,0
+"C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Wall Tile Sheet Big.png","C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Wall Tile Sheet Big.xnb","TextureProcessor","Texture2DContent",1501,524373,0

@@ -664,3 +664,4 @@ C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\C
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\top tile sprite 2.xnb
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tile 2.xnb
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.4.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.4.xnb

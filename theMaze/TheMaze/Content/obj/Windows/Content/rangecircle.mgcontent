@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/rangecircle.png</SourceFile>
-  <SourceTime>2019-04-17T18:48:24.4948764+02:00</SourceTime>
-  <DestFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/rangecircle.xnb</DestFile>
-  <DestTime>2019-05-06T23:08:58.5306926+02:00</DestTime>
+  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/rangecircle.png</SourceFile>
+  <SourceTime>2019-05-03T16:25:26.6351377+02:00</SourceTime>
+  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/rangecircle.xnb</DestFile>
+  <DestTime>2019-05-07T11:40:19.744457+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
+  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
+  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

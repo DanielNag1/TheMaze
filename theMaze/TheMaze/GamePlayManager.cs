@@ -75,7 +75,7 @@ namespace TheMaze
             saferoom.Update(gameTime);
             imbaku.Update(gameTime);
             glitchMonster.Update(gameTime);
-            //wallMonster.Update(gameTime);
+            wallMonster.Update(gameTime);
             SafeRoomInteraction();
 
             GlitchMonsterCollision();
@@ -104,7 +104,9 @@ namespace TheMaze
             //monster.Draw(spriteBatch);
             imbaku.Draw(spriteBatch);
             glitchMonster.Draw(spriteBatch);
-            //wallMonster.Draw(spriteBatch);
+
+            
+            wallMonster.Draw(spriteBatch);
             player.Draw(spriteBatch);
             saferoom.Draw(spriteBatch);
             spriteBatch.End();
