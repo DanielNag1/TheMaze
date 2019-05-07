@@ -37,6 +37,7 @@ namespace TheMaze
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            SoundManager.LoadContent(Content);
             TextureManager.LoadContent(Content);
             gameStateManager = new GameStateManager();
             penumbra.AmbientColor = Color.Black;
