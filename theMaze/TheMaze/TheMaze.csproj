@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Button.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="ConstantValues.cs" />
     <Compile Include="Game1.cs" />
@@ -53,6 +54,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saferoom.cs" />
+    <Compile Include="Sound\BGM.cs" />
+    <Compile Include="Sound\SFX.cs" />
+    <Compile Include="Sound\SoundManager.cs" />
     <Compile Include="TextureManager.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Weapon.cs" />

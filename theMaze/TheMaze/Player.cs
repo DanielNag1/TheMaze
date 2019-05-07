@@ -12,6 +12,8 @@ namespace TheMaze
 {
     public class Player : GameObject
     {
+        private SFX sfx;
+
         public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
 
@@ -47,6 +49,7 @@ namespace TheMaze
         
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
+            sfx = new SFX();
             playerLights = new List<Light>();
             weapons = new List<Weapon>();
             Direction = new Vector2(0, 1);
@@ -78,6 +81,8 @@ namespace TheMaze
                     }
                     currentSourceRect.X = frame * frameSizeX;
                 }
+
+                //sfx.Footsteps(gameTime);
 
                 PlayerInput();
 

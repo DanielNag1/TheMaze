@@ -85,3 +85,15 @@
 /processorParam:TextureFormat=Color
 /build:pauseScreen.png
 
+#begin Audio/SFX/step1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step1.wav
+
+#begin Audio/SFX/step2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step2.wav
+

@@ -77,7 +77,11 @@ namespace TheMaze
 
         public void Draw(SpriteBatch spriteBatch,GameTime gameTime)
         {
-            
+            //Så här bör knappar ritas ut
+            //spriteBatch.Begin();
+            ////testButton.Draw(spriteBatch); 
+            //spriteBatch.End();
+
             switch (currentState)
             {
                 case LevelState.Live:
