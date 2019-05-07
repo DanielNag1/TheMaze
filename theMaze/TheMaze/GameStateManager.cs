@@ -58,14 +58,14 @@ namespace TheMaze
             switch (currentGameState)
             {
                 case GameState.Play:
-                    if (X.IsKeyPressed)
+                    if (X.IsKeyPressed(Keys.P))
                     {
                         currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
                     }
                     break;
 
                 case GameState.Pause:
-                    if (X.IsKeyPressed)
+                    if (X.IsKeyPressed(Keys.P))
                     {
                         currentGameState = GameState.Play; Console.WriteLine(currentGameState);
                     }

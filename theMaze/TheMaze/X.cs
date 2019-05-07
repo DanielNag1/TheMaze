@@ -49,17 +49,15 @@ namespace TheMaze
             spriteBatch.Draw(TextureManager.RedTexture, mouseRect, Color.White);
         }
 
-        public static bool IsKeyPressed
+        public static bool IsKeyPressed(Keys key)
         {
-            get
-            {
-                if (keyboardState.IsKeyDown(Keys.Escape) && oldkeyboardState.IsKeyUp(Keys.Escape))
-                {
-                    return true;
-                }
-                else
-                    return false;
+            return
+
+                keyboardState.IsKeyDown(key) && oldkeyboardState.IsKeyUp(key);
+                
+                    
+                
             }
         }
     }
-}
+
