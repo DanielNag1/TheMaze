@@ -19,7 +19,7 @@ namespace TheMaze
         public static Camera camera;
         public static Player player;
         public static float mouseLampDistance;
-        public static bool Exit;
+        public static bool Exit,IsMouseVisible;
 
         public static void LoadCamera()
         {

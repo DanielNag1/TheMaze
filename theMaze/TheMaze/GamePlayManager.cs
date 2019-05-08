@@ -62,7 +62,6 @@ namespace TheMaze
         {
             if(X.IsKeyPressed(Keys.Space))
             {
-                Console.WriteLine(X.player.canChangeWeapon);
             }
 
             if (X.IsKeyPressed(Keys.Enter))
@@ -130,6 +129,7 @@ namespace TheMaze
                     imbaku.Draw(spriteBatch);
                     player.Draw(spriteBatch);
                     
+
                     spriteBatch.End();
 
 

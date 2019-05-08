@@ -33,14 +33,14 @@ namespace TheMaze
             {
                 case GameState.MainMenu:
                     mainMenu.Update();
-
+                    X.IsMouseVisible = true;
                     break;
                 case GameState.Play:
                     gamePlayManager.Update(gameTime);
 
                     break;
                 case GameState.Pause:
-
+                    X.IsMouseVisible = true;
                     break;
             }
         }

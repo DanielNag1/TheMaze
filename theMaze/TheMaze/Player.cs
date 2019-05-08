@@ -42,11 +42,12 @@ namespace TheMaze
         public static Vector2 playerLightPosition,playerSpotLightPosition;
         public Vector2 lampPosition;
 
-        private Light playerPointLight, playerSpotLight;
+        public Light playerPointLight, playerSpotLight;
         public List<Light> playerLights;
 
         public Weapon currentWeapon, weaponSlot1, weaponSlot2, weaponSlot3, weaponSlot4;
         public List<Weapon> weapons;
+
         public static Color selectedColor;
 
         public Circle weaponHitbox;
@@ -73,7 +74,7 @@ namespace TheMaze
             oldPosition = position;
 
             CreatePlayerLights();
-            ChooseWeapons();
+            CreateWeapons();
         }
         
         public void Update(GameTime gameTime)
@@ -149,7 +150,6 @@ namespace TheMaze
                 }
                 if (currentWeapon == weaponSlot2)
                 {
-                    
                     weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
                 }
                 if (currentWeapon == weaponSlot3)
@@ -160,6 +160,29 @@ namespace TheMaze
                 {
                     weaponSlot4.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
                 }
+            }
+        }
+
+        public void ApplyWeapon()
+        {
+            
+            if (Keyboard.GetState().IsKeyDown(Keys.D2))
+            {
+                weaponSlot2.color = selectedColor;
+                playerPointLight.Color = selectedColor;
+                playerPointLight.Enabled = true;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.D3))
+            {
+                weaponSlot3.color = selectedColor;
+                playerPointLight.Color = selectedColor;
+                playerPointLight.Enabled = true;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.D4))
+            {
+                weaponSlot4.color = selectedColor;
+                playerPointLight.Color = selectedColor;
+                playerPointLight.Enabled = true;
             }
         }
 
@@ -218,24 +241,28 @@ namespace TheMaze
             if (KeyPressed(Keys.D1))
             {
                 currentWeapon = weaponSlot1;
+                weaponSlot1.enabled = true;
             }
             else if (KeyPressed(Keys.D2))
             {
                 currentWeapon = weaponSlot2;
+                weaponSlot2.enabled = true;
 
             }
             else if (KeyPressed(Keys.D3))
             {
                 currentWeapon = weaponSlot3;
+                weaponSlot3.enabled = true;
             }
             else if (KeyPressed(Keys.D4))
             {
                 currentWeapon = weaponSlot4;
+                weaponSlot4.enabled = true;
             }
 
         }
 
-        private void ChooseWeapons()
+        private void CreateWeapons()
         {
             currentWeapon = new Weapon();
             weaponSlot1 = new Weapon();
@@ -248,9 +275,6 @@ namespace TheMaze
             weapons.Add(weaponSlot3);
             weapons.Add(weaponSlot4);
             weaponSlot1.color = Color.AntiqueWhite;
-            weaponSlot2.color = Color.Red;
-            weaponSlot3.color = Color.Goldenrod;
-            weaponSlot4.color = Color.MediumBlue;
 
             currentWeapon = weaponSlot1;
         }

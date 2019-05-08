@@ -50,6 +50,7 @@ namespace TheMaze
         protected override void Update(GameTime gameTime)
         {
             ExitGame();
+            MouseCheck();
             gameStateManager.Update(gameTime);
 
             base.Update(gameTime);
@@ -67,6 +68,18 @@ namespace TheMaze
             if (X.Exit)
             {
                 Exit();
+            }
+        }
+
+        public void MouseCheck()
+        {
+            if(X.IsMouseVisible==true)
+            {
+                IsMouseVisible = true;
+            }
+            else
+            {
+                IsMouseVisible = false;
             }
         }
     }

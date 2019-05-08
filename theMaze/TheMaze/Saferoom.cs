@@ -71,42 +71,69 @@ namespace TheMaze
 
         }
 
+        public void SelectWeapon()
+        {
+            if(X.mouseRect.Intersects(weaponLight1Rectangle) && X.mouseState.LeftButton==ButtonState.Pressed && X.oldmouseState.LeftButton==ButtonState.Released)
+            {
+                Player.selectedColor = weaponLight1Color;
+                X.player.playerPointLight.Color = weaponLight1Color;
+                
+            }
+            if (X.mouseRect.Intersects(weaponLight2Rectangle) && X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
+            {
+                Player.selectedColor = weaponLight2Color;
+                X.player.playerPointLight.Color = weaponLight2Color;
+                
+            }
+            if (X.mouseRect.Intersects(weaponLight3Rectangle) && X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
+            {
+                Player.selectedColor = weaponLight3Color;
+                X.player.playerPointLight.Color = weaponLight3Color;
+                
+            }
+
+            X.player.ApplyWeapon();
+
+        }
+
         public void Update(GameTime gameTime)
         {
             saferoomLightColor = new Color(r, g, b);
 
             if (X.player.FootHitbox.Intersects(saferoomHitBox))
             {
+                
                 visible = true;
             }
             else
             {
                 visible = false;
-                
+                X.player.playerPointLight.Color = Color.White;
             }
 
             
             if(visible)
             {
+                X.IsMouseVisible = true;
                 LightsOn();
 
                 saferoomWeaponLightIntensity = .9f;
 
+                SelectWeapon();
+
                 foreach (Weapon w in X.player.weapons)
                 {
-                    w.enabled = false;
                     w.power = .9f;
+                    w.enabled = false;
                 }
-                foreach (Light l in X.player.playerLights)
-                {
-                    l.Enabled = false;
-                }
+                
 
                 X.player.canChangeWeapon = false;
 
             }
             else
             {
+                X.IsMouseVisible = false;
                 LightsOff();
                 X.player.canChangeWeapon = true;
                 saferoomWeaponLightIntensity = 0f;
