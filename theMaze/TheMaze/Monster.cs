@@ -17,7 +17,7 @@ namespace TheMaze
         //
         // TLDR du kan skita i att granska denna klassen :)
 
-        LevelManager levelManager;
+        protected LevelManager levelManager;
 
         //Konstanter för rörelse. Praktiskt för återanvänding och läsbarhet.
         private readonly Vector2 Up = new Vector2(0, -1);
@@ -27,11 +27,9 @@ namespace TheMaze
 
         public Vector2 Direction { get; private set; }
         public Vector2 destination, hitboxPos;
+        protected Vector2 direction;
 
         private Random random;
-
-        protected float angle;
-        protected Vector2 origin;
 
         public Circle hitbox;
 
@@ -43,7 +41,7 @@ namespace TheMaze
 
         public float speed = 100f;
 
-        private bool moving = false;
+        protected bool moving = false;
         public bool isAlive = true;
 
         public Color color = Color.White;
@@ -57,16 +55,16 @@ namespace TheMaze
             frameSize = 128;
             random = new Random();
 
-            origin = new Vector2(0, 0);
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             nextSourceRect = currentSourceRect;
             hitboxPos = position + new Vector2(65, 55);
             hitbox = new Circle(hitboxPos, 50f);
 
             colorFade = new Color(100, 100, 100, 100);
+            Vector2[] directions = new[] { Up, Down, Left, Right };
         }
 
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime, Player player)
         {
             if (moving)
             {
@@ -93,9 +91,8 @@ namespace TheMaze
             hitboxPos = position + new Vector2(65, 55);
             hitbox = new Circle(hitboxPos, 50f);
 
-
-            UpdateSourceRectangle();
-            Moving(gameTime);
+            //UpdateSourceRectangle();
+            //Moving(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -114,7 +111,6 @@ namespace TheMaze
             if (!moving)
             {
                 NewDirection();
-
                 ChangeDirection(Direction);
             }
 
@@ -130,17 +126,19 @@ namespace TheMaze
             }
         }
 
-        private void ChangeDirection(Vector2 newDirection)
+        protected void ChangeDirection(Vector2 newDirection)
         {
-            Direction = newDirection;
-            Vector2 newDestination = Position + Direction * ConstantValues.tileWidth;
+            direction = newDirection;
+            Vector2 newDestination = Position + direction * ConstantValues.tileWidth;
 
-            Tile tile = levelManager.GetTileAtPosition(Direction);
+            Tile tile = levelManager.GetTileAtPosition(direction);
             if (tile.IsWall)
             {
                 destination = newDestination;
                 moving = true;
             }
+
+
         }
 
         protected void NewDirection()
@@ -184,7 +182,7 @@ namespace TheMaze
         //    }
         //    if (Direction == Down)
         //    {
-        //        nextSourceRect.Y = 0 * frameSize;
+        //        nextSourceRect.Y = 2 * frameSize;
         //    }
         //    if (Direction == Right)
         //    {
@@ -196,22 +194,23 @@ namespace TheMaze
         //    }
         //}
 
-        protected void UpdateSourceRectangle()
-        {
-            if (Direction == Right)
-            {
-                frameSize = 1;
-            }
-            if (Direction == Left)
-            {
-                frameSize = 0;
-            }
+        //protected void UpdateSourceRectangle()
+        //{
+        //    if(Pathfind.SetDirectionFromNextPosition())
+        //    if ( == Right)
+        //    {
+        //        frameSize = 1;
+        //    }
+        //    if (Direction == Left)
+        //    {
+        //        frameSize = 0;
+        //    }
 
-            if (Direction == Down)
-            {
-                frameSize = 2;
-            }
-        }
+        //    if (Direction == Down)
+        //    {
+        //        frameSize = 2;
+        //    }
+        //}
 
 
     }

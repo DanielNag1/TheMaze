@@ -25,7 +25,7 @@ namespace TheMaze
         private int hitboxOffsetX, hitboxOffsetY;
 
         private Rectangle currentSourceRect, nextSourceRect;
-        public Rectangle middleHitbox;
+        public Rectangle middleHitbox,playerHitbox;
         public readonly int frameSizeX = 125;
         public readonly int frameSizeY = 210;
 
@@ -70,6 +70,7 @@ namespace TheMaze
             hitboxOffsetY = frameSizeY / 4 * 3;
             footHitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
             middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height);
+            playerHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
 
             oldPosition = position;
 
@@ -328,6 +329,9 @@ namespace TheMaze
 
             middleHitbox.X = (int)position.X + footHitbox.Width / 2;
             middleHitbox.Y = (int)position.Y;
+
+            playerHitbox.X = (int)position.X;
+            playerHitbox.Y = (int)position.Y;
 
             weaponHitbox = new Circle(X.worldMouse, 150f);
         }

@@ -27,6 +27,7 @@ namespace TheMaze
         public void ReadLiveMap()
         {
             Tiles = GenerateMap("testbana.txt");
+            Pathfind.FillGridFromMap(Tiles);
         }
         public void ReadDeathMap()
         {

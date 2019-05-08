@@ -81,19 +81,19 @@ namespace TheMaze
             player.Update(gameTime);
             saferoom.Update(gameTime);
             lights.Update(gameTime);
-
+            
             switch (currentState)
             {
                 case LevelState.Live:
                     Game1.penumbra.Transform = X.camera.Transform;
-                    imbaku.Update(gameTime);
-
+                    
                     foreach (WallMonster wM in levelManager.wallMonsters)
                     {
                         wM.Update(gameTime);
                         WallMonsterCollision(wM);
                     }
-
+                    imbaku.Update(gameTime, player);
+                    ImbakuChasePlayer();
                     player.Collision(levelManager);
                     
                     break;
@@ -140,7 +140,6 @@ namespace TheMaze
                     break;
                     
                 case LevelState.Death:
-                    spriteBatch.End();
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     deathManager.Draw(spriteBatch);
                     player.Draw(spriteBatch);
@@ -180,6 +179,22 @@ namespace TheMaze
 
 
 
+
+
+
+        }
+
+        public void ImbakuChasePlayer()
+        {
+            if (Vector2.Distance(player.Position, imbaku.Position) < 1000)
+            {
+                imbaku.active = true;
+            }
+
+            else
+            {
+                imbaku.active = false;
+            }
 
 
 
