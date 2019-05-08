@@ -95,6 +95,11 @@ namespace TheMaze
             //Moving(gameTime);
         }
 
+        public void SetPosition(Vector2 newPosition)
+        {
+            position = newPosition;
+        }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
             hitbox.Draw(spriteBatch);

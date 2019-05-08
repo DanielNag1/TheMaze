@@ -17,12 +17,14 @@ namespace TheMaze
         GamePlayManager gamePlayManager;
         MainMenu mainMenu;
         PauseMenu pauseMenu;
+        LevelManager levelManager;
 
         public GameStateManager()
         {
             gamePlayManager = new GamePlayManager();
             mainMenu = new MainMenu();
             pauseMenu = new PauseMenu();
+            levelManager = new LevelManager();
         }
 
         public void Update(GameTime gameTime)

@@ -28,6 +28,7 @@ namespace TheMaze
             levelManager.ReadLiveMap();
             deathManager = new LevelManager(); //detta var del av problemet - deathManager inte skapad
             deathManager.ReadDeathMap();
+            
 
             //switch (currentState)
             //{
@@ -215,6 +216,7 @@ namespace TheMaze
             if (X.IsKeyPressed(Keys.Space) && killed)
             {
                 player.SetPosition(levelManager.StartPositionPlayer);
+                imbaku.SetPosition(levelManager.ImbakuStartPosition);
             }
         }
 
