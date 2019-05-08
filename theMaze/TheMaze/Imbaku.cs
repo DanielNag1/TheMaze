@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
+    //DANIELS FASZ-KOD
+
     class Imbaku : Monster
     {
-        Rectangle fixedPos;
+        public Rectangle imbakuRectangleHitbox;
         //En lista som håller "the path"
         public List<Vector2> path;
         public bool active;
-        Vector2 newDirection;
+        Vector2 newDirection,imbakuCircleHitboxPos;
         private float chaseTimer = 0f, resetTimer = 300f;
-
+        public Circle imbakuCircleHitbox;
 
         public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
@@ -26,11 +28,10 @@ namespace TheMaze
             nrFrames = 5;
             timeIntervall = 120;
 
-            fixedPos = new Rectangle((int)position.X, (int)position.Y,
-                        304 - ConstantValues.tileWidth, 462 - ConstantValues.tileHeight);
+            imbakuRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, 304 - ConstantValues.tileWidth, 462 - ConstantValues.tileHeight);
+            imbakuCircleHitbox = new Circle(hitboxPos, 50f);
             path = new List<Vector2>();
-
-
+            
         }
 
         public override void Update(GameTime gameTime, Player player)
@@ -38,11 +39,15 @@ namespace TheMaze
             currentSourceRect.X = frame * 290;
             currentSourceRect.Y = frameSize * 462;
 
-            hitboxPos = new Vector2(fixedPos.X, fixedPos.Y);
+            hitboxPos = new Vector2(imbakuRectangleHitbox.X, imbakuRectangleHitbox.Y);
 
-            fixedPos.X = (int)position.X - currentSourceRect.Width / 4 + 50;
-            fixedPos.Y = (int)position.Y - currentSourceRect.Height / 4 - 54;
+            imbakuCircleHitboxPos = new Vector2(position.X + 65, position.Y + 55);
+            imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 50f);
 
+            imbakuRectangleHitbox.X = (int)position.X - currentSourceRect.Width / 4 + 50;
+            imbakuRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height / 4 - 54;
+
+            
             timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if (timer <= 0)
@@ -115,7 +120,8 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, fixedPos, currentSourceRect, Color.White);
+            spriteBatch.Draw(texture, imbakuRectangleHitbox, currentSourceRect, Color.White);
+            imbakuCircleHitbox.Draw(spriteBatch);
         }
 
         protected void UpdateSourceRectangle()

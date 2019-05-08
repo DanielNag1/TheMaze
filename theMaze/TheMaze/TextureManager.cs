@@ -12,6 +12,8 @@ namespace TheMaze
     {
         public static Texture2D MainMenuTex { get; private set; }
         public static Texture2D PauseScreen { get; private set; }
+        public static Texture2D KilledScreen { get; private set; }
+
         public static Texture2D PlayerTex { get; private set; }
         public static Texture2D MonsterTex { get; private set; }
         public static Texture2D ImbakuTex { get; private set; }
@@ -55,6 +57,8 @@ namespace TheMaze
             PauseScreen = Content.Load<Texture2D>("pauseScreen");
             RedTexture = Content.Load<Texture2D>("red");
             TransparentTex = Content.Load<Texture2D>("transparent");
+
+            KilledScreen = Content.Load<Texture2D>("You Died");
 
             TimesNewRomanFont = Content.Load<SpriteFont>("timesnewroman");
         }

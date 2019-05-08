@@ -12,6 +12,7 @@ namespace TheMaze
 {
     public class GamePlayManager
     {
+        public bool killed = false;
         enum LevelState {Live,Death}
         LevelState currentState=LevelState.Live;
         LevelManager levelManager,deathManager;
@@ -79,6 +80,7 @@ namespace TheMaze
             }
 
             player.Update(gameTime);
+            ImbakuCollision();
             saferoom.Update(gameTime);
             lights.Update(gameTime);
             
@@ -198,6 +200,22 @@ namespace TheMaze
 
 
 
+        }
+
+        public void ImbakuCollision()
+        {
+            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox))
+            {
+                killed = true;
+            }
+        }
+
+        public void Resurrect()
+        {
+            if (X.IsKeyPressed(Keys.Space) && killed)
+            {
+                player.SetPosition(levelManager.StartPositionPlayer);
+            }
         }
 
     }

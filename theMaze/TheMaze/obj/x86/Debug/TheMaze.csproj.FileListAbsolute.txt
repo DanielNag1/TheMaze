@@ -283,3 +283,60 @@ C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.cs
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\step1.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\step2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step1.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\characterspritesheet1.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\evilcat.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\floor tile 2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\mainmenu.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\pauseScreen.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\red.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet1.4.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\timesnewroman.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\top tile sprite 2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\transparent.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\wall tile 2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\characterspritesheet1.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\evilcat.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\floor tile 2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\mainmenu.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\pauseScreen.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\red.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.4.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\timesnewroman.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\top tile sprite 2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\transparent.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tile 2.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\You Died.xnb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+C:\Users\Spellabb2018\Desktop\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml

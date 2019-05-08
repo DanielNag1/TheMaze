@@ -12,7 +12,7 @@ namespace TheMaze
 {
     class GameStateManager
     {
-        public enum GameState { MainMenu, Play, Pause}
+        public enum GameState { MainMenu, Play, Pause,Killed}
         public static GameState currentGameState = GameState.MainMenu;
         GamePlayManager gamePlayManager;
         MainMenu mainMenu;
@@ -36,6 +36,7 @@ namespace TheMaze
                     mainMenu.Update();
                     X.IsMouseVisible = true;
                     break;
+
                 case GameState.Play:
                     gamePlayManager.Update(gameTime);
 
@@ -44,7 +45,16 @@ namespace TheMaze
                     pauseMenu.Update();
                     X.IsMouseVisible = true;
                     break;
+
+                case GameState.Killed:
+                    break;
             }
+
+            if (gamePlayManager.killed == true)
+            {
+                currentGameState = GameState.Killed; Console.WriteLine(currentGameState);
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch,GameTime gameTime)
@@ -59,6 +69,9 @@ namespace TheMaze
                     break;
                 case GameState.Pause:
                     pauseMenu.Draw(spriteBatch);
+                    break;
+                case GameState.Killed:
+                    DrawKilledScreen(spriteBatch);
                     break;
             }
             
@@ -83,8 +96,22 @@ namespace TheMaze
                         currentGameState = GameState.Play; Console.WriteLine(currentGameState);
                     }
                     break;
+                case GameState.Killed:
+                    if (X.IsKeyPressed(Keys.Space) && gamePlayManager.killed)
+                    {
+                        gamePlayManager.Resurrect();
+                        currentGameState = GameState.Play; Console.WriteLine(currentGameState);
+                        gamePlayManager.killed = false;
+                    }
+                    break;
             }
         }
-        
+        public void DrawKilledScreen(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(TextureManager.KilledScreen, Vector2.Zero, Color.White);
+            spriteBatch.End();
+        }
+
     }
 }
