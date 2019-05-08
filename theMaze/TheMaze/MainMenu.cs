@@ -11,12 +11,15 @@ namespace TheMaze
     class MainMenu
     {
         private Button startButton, exitButton;
+        private Vector2 startPos, exitPos;
 
         public MainMenu()
         {
-            startButton = new Button(TextureManager.TransparentTex, Vector2.Zero, TextureManager.TimesNewRomanFont,
+            startPos = new Vector2(10, 1000);
+            exitPos = new Vector2(10, 1000 + TextureManager.TimesNewRomanFont.LineSpacing);
+            startButton = new Button(TextureManager.TransparentTex, startPos, TextureManager.TimesNewRomanFont,
                 "START GAME", Color.LightGray);
-            exitButton = new Button(TextureManager.TransparentTex, new Vector2(0, TextureManager.TimesNewRomanFont.LineSpacing),
+            exitButton = new Button(TextureManager.TransparentTex, exitPos,
                 TextureManager.TimesNewRomanFont, "EXIT GAME", Color.LightGray);
         }
 
@@ -66,6 +69,7 @@ namespace TheMaze
         {
             //knappar ritas ut här
             spriteBatch.Begin();
+            spriteBatch.Draw(TextureManager.MainMenuTex, Vector2.Zero, Color.White);
             startButton.Draw(spriteBatch);
             exitButton.Draw(spriteBatch);
             spriteBatch.End();

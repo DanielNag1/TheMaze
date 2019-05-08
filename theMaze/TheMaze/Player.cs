@@ -126,7 +126,7 @@ namespace TheMaze
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
-            spriteBatch.Draw(TextureManager.RedTexture, footHitbox, Color.White);
+            
             //weaponHitbox.Draw(spriteBatch);
         }
 

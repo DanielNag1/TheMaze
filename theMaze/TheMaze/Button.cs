@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    class Button
+    public class Button
     {
         public Color color, fontColor;
 
@@ -49,7 +49,7 @@ namespace TheMaze
         {
             bool isClicked = false;
 
-            if (rect.Contains(X.mousePos))
+            if (rect.Intersects(X.menumouseRect))
             {
                 if (X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
                 {

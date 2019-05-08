@@ -14,7 +14,7 @@ namespace TheMaze
     {
         public static KeyboardState keyboardState, oldkeyboardState;
         public static MouseState mouseState, oldmouseState;
-        public static Rectangle mouseRect;
+        public static Rectangle mouseRect,menumouseRect;
         public static Vector2 mousePos, worldMouse,mousePlayerDirection;
         public static Camera camera;
         public static Player player;
@@ -42,7 +42,7 @@ namespace TheMaze
             mousePlayerDirection.Normalize();
 
             mouseRect = new Rectangle((int)worldMouse.X - 10, (int)worldMouse.Y - 10, 20, 20);
-
+            menumouseRect = new Rectangle((int)mousePos.X - 10, (int)mousePos.Y - 10, 20, 20);
         }
         public static void Draw(SpriteBatch spriteBatch)
         {
