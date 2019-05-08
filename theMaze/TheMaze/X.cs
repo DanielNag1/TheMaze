@@ -33,7 +33,6 @@ namespace TheMaze
             oldkeyboardState = keyboardState;
             keyboardState = Keyboard.GetState();
             camera.SetPosition(player.Position);
-
             mousePos = new Vector2((float)mouseState.X, (float)mouseState.Y);
             worldMouse = Vector2.Transform(mousePos, Matrix.Invert(camera.Transform));
             mouseLampDistance = (Vector2.Distance(player.lampPosition, worldMouse)) + 250;

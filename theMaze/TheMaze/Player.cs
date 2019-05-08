@@ -17,10 +17,10 @@ namespace TheMaze
         public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
 
-        private Rectangle hitbox;
-        public Rectangle Hitbox
+        private Rectangle footHitbox;
+        public Rectangle FootHitbox
         {
-            get { return hitbox; }
+            get { return footHitbox; }
         }
         private int hitboxOffsetX, hitboxOffsetY;
 
@@ -33,15 +33,17 @@ namespace TheMaze
         private double timer = 100, timeIntervall = 100;
 
         private float speed = 3f;
+
         public bool moving = false;
 
-        public static bool lightsOn = false;
+        public bool lightsOn = false;
+        public bool canChangeWeapon;
 
         public static Vector2 playerLightPosition,playerSpotLightPosition;
         public Vector2 lampPosition;
 
         private Light playerPointLight, playerSpotLight;
-        private List<Light> playerLights;
+        public List<Light> playerLights;
 
         public Weapon currentWeapon, weaponSlot1, weaponSlot2, weaponSlot3, weaponSlot4;
         public List<Weapon> weapons;
@@ -65,7 +67,7 @@ namespace TheMaze
 
             hitboxOffsetX = frameSizeX / 8;
             hitboxOffsetY = frameSizeY / 4 * 3;
-            hitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
+            footHitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
             middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height);
 
             oldPosition = position;
@@ -112,13 +114,19 @@ namespace TheMaze
 
             UpdateHitboxPosition();
             UpdateLights();
-            PowerDrain(gameTime);
+
+            if (canChangeWeapon)
+            {
+                PowerDrain(gameTime);
+                WeaponInput();
+            }
 
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            spriteBatch.Draw(TextureManager.RedTexture, footHitbox, Color.White);
             //weaponHitbox.Draw(spriteBatch);
         }
 
@@ -127,7 +135,7 @@ namespace TheMaze
         {
             playerSpotLight.Color = currentWeapon.color;
             playerSpotLight.Intensity = currentWeapon.power;
-            playerSpotLight.Enabled = currentWeapon.enabled;
+            //playerSpotLight.Enabled = currentWeapon.enabled;
             
         }
 
@@ -141,6 +149,7 @@ namespace TheMaze
                 }
                 if (currentWeapon == weaponSlot2)
                 {
+                    
                     weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
                 }
                 if (currentWeapon == weaponSlot3)
@@ -156,35 +165,7 @@ namespace TheMaze
 
         private void PlayerInput()
         {
-            ChangeWeapon();
-
-            if(KeyPressed(Keys.Q))
-            {
-                lightsOn = true;
-            }
-            else if (KeyPressed(Keys.E))
-            {
-                lightsOn = false;
-            }
-
-            if (KeyPressed(Keys.D1))
-            {
-                currentWeapon = weaponSlot1;
-            }
-            else if (KeyPressed(Keys.D2))
-            {
-                currentWeapon = weaponSlot2;
-
-            }
-            else if (KeyPressed(Keys.D3))
-            {
-                currentWeapon = weaponSlot3;
-            }
-            else if (KeyPressed(Keys.D4))
-            {
-                currentWeapon = weaponSlot4;
-            }
-
+            
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
                 Direction = new Vector2(0, -1);
@@ -221,6 +202,39 @@ namespace TheMaze
             }
         }
 
+        private void WeaponInput()
+        {
+            ChangeWeapon();
+
+            if (KeyPressed(Keys.Q))
+            {
+                currentWeapon.enabled = true;
+            }
+            else if (KeyPressed(Keys.E))
+            {
+                currentWeapon.enabled = false;
+            }
+
+            if (KeyPressed(Keys.D1))
+            {
+                currentWeapon = weaponSlot1;
+            }
+            else if (KeyPressed(Keys.D2))
+            {
+                currentWeapon = weaponSlot2;
+
+            }
+            else if (KeyPressed(Keys.D3))
+            {
+                currentWeapon = weaponSlot3;
+            }
+            else if (KeyPressed(Keys.D4))
+            {
+                currentWeapon = weaponSlot4;
+            }
+
+        }
+
         private void ChooseWeapons()
         {
             currentWeapon = new Weapon();
@@ -228,7 +242,11 @@ namespace TheMaze
             weaponSlot2 = new Weapon();
             weaponSlot3 = new Weapon();
             weaponSlot4 = new Weapon();
-
+            weapons.Add(currentWeapon);
+            weapons.Add(weaponSlot1);
+            weapons.Add(weaponSlot2);
+            weapons.Add(weaponSlot3);
+            weapons.Add(weaponSlot4);
             weaponSlot1.color = Color.AntiqueWhite;
             weaponSlot2.color = Color.Red;
             weaponSlot3.color = Color.Goldenrod;
@@ -245,7 +263,7 @@ namespace TheMaze
                 {
                     if (levelManager.Tiles[i, j].IsWall)
                     {
-                        if (hitbox.Intersects(levelManager.Tiles[i, j].Hitbox))
+                        if (footHitbox.Intersects(levelManager.Tiles[i, j].Hitbox))
                         {
                             position = oldPosition;
                             UpdateHitboxPosition();
@@ -281,10 +299,10 @@ namespace TheMaze
 
         private void UpdateHitboxPosition()
         {
-            hitbox.X = (int)position.X + hitboxOffsetX;
-            hitbox.Y = (int)position.Y + hitboxOffsetY;
+            footHitbox.X = (int)position.X + hitboxOffsetX;
+            footHitbox.Y = (int)position.Y + hitboxOffsetY;
 
-            middleHitbox.X = (int)position.X + hitbox.Width / 2;
+            middleHitbox.X = (int)position.X + footHitbox.Width / 2;
             middleHitbox.Y = (int)position.Y;
 
             weaponHitbox = new Circle(X.worldMouse, 150f);
@@ -294,7 +312,7 @@ namespace TheMaze
         {
             foreach (Light l in playerLights)
             {
-                if (lightsOn)
+                if (currentWeapon.enabled)
                 {
                     l.Enabled = true;
                 }

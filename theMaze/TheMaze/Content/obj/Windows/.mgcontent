@@ -4,15 +4,15 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/red.png</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/floor tile 2.png</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/top tile sprite 2.png</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/wall tile 2.png</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/characterspritesheet1.png</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/pauseScreen.png</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/evilcat.png</File>
-    <File>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/spritesheet1.4.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/red.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/top tile sprite 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wall tile 2.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/characterspritesheet1.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/pauseScreen.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/evilcat.png</File>
+    <File>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.4.png</File>
   </SourceFiles>
 </SourceFileCollection>

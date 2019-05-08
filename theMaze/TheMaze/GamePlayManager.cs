@@ -17,7 +17,9 @@ namespace TheMaze
         LevelManager levelManager,deathManager;
         Player player;
         Imbaku imbaku;
-        WallMonster wallMonster;
+        
+        Saferoom saferoom;
+        Lights lights;
 
         public GamePlayManager ()
         {
@@ -38,6 +40,8 @@ namespace TheMaze
 
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+            saferoom = new Saferoom(levelManager);
+            lights = new Lights(levelManager,saferoom);
 
             X.player = player;
             X.LoadCamera();
@@ -56,6 +60,11 @@ namespace TheMaze
         
         public void Update(GameTime gameTime)
         {
+            if(X.IsKeyPressed(Keys.Space))
+            {
+                Console.WriteLine(X.player.canChangeWeapon);
+            }
+
             if (X.IsKeyPressed(Keys.Enter))
             {
                 if (currentState == LevelState.Live) //Gjort så att man kan testa att gå fram och tillbaka mellan dem
@@ -69,9 +78,10 @@ namespace TheMaze
                     player.SetPosition(levelManager.StartPositionPlayer);
                 }
             }
-            
-            
+
             player.Update(gameTime);
+            saferoom.Update(gameTime);
+            lights.Update(gameTime);
 
             switch (currentState)
             {
@@ -119,9 +129,7 @@ namespace TheMaze
                     }
                     imbaku.Draw(spriteBatch);
                     player.Draw(spriteBatch);
-
-
-
+                    
                     spriteBatch.End();
 
 

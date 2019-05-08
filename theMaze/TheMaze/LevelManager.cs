@@ -13,6 +13,7 @@ namespace TheMaze
     {
         public Tile[,] Tiles { get; private set; }
         public Vector2 StartPositionPlayer { get; private set; }
+        public Vector2 StartPositionSafeRoom { get; private set; }
         public Vector2 ImbakuStartPosition { get; private set; }
         public List<WallMonster> wallMonsters;
         public WallMonster wallMonster;
@@ -58,6 +59,10 @@ namespace TheMaze
                 for (int x = 0; x < width; x++)
                 {
                     Vector2 tilePosition = new Vector2(x * ConstantValues.tileWidth, y * ConstantValues.tileHeight);
+                    if (mapData[y][x] == '0')
+                    {
+                        StartPositionSafeRoom = tilePosition;
+                    }
                     if (mapData[y][x] == '1')
                     {
                         StartPositionPlayer = new Vector2(tilePosition.X, tilePosition.Y - ConstantValues.tileHeight);

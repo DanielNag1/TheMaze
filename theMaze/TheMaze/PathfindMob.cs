@@ -43,7 +43,7 @@ namespace TheMaze
 
             if (timer < 0)
             {
-                path = Pathfind.CreatePath(Position, player.Hitbox.Center.ToVector2());
+                path = Pathfind.CreatePath(Position, player.FootHitbox.Center.ToVector2());
                 timer = resetTimer;
             }
 
