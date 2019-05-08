@@ -11,43 +11,59 @@ namespace TheMaze
 {
     class Button
     {
-        MouseState mouseState, prevMouseState;
+        public Color color, fontColor;
 
-        Texture2D tex;
-        Rectangle rect;
-        Vector2 pos;
+        private SpriteFont spriteFont;
+        private Texture2D tex;
+        private Vector2 pos;
+        private Rectangle rect;
 
-        public Color color;
+        private string text;
 
-        public Button(Texture2D tex, Vector2 pos)
+        public Button(Texture2D tex, Vector2 pos, SpriteFont spriteFont, string text, Color fontColor)
         {
             this.tex = tex;
-            this.rect = new Rectangle((int)pos.X, (int)pos.Y, tex.Width, tex.Height);
             this.pos = pos;
+            this.spriteFont = spriteFont;
+            this.text = text;
+            this.rect = new Rectangle((int)pos.X, (int)pos.Y, (int)spriteFont.MeasureString(text).Length(),
+                spriteFont.LineSpacing);
 
-            color = Color.White;
+            this.fontColor = fontColor;
+            color = Color.Red;
+        }
+
+        public bool IsMouseHoveringOverButton()
+        {
+            bool isMouseHovering = false;
+
+            if (rect.Contains(X.mousePos))
+            {
+                isMouseHovering = true;
+            }
+
+            return isMouseHovering;
         }
 
         public bool IsClicked()
         {
-            mouseState = Mouse.GetState();
             bool isClicked = false;
 
-            if (rect.Contains(mouseState.Position))
+            if (rect.Contains(X.mousePos))
             {
-                if (mouseState.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
+                if (X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
                 {
                     isClicked = true;
                 }
             }
 
-            prevMouseState = mouseState;
             return isClicked;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(tex, pos, color);
+            spriteBatch.Draw(tex, rect, color);
+            spriteBatch.DrawString(spriteFont, text, pos, fontColor);
         }
     }
 }

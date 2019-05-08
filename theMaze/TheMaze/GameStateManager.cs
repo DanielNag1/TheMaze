@@ -12,13 +12,15 @@ namespace TheMaze
 {
     class GameStateManager
     {
-        enum GameState { Play,Pause}
-        GameState currentGameState=GameState.Pause;
+        public enum GameState { MainMenu, Play, Pause}
+        public static GameState currentGameState = GameState.MainMenu;
         GamePlayManager gamePlayManager;
+        MainMenu mainMenu;
 
         public GameStateManager()
         {
             gamePlayManager = new GamePlayManager();
+            mainMenu = new MainMenu();
 
         }
 
@@ -29,6 +31,10 @@ namespace TheMaze
 
             switch(currentGameState)
             {
+                case GameState.MainMenu:
+                    mainMenu.Update();
+
+                    break;
                 case GameState.Play:
                     gamePlayManager.Update(gameTime);
 
@@ -43,6 +49,9 @@ namespace TheMaze
         {
             switch (currentGameState)
             {
+                case GameState.MainMenu:
+                    mainMenu.Draw(spriteBatch);
+                    break;
                 case GameState.Play:
                     gamePlayManager.Draw(spriteBatch,gameTime);
                     break;
@@ -57,13 +66,15 @@ namespace TheMaze
         {
             switch (currentGameState)
             {
+                case GameState.MainMenu:
+
+                    break;
                 case GameState.Play:
                     if (X.IsKeyPressed(Keys.P))
                     {
                         currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
                     }
                     break;
-
                 case GameState.Pause:
                     if (X.IsKeyPressed(Keys.P))
                     {

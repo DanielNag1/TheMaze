@@ -49,6 +49,7 @@ namespace TheMaze
 
         protected override void Update(GameTime gameTime)
         {
+            ExitGame();
             gameStateManager.Update(gameTime);
 
             base.Update(gameTime);
@@ -59,6 +60,14 @@ namespace TheMaze
             GraphicsDevice.Clear(Color.CornflowerBlue);
             gameStateManager.Draw(spriteBatch,gameTime);
             
+        }
+
+        public void ExitGame()
+        {
+            if (X.Exit)
+            {
+                Exit();
+            }
         }
     }
 }

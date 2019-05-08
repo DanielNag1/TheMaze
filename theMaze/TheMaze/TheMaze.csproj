@@ -52,6 +52,7 @@
     <Compile Include="LevelManager.cs" />
     <Compile Include="GamePlayManager.cs" />
     <Compile Include="Lights.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Pathfind.cs" />
     <Compile Include="PathfindMob.cs" />

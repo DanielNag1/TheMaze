@@ -26,7 +26,10 @@ namespace TheMaze
         //public static Texture2D CollectibleMenu { get; private set; }
         //public static Texture2D StoryPanelTex { get; private set; }
 
+        public static Texture2D TransparentTex { get; private set; }
         public static Texture2D RedTexture { get; private set; }
+
+        public static SpriteFont TimesNewRomanFont { get; private set; }
 
         //public static List<Texture2D> particleTextures = new List<Texture2D>();
 
@@ -50,9 +53,9 @@ namespace TheMaze
 
             PauseScreen = Content.Load<Texture2D>("pauseScreen");
             RedTexture = Content.Load<Texture2D>("red");
+            TransparentTex = Content.Load<Texture2D>("transparent");
 
-
-
+            TimesNewRomanFont = Content.Load<SpriteFont>("timesnewroman");
         }
     }
 }
