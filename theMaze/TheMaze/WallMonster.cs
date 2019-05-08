@@ -9,27 +9,28 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    public class WallMonster:GameObject
+    public class WallMonster : GameObject
     {
         public Rectangle hitBoxRect;
         public Vector2 hitboxPos;
         public bool active, coolDown;
-        public Stopwatch coolDownTimer;
+        public Stopwatch coolDownTimer,attackTimer;
         public Color color;
         public Circle hitbox;
         public Rectangle currentSourceRect;
         public int frameSize;
 
-        public WallMonster(Texture2D texture, Vector2 position):base(texture,position)
+        public WallMonster(Texture2D texture, Vector2 position) : base(texture, position)
         {
-            hitBoxRect = new Rectangle((int)position.X+ConstantValues.tileWidth/2, (int)position.Y+ConstantValues.tileHeight*2, ConstantValues.tileWidth/8, ConstantValues.tileHeight);
+            hitBoxRect = new Rectangle((int)position.X + ConstantValues.tileWidth / 2, (int)position.Y + ConstantValues.tileHeight * 2, ConstantValues.tileWidth / 8, ConstantValues.tileHeight);
+            attackTimer = new Stopwatch();
             active = false;
             coolDownTimer = new Stopwatch();
             color = Color.White;
             frameSize = 128;
 
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
-            
+
         }
 
         public void Update(GameTime gameTime)
@@ -42,11 +43,11 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y,
+            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
                     ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
 
             //spriteBatch.Draw(TextureManager.hitboxPosTex, hitBoxRect , Color.Red);
-            
+
         }
 
         public void States()
@@ -63,12 +64,12 @@ namespace TheMaze
                 coolDownTimer.Start();
             }
 
-            if(coolDownTimer.ElapsedMilliseconds >= 5000)
+            if (coolDownTimer.ElapsedMilliseconds >= 5000)
             {
                 coolDown = false;
                 color = Color.White;
                 coolDownTimer.Reset();
-                
+
             }
 
         }

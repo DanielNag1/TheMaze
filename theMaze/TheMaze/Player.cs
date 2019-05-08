@@ -16,11 +16,8 @@ namespace TheMaze
 
         public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
-        public Vector2 hitBoxPos;
-        public Rectangle middleHitbox;
-            Vector2 newDirection;
-        private Rectangle hitbox;
 
+        private Rectangle hitbox;
         public Rectangle Hitbox
         {
             get { return hitbox; }
@@ -28,6 +25,7 @@ namespace TheMaze
         private int hitboxOffsetX, hitboxOffsetY;
 
         private Rectangle currentSourceRect, nextSourceRect;
+        public Rectangle middleHitbox;
         public readonly int frameSizeX = 125;
         public readonly int frameSizeY = 210;
 
@@ -36,7 +34,6 @@ namespace TheMaze
 
         private float speed = 3f;
         public bool moving = false;
-        public bool isInverse = false;
 
         public static bool lightsOn = false;
 
@@ -50,11 +47,13 @@ namespace TheMaze
         public List<Weapon> weapons;
         public static Color selectedColor;
 
+        public Circle weaponHitbox;
+
         public void SetPosition(Vector2 newPosition)
         {
             position = newPosition;
         }
-
+        
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
             sfx = new SFX();
@@ -64,18 +63,17 @@ namespace TheMaze
             currentSourceRect = new Rectangle(0, 0, frameSizeX, frameSizeY);
             nextSourceRect = currentSourceRect;
 
-
-
             hitboxOffsetX = frameSizeX / 8;
             hitboxOffsetY = frameSizeY / 4 * 3;
             hitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
+            middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height);
+
             oldPosition = position;
 
             CreatePlayerLights();
             ChooseWeapons();
-            middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width/8, currentSourceRect.Height);
         }
-
+        
         public void Update(GameTime gameTime)
         {
             if (moving)
@@ -102,7 +100,7 @@ namespace TheMaze
                 oldPosition = position;
                 position += speed * Direction;
 
-                UpdateHitboxPosition();
+                
             }
             else
             {
@@ -112,26 +110,25 @@ namespace TheMaze
                 currentSourceRect.X = frame * frameSizeX;
             }
 
+            UpdateHitboxPosition();
             UpdateLights();
             PowerDrain(gameTime);
-            hitBoxPos = position + new Vector2(frameSizeX / 2, frameSizeY / 2);
-            middleHitbox.X = (int)position.X + hitbox.Width/2;
-            middleHitbox.Y = (int)position.Y;
 
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            //weaponHitbox.Draw(spriteBatch);
         }
 
-
+        
         private void ChangeWeapon()
         {
             playerSpotLight.Color = currentWeapon.color;
             playerSpotLight.Intensity = currentWeapon.power;
             playerSpotLight.Enabled = currentWeapon.enabled;
-
+            
         }
 
         private void PowerDrain(GameTime gameTime)
@@ -190,7 +187,7 @@ namespace TheMaze
 
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
-                newDirection = new Vector2(0, -1);
+                Direction = new Vector2(0, -1);
 
                 nextSourceRect.Y = 1 * frameSizeY;
 
@@ -198,7 +195,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
             {
-                newDirection = new Vector2(0, 1);
+                Direction = new Vector2(0, 1);
 
                 nextSourceRect.Y = 0 * frameSizeY;
 
@@ -207,32 +204,21 @@ namespace TheMaze
             else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
             {
                 Direction = new Vector2(-1, 0);
-                newDirection = new Vector2(-1, 0);
                 nextSourceRect.Y = 2 * frameSizeY;
 
                 moving = true;
             }
             else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
             {
-                newDirection = new Vector2(1, 0);
+                Direction = new Vector2(1, 0);
 
                 nextSourceRect.Y = 3 * frameSizeY;
                 moving = true;
             }
             else
             {
-                newDirection = new Vector2();
-
                 moving = false;
             }
-
-            if (isInverse)
-            {
-                newDirection.X *= -1;
-                newDirection.Y *= -1;
-            }
-
-            Direction = newDirection;
         }
 
         private void ChooseWeapons()
@@ -245,8 +231,8 @@ namespace TheMaze
 
             weaponSlot1.color = Color.AntiqueWhite;
             weaponSlot2.color = Color.Red;
-            weaponSlot3.color = Color.Yellow;
-            weaponSlot4.color = Color.CornflowerBlue;
+            weaponSlot3.color = Color.Goldenrod;
+            weaponSlot4.color = Color.MediumBlue;
 
             currentWeapon = weaponSlot1;
         }
@@ -297,6 +283,11 @@ namespace TheMaze
         {
             hitbox.X = (int)position.X + hitboxOffsetX;
             hitbox.Y = (int)position.Y + hitboxOffsetY;
+
+            middleHitbox.X = (int)position.X + hitbox.Width / 2;
+            middleHitbox.Y = (int)position.Y;
+
+            weaponHitbox = new Circle(X.worldMouse, 150f);
         }
 
         private void UpdateLights()
@@ -316,7 +307,7 @@ namespace TheMaze
 
             playerLightPosition = new Vector2(Position.X + 70, Position.Y + 120);
             playerPointLight.Position = playerLightPosition;
-
+            
             UpdateSpotLightPosition();
 
             playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
@@ -343,7 +334,7 @@ namespace TheMaze
             if (Direction == new Vector2(0, -1))
             {
                 lampPosition = new Vector2(Position.X + 77, Position.Y + 110);
-
+                
             }
         }
 

@@ -12,8 +12,8 @@ namespace TheMaze
     {
         public static Texture2D PauseScreen { get; private set; }
         public static Texture2D PlayerTex { get; private set; }
-        //public static Texture2D MonsterTex { get; private set; }
-        //public static Texture2D Monster2Tex { get; private set; }
+        public static Texture2D MonsterTex { get; private set; }
+        public static Texture2D ImbakuTex { get; private set; }
         //public static Texture2D FlareTex { get; private set; }
         //public static Texture2D RangeTex { get; private set; }
         public static Texture2D FloorTileTex { get; private set; }
@@ -33,8 +33,8 @@ namespace TheMaze
         public static void LoadContent(ContentManager Content)
         {
             PlayerTex = Content.Load<Texture2D>("characterspritesheet1");
-            //MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
-            //Monster2Tex = Content.Load<Texture2D>("spritesheet1.1");
+            MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
+            ImbakuTex = Content.Load<Texture2D>("spritesheet1.4");
             //FlareTex = Content.Load<Texture2D>("Flare5_00000");
             //RangeTex = Content.Load<Texture2D>("rangecircle");
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");
@@ -47,7 +47,6 @@ namespace TheMaze
             //DarkOverlay = Content.Load<Texture2D>("darkOverlay");
             //CollectibleMenu = Content.Load<Texture2D>("collectiblemenu2");
             //StoryPanelTex = Content.Load<Texture2D>("storypanel");
-            Monster2Tex = Content.Load<Texture2D>("spritesheet1.4");
 
             PauseScreen = Content.Load<Texture2D>("pauseScreen");
             RedTexture = Content.Load<Texture2D>("red");

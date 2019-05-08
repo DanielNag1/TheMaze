@@ -12,11 +12,8 @@ namespace TheMaze
 {
     public class Lights
     {
-
+        
         public Lights()
-        public bool isInverse = false;
-        public bool isQPressed = false;
-
         {
         }
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/characterspritesheet1.png</SourceFile>
-  <SourceTime>2019-05-07T07:57:44.5161604+02:00</SourceTime>
-  <DestFile>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/characterspritesheet1.xnb</DestFile>
-  <DestTime>2019-05-07T13:09:04.1086882+02:00</DestTime>
+  <SourceFile>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/characterspritesheet1.png</SourceFile>
+  <SourceTime>2019-05-07T17:04:10+02:00</SourceTime>
+  <DestFile>C:/Users/Spellabb2018/Desktop/TheMaze-1928a7742128a89cbf717df7ba8dc093e7630516/theMaze/TheMaze/Content/bin/Windows/characterspritesheet1.xnb</DestFile>
+  <DestTime>2019-05-08T11:29:25.2625899+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

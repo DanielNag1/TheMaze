@@ -14,7 +14,7 @@ namespace TheMaze
         Rectangle fixedPos;
         public Vector2 rotationDir;
 
-        public Imbaku(Texture2D texture, Vector2 position, TileManager tileManager) : base(texture, position, tileManager)
+        public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;
             currentSourceRect = new Rectangle(frame, frameSize, 304, 462);
@@ -34,12 +34,12 @@ namespace TheMaze
             currentSourceRect.Y = frameSize * 462;
             //base.Update(gameTime);
 
-            hitboxPos = new Vector2(fixedPos.X,fixedPos.Y);
+            hitboxPos = new Vector2(fixedPos.X, fixedPos.Y);
 
-            fixedPos.X = (int)position.X - currentSourceRect.Width/4+50;
-            fixedPos.Y = (int)position.Y - currentSourceRect.Height/4-54;
+            fixedPos.X = (int)position.X - currentSourceRect.Width / 4 + 50;
+            fixedPos.Y = (int)position.Y - currentSourceRect.Height / 4 - 54;
 
-            
+
             UpdateSourceRectangle();
 
             timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -61,7 +61,7 @@ namespace TheMaze
         public override void Draw(SpriteBatch spriteBatch)
         {
 
-            spriteBatch.Draw(Texture, fixedPos, currentSourceRect, Color.White);
+            spriteBatch.Draw(texture, fixedPos, currentSourceRect, Color.White);
 
             //spriteBatch.Draw(TextureManager.hitboxPosTex, hitboxPos, Color.Red);
 

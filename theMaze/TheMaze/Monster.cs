@@ -17,7 +17,7 @@ namespace TheMaze
         //
         // TLDR du kan skita i att granska denna klassen :)
 
-        TileManager tileManager;
+        LevelManager levelManager;
 
         //Konstanter för rörelse. Praktiskt för återanvänding och läsbarhet.
         private readonly Vector2 Up = new Vector2(0, -1);
@@ -51,9 +51,9 @@ namespace TheMaze
 
         public double health = 5;
 
-        public Monster(Texture2D texture, Vector2 position, TileManager tileManager) : base(texture, position)
+        public Monster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position)
         {
-            this.tileManager = tileManager;
+            this.levelManager = levelManager;
             frameSize = 128;
             random = new Random();
 
@@ -104,7 +104,7 @@ namespace TheMaze
 
             if (isAlive)
             {
-                spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y,
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
                     ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
             }
         }
@@ -135,7 +135,7 @@ namespace TheMaze
             Direction = newDirection;
             Vector2 newDestination = Position + Direction * ConstantValues.tileWidth;
 
-            Tile tile = tileManager.GetTileAtPosition(Direction);
+            Tile tile = levelManager.GetTileAtPosition(Direction);
             if (tile.IsWall)
             {
                 destination = newDestination;
@@ -155,7 +155,7 @@ namespace TheMaze
             foreach (Vector2 direction in directions)
             {
                 //Tittar åt alla riktingar vad det är för sorts Tile
-                Tile tile = tileManager.GetTileAtPosition(position +
+                Tile tile = levelManager.GetTileAtPosition(position +
                     new Vector2(direction.X * ConstantValues.tileWidth, direction.Y * ConstantValues.tileHeight));
 
                 //Kollar om det inte är en vägg
@@ -213,7 +213,6 @@ namespace TheMaze
             }
         }
 
-        
+
     }
 }
-
