@@ -58,17 +58,18 @@ namespace TheMaze
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
             gameStateManager.Draw(spriteBatch,gameTime);
             
         }
 
         public void ExitGame()
         {
-            if (X.Exit)
+            if (X.Exit || (X.keyboardState.IsKeyDown(Keys.Escape) && X.oldkeyboardState.IsKeyUp(Keys.Escape)))
             {
                 Exit();
             }
+            
         }
 
         public void MouseCheck()

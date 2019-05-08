@@ -16,12 +16,13 @@ namespace TheMaze
         public static GameState currentGameState = GameState.MainMenu;
         GamePlayManager gamePlayManager;
         MainMenu mainMenu;
+        PauseMenu pauseMenu;
 
         public GameStateManager()
         {
             gamePlayManager = new GamePlayManager();
             mainMenu = new MainMenu();
-
+            pauseMenu = new PauseMenu();
         }
 
         public void Update(GameTime gameTime)
@@ -40,6 +41,7 @@ namespace TheMaze
 
                     break;
                 case GameState.Pause:
+                    pauseMenu.Update();
                     X.IsMouseVisible = true;
                     break;
             }
@@ -56,7 +58,7 @@ namespace TheMaze
                     gamePlayManager.Draw(spriteBatch,gameTime);
                     break;
                 case GameState.Pause:
-                    DrawPauseScreen(spriteBatch);
+                    pauseMenu.Draw(spriteBatch);
                     break;
             }
             
@@ -83,12 +85,6 @@ namespace TheMaze
                     break;
             }
         }
-
-        public void DrawPauseScreen(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Begin();
-            spriteBatch.Draw(TextureManager.PauseScreen, Vector2.Zero, Color.White);
-            spriteBatch.End();
-        }
+        
     }
 }

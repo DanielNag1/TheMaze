@@ -56,6 +56,7 @@
     <Compile Include="Monster.cs" />
     <Compile Include="Pathfind.cs" />
     <Compile Include="PathfindMob.cs" />
+    <Compile Include="PauseMenu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
