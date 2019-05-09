@@ -25,7 +25,7 @@ namespace TheMaze
         private int hitboxOffsetX, hitboxOffsetY;
 
         private Rectangle currentSourceRect, nextSourceRect;
-        public Rectangle middleHitbox,playerHitbox;
+        public Rectangle middleHitbox, playerHitbox;
         public readonly int frameSizeX = 125;
         public readonly int frameSizeY = 210;
 
@@ -39,24 +39,25 @@ namespace TheMaze
         public bool lightsOn = false;
         public bool canChangeWeapon;
 
-        public static Vector2 playerLightPosition,playerSpotLightPosition;
-        public Vector2 lampPosition;
+        public static Vector2 playerLightPosition, playerSpotLightPosition;
+        public Vector2 lampPosition, markerPos;
 
         public Light playerPointLight, playerSpotLight;
         public List<Light> playerLights;
-
+        public List<Light> markerList;
         public Weapon currentWeapon, weaponSlot1, weaponSlot2, weaponSlot3, weaponSlot4;
         public List<Weapon> weapons;
 
         public static Color selectedColor;
 
         public Circle weaponHitbox;
+        public static int markers;
 
         public void SetPosition(Vector2 newPosition)
         {
             position = newPosition;
         }
-        
+
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
             sfx = new SFX();
@@ -69,16 +70,17 @@ namespace TheMaze
             hitboxOffsetX = frameSizeX / 8;
             hitboxOffsetY = frameSizeY / 4 * 3;
             footHitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
-            middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height-10);
+            middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height - 10);
             playerHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
 
             oldPosition = position;
 
             CreatePlayerLights();
             CreateWeapons();
-            weaponSlot2.color = Color.MediumBlue;
+
+            markerList = new List<Light>();
         }
-        
+
         public void Update(GameTime gameTime)
         {
             if (moving)
@@ -105,7 +107,7 @@ namespace TheMaze
                 oldPosition = position;
                 position += speed * Direction;
 
-                
+
             }
             else
             {
@@ -133,20 +135,20 @@ namespace TheMaze
             //weaponHitbox.Draw(spriteBatch);
         }
 
-        
+
         private void ChangeWeapon()
         {
             playerSpotLight.Color = currentWeapon.color;
             playerSpotLight.Intensity = currentWeapon.power;
             //playerSpotLight.Enabled = currentWeapon.enabled;
-            
+
         }
 
         private void PowerDrain(GameTime gameTime)
         {
-            if(playerSpotLight.Enabled==true)
+            if (playerSpotLight.Enabled == true)
             {
-                if(currentWeapon==weaponSlot1)
+                if (currentWeapon == weaponSlot1)
                 {
                     weaponSlot1.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
                 }
@@ -167,7 +169,7 @@ namespace TheMaze
 
         public void ApplyWeapon()
         {
-            
+
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
                 weaponSlot2.color = selectedColor;
@@ -190,7 +192,24 @@ namespace TheMaze
 
         private void PlayerInput()
         {
-            
+            if (X.IsKeyPressed(Keys.G) || X.IsKeyPressed(Keys.G))
+            {
+                Console.WriteLine(markers);
+                Console.WriteLine(markerList.Count);
+
+                if(markerList.Count<15)
+                {
+                    markers--;
+                    Light markerLight = new PointLight();
+                    markerLight.Position = new Vector2(position.X + ConstantValues.playerWidth, position.Y + ConstantValues.playerHeight);
+                    markerLight.Intensity = .4f;
+                    markerLight.Rotation = 1f;
+                    markerLight.Scale = new Vector2(100, 100);
+                    markerList.Add(markerLight);
+                    Game1.penumbra.Lights.Add(markerLight);
+                }
+            }
+
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
                 Direction = new Vector2(0, -1);
@@ -354,7 +373,7 @@ namespace TheMaze
 
             playerLightPosition = new Vector2(Position.X + 70, Position.Y + 120);
             playerPointLight.Position = playerLightPosition;
-            
+
             UpdateSpotLightPosition();
 
             playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
@@ -366,7 +385,7 @@ namespace TheMaze
         {
             playerSpotLight.Position = lampPosition;
 
-            if (Direction == new Vector2(1,0))
+            if (Direction == new Vector2(1, 0))
             {
                 lampPosition = new Vector2(Position.X + 102, Position.Y + 123);
             }
@@ -381,7 +400,7 @@ namespace TheMaze
             if (Direction == new Vector2(0, -1))
             {
                 lampPosition = new Vector2(Position.X + 77, Position.Y + 110);
-                
+
             }
         }
 

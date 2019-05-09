@@ -29,17 +29,6 @@ namespace TheMaze
             deathManager = new LevelManager(); //detta var del av problemet - deathManager inte skapad
             deathManager.ReadDeathMap();
             
-
-            //switch (currentState)
-            //{
-            //    case LevelState.Live:
-            //        levelManager.ReadLiveMap();
-            //        break;
-            //    case LevelState.Death:
-            //        deathManager.ReadDeathMap();
-            //        break;
-            //}
-
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
             saferoom = new Saferoom(levelManager);
@@ -106,6 +95,8 @@ namespace TheMaze
                     deathManager = new LevelManager();
                     deathManager.ReadDeathMap();
 
+                    RemoveMarkers();
+
                     foreach (WallMonster wM in levelManager.wallMonsters)
                     {
                         wM.active = false;
@@ -157,9 +148,7 @@ namespace TheMaze
                     break;
             }
         }
-
-
-
+        
         public void WallMonsterCollision(WallMonster wallMonster)
         {
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
@@ -241,6 +230,20 @@ namespace TheMaze
                 currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);
                 imbaku.SetPosition(levelManager.ImbakuStartPosition);
+            }
+        }
+
+        public void RemoveMarkers()
+        {
+            player.markerList.Clear();
+
+            foreach (Light l in Game1.penumbra.Lights)
+            {
+                if (l.Rotation == 1f)
+                {
+                    Game1.penumbra.Lights.Remove(l);
+                    break;
+                }
             }
         }
 

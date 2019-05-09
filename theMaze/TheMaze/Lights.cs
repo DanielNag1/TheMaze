@@ -13,10 +13,10 @@ namespace TheMaze
     public class Lights
     {
         Saferoom saferoom;
-        public Light saferoomLight,saferoomweaponLight;
+        public Light saferoomLight,saferoomweaponLight,markerLight;
         public List<Light> saferoomLightList;
         public List<Light> saferoomWeaponList;
-
+        
         public Lights(LevelManager levelManager,Saferoom saferoom)
         {
             this.saferoom = saferoom;
@@ -34,6 +34,7 @@ namespace TheMaze
                 Game1.penumbra.Lights.Add(saferoomLight);
             }
 
+            
             foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
             {
                 saferoomLight = new PointLight();
@@ -61,6 +62,7 @@ namespace TheMaze
                 l.Intensity = saferoom.saferoomWeaponLightIntensity;
             }
 
+            
 
         }
 

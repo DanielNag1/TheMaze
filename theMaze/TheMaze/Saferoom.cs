@@ -68,7 +68,7 @@ namespace TheMaze
 
             saferoomWeaponLightIntensity = .9f;
             saferoomWeaponLightScale = new Vector2(150, 150);
-
+            
         }
 
         public void SelectWeapon()
@@ -102,7 +102,7 @@ namespace TheMaze
 
             if (X.player.FootHitbox.Intersects(saferoomHitBox))
             {
-                
+                Player.markers = 15;
                 visible = true;
             }
             else
