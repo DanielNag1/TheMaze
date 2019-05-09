@@ -34,7 +34,7 @@ namespace TheMaze
 
         private float speed = 3f;
 
-        public bool moving = false;
+        public bool moving, isInverse = false;
 
         public bool lightsOn = false;
         public bool canChangeWeapon;
@@ -210,9 +210,11 @@ namespace TheMaze
                 }
             }
 
+            Vector2 newDirection;
+
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
-                Direction = new Vector2(0, -1);
+                newDirection = new Vector2(0, -1);
 
                 nextSourceRect.Y = 1 * frameSizeY;
 
@@ -220,7 +222,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
             {
-                Direction = new Vector2(0, 1);
+                newDirection = new Vector2(0, 1);
 
                 nextSourceRect.Y = 0 * frameSizeY;
 
@@ -228,14 +230,14 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
             {
-                Direction = new Vector2(-1, 0);
+                newDirection = new Vector2(-1, 0);
                 nextSourceRect.Y = 2 * frameSizeY;
 
                 moving = true;
             }
             else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
             {
-                Direction = new Vector2(1, 0);
+                newDirection = new Vector2(1, 0);
 
                 nextSourceRect.Y = 3 * frameSizeY;
                 moving = true;
@@ -244,11 +246,19 @@ namespace TheMaze
             {
                 moving = false;
             }
+
+            if (isInverse)
+            {
+                newDirection.X *= -1;
+                newDirection.Y *= -1;
+            }
+
+            Direction = newDirection;
         }
 
         public void IsInverse()
         {
-            Direction = new Vector2(Direction.X * -1, Direction.Y * - 1);
+            
         }
 
         private void WeaponInput()
