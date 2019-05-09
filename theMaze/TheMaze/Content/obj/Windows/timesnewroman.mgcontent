@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Nagy Dániel/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/timesnewroman.spritefont</SourceFile>
-  <SourceTime>2019-05-08T21:46:43.9909754+02:00</SourceTime>
-  <DestFile>C:/Users/Nagy Dániel/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/timesnewroman.xnb</DestFile>
-  <DestTime>2019-05-09T19:48:21.3363318+02:00</DestTime>
+  <SourceFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/timesnewroman.spritefont</SourceFile>
+  <SourceTime>2019-05-09T23:13:02.4154859+02:00</SourceTime>
+  <DestFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/timesnewroman.xnb</DestFile>
+  <DestTime>2019-05-09T23:41:59.8746017+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

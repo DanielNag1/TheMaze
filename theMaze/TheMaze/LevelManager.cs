@@ -15,6 +15,7 @@ namespace TheMaze
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionSafeRoom { get; private set; }
         public Vector2 ImbakuStartPosition { get; private set; }
+        public Vector2 GlitchMonsterStartPosition { get; private set; }
         public List<WallMonster> wallMonsters;
         public WallMonster wallMonster;
 
@@ -81,6 +82,10 @@ namespace TheMaze
                     {
                         wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
+                    }
+                    if (mapData[y][x] == '5')
+                    {
+                        GlitchMonsterStartPosition = tilePosition;
                     }
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }

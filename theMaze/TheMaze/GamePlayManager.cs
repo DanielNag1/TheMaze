@@ -18,6 +18,7 @@ namespace TheMaze
         LevelManager levelManager,deathManager;
         Player player;
         Imbaku imbaku;
+        GlitchMonster glitchMonster;
         
         Saferoom saferoom;
         Lights lights;
@@ -31,6 +32,7 @@ namespace TheMaze
             
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+            glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
             saferoom = new Saferoom(levelManager);
             lights = new Lights(levelManager,saferoom);
 
@@ -72,6 +74,7 @@ namespace TheMaze
 
             player.Update(gameTime);
             ImbakuCollision(gameTime);
+            GlitchMonsterCollision(gameTime);
             saferoom.Update(gameTime);
             lights.Update(gameTime);
             
@@ -134,6 +137,7 @@ namespace TheMaze
                     }
                     imbaku.Draw(spriteBatch);
                     player.Draw(spriteBatch);
+                    glitchMonster.Draw(spriteBatch);
                     
 
                     spriteBatch.End();
@@ -195,8 +199,14 @@ namespace TheMaze
                 imbaku.active = false;
             }
 
+        }
 
-
+        public void GlitchMonsterCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
+            {
+                player.IsInverse();
+            }
         }
 
         public void ImbakuCollision(GameTime gameTime)

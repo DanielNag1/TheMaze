@@ -246,6 +246,11 @@ namespace TheMaze
             }
         }
 
+        public void IsInverse()
+        {
+            Direction = new Vector2(Direction.X * -1, Direction.Y * - 1);
+        }
+
         private void WeaponInput()
         {
             ChangeWeapon();
