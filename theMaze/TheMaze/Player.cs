@@ -69,13 +69,14 @@ namespace TheMaze
             hitboxOffsetX = frameSizeX / 8;
             hitboxOffsetY = frameSizeY / 4 * 3;
             footHitbox = new Rectangle((int)position.X + hitboxOffsetX, (int)position.Y + hitboxOffsetY, frameSizeX - frameSizeX / 4, frameSizeY / 5);
-            middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height);
+            middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height-10);
             playerHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
 
             oldPosition = position;
 
             CreatePlayerLights();
             CreateWeapons();
+            weaponSlot2.color = Color.MediumBlue;
         }
         
         public void Update(GameTime gameTime)
@@ -128,7 +129,7 @@ namespace TheMaze
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
-            //spriteBatch.Draw(TextureManager.RedTexture, playerHitbox, Color.White);
+            //spriteBatch.Draw(TextureManager.RedTexture, middleHitbox, Color.White);
             //weaponHitbox.Draw(spriteBatch);
         }
 

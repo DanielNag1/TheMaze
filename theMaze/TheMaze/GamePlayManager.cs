@@ -64,6 +64,7 @@ namespace TheMaze
         {
             if(X.IsKeyPressed(Keys.Space))
             {
+                Console.WriteLine(imbaku.active);
             }
 
             if (X.IsKeyPressed(Keys.Enter))
@@ -81,7 +82,7 @@ namespace TheMaze
             }
 
             player.Update(gameTime);
-            ImbakuCollision();
+            ImbakuCollision(gameTime);
             saferoom.Update(gameTime);
             lights.Update(gameTime);
             
@@ -104,6 +105,12 @@ namespace TheMaze
                 case LevelState.Death:
                     deathManager = new LevelManager();
                     deathManager.ReadDeathMap();
+
+                    foreach (WallMonster wM in levelManager.wallMonsters)
+                    {
+                        wM.active = false;
+                        wM.coolDownTimer.Reset();
+                    }
 
                     player.Collision(deathManager);
                     
@@ -179,12 +186,7 @@ namespace TheMaze
                 }
 
             }
-
-
-
-
-
-
+            
         }
 
         public void ImbakuChasePlayer()
@@ -203,11 +205,31 @@ namespace TheMaze
 
         }
 
-        public void ImbakuCollision()
+        public void ImbakuCollision(GameTime gameTime)
         {
-            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox))
+            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled==true && imbaku.isAlive)
             {
                 killed = true;
+            }
+
+            if(player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox))
+            {
+                if (player.currentWeapon.color==Color.Red)
+                {
+                    imbaku.health -= gameTime.ElapsedGameTime.TotalMilliseconds/2;
+                }
+                if(player.currentWeapon.color==Color.Goldenrod)
+                {
+                    imbaku.speed = 50;
+                }
+                else if (player.currentWeapon.color == Color.MediumBlue)
+                {
+                    imbaku.speed = 0;
+                }
+                else
+                {
+                    imbaku.speed = 100;
+                }
             }
         }
 
@@ -215,6 +237,8 @@ namespace TheMaze
         {
             if (X.IsKeyPressed(Keys.Space) && killed)
             {
+                killed = false;
+                currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);
                 imbaku.SetPosition(levelManager.ImbakuStartPosition);
             }

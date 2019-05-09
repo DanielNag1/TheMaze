@@ -103,7 +103,7 @@ namespace TheMaze
                     {
                         gamePlayManager.Resurrect();
                         currentGameState = GameState.Play; Console.WriteLine(currentGameState);
-                        gamePlayManager.killed = false;
+                        
                     }
                     break;
             }

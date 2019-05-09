@@ -103,12 +103,10 @@ namespace TheMaze
         public override void Draw(SpriteBatch spriteBatch)
         {
             hitbox.Draw(spriteBatch);
-
-            if (isAlive)
-            {
+            
                 spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
                     ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
-            }
+            
         }
 
         protected void Moving(GameTime gameTime)
