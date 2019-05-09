@@ -86,6 +86,7 @@ namespace TheMaze
                         WallMonsterCollision(wM);
                     }
                     imbaku.Update(gameTime, player);
+                    TakeItem();
                     ImbakuChasePlayer();
                     player.Collision(levelManager);
                     
@@ -126,6 +127,10 @@ namespace TheMaze
                     foreach (WallMonster wM in levelManager.wallMonsters)
                     {
                         wM.Draw(spriteBatch);
+                    }
+                    foreach (Collectible c in levelManager.collectibles)
+                    {
+                        c.Draw(spriteBatch);
                     }
                     imbaku.Draw(spriteBatch);
                     player.Draw(spriteBatch);
@@ -242,6 +247,18 @@ namespace TheMaze
                 if (l.Rotation == 1f)
                 {
                     Game1.penumbra.Lights.Remove(l);
+                    break;
+                }
+            }
+        }
+
+        public void TakeItem()
+        {
+            foreach (Collectible c in levelManager.collectibles)
+            {
+                if(player.FootHitbox.Intersects(c.hitbox) && X.IsKeyPressed(Keys.F))
+                {
+                    levelManager.collectibles.Remove(c);
                     break;
                 }
             }

@@ -466,3 +466,4 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\wall tile 2.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\You Died.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb

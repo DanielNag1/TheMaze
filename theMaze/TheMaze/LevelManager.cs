@@ -18,8 +18,8 @@ namespace TheMaze
         public List<WallMonster> wallMonsters;
         public WallMonster wallMonster;
 
-        //public List<Collectible> collectibles;
-        //public Collectible collectible;
+        public List<Collectible> collectibles;
+        public Collectible collectible;
 
         public LevelManager()
         {
@@ -49,7 +49,7 @@ namespace TheMaze
         private Tile[,] GenerateMap(string map)
         {
             string[] mapData = File.ReadAllLines(map);
-            //collectibles = new List<Collectible>();
+            collectibles = new List<Collectible>();
             wallMonsters = new List<WallMonster>();
             int width = mapData[0].Length;
             int height = mapData.Length;
@@ -74,8 +74,8 @@ namespace TheMaze
                     }
                     if (mapData[y][x] == '3')
                     {
-                        //collectible = new Collectible(TextureManager.CollectibleTex, tilePosition);
-                        //collectibles.Add(collectible);
+                        collectible = new Collectible(TextureManager.CollectibleTex, tilePosition);
+                        collectibles.Add(collectible);
                     }
                     if (mapData[y][x] == '4')
                     {
