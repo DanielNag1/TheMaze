@@ -91,6 +91,7 @@ namespace TheMaze
                     imbaku.Update(gameTime, player);
                     TakeItem();
                     ImbakuChasePlayer();
+                    glitchMonster.Update(gameTime, player);
                     player.Collision(levelManager);
                     
                     break;
@@ -205,7 +206,24 @@ namespace TheMaze
         {
             if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
             {
-                player.IsInverse();
+                player.isInverse = true;
+            }
+
+            if (player.isInverse)
+            {
+                glitchMonster.glitchMonsterTimer.Start();
+
+                if (player.currentWeapon.enabled == false)
+                {
+                    player.isInverse = false;
+                    glitchMonster.glitchMonsterTimer.Reset();
+                }
+                else if (glitchMonster.glitchMonsterTimer.ElapsedMilliseconds >= 4000)
+                {
+                    player.isInverse = false;
+                    glitchMonster.glitchMonsterTimer.Reset();
+                    killed = true;
+                }
             }
         }
 
@@ -243,13 +261,14 @@ namespace TheMaze
             {
                 killed = false;
                 currentState = LevelState.Live;
-                player.SetPosition(levelManager.StartPositionPlayer);
                 imbaku.SetPosition(levelManager.ImbakuStartPosition);
+                glitchMonster.SetPosition(levelManager.GlitchMonsterStartPosition);
+                player.SetPosition(levelManager.StartPositionPlayer);
             }
         }
 
         public void RemoveMarkers()
-        {
+        { 
             player.markerList.Clear();
 
             foreach (Light l in Game1.penumbra.Lights)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace TheMaze
     public class GlitchMonster : Monster
     {
         public Rectangle glitchMonsterRectangleHitbox;
+
+        public Stopwatch glitchMonsterTimer = new Stopwatch();
 
         public GlitchMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {

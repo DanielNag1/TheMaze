@@ -34,7 +34,8 @@ namespace TheMaze
 
         private float speed = 3f;
 
-        public bool moving, isInverse = false;
+        public bool moving = false;
+        public bool isInverse = false;
 
         public bool lightsOn = false;
         public bool canChangeWeapon;
@@ -192,6 +193,8 @@ namespace TheMaze
 
         private void PlayerInput()
         {
+            Vector2 newDirection;
+
             if (X.IsKeyPressed(Keys.G) || X.IsKeyPressed(Keys.G))
             {
                 Console.WriteLine(markers);
@@ -209,8 +212,6 @@ namespace TheMaze
                     Game1.penumbra.Lights.Add(markerLight);
                 }
             }
-
-            Vector2 newDirection;
 
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
@@ -244,6 +245,8 @@ namespace TheMaze
             }
             else
             {
+                newDirection = new Vector2();
+
                 moving = false;
             }
 
@@ -254,11 +257,6 @@ namespace TheMaze
             }
 
             Direction = newDirection;
-        }
-
-        public void IsInverse()
-        {
-            
         }
 
         private void WeaponInput()
@@ -392,7 +390,14 @@ namespace TheMaze
             UpdateSpotLightPosition();
 
             playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
-            playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
+            if (isInverse == false)
+            {
+                playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
+            }
+            else
+            {
+                playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(-90f);
+            }
 
         }
 
