@@ -220,7 +220,6 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.dll
-C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
@@ -566,7 +565,6 @@ C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Dire
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
-C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.xml
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
@@ -576,8 +574,11 @@ C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Dire
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
-C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
 C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll

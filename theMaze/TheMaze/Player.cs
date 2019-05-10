@@ -325,7 +325,6 @@ namespace TheMaze
             playerPointLight.Position = playerLightPosition;
 
             playerSpotLight = new Spotlight();
-            playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
             playerSpotLight.Color = Color.White;
 
             playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
@@ -352,7 +351,7 @@ namespace TheMaze
             playerHitbox.Y = (int)position.Y;
 
             weaponHitbox = new Circle(X.worldMouse, weaponHitboxRadius);
-            weaponHitboxRadius = Vector2.Distance(X.worldMouse, lampPosition) / 2+50;
+            weaponHitboxRadius = Vector2.Distance(X.worldMouse, lampPosition) / 2;
             
         }
 

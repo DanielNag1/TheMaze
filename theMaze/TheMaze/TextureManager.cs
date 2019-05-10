@@ -32,12 +32,19 @@ namespace TheMaze
         public static Texture2D TransparentTex { get; private set; }
         public static Texture2D RedTexture { get; private set; }
 
+        public static List<Texture2D> hitParticles { get; private set; }
+        public static Texture2D particle1 { get; private set; }
+        public static Texture2D particle2 { get; private set; }
+
+
         public static SpriteFont TimesNewRomanFont { get; private set; }
 
         //public static List<Texture2D> particleTextures = new List<Texture2D>();
 
         public static void LoadContent(ContentManager Content)
         {
+            hitParticles = new List<Texture2D>();
+
             PlayerTex = Content.Load<Texture2D>("characterspritesheet1");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
             ImbakuTex = Content.Load<Texture2D>("spritesheet1.4");
@@ -57,10 +64,14 @@ namespace TheMaze
             PauseScreen = Content.Load<Texture2D>("pauseScreen");
             RedTexture = Content.Load<Texture2D>("red");
             TransparentTex = Content.Load<Texture2D>("transparent");
-
             KilledScreen = Content.Load<Texture2D>("You Died");
-
             TimesNewRomanFont = Content.Load<SpriteFont>("timesnewroman");
+
+            particle1 = Content.Load<Texture2D>("particle1");
+            particle2 = Content.Load<Texture2D>("particle2");
+            hitParticles.Add(particle1);
+            hitParticles.Add(particle2);
+
         }
     }
 }

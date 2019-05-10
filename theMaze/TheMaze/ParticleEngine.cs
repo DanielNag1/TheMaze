@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Threading;
 
 namespace TheMaze
 {
@@ -11,8 +12,10 @@ namespace TheMaze
     {
         private Random random;
         public Vector2 EmitterLocation { get; set; }
-        private List<Particle> particles;
+        public List<Particle> particles;
         private List<Texture2D> textures;
+        public bool isHit;
+        private int total;
 
         public ParticleEngine(List<Texture2D> textures, Vector2 location)
         {
@@ -20,26 +23,31 @@ namespace TheMaze
             this.textures = textures;
             this.particles = new List<Particle>();
             random = new Random();
+            isHit = false;
         }
 
         public void Update()
         {
-            int total = 10;
+            total = 1;
 
-            for (int i = 0; i < total; i++)
+            if (isHit)
             {
-                particles.Add(GenerateNewParticle());
-            }
-
-            for (int particle = 0; particle < particles.Count; particle++)
-            {
-                particles[particle].Update();
-                if (particles[particle].TTL <= 0)
+                for (int i = 0; i < total; i++)
                 {
-                    particles.RemoveAt(particle);
-                    particle--;
+                    particles.Add(GenerateNewParticle());
+                }
+
+                for (int particle = 0; particle < particles.Count; particle++)
+                {
+                    particles[particle].Update();
+                    if (particles[particle].TTL <= 0)
+                    {
+                        particles.RemoveAt(particle);
+                        particle--;
+                    }
                 }
             }
+            
         }
 
         private Particle GenerateNewParticle()
@@ -47,28 +55,34 @@ namespace TheMaze
             Texture2D texture = textures[random.Next(textures.Count)];
             Vector2 position = EmitterLocation;
             Vector2 velocity = new Vector2(
-                                    1f * (float)(random.NextDouble() * 2 - 1),
-                                    1f * (float)(random.NextDouble() * 2 - 1));
+                                    8f * (float)(random.NextDouble() * 2 - 1),
+                                    8f * (float)(random.NextDouble() * 2 - 1));
             float angle = 0;
-            float angularVelocity = 0.1f * (float)(random.NextDouble() * 2 - 1);
+            float angularVelocity = 1f * (float)(random.NextDouble() *.1);
             Color color = new Color(
                         (float)random.NextDouble(),
                         (float)random.NextDouble(),
                         (float)random.NextDouble());
-            float size = (float)random.NextDouble();
-            int ttl = 20 + random.Next(40);
+            float size = random.Next(2, 9)*.1f;
+            int ttl = 15 + random.Next(4);
 
-            return new Particle(texture, position, velocity, angle, angularVelocity, color, size, ttl);
+
+            return new Particle(texture, position, velocity, angle, angularVelocity, Color.White, size, ttl);
+
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-            for (int index = 0; index < particles.Count; index++)
+            if (isHit)
             {
-                particles[index].Draw(spriteBatch);
+                for (int index = 0; index < particles.Count; index++)
+                {
+                    particles[index].Draw(spriteBatch);
+                }
             }
-            spriteBatch.End();
         }
+        
+
     }
 }

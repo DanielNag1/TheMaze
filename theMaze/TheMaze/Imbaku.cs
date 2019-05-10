@@ -10,7 +10,7 @@ namespace TheMaze
 {
     //DANIELS FASZ-KOD
 
-    class Imbaku : Monster
+    public class Imbaku : Monster
     {
         public Rectangle imbakuRectangleHitbox;
         //En lista som håller "the path"
@@ -36,6 +36,7 @@ namespace TheMaze
             path = new List<Vector2>();
             isAlive = true;
             health = 3000;
+            speed = 50f;
         }
 
         public override void Update(GameTime gameTime, Player player)
@@ -134,6 +135,7 @@ namespace TheMaze
             if (isAlive)
             {
                 //imbakuCircleHitbox.Draw(spriteBatch);
+                //spriteBatch.Draw(TextureManager.RedTexture, imbakuRectangleHitbox, Color.White);
                 spriteBatch.Draw(texture, imbakuRectangleHitbox, currentSourceRect, Color.White);
             }
         }

@@ -17,10 +17,12 @@ namespace TheMaze
         LevelState currentState=LevelState.Live;
         LevelManager levelManager,deathManager;
         Player player;
-        Imbaku imbaku;
+        public Imbaku imbaku;
         
         Saferoom saferoom;
         Lights lights;
+        ParticleEngine particleEngine;
+        List<ParticleEngine> particleEngines;
 
         public GamePlayManager ()
         {
@@ -33,6 +35,9 @@ namespace TheMaze
             imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
             saferoom = new Saferoom(levelManager);
             lights = new Lights(levelManager,saferoom);
+
+            particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
+            particleEngines = new List<ParticleEngine>();
 
             X.player = player;
             X.LoadCamera();
@@ -51,11 +56,7 @@ namespace TheMaze
         
         public void Update(GameTime gameTime)
         {
-            if(X.IsKeyPressed(Keys.Space))
-            {
-                Console.WriteLine(imbaku.active);
-            }
-
+            Console.WriteLine("______" + particleEngine.isHit);
             if (X.IsKeyPressed(Keys.Enter))
             {
                 if (currentState == LevelState.Live) 
@@ -74,7 +75,8 @@ namespace TheMaze
             ImbakuCollision(gameTime);
             saferoom.Update(gameTime);
             lights.Update(gameTime);
-            
+            particleEngine.Update();
+
             switch (currentState)
             {
                 case LevelState.Live:
@@ -87,7 +89,6 @@ namespace TheMaze
                     }
                     imbaku.Update(gameTime, player);
                     TakeItem();
-                    ImbakuChasePlayer();
                     player.Collision(levelManager);
                     
                     break;
@@ -128,15 +129,11 @@ namespace TheMaze
                         c.Draw(spriteBatch);
                     }
                     imbaku.Draw(spriteBatch);
-                    player.Draw(spriteBatch);
-                    
-
+                    player.Draw(spriteBatch);                    
                     spriteBatch.End();
-
-
-
+                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
-                    spriteBatch.Begin();
+                    particleEngine.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
                     
@@ -177,39 +174,26 @@ namespace TheMaze
             }
             
         }
-
-        public void ImbakuChasePlayer()
-        {
-            if (Vector2.Distance(player.Position, imbaku.Position) < 1000)
-            {
-                imbaku.active = true;
-            }
-
-            else
-            {
-                imbaku.active = false;
-            }
-
-
-
-        }
+        
 
         public void ImbakuCollision(GameTime gameTime)
         {
             if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled==true && imbaku.isAlive)
             {
-                killed = true;
+                //killed = true;
             }
 
             if(player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox))
             {
-                if (player.currentWeapon.color==Color.Red)
+                
+                if (player.currentWeapon.color==Color.Red && imbaku.isAlive)
                 {
-                    imbaku.health -= gameTime.ElapsedGameTime.TotalMilliseconds/2;
+                    MonsterTakeDamage(imbaku,gameTime);
                 }
-                if(player.currentWeapon.color==Color.Goldenrod)
+                
+                else if (player.currentWeapon.color==Color.Goldenrod)
                 {
-                    imbaku.speed = 50;
+                    imbaku.speed = 25;
                 }
                 else if (player.currentWeapon.color == Color.MediumBlue)
                 {
@@ -217,9 +201,21 @@ namespace TheMaze
                 }
                 else
                 {
-                    imbaku.speed = 100;
+                    imbaku.speed = 50;
+                    foreach (ParticleEngine p in particleEngines)
+                    {
+                        if (particleEngines.Count > 0)
+                        {
+                            p.isHit = false;
+                            particleEngines.Remove(p);
+                            break;
+                        }
+                    }
+                    
                 }
             }
+            
+            
         }
 
         public void Resurrect()
@@ -257,6 +253,14 @@ namespace TheMaze
                     break;
                 }
             }
+        }
+
+        public void MonsterTakeDamage(Imbaku imbaku,GameTime gameTime)
+        {
+            particleEngines.Add(particleEngine);
+            particleEngine.EmitterLocation = imbaku.Position;
+            particleEngine.isHit = true;
+            imbaku.health -= gameTime.ElapsedGameTime.TotalMilliseconds / 2;
         }
 
     }
