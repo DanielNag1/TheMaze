@@ -35,13 +35,14 @@ namespace TheMaze
         private float speed = 3f;
 
         public bool moving = false;
-        public bool isInverse = false;
 
         public bool lightsOn = false;
         public bool canChangeWeapon;
 
         public static Vector2 playerLightPosition, playerSpotLightPosition;
         public Vector2 lampPosition, markerPos;
+
+        public float weaponHitboxRadius;
 
         public Light playerPointLight, playerSpotLight;
         public List<Light> playerLights;
@@ -132,8 +133,6 @@ namespace TheMaze
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
-            //spriteBatch.Draw(TextureManager.RedTexture, middleHitbox, Color.White);
-            //weaponHitbox.Draw(spriteBatch);
         }
 
 
@@ -141,8 +140,6 @@ namespace TheMaze
         {
             playerSpotLight.Color = currentWeapon.color;
             playerSpotLight.Intensity = currentWeapon.power;
-            //playerSpotLight.Enabled = currentWeapon.enabled;
-
         }
 
         private void PowerDrain(GameTime gameTime)
@@ -193,8 +190,6 @@ namespace TheMaze
 
         private void PlayerInput()
         {
-            Vector2 newDirection;
-
             if (X.IsKeyPressed(Keys.G) || X.IsKeyPressed(Keys.G))
             {
                 Console.WriteLine(markers);
@@ -215,7 +210,7 @@ namespace TheMaze
 
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
             {
-                newDirection = new Vector2(0, -1);
+                Direction = new Vector2(0, -1);
 
                 nextSourceRect.Y = 1 * frameSizeY;
 
@@ -223,7 +218,7 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
             {
-                newDirection = new Vector2(0, 1);
+                Direction = new Vector2(0, 1);
 
                 nextSourceRect.Y = 0 * frameSizeY;
 
@@ -231,32 +226,22 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
             {
-                newDirection = new Vector2(-1, 0);
+                Direction = new Vector2(-1, 0);
                 nextSourceRect.Y = 2 * frameSizeY;
 
                 moving = true;
             }
             else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
             {
-                newDirection = new Vector2(1, 0);
+                Direction = new Vector2(1, 0);
 
                 nextSourceRect.Y = 3 * frameSizeY;
                 moving = true;
             }
             else
             {
-                newDirection = new Vector2();
-
                 moving = false;
             }
-
-            if (isInverse)
-            {
-                newDirection.X *= -1;
-                newDirection.Y *= -1;
-            }
-
-            Direction = newDirection;
         }
 
         private void WeaponInput()
@@ -366,7 +351,9 @@ namespace TheMaze
             playerHitbox.X = (int)position.X;
             playerHitbox.Y = (int)position.Y;
 
-            weaponHitbox = new Circle(X.worldMouse, 150f);
+            weaponHitbox = new Circle(X.worldMouse, weaponHitboxRadius);
+            weaponHitboxRadius = Vector2.Distance(X.worldMouse, lampPosition) / 2+50;
+            
         }
 
         private void UpdateLights()
@@ -390,14 +377,7 @@ namespace TheMaze
             UpdateSpotLightPosition();
 
             playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
-            if (isInverse == false)
-            {
-                playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
-            }
-            else
-            {
-                playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(-90f);
-            }
+            playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
 
         }
 

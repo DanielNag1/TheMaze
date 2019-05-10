@@ -15,8 +15,8 @@ namespace TheMaze
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionSafeRoom { get; private set; }
         public Vector2 ImbakuStartPosition { get; private set; }
-        public Vector2 GlitchMonsterStartPosition { get; private set; }
         public List<WallMonster> wallMonsters;
+        public List<Vector2> collectiblePositions;
         public WallMonster wallMonster;
 
         public List<Collectible> collectibles;
@@ -24,6 +24,7 @@ namespace TheMaze
 
         public LevelManager()
         {
+            collectiblePositions = new List<Vector2>();
         }
         public void ReadLiveMap()
         {
@@ -76,16 +77,14 @@ namespace TheMaze
                     if (mapData[y][x] == '3')
                     {
                         collectible = new Collectible(TextureManager.CollectibleTex, tilePosition);
+                        Vector2 collectiblePositionForLight = new Vector2(collectible.Position.X + collectible.texture.Width / 2, collectible.Position.Y + collectible.texture.Height / 2);
+                        collectiblePositions.Add(collectiblePositionForLight);
                         collectibles.Add(collectible);
                     }
                     if (mapData[y][x] == '4')
                     {
                         wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
-                    }
-                    if (mapData[y][x] == '5')
-                    {
-                        GlitchMonsterStartPosition = tilePosition;
                     }
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }

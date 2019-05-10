@@ -13,7 +13,7 @@ namespace TheMaze
     public class Lights
     {
         Saferoom saferoom;
-        public Light saferoomLight,saferoomweaponLight,markerLight;
+        public Light saferoomLight,saferoomweaponLight,collectibleLight;
         public List<Light> saferoomLightList;
         public List<Light> saferoomWeaponList;
         
@@ -32,6 +32,16 @@ namespace TheMaze
                 saferoomLight.Scale = saferoom.saferoomLightScale;
                 saferoomLightList.Add(saferoomLight);
                 Game1.penumbra.Lights.Add(saferoomLight);
+            }
+
+            foreach (Vector2 position in levelManager.collectiblePositions)
+            {
+                collectibleLight = new PointLight();
+                collectibleLight.Color = Color.BlueViolet;
+                collectibleLight.Position = position;
+                collectibleLight.Intensity = .5f;
+                collectibleLight.Scale = new Vector2(200, 200);
+                Game1.penumbra.Lights.Add(collectibleLight);
             }
 
             

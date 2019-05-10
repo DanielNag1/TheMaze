@@ -18,7 +18,6 @@ namespace TheMaze
         LevelManager levelManager,deathManager;
         Player player;
         Imbaku imbaku;
-        GlitchMonster glitchMonster;
         
         Saferoom saferoom;
         Lights lights;
@@ -27,12 +26,11 @@ namespace TheMaze
         {
             levelManager = new LevelManager();
             levelManager.ReadLiveMap();
-            deathManager = new LevelManager(); //detta var del av problemet - deathManager inte skapad
+            deathManager = new LevelManager();
             deathManager.ReadDeathMap();
             
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
-            glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
             saferoom = new Saferoom(levelManager);
             lights = new Lights(levelManager,saferoom);
 
@@ -60,10 +58,10 @@ namespace TheMaze
 
             if (X.IsKeyPressed(Keys.Enter))
             {
-                if (currentState == LevelState.Live) //Gjort så att man kan testa att gå fram och tillbaka mellan dem
+                if (currentState == LevelState.Live) 
                 {
                     currentState = LevelState.Death;
-                    player.SetPosition(deathManager.StartPositionPlayer); //detta var andra delen av problemet
+                    player.SetPosition(deathManager.StartPositionPlayer); 
                 }
                 else
                 {
@@ -74,7 +72,6 @@ namespace TheMaze
 
             player.Update(gameTime);
             ImbakuCollision(gameTime);
-            GlitchMonsterCollision(gameTime);
             saferoom.Update(gameTime);
             lights.Update(gameTime);
             
@@ -91,7 +88,6 @@ namespace TheMaze
                     imbaku.Update(gameTime, player);
                     TakeItem();
                     ImbakuChasePlayer();
-                    glitchMonster.Update(gameTime, player);
                     player.Collision(levelManager);
                     
                     break;
@@ -116,11 +112,6 @@ namespace TheMaze
 
         public void Draw(SpriteBatch spriteBatch,GameTime gameTime)
         {
-            //Så här bör knappar ritas ut
-            //spriteBatch.Begin();
-            ////testButton.Draw(spriteBatch); 
-            //spriteBatch.End();
-
             switch (currentState)
             {
                 case LevelState.Live:
@@ -138,7 +129,6 @@ namespace TheMaze
                     }
                     imbaku.Draw(spriteBatch);
                     player.Draw(spriteBatch);
-                    glitchMonster.Draw(spriteBatch);
                     
 
                     spriteBatch.End();
@@ -200,31 +190,8 @@ namespace TheMaze
                 imbaku.active = false;
             }
 
-        }
 
-        public void GlitchMonsterCollision(GameTime gameTime)
-        {
-            if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
-            {
-                player.isInverse = true;
-            }
 
-            if (player.isInverse)
-            {
-                glitchMonster.glitchMonsterTimer.Start();
-
-                if (player.currentWeapon.enabled == false)
-                {
-                    player.isInverse = false;
-                    glitchMonster.glitchMonsterTimer.Reset();
-                }
-                else if (glitchMonster.glitchMonsterTimer.ElapsedMilliseconds >= 4000)
-                {
-                    player.isInverse = false;
-                    glitchMonster.glitchMonsterTimer.Reset();
-                    killed = true;
-                }
-            }
         }
 
         public void ImbakuCollision(GameTime gameTime)
@@ -261,14 +228,13 @@ namespace TheMaze
             {
                 killed = false;
                 currentState = LevelState.Live;
-                imbaku.SetPosition(levelManager.ImbakuStartPosition);
-                glitchMonster.SetPosition(levelManager.GlitchMonsterStartPosition);
                 player.SetPosition(levelManager.StartPositionPlayer);
+                imbaku.SetPosition(levelManager.ImbakuStartPosition);
             }
         }
 
         public void RemoveMarkers()
-        { 
+        {
             player.markerList.Clear();
 
             foreach (Light l in Game1.penumbra.Lights)

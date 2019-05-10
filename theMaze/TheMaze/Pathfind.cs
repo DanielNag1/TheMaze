@@ -39,9 +39,15 @@ namespace TheMaze
         {
             Position start = VectorToPosition(startPos);
             Position end = VectorToPosition(endPos);
+            List<Vector2> pathPos = new List<Vector2>();
+
+            if (CheckGridPos(start) && CheckGridPos(end))
+            {
+                Console.WriteLine("###### Returning empty path.");
+                return pathPos;
+            }
 
             Position[] path = grid.GetPath(start, end, MovementPatterns.LateralOnly);
-            List<Vector2> pathPos = new List<Vector2>();
 
             for (int i = 0; i < path.Length; i++)
             {
@@ -87,6 +93,17 @@ namespace TheMaze
             }
 
             return new Vector2(x, y);
+        }
+
+        private static bool CheckGridPos(Position p)
+        {
+            //check if position is within grid limits
+            if (p.X >= grid.DimX || p.X < 0 || p.Y >= grid.DimY || p.Y < 0)
+            {
+                Console.WriteLine("###### Grid Position X: " + p.X + " Y: " + p.Y + " is out of range!");
+                return false;
+            }
+            return true;
         }
     }
 }
