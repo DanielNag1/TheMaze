@@ -12,12 +12,13 @@ namespace TheMaze
 {
     class GameStateManager
     {
-        public enum GameState { MainMenu, Play, Pause,Killed}
+        public enum GameState { MainMenu, Play, Pause,Killed,CollectibleMenu}
         public static GameState currentGameState = GameState.MainMenu;
         GamePlayManager gamePlayManager;
         MainMenu mainMenu;
         PauseMenu pauseMenu;
         LevelManager levelManager;
+        CollectibleViewer collectibleviewer;
 
         public GameStateManager()
         {
@@ -25,13 +26,14 @@ namespace TheMaze
             mainMenu = new MainMenu();
             pauseMenu = new PauseMenu();
             levelManager = new LevelManager();
+            collectibleviewer = new CollectibleViewer();
         }
 
         public void Update(GameTime gameTime)
         {
             X.Update(gameTime);
             PauseGame(gameTime);
-
+            
             switch(currentGameState)
             {
                 case GameState.MainMenu:
@@ -40,8 +42,8 @@ namespace TheMaze
                     break;
 
                 case GameState.Play:
+                    collectibleviewer.Update();
                     gamePlayManager.Update(gameTime);
-
                     break;
                 case GameState.Pause:
                     pauseMenu.Update();
@@ -49,6 +51,8 @@ namespace TheMaze
                     break;
 
                 case GameState.Killed:
+                    break;
+                case GameState.CollectibleMenu:
                     break;
             }
 
@@ -75,6 +79,9 @@ namespace TheMaze
                 case GameState.Killed:
                     DrawKilledScreen(spriteBatch);
                     break;
+                case GameState.CollectibleMenu:
+                    collectibleviewer.Draw(spriteBatch);
+                    break;
             }
             
         }
@@ -91,6 +98,11 @@ namespace TheMaze
                     {
                         currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
                     }
+                    if (X.IsKeyPressed(Keys.C) && X.player.insaferoom)
+                    {
+                        collectibleviewer.CreateButtons();
+                        currentGameState = GameState.CollectibleMenu;
+                    }
                     break;
                 case GameState.Pause:
                     if (X.IsKeyPressed(Keys.P))
@@ -106,14 +118,21 @@ namespace TheMaze
                         
                     }
                     break;
+                case GameState.CollectibleMenu:
+                    if (X.IsKeyPressed(Keys.C))
+                    {
+                        currentGameState = GameState.Play;
+                    }
+                    break;
             }
         }
+        
         public void DrawKilledScreen(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(TextureManager.KilledScreen, Vector2.Zero, Color.White);
             spriteBatch.End();
         }
-
+        
     }
 }

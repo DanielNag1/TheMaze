@@ -26,11 +26,10 @@ namespace TheMaze
             this.pos = pos;
             this.spriteFont = spriteFont;
             this.text = text;
-            this.rect = new Rectangle((int)pos.X, (int)pos.Y, (int)spriteFont.MeasureString(text).Length(),
-                spriteFont.LineSpacing);
+            this.rect = new Rectangle((int)pos.X, (int)pos.Y, (int)spriteFont.MeasureString(text).Length(),spriteFont.LineSpacing);
 
             this.fontColor = fontColor;
-            color = Color.Red;
+            color = Color.White;
         }
 
         public bool IsMouseHoveringOverButton()

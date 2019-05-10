@@ -23,6 +23,8 @@ namespace TheMaze
         public static Texture2D WallSheetTex { get; private set; }
         public static Texture2D TopWallSheetTex { get; private set; }
         public static Texture2D CollectibleTex { get; private set; }
+        public static Texture2D CollectibleTex2 { get; private set; }
+        public static Texture2D CollectibleMenu { get; private set; }
         //public static Texture2D VignetteOverlay { get; private set; }
         //public static Texture2D LetterboxOverlay { get; private set; }
         //public static Texture2D DarkOverlay { get; private set; }
@@ -54,6 +56,8 @@ namespace TheMaze
             WallSheetTex = Content.Load<Texture2D>("wall tile 2");
             TopWallSheetTex = Content.Load<Texture2D>("top tile sprite 2");
             CollectibleTex = Content.Load<Texture2D>("collectible");
+            CollectibleTex2 = Content.Load<Texture2D>("collectible text");
+            CollectibleMenu = Content.Load<Texture2D>("collectiblemenu");
             //particleTextures.Add(Content.Load<Texture2D>("particle2"));
             //VignetteOverlay = Content.Load<Texture2D>("vignette");
             //LetterboxOverlay = Content.Load<Texture2D>("letterbox");

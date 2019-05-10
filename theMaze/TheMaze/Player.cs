@@ -37,7 +37,7 @@ namespace TheMaze
         public bool moving = false;
 
         public bool lightsOn = false;
-        public bool canChangeWeapon;
+        public bool canChangeWeapon,insaferoom;
 
         public static Vector2 playerLightPosition, playerSpotLightPosition;
         public Vector2 lampPosition, markerPos;
@@ -49,11 +49,12 @@ namespace TheMaze
         public List<Light> markerList;
         public Weapon currentWeapon, weaponSlot1, weaponSlot2, weaponSlot3, weaponSlot4;
         public List<Weapon> weapons;
-
         public static Color selectedColor;
 
         public Circle weaponHitbox;
         public static int markers;
+        public List<Collectible> collectibles;
+
 
         public void SetPosition(Vector2 newPosition)
         {
@@ -81,6 +82,7 @@ namespace TheMaze
             CreateWeapons();
 
             markerList = new List<Light>();
+            collectibles = new List<Collectible>();
         }
 
         public void Update(GameTime gameTime)

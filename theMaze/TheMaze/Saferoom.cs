@@ -102,11 +102,13 @@ namespace TheMaze
 
             if (X.player.FootHitbox.Intersects(saferoomHitBox))
             {
+                X.player.insaferoom = true;
                 Player.markers = 15;
                 visible = true;
             }
             else
             {
+                X.player.insaferoom = false;
                 visible = false;
                 X.player.playerPointLight.Color = Color.White;
             }

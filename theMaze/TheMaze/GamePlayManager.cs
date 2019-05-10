@@ -13,13 +13,14 @@ namespace TheMaze
     public class GamePlayManager
     {
         public bool killed = false;
-        enum LevelState {Live,Death}
+        enum LevelState {Live,Death,CollectibleMenu}
         LevelState currentState=LevelState.Live;
         LevelManager levelManager,deathManager;
         Player player;
         public Imbaku imbaku;
         
         Saferoom saferoom;
+
         Lights lights;
         ParticleEngine particleEngine;
         List<ParticleEngine> particleEngines;
@@ -51,12 +52,26 @@ namespace TheMaze
                     Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
                 }
             }
+
+            
         }
-        
-        
+
+
         public void Update(GameTime gameTime)
         {
-            Console.WriteLine("______" + particleEngine.isHit);
+
+            if (X.IsKeyPressed(Keys.C))
+            {
+                if (currentState == LevelState.Live)
+                {
+                    currentState = LevelState.CollectibleMenu;
+                }
+                if(currentState == LevelState.CollectibleMenu)
+                {
+                    currentState = LevelState.Live;
+                }
+            }
+
             if (X.IsKeyPressed(Keys.Enter))
             {
                 if (currentState == LevelState.Live) 
@@ -131,6 +146,7 @@ namespace TheMaze
                     imbaku.Draw(spriteBatch);
                     player.Draw(spriteBatch);                    
                     spriteBatch.End();
+
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
                     particleEngine.Draw(spriteBatch);
@@ -143,6 +159,7 @@ namespace TheMaze
                     player.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
+                
             }
         }
         
@@ -183,12 +200,11 @@ namespace TheMaze
                 //killed = true;
             }
 
-            if(player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox))
+            if(player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && imbaku.isAlive)
             {
-                
-                if (player.currentWeapon.color==Color.Red && imbaku.isAlive)
+                if (player.currentWeapon.color==Color.Red)
                 {
-                    MonsterTakeDamage(imbaku,gameTime);
+                    MonsterTakeDamage(imbaku, gameTime);
                 }
                 
                 else if (player.currentWeapon.color==Color.Goldenrod)
@@ -199,7 +215,10 @@ namespace TheMaze
                 {
                     imbaku.speed = 0;
                 }
-                else
+                
+            }
+
+            else
                 {
                     imbaku.speed = 50;
                     foreach (ParticleEngine p in particleEngines)
@@ -213,8 +232,6 @@ namespace TheMaze
                     }
                     
                 }
-            }
-            
             
         }
 
@@ -250,6 +267,7 @@ namespace TheMaze
                 if(player.FootHitbox.Intersects(c.hitbox) && X.IsKeyPressed(Keys.F))
                 {
                     levelManager.collectibles.Remove(c);
+                    player.collectibles.Add(c);
                     break;
                 }
             }
