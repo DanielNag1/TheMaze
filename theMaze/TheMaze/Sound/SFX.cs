@@ -10,65 +10,65 @@ namespace TheMaze
 {
     class SFX
     {
-        private enum PlayState { Step1, Step2 }
-        private PlayState currentPlayState;
+        private enum FootstepPlayState { Footstep1, Footstep2 }
+        private FootstepPlayState currentFootstepPlayState;
 
         private double stepTimer;
-        private bool playStep1, playStep2;
+        private bool playFootstep1, playFootstep2;
 
         public SFX()
         {
-            currentPlayState = PlayState.Step1;
+            currentFootstepPlayState = FootstepPlayState.Footstep1;
 
             stepTimer = 700;
 
-            playStep1 = true;
-            playStep2 = false;
+            playFootstep1 = true;
+            playFootstep2 = false;
         }
 
         public void Footsteps(GameTime gameTime)
         {
-            switch (currentPlayState)                 //efter andra steget så tar det tre sekunder att spela upp första steget igen
+            switch (currentFootstepPlayState)
             {
-                case PlayState.Step1:
+                case FootstepPlayState.Footstep1:
                     {
-                        if (playStep1)
+                        if (playFootstep1)
                         {
                             stepTimer = 700;
 
                             SoundManager.step1.Play();
 
-                            playStep1 = false;   
+                            playFootstep1 = false;   
                         }
                         else
                         {
                             stepTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
                             if (stepTimer <= 0)
                             {
-                                playStep2 = true;
-                                currentPlayState = PlayState.Step2;
+                                playFootstep2 = true;
+                                currentFootstepPlayState = FootstepPlayState.Footstep2;
                             }
                         }
 
                         break;
                     }
-                case PlayState.Step2:
+                case FootstepPlayState.Footstep2:
                     {
-                        if (playStep2)
+                        if (playFootstep2)
                         {
                             stepTimer = 700;
 
                             SoundManager.step2.Play();
 
-                            playStep2 = false;
+                            playFootstep2 = false;
                         }
                         else
                         {
                             stepTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
                             if (stepTimer <= 0)
                             {
-                                playStep1 = true;
-                                currentPlayState = PlayState.Step1;
+                                playFootstep1 = true;
+                                currentFootstepPlayState = FootstepPlayState.Footstep1;
                             }
                         }
 
