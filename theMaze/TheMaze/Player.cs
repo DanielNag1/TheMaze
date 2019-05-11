@@ -102,7 +102,7 @@ namespace TheMaze
                     currentSourceRect.X = frame * frameSizeX;
                 }
 
-                //sfx.Footsteps(gameTime);
+                sfx.Footsteps(gameTime);
 
                 PlayerInput();
 
@@ -252,10 +252,14 @@ namespace TheMaze
 
             if (KeyPressed(Keys.Q))
             {
+                sfx.LampSwitchOn();
+
                 currentWeapon.enabled = true;
             }
             else if (KeyPressed(Keys.E))
             {
+                sfx.LampSwitchOff();
+
                 currentWeapon.enabled = false;
             }
 

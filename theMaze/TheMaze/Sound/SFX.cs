@@ -15,6 +15,7 @@ namespace TheMaze
 
         private double stepTimer;
         private bool playFootstep1, playFootstep2;
+        private bool playLampSwitchOn, playLampSwitchOff;
 
         public SFX()
         {
@@ -24,6 +25,8 @@ namespace TheMaze
 
             playFootstep1 = true;
             playFootstep2 = false;
+            playLampSwitchOn = true;
+            playLampSwitchOff = false;
         }
 
         public void Footsteps(GameTime gameTime)
@@ -36,7 +39,7 @@ namespace TheMaze
                         {
                             stepTimer = 700;
 
-                            SoundManager.step1.Play();
+                            SoundManager.Footstep1.Play();
 
                             playFootstep1 = false;   
                         }
@@ -58,7 +61,7 @@ namespace TheMaze
                         {
                             stepTimer = 700;
 
-                            SoundManager.step2.Play();
+                            SoundManager.Footstep2.Play();
 
                             playFootstep2 = false;
                         }
@@ -74,6 +77,26 @@ namespace TheMaze
 
                         break;
                     }
+            }
+        }
+
+        public void LampSwitchOn()
+        {
+            if (playLampSwitchOn)
+            {
+                SoundManager.LampSwitchOn.Play();
+                playLampSwitchOn = false;
+                playLampSwitchOff = true;
+            }
+        }
+
+        public void LampSwitchOff()
+        {
+            if (playLampSwitchOff)
+            {
+                SoundManager.LampSwitchOff.Play();
+                playLampSwitchOff = false;
+                playLampSwitchOn = true;
             }
         }
     }

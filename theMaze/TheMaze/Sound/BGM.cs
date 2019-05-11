@@ -9,14 +9,38 @@ namespace TheMaze
 {
     class BGM
     {
-        enum PlayState { mainMenu, playing, saferoom}
-        PlayState playState;
+        Song ambientNoise;
 
-
+        bool once = true;
 
         public BGM()
         {
+            ambientNoise = SoundManager.AmbientNoise;
+
             MediaPlayer.IsRepeating = true;
+        }
+
+        public void PlayBGM()
+        {
+            switch (GameStateManager.currentGameState)
+            {
+                case GameStateManager.GameState.MainMenu:
+                    {
+
+
+                        break;
+                    }
+                case GameStateManager.GameState.Play:
+                    {
+                        if (once)
+                        {
+                            MediaPlayer.Play(ambientNoise);
+                            once = false;
+                        }
+
+                        break;
+                    }
+            }
         }
 
     }
