@@ -13,11 +13,11 @@ namespace TheMaze
     public class Saferoom
     {
         public Vector2 saferoomPos,saferoomLight1Pos,saferoomLight2Pos,saferoomLight3Pos,saferoomLight4Pos,saferoomLight5Pos,saferoomLight6Pos;
-        public Vector2 weaponLight1Pos, weaponLight2Pos, weaponLight3Pos, healingPos;
+        public Vector2 weaponLight1Pos, weaponLight2Pos, weaponLight3Pos, healingPos,deskPos;
         public Rectangle weaponLight1Rectangle, weaponLight2Rectangle, weaponLight3Rectangle;
         public Vector2 saferoomLightScale,saferoomWeaponLightScale;
         public float saferoomLightIntensity,saferoomWeaponLightIntensity;
-        public Rectangle saferoomHitBox,healingHitbox;
+        public Rectangle saferoomHitBox,healingHitbox,deskHitbox;
         public List<Vector2> saferoomLightPositions,saferoomWeaponLightPositions;
         public bool visible;
         public int r, g, b;
@@ -29,8 +29,11 @@ namespace TheMaze
             saferoomWeaponLightPositions = new List<Vector2>();
 
             saferoomPos = new Vector2(levelManager.StartPositionSafeRoom.X, levelManager.StartPositionSafeRoom.Y - ConstantValues.tileHeight);
-            saferoomHitBox = new Rectangle((int)saferoomPos.X,(int)saferoomPos.Y, 640, 956);
+            saferoomHitBox = new Rectangle((int)saferoomPos.X, (int)saferoomPos.Y, 640, 956);
 
+            deskPos = new Vector2(saferoomPos.X + 15, saferoomPos.Y + 350);
+            deskHitbox = new Rectangle((int)deskPos.X, (int)deskPos.Y, 100, 200);
+            
             saferoomLight1Pos = new Vector2(saferoomPos.X, saferoomPos.Y + 230);
             saferoomLight2Pos = new Vector2(saferoomPos.X + 630, saferoomPos.Y + 230);
             saferoomLight3Pos = new Vector2(saferoomPos.X, saferoomPos.Y + 660);
@@ -105,9 +108,20 @@ namespace TheMaze
                 X.player.insaferoom = true;
                 Player.markers = 15;
                 visible = true;
+
+                if (X.mouseRect.Intersects(deskHitbox) && X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton==ButtonState.Released)
+                {
+                    X.player.viewCollectible = true;
+                }
+                else
+                {
+                    X.player.viewCollectible = false;
+                }
+                    
             }
             else
             {
+                X.player.viewCollectible = false;
                 X.player.insaferoom = false;
                 visible = false;
                 X.player.playerPointLight.Color = Color.White;

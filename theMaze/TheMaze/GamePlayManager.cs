@@ -144,6 +144,7 @@ namespace TheMaze
                         c.Draw(spriteBatch);
                     }
                     imbaku.Draw(spriteBatch);
+                    Desk(spriteBatch);
                     player.Draw(spriteBatch);                    
                     spriteBatch.End();
 
@@ -279,6 +280,11 @@ namespace TheMaze
             particleEngine.EmitterLocation = imbaku.Position;
             particleEngine.isHit = true;
             imbaku.health -= gameTime.ElapsedGameTime.TotalMilliseconds / 2;
+        }
+
+        public void Desk(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(TextureManager.RedTexture, saferoom.deskHitbox, Color.White);
         }
 
     }

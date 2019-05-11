@@ -35,9 +35,12 @@ namespace TheMaze
         public static Texture2D RedTexture { get; private set; }
 
         public static List<Texture2D> hitParticles { get; private set; }
+        public static List<Texture2D> storyTextures { get; private set; }
         public static Texture2D particle1 { get; private set; }
         public static Texture2D particle2 { get; private set; }
-
+        public static Texture2D storyTexture1 { get; private set; }
+        public static Texture2D storyTexture2 { get; private set; }
+        public static Texture2D storyTexture3 { get; private set; }
 
         public static SpriteFont TimesNewRomanFont { get; private set; }
 
@@ -46,7 +49,7 @@ namespace TheMaze
         public static void LoadContent(ContentManager Content)
         {
             hitParticles = new List<Texture2D>();
-
+            storyTextures = new List<Texture2D>();
             PlayerTex = Content.Load<Texture2D>("characterspritesheet1");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
             ImbakuTex = Content.Load<Texture2D>("spritesheet1.4");
@@ -56,8 +59,8 @@ namespace TheMaze
             WallSheetTex = Content.Load<Texture2D>("wall tile 2");
             TopWallSheetTex = Content.Load<Texture2D>("top tile sprite 2");
             CollectibleTex = Content.Load<Texture2D>("collectible");
-            CollectibleTex2 = Content.Load<Texture2D>("collectible text");
-            CollectibleMenu = Content.Load<Texture2D>("collectiblemenu");
+            CollectibleTex2 = Content.Load<Texture2D>("collectible view");
+            CollectibleMenu = Content.Load<Texture2D>("collectiblemenu2");
             //particleTextures.Add(Content.Load<Texture2D>("particle2"));
             //VignetteOverlay = Content.Load<Texture2D>("vignette");
             //LetterboxOverlay = Content.Load<Texture2D>("letterbox");
@@ -75,6 +78,15 @@ namespace TheMaze
             particle2 = Content.Load<Texture2D>("particle2");
             hitParticles.Add(particle1);
             hitParticles.Add(particle2);
+
+            storyTexture1 = Content.Load<Texture2D>("storyTexture1");
+            storyTexture2 = Content.Load<Texture2D>("storyTexture2");
+            storyTexture3 = Content.Load<Texture2D>("storyTexture3");
+
+
+            storyTextures.Add(storyTexture1);
+            storyTextures.Add(storyTexture2);
+            storyTextures.Add(storyTexture3);
 
         }
     }

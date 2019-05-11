@@ -42,7 +42,6 @@ namespace TheMaze
                     break;
 
                 case GameState.Play:
-                    collectibleviewer.Update();
                     gamePlayManager.Update(gameTime);
                     break;
                 case GameState.Pause:
@@ -98,7 +97,7 @@ namespace TheMaze
                     {
                         currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
                     }
-                    if (X.IsKeyPressed(Keys.C) && X.player.insaferoom)
+                    if (X.player.viewCollectible)
                     {
                         collectibleviewer.CreateButtons();
                         currentGameState = GameState.CollectibleMenu;
@@ -119,9 +118,11 @@ namespace TheMaze
                     }
                     break;
                 case GameState.CollectibleMenu:
-                    if (X.IsKeyPressed(Keys.C))
+                    collectibleviewer.Update();
+                    if (X.IsKeyPressed(Keys.Space) && collectibleviewer.inMenu)
                     {
                         currentGameState = GameState.Play;
+                        //X.player.viewCollectible = false;
                     }
                     break;
             }

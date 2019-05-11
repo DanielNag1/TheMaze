@@ -37,7 +37,7 @@ namespace TheMaze
         public bool moving = false;
 
         public bool lightsOn = false;
-        public bool canChangeWeapon,insaferoom;
+        public bool canChangeWeapon,insaferoom,viewCollectible;
 
         public static Vector2 playerLightPosition, playerSpotLightPosition;
         public Vector2 lampPosition, markerPos;

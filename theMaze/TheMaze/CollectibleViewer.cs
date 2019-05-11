@@ -4,56 +4,152 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace TheMaze
 {
     class CollectibleViewer
     {
-        private Button collectibleButton;
-        public List<Button> collectibleButtons;
+        private StoryButton collectibleButton;
+        public List<StoryButton> collectibleButtons;
 
         private Vector2 startPos;
+        private int numberToWrite, numberOfAvailableButtons;
+        public bool inMenu;
+
+        enum View { menu, story }
+        View currentView = View.menu;
 
         public CollectibleViewer()
         {
-            collectibleButtons = new List<Button>();
+            collectibleButtons = new List<StoryButton>();
             CreateButtons();
         }
 
         public void Update()
         {
-            Console.WriteLine("Antal buttons: " + collectibleButtons.Count);
+            switch (currentView)
+            {
+                case View.menu:
+                    MenuUpdate();
+                    ShowRightTexture();
+                    break;
+                case View.story:
+                    StoryUpdate();
+                    break;
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            
             spriteBatch.Begin();
-
             spriteBatch.Draw(TextureManager.CollectibleMenu, Vector2.Zero, Color.White);
-
-            foreach (Button b in collectibleButtons)
+            switch (currentView)
             {
-                b.Draw(spriteBatch);
-            }
+                case View.menu:
 
+                    foreach (StoryButton b in collectibleButtons)
+                    {
+                        b.Draw(spriteBatch);
+                    }
+
+                    break;
+                case View.story:
+                    DrawStory(spriteBatch);
+                    break;
+            }
             spriteBatch.End();
         }
 
         public void CreateButtons()
         {
             collectibleButtons.Clear();
-            startPos = new Vector2(150, 150);
-
+            startPos = new Vector2(0, 125);
+            numberToWrite = 0;
             foreach (Collectible c in X.player.collectibles)
             {
-                startPos.X += 250;
-                collectibleButton = new Button(TextureManager.CollectibleTex2, startPos, TextureManager.TimesNewRomanFont, " ", Color.White);
+                startPos.X += 180;
+                numberToWrite++;
+                collectibleButton = new StoryButton(TextureManager.CollectibleTex2, startPos, numberToWrite);
                 collectibleButtons.Add(collectibleButton);
             }
 
-            }
         }
 
+        public void ShowRightTexture()
+        {
+
+            if (collectibleButtons.Count > 0)
+            {
+                if (collectibleButtons[numberToWrite - 1].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 1;
+
+                }
+            }
+            if (collectibleButtons.Count > 1)
+            {
+                if (collectibleButtons[numberToWrite - 2].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 2;
+
+                }
+            }
+            if (collectibleButtons.Count > 2)
+            {
+                if (collectibleButtons[numberToWrite - 3].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 3;
+
+                }
+            }
+            if (collectibleButtons.Count > 3)
+            {
+                if (collectibleButtons[numberToWrite - 4].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 4;
+
+                }
+            }
+            if (collectibleButtons.Count > 4)
+            {
+                if (collectibleButtons[numberToWrite - 5].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 5;
+
+                }
+            }
+
+
+        }
+        public void DrawStory(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(TextureManager.storyTextures[numberOfAvailableButtons], new Vector2(500, 0), Color.White);
+        }
+
+        public void MenuUpdate()
+        {
+            inMenu = true;
+        }
+
+        public void StoryUpdate()
+        {
+            inMenu = false;
+            if (X.IsKeyPressed(Keys.Space))
+            {
+                currentView = View.menu;
+            }
+        }
     }
+}
+
+
+
+
+
 
