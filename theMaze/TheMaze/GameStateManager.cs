@@ -19,6 +19,7 @@ namespace TheMaze
         PauseMenu pauseMenu;
         LevelManager levelManager;
         CollectibleViewer collectibleviewer;
+        BGM bgm;
 
         public GameStateManager()
         {
@@ -27,12 +28,14 @@ namespace TheMaze
             pauseMenu = new PauseMenu();
             levelManager = new LevelManager();
             collectibleviewer = new CollectibleViewer();
+            bgm = new BGM();
         }
 
         public void Update(GameTime gameTime)
         {
             X.Update(gameTime);
             PauseGame(gameTime);
+            bgm.PlayBGM();
             
             switch(currentGameState)
             {

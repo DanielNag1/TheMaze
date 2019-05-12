@@ -10,81 +10,93 @@ namespace TheMaze
 {
     class SFX
     {
-        enum PlayState { Step1, Step2 }
-        PlayState playState;
+        private enum FootstepPlayState { Footstep1, Footstep2 }
+        private FootstepPlayState currentFootstepPlayState;
 
-        private SoundEffectInstance step1;
-        private SoundEffectInstance step2;
-
-        double stepTimer;
-        bool startStepTimer, playStep1, playStep2;
+        private double stepTimer;
+        private bool playFootstep1, playFootstep2;
+        private bool playLampSwitchOn, playLampSwitchOff;
 
         public SFX()
         {
-            playState = PlayState.Step1;
+            currentFootstepPlayState = FootstepPlayState.Footstep1;
 
-            step1 = SoundManager.step1.CreateInstance();
-            step2 = SoundManager.step2.CreateInstance();
+            stepTimer = 700;
 
-            stepTimer = 1000;
-
-            startStepTimer = false;
-            playStep1 = true;
-            playStep2 = false;
+            playFootstep1 = true;
+            playFootstep2 = false;
+            playLampSwitchOn = true;
+            playLampSwitchOff = false;
         }
 
         public void Footsteps(GameTime gameTime)
         {
-            switch (playState)                 //efter andra steget så tar det tre sekunder att spela upp första steget igen
+            switch (currentFootstepPlayState)
             {
-                case PlayState.Step1:
+                case FootstepPlayState.Footstep1:
                     {
-                        if (playStep1)
+                        if (playFootstep1)
                         {
-                            step1.Play();
+                            stepTimer = 700;
 
-                            playStep1 = false;
-                            startStepTimer = true;
+                            SoundManager.Footstep1.Play();
+
+                            playFootstep1 = false;   
                         }
-
-                        if (startStepTimer)
+                        else
                         {
                             stepTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
                             if (stepTimer <= 0)
                             {
-                                startStepTimer = false;
-                                stepTimer = 1000;
-                                playStep2 = true;
-                                playState = PlayState.Step2;
+                                playFootstep2 = true;
+                                currentFootstepPlayState = FootstepPlayState.Footstep2;
                             }
                         }
 
                         break;
                     }
-                case PlayState.Step2:
+                case FootstepPlayState.Footstep2:
                     {
-                        if (playStep2)
+                        if (playFootstep2)
                         {
-                            step2.Play();
+                            stepTimer = 700;
 
-                            playStep2 = false;
-                            startStepTimer = true;
+                            SoundManager.Footstep2.Play();
+
+                            playFootstep2 = false;
                         }
-
-                        if (startStepTimer)
+                        else
                         {
                             stepTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
                             if (stepTimer <= 0)
                             {
-                                startStepTimer = false;
-                                stepTimer = 1000;
-                                playStep1 = true;
-                                playState = PlayState.Step1;
+                                playFootstep1 = true;
+                                currentFootstepPlayState = FootstepPlayState.Footstep1;
                             }
                         }
 
                         break;
                     }
+            }
+        }
+
+        public void LampSwitchOn()
+        {
+            if (playLampSwitchOn)
+            {
+                SoundManager.LampSwitchOn.Play();
+                playLampSwitchOn = false;
+                playLampSwitchOff = true;
+            }
+        }
+
+        public void LampSwitchOff()
+        {
+            if (playLampSwitchOff)
+            {
+                SoundManager.LampSwitchOff.Play();
+                playLampSwitchOff = false;
+                playLampSwitchOn = true;
             }
         }
     }

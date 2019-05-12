@@ -43,6 +43,7 @@ namespace TheMaze
         public static Texture2D storyTexture3 { get; private set; }
 
         public static SpriteFont TimesNewRomanFont { get; private set; }
+        public static SpriteFont TutorialFont { get; private set; }
 
         //public static List<Texture2D> particleTextures = new List<Texture2D>();
 
@@ -72,7 +73,9 @@ namespace TheMaze
             RedTexture = Content.Load<Texture2D>("red");
             TransparentTex = Content.Load<Texture2D>("transparent");
             KilledScreen = Content.Load<Texture2D>("You Died");
+
             TimesNewRomanFont = Content.Load<SpriteFont>("timesnewroman");
+            TutorialFont = Content.Load<SpriteFont>("tutorialfont");
 
             particle1 = Content.Load<Texture2D>("particle1");
             particle2 = Content.Load<Texture2D>("particle2");

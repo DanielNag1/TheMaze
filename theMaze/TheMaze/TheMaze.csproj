@@ -51,6 +51,7 @@
     <Compile Include="GameObject.cs" />
     <Compile Include="GameStateManager.cs" />
     <Compile Include="Imbaku.cs" />
+    <Compile Include="IngameTextmanager.cs" />
     <Compile Include="LevelManager.cs" />
     <Compile Include="GamePlayManager.cs" />
     <Compile Include="Lights.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="StoryButton.cs" />
     <Compile Include="TextureManager.cs" />
     <Compile Include="Tile.cs" />
+    <Compile Include="TutorialManager.cs" />
     <Compile Include="WallMonster.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="X.cs" />
