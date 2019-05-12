@@ -15,7 +15,6 @@ namespace TheMaze
         private static bool w, a, s, d;
         public static bool q;
         public static bool e = true;
-
         public static void buttonPressCheck()
         {
             if(X.IsKeyPressed(Keys.W))

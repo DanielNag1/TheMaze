@@ -39,8 +39,9 @@ namespace TheMaze
                     levelManager.LoadLevel1();
                     break;
                 case Level.Level2:
-                    particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
+                    levelManager.ReadLiveMap();
                     imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+                    particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
                     break;
                 case Level.Level3:
                     break;
@@ -151,7 +152,7 @@ namespace TheMaze
                     Level1Draw(spriteBatch, gameTime);
                     break;
                 case Level.Level2:
-
+                    Level2Draw(spriteBatch, gameTime);
                     break;
                 case Level.Level3:
                     break;
@@ -209,6 +210,10 @@ namespace TheMaze
             if (!X.player.insaferoom && !TutorialManager.e && !TutorialManager.tutorialLampDone)
             {
                 IngameTextmanager.DrawLampOff(spriteBatch);
+            }
+            if (X.player.collectibles.Count>=3 && !X.player.insaferoom)
+            {
+                IngameTextmanager.DrawCollectibleViewer(spriteBatch);
             }
         }
         public void ImbakuCollision(GameTime gameTime)
@@ -312,8 +317,6 @@ namespace TheMaze
         {
             spriteBatch.Draw(TextureManager.RedTexture, saferoom.deskHitbox, Color.White);
         }
-
-
         public void Level1Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             switch (currentState)
@@ -356,10 +359,10 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
 
                     levelManager.Draw(spriteBatch);
-                    foreach (WallMonster wM in levelManager.wallMonsters)
-                    {
-                        wM.Draw(spriteBatch);
-                    }
+                    //foreach (WallMonster wM in levelManager.wallMonsters)
+                    //{
+                    //    wM.Draw(spriteBatch);
+                    //}
                     foreach (Collectible c in levelManager.collectibles)
                     {
                         c.Draw(spriteBatch);
