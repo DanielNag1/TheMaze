@@ -23,12 +23,12 @@ namespace TheMaze
         public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;
-            currentSourceRect = new Rectangle(frame, frameSize, 304, 462);
+            currentSourceRect = new Rectangle(frame, frameSize, 125, 245);
 
             nrFrames = 5;
             timeIntervall = 120;
 
-            imbakuRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, 304 - ConstantValues.tileWidth, 462 - ConstantValues.tileHeight-50);
+            imbakuRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight+120);
 
             imbakuCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
@@ -48,16 +48,16 @@ namespace TheMaze
 
             if (isAlive)
             {
-                currentSourceRect.X = frame * 290;
-                currentSourceRect.Y = frameSize * 462;
+                currentSourceRect.X = frame * 125;
+                currentSourceRect.Y = frameSize * 250;
 
                 hitboxPos = new Vector2(imbakuRectangleHitbox.X, imbakuRectangleHitbox.Y);
 
                 imbakuCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
                 imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
 
-                imbakuRectangleHitbox.X = (int)position.X - currentSourceRect.Width / 4 + 50;
-                imbakuRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height / 4 - 54;
+                imbakuRectangleHitbox.X = (int)position.X - currentSourceRect.Width / 4+30;
+                imbakuRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height / 4-35;
 
 
                 timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -82,9 +82,11 @@ namespace TheMaze
                     chaseTimer = resetTimer;
                 }
 
-                Pathfinding(gameTime);
 
                 UpdateSourceRectangle();
+                Pathfinding(gameTime);
+
+                
             }
         }
 
@@ -94,6 +96,7 @@ namespace TheMaze
             {
                 if (!moving)
                 {
+
                     //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
                     if (path.Count != 0)
                     {
@@ -101,7 +104,7 @@ namespace TheMaze
                         newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
                         //använder metoden som random movement också använder
                         ChangeDirection(newDirection);
-
+                        
                     }
                 }
 
@@ -142,18 +145,23 @@ namespace TheMaze
 
         protected void UpdateSourceRectangle()
         {
-            if (newDirection == new Vector2(1, 0))
+            if (direction == new Vector2(1, 0))
             {
-                frameSize = 1;
+                frameSize = 5;
             }
-            if (newDirection == new Vector2(-1, 0))
+            if (direction == new Vector2(-1, 0))
             {
-                frameSize = 0;
+                frameSize = 4;
             }
 
-            if (newDirection == new Vector2(0, 1))
+            if (direction == new Vector2(0, 1))
             {
-                frameSize = 2;
+                frameSize = 6;
+            }
+
+            if (direction == new Vector2(0, -1))
+            {
+                frameSize = 7;
             }
         }
     }

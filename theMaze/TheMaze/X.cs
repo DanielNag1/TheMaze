@@ -18,6 +18,7 @@ namespace TheMaze
         public static Vector2 mousePos, worldMouse,mousePlayerDirection;
         public static Camera camera;
         public static Player player;
+        public static Imbaku imbaku;
         public static float mouseLampDistance;
         public static bool Exit,IsMouseVisible;
 

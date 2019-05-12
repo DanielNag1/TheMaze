@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Nagy Dániel/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/timesnewroman.spritefont</SourceFile>
-  <SourceTime>2019-05-08T21:46:43.9909754+02:00</SourceTime>
-  <DestFile>C:/Users/Nagy Dániel/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/timesnewroman.xnb</DestFile>
-  <DestTime>2019-05-11T14:19:27.5385544+02:00</DestTime>
+  <SourceFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/timesnewroman.spritefont</SourceFile>
+  <SourceTime>2019-05-12T12:23:50.4195748+02:00</SourceTime>
+  <DestFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/timesnewroman.xnb</DestFile>
+  <DestTime>2019-05-12T12:38:25.5944853+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
-  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
-  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
   <Parameters>
     <Key>PremultiplyAlpha</Key>
     <Value>True</Value>

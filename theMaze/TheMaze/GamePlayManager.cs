@@ -16,7 +16,7 @@ namespace TheMaze
         enum LevelState { Live, Death, CollectibleMenu }
         LevelState currentState = LevelState.Live;
         enum Level { Level1, Level2, Level3 }
-        Level currentLevel = Level.Level1;
+        Level currentLevel = Level.Level2;
         LevelManager levelManager, deathManager;
         Player player;
         public Imbaku imbaku;
@@ -55,6 +55,7 @@ namespace TheMaze
             particleEngines = new List<ParticleEngine>();
 
             X.player = player;
+            //X.imbaku = imbaku;
             X.LoadCamera();
             Game1.penumbra.Initialize();
             Game1.penumbra.Transform = X.camera.Transform;

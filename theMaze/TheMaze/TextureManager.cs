@@ -53,7 +53,7 @@ namespace TheMaze
             storyTextures = new List<Texture2D>();
             PlayerTex = Content.Load<Texture2D>("characterspritesheet1");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
-            ImbakuTex = Content.Load<Texture2D>("spritesheet1.4");
+            ImbakuTex = Content.Load<Texture2D>("spritesheet_Imbaku");
             //FlareTex = Content.Load<Texture2D>("Flare5_00000");
             //RangeTex = Content.Load<Texture2D>("rangecircle");
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");

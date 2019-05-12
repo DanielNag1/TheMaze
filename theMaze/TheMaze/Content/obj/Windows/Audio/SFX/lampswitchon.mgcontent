@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Nagy Dániel/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</SourceFile>
-  <SourceTime>2019-05-12T09:05:47.3518654+02:00</SourceTime>
-  <DestFile>C:/Users/Nagy Dániel/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Audio/SFX/lampswitchon.xnb</DestFile>
-  <DestTime>2019-05-12T09:07:37.6131158+02:00</DestTime>
+  <SourceFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</SourceFile>
+  <SourceTime>2019-05-12T12:23:49.9490143+02:00</SourceTime>
+  <DestFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Audio/SFX/lampswitchon.xnb</DestFile>
+  <DestTime>2019-05-12T12:38:21.9457304+02:00</DestTime>
   <Importer>WavImporter</Importer>
-  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
-  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
   <Parameters>
     <Key>Quality</Key>
     <Value>Best</Value>

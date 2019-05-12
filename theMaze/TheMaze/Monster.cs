@@ -131,6 +131,7 @@ namespace TheMaze
 
         protected void ChangeDirection(Vector2 newDirection)
         {
+
             direction = newDirection;
             Vector2 newDestination = Position + direction * ConstantValues.tileWidth;
 

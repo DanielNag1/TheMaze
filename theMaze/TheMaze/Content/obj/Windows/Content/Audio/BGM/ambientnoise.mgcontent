@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</SourceFile>
-  <SourceTime>2019-05-12T01:17:37.5476985+02:00</SourceTime>
-  <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.xnb</DestFile>
-  <DestTime>2019-05-12T01:33:35.4366619+02:00</DestTime>
+  <SourceFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</SourceFile>
+  <SourceTime>2019-05-12T12:23:49.638842+02:00</SourceTime>
+  <DestFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.xnb</DestFile>
+  <DestTime>2019-05-12T12:25:37.7088504+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.wma</string>
+    <string>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>
