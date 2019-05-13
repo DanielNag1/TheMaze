@@ -15,9 +15,27 @@
 
 #begin Audio/BGM/ambientnoise.wav
 /importer:WavImporter
-/processor:SongProcessor
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/BGM/ambientnoise.wav
+
+#begin Audio/BGM/darksoulsamomentspeace.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/BGM/darksoulsamomentspeace.wav
+
+#begin Audio/SFX/creepysoundhigh.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/creepysoundhigh.wav
+
+#begin Audio/SFX/creepysoundlow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/creepysoundlow.wav
 
 #begin Audio/SFX/lampswitchoff.wav
 /importer:WavImporter

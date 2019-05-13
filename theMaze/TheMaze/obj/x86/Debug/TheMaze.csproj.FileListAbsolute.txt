@@ -645,3 +645,7 @@ C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Co
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchon.xnb
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.xnb
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.wma
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.wma
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundlow.xnb

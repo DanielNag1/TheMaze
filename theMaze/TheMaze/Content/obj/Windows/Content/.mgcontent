@@ -5,6 +5,9 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/darksoulsamomentspeace.wav</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/creepysoundhigh.wav</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/creepysoundlow.wav</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
@@ -32,6 +35,9 @@
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/You Died.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

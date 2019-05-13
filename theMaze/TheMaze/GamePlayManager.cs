@@ -20,6 +20,7 @@ namespace TheMaze
         public Imbaku imbaku;
         
         Saferoom saferoom;
+        SFX sfx;
 
         Lights lights;
         ParticleEngine particleEngine;
@@ -36,6 +37,7 @@ namespace TheMaze
             imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
             saferoom = new Saferoom(levelManager);
             lights = new Lights(levelManager,saferoom);
+            sfx = new SFX();
 
             particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
             particleEngines = new List<ParticleEngine>();
@@ -91,6 +93,7 @@ namespace TheMaze
             saferoom.Update(gameTime);
             lights.Update(gameTime);
             particleEngine.Update();
+            sfx.ImbakuEncounterTimer(gameTime);
 
             switch (currentState)
             {
@@ -169,7 +172,7 @@ namespace TheMaze
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
             {
                 wallMonster.active = true;
-
+                sfx.GlitchEncounter();
             }
 
             if (wallMonster.active)
@@ -187,6 +190,8 @@ namespace TheMaze
                 {
                     wallMonster.coolDown = true;
                     wallMonster.attackTimer.Reset();
+
+                    sfx.GlitchEncounterOff();
                 }
 
             }
@@ -199,6 +204,17 @@ namespace TheMaze
             if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled==true && imbaku.isAlive)
             {
                 //killed = true;
+            }
+
+            if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) <  ConstantValues.tileHeight * 2.5 && 
+                player.currentWeapon.enabled && !X.player.insaferoom)
+            {
+                sfx.ImbakuEncounter();
+            }
+            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) > 
+                ConstantValues.tileHeight * 2.5 && !X.player.insaferoom)
+            {
+                sfx.ImbakuEncounter();
             }
 
             if(player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && imbaku.isAlive)

@@ -3,10 +3,10 @@
   <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</SourceFile>
   <SourceTime>2019-05-12T01:17:37.5476985+02:00</SourceTime>
   <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.xnb</DestFile>
-  <DestTime>2019-05-12T01:33:35.4366619+02:00</DestTime>
+  <DestTime>2019-05-13T00:53:38.4845195+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
-  <Processor>SongProcessor</Processor>
+  <Processor>SoundEffectProcessor</Processor>
   <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
   <Parameters>
     <Key>Quality</Key>
@@ -14,7 +14,5 @@
   </Parameters>
   <Dependencies />
   <BuildAsset />
-  <BuildOutput>
-    <string>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.wma</string>
-  </BuildOutput>
+  <BuildOutput />
 </PipelineBuildEvent>
