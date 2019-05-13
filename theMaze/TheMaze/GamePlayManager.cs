@@ -270,14 +270,14 @@ namespace TheMaze
                 }
             }
 
-            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) || armMonster.activated)
+            /*if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated)
             {
                 armMonster.slowedDown = true;
             }
             else
             {
                 armMonster.slowedDown = false;
-            }
+            }*/
         }
 
         public void Resurrect()

@@ -103,10 +103,10 @@ namespace TheMaze
         public override void Draw(SpriteBatch spriteBatch)
         {
             hitbox.Draw(spriteBatch);
-            
-                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
-                    ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
-            
+
+            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
+                ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
+
         }
 
         protected void Moving(GameTime gameTime)
@@ -131,7 +131,9 @@ namespace TheMaze
 
         protected void ChangeDirection(Vector2 newDirection)
         {
+
             direction = newDirection;
+
             Vector2 newDestination = Position + direction * ConstantValues.tileWidth;
 
             Tile tile = levelManager.GetTileAtPosition(direction);

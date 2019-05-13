@@ -15,6 +15,7 @@ namespace TheMaze
         private bool toActivate = false;
         public bool activated = false;
         public bool slowedDown = false;
+        private bool chosenDirection = false;
         public Rectangle armMonsterRectangleHitbox;
         public Circle armMonsterCircleHitbox;
         private bool cooldown = false;
@@ -22,10 +23,10 @@ namespace TheMaze
         private Stopwatch activationTimer = new Stopwatch();
         private Stopwatch accelerationTimer = new Stopwatch();
         private List<Vector2> path;
-        private Vector2 newDirection, armMonsterCircleHitboxPos;
+        private Vector2 newDirection, armMonsterCircleHitboxPos, armDirection;
         private float chaseTimer = 0f;
         private float resetTimer = 300f;
-        private float armSpeed = 25f, maxSpeed = 250f;
+        private float armSpeed = 100f, maxSpeed = 250f;
 
         public ArmMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
@@ -60,10 +61,11 @@ namespace TheMaze
                     armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
                     armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
 
-                    Pathfinding(gameTime);
+                    //Pathfinding(gameTime);
+                    ChaseDirection(gameTime);
                     Acceleration(gameTime);
                     Collision(levelManager);
-                } 
+                }
             }
         }
 
@@ -77,7 +79,7 @@ namespace TheMaze
 
                 if (ifActivating == 0)
                 {
-                    toActivate = true; 
+                    toActivate = true;
                 }
             }
         }
@@ -98,9 +100,9 @@ namespace TheMaze
             accelerationTimer.Start();
             if (accelerationTimer.ElapsedMilliseconds >= 250)
             {
-                if ((armSpeed < maxSpeed) || !slowedDown)
+                if ((armSpeed < maxSpeed) && !slowedDown)
                 {
-                    armSpeed = armSpeed + 25f;
+                    //armSpeed = armSpeed + 25f;
                 }
                 else if (slowedDown)
                 {
@@ -120,34 +122,6 @@ namespace TheMaze
             SetPosition(levelManager.ArmMonsterStartPosition);
         }
 
-        /*private void ChaseDirection(GameTime gameTime)
-        {
-
-            //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
-            if (path.Count != 0)
-            {
-                //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
-                newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
-                //använder metoden som random movement också använder
-                ChangeDirection(newDirection);
-
-            }
-
-            position += direction * armSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            if (Vector2.Distance(Position, destination) < 1)
-            {
-                position = destination;
-                moving = false;
-                //kollar igen så att listan med "the path" inte är tom för att motverka krasch
-                //tar sen bort första elementet i listan så att vi kan kalla på path.first() med nästa mål
-                if (path.Count != 0)
-                {
-                    path.RemoveAt(0);
-                }
-            }
-        }*/
-
         public void Collision(LevelManager levelManager)
         {
             for (int i = 0; i < levelManager.Tiles.GetLength(0); i++)
@@ -165,6 +139,23 @@ namespace TheMaze
             }
         }
 
+        private void ChaseDirection(GameTime gameTime)
+        {
+            if (!moving)
+            { 
+                if (path.Count != 0)
+                {
+                    armDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
+
+                    Console.WriteLine(armDirection);
+                }
+                else
+                {
+                    position += armDirection * armSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }  
+        }
+
         private void Pathfinding(GameTime gameTime)
         {
             if (!moving)
@@ -174,15 +165,16 @@ namespace TheMaze
                 {
                     //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
                     newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
+                    Console.WriteLine(newDirection);
                     //använder metoden som random movement också använder
                     ChangeDirection(newDirection);
-
+                    
                 }
             }
 
             else
             {
-                position += direction * armSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (Vector2.Distance(Position, destination) < 1)
                 {

@@ -509,3 +509,4 @@ C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tileset big.xnb
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\monster1trans.xnb
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\monster1trans.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb
