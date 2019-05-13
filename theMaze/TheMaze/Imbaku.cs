@@ -15,10 +15,14 @@ namespace TheMaze
         public Rectangle imbakuRectangleHitbox;
         //En lista som håller "the path"
         public List<Vector2> path;
-        public bool isActive;
+        public bool isActive, isAttacking;
         Vector2 newDirection, imbakuCircleHitboxPos;
         private float chaseTimer = 0f, resetTimer = 300f;
+        private float creatingMiniTimer = 0f, resetMiniTimer = 2f;
         public Circle imbakuCircleHitbox;
+
+        MiniMonster miniMonster;
+        List<MiniMonster> miniMonsterList;
 
         public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
@@ -38,6 +42,8 @@ namespace TheMaze
             isActive = false;
             health = 3000;
             speed = 50f;
+
+            miniMonsterList = new List<MiniMonster>();
         }
 
         public override void Update(GameTime gameTime, Player player)
@@ -77,15 +83,22 @@ namespace TheMaze
                 Pathfinding(gameTime);
                 ImbakuStates(gameTime);
 
+                foreach (MiniMonster mini in miniMonsterList)
+                {
+                    mini.Update(gameTime, player);
+
+                }
+
 
             }
+
+
         }
 
-        private void Pathfinding(GameTime gameTime)
+        protected void Pathfinding(GameTime gameTime)
         {
 
-
-            if (moving)
+            if (!moving)
             {
 
                 //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
@@ -129,6 +142,11 @@ namespace TheMaze
                 //spriteBatch.Draw(TextureManager.RedTexture, imbakuRectangleHitbox, Color.White);
                 spriteBatch.Draw(texture, imbakuRectangleHitbox, currentSourceRect, Color.White);
             }
+            foreach (MiniMonster mini in miniMonsterList)
+            {
+                mini.Draw(spriteBatch);
+            }
+
         }
 
         protected void UpdateSourceRectangle()
@@ -181,9 +199,10 @@ namespace TheMaze
         }
 
 
-        private void ImbakuStates(GameTime gameTime)
+        protected void ImbakuStates(GameTime gameTime)
         {
             timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+
 
             if (isActive)
             {
@@ -193,10 +212,18 @@ namespace TheMaze
                     frame++;
                     if (frame >= nrFrames)
                     {
-                        
+                        frame = 5;
                     }
 
                 }
+
+                speed = 0;
+
+                if (miniMonsterList.Count <= 4)
+                {
+                    CreateMini(gameTime);
+                }
+
 
 
             }
@@ -215,10 +242,29 @@ namespace TheMaze
 
                 }
 
+                speed = 50f;
+
             }
 
 
 
+
+        }
+
+        protected void CreateMini(GameTime gameTime)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                creatingMiniTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (creatingMiniTimer <= 0)
+                {
+                    miniMonster = new MiniMonster(TextureManager.MiniMonsterTex, position, levelManager);
+                    miniMonsterList.Add(miniMonster);
+                    creatingMiniTimer = resetMiniTimer;
+                }
+                Console.WriteLine(miniMonsterList.Count);
+           
+            }
 
         }
     }

@@ -41,11 +41,11 @@ namespace TheMaze
             Position end = VectorToPosition(endPos);
             List<Vector2> pathPos = new List<Vector2>();
 
-            if (CheckGridPos(start) && CheckGridPos(end))
-            {
-                Console.WriteLine("###### Returning empty path.");
-                return pathPos;
-            }
+            //if (CheckGridPos(start) && CheckGridPos(end))
+            //{
+            //    Console.WriteLine("###### Returning empty path.");
+            //    return pathPos;
+            //}
 
             Position[] path = grid.GetPath(start, end, MovementPatterns.LateralOnly);
 

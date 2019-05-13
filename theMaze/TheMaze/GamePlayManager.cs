@@ -253,7 +253,7 @@ namespace TheMaze
 
             else
             {
-                imbaku.speed = 50;
+                //imbaku.speed = 50;
                 foreach (ParticleEngine p in particleEngines)
                 {
                     if (particleEngines.Count > 0)

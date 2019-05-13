@@ -22,6 +22,7 @@
     <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/pauseScreen.png</File>
     <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/red.png</File>
     <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_Imbaku.png</File>
+    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_mini_Imbaku.png</File>
     <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.4.png</File>
     <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture1.png</File>
     <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture2.png</File>
@@ -34,6 +35,7 @@
     <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/You Died.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

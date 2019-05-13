@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</SourceFile>
   <SourceTime>2019-05-13T10:15:03.7140619+02:00</SourceTime>
   <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.xnb</DestFile>
-  <DestTime>2019-05-13T10:25:31.383122+02:00</DestTime>
+  <DestTime>2019-05-13T15:23:42.2517281+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SongProcessor</Processor>
