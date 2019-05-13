@@ -39,7 +39,6 @@ namespace TheMaze
         {
             Position start = VectorToPosition(startPos);
             Position end = VectorToPosition(endPos);
-
             Position[] path = grid.GetPath(start, end, MovementPatterns.LateralOnly);
             List<Vector2> pathPos = new List<Vector2>();
 

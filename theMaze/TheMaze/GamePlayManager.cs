@@ -19,6 +19,7 @@ namespace TheMaze
         Player player;
         Imbaku imbaku;
         GlitchMonster glitchMonster;
+        ArmMonster armMonster;
         
         Saferoom saferoom;
         Lights lights;
@@ -33,6 +34,7 @@ namespace TheMaze
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
             glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
+            armMonster = new ArmMonster(TextureManager.MonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
             saferoom = new Saferoom(levelManager);
             lights = new Lights(levelManager,saferoom);
 
@@ -75,6 +77,7 @@ namespace TheMaze
             player.Update(gameTime);
             ImbakuCollision(gameTime);
             GlitchMonsterCollision(gameTime);
+            ArmMonsterCollision(gameTime);
             saferoom.Update(gameTime);
             lights.Update(gameTime);
             
@@ -92,6 +95,7 @@ namespace TheMaze
                     TakeItem();
                     ImbakuChasePlayer();
                     glitchMonster.Update(gameTime, player);
+                    armMonster.Update(gameTime, player);
                     player.Collision(levelManager);
                     
                     break;
@@ -139,7 +143,7 @@ namespace TheMaze
                     imbaku.Draw(spriteBatch);
                     player.Draw(spriteBatch);
                     glitchMonster.Draw(spriteBatch);
-                    
+                    armMonster.Draw(spriteBatch);
 
                     spriteBatch.End();
 
@@ -255,6 +259,27 @@ namespace TheMaze
             }
         }
 
+        public void ArmMonsterCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox))
+            {
+                armMonster.Activating(gameTime);
+                if (armMonster.activated)
+                {
+                    killed = true;
+                }
+            }
+
+            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) || armMonster.activated)
+            {
+                armMonster.slowedDown = true;
+            }
+            else
+            {
+                armMonster.slowedDown = false;
+            }
+        }
+
         public void Resurrect()
         {
             if (X.IsKeyPressed(Keys.Space) && killed)
@@ -263,6 +288,8 @@ namespace TheMaze
                 currentState = LevelState.Live;
                 imbaku.SetPosition(levelManager.ImbakuStartPosition);
                 glitchMonster.SetPosition(levelManager.GlitchMonsterStartPosition);
+                //armMonster.SetPosition(levelManager.ArmMonsterStartPosition);
+                armMonster.ResetArmMonster();
                 player.SetPosition(levelManager.StartPositionPlayer);
             }
         }

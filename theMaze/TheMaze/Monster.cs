@@ -140,8 +140,6 @@ namespace TheMaze
                 destination = newDestination;
                 moving = true;
             }
-
-
         }
 
         protected void NewDirection()

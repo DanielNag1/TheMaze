@@ -87,6 +87,7 @@ namespace TheMaze
             }
         }
 
+        
         private void Pathfinding(GameTime gameTime)
         {
             if (active)
