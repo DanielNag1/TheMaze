@@ -19,11 +19,47 @@
 /processorParam:Quality=Best
 /build:Audio/BGM/ambientnoise.wav
 
+#begin Audio/BGM/ambientnoise.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/BGM/ambientnoise.wav
+
+#begin Audio/BGM/darksoulsamomentspeace.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/BGM/darksoulsamomentspeace.wav
+
+#begin Audio/SFX/creepysoundhigh.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/creepysoundhigh.wav
+
+#begin Audio/SFX/creepysoundlow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/creepysoundlow.wav
+
 #begin Audio/SFX/lampswitchoff.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/SFX/lampswitchoff.wav
+
+#begin Audio/SFX/lampswitchoff.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/lampswitchoff.wav
+
+#begin Audio/SFX/lampswitchon.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/lampswitchon.wav
 
 #begin Audio/SFX/lampswitchon.wav
 /importer:WavImporter
@@ -37,11 +73,29 @@
 /processorParam:Quality=Best
 /build:Audio/SFX/step1.wav
 
+#begin Audio/SFX/step1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step1.wav
+
 #begin Audio/SFX/step2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/SFX/step2.wav
+
+#begin Audio/SFX/step2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step2.wav
+
+#begin Audio/SFX/walking.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/walking.wav
 
 #begin characterspritesheet1.png
 /importer:TextureImporter

@@ -20,6 +20,8 @@ namespace TheMaze
         LevelManager levelManager, deathManager;
         Player player;
         public Imbaku imbaku;
+        MiniMonster miniMonster;
+        SFX sfx;
 
         Saferoom saferoom;
 
@@ -50,7 +52,7 @@ namespace TheMaze
             player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
             saferoom = new Saferoom(levelManager);
             lights = new Lights(levelManager, saferoom);
-
+            sfx = new SFX();
 
             particleEngines = new List<ParticleEngine>();
 
@@ -106,11 +108,14 @@ namespace TheMaze
                     particleEngine.Update();
                     imbaku.Update(gameTime, player);
                     ImbakuCollision(gameTime);
+                    MiniCollision();
                     foreach (WallMonster wM in levelManager.wallMonsters)
                     {
                         wM.Update(gameTime);
                         WallMonsterCollision(wM);
                     }
+
+
 
                     break;
                 case Level.Level3:
@@ -133,11 +138,11 @@ namespace TheMaze
 
                     RemoveMarkers();
 
-                    //foreach (WallMonster wM in levelManager.wallMonsters)
-                    //{
-                    //    wM.active = false;
-                    //    wM.coolDownTimer.Reset();
-                    //}
+                    foreach (WallMonster wM in levelManager.wallMonsters)
+                    {
+                        wM.active = false;
+                        wM.coolDownTimer.Reset();
+                    }
 
                     player.Collision(deathManager);
 
@@ -166,7 +171,7 @@ namespace TheMaze
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
             {
                 wallMonster.active = true;
-
+                sfx.GlitchEncounter();
             }
 
             if (wallMonster.active)
@@ -184,6 +189,8 @@ namespace TheMaze
                 {
                     wallMonster.coolDown = true;
                     wallMonster.attackTimer.Reset();
+
+                    sfx.GlitchEncounterOff();
                 }
 
             }
@@ -204,7 +211,7 @@ namespace TheMaze
             {
                 IngameTextmanager.DrawPickUpTutorial(spriteBatch);
             }
-            if(!X.player.insaferoom && !TutorialManager.q && !TutorialManager.tutorialLampDone)
+            if (!X.player.insaferoom && !TutorialManager.q && !TutorialManager.tutorialLampDone)
             {
                 IngameTextmanager.DrawLampOn(spriteBatch);
             }
@@ -212,7 +219,7 @@ namespace TheMaze
             {
                 IngameTextmanager.DrawLampOff(spriteBatch);
             }
-            if (X.player.collectibles.Count>=3 && !X.player.insaferoom)
+            if (X.player.collectibles.Count >= 3 && !X.player.insaferoom)
             {
                 IngameTextmanager.DrawCollectibleViewer(spriteBatch);
             }
@@ -224,7 +231,19 @@ namespace TheMaze
                 //killed = true;
             }
 
-            if(Vector2.Distance(player.Position, imbaku.Position) < 400)
+            if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) < ConstantValues.tileHeight * 2.5 &&
+                player.currentWeapon.enabled && !X.player.insaferoom)
+            {
+                sfx.ImbakuEncounter();
+            }
+            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) >
+                ConstantValues.tileHeight * 2.5 && !X.player.insaferoom)
+            {
+                sfx.ImbakuEncounter();
+            }
+
+
+            if (Vector2.Distance(player.Position, imbaku.Position) < 400)
             {
                 imbaku.isActive = true;
             }
@@ -262,6 +281,25 @@ namespace TheMaze
                         particleEngines.Remove(p);
                         break;
                     }
+                }
+
+            }
+
+        }
+
+        public void MiniCollision()
+        {
+            foreach (MiniMonster mini in imbaku.miniMonsterList)
+            {
+                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox))
+                {
+                    imbaku.miniMonster.health--;
+                    if (imbaku.miniMonster.health <= 0)
+                    {
+                        imbaku.miniMonsterList.Remove(mini);
+                        break;
+                    }
+
                 }
 
             }

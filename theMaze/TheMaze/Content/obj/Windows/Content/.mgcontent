@@ -4,37 +4,45 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/characterspritesheet1.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible view.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectiblemenu.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectiblemenu2.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/evilcat.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile 2.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/mainmenu.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/particle1.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/particle2.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/pauseScreen.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/red.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_Imbaku.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_mini_Imbaku.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.4.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture1.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture2.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture3.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/timesnewroman.spritefont</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/top tile sprite 2.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/transparent.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/tutorialfont.spritefont</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wall tile 2.png</File>
-    <File>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/You Died.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/darksoulsamomentspeace.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/creepysoundhigh.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/creepysoundlow.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/walking.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/characterspritesheet1.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible view.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectiblemenu.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectiblemenu2.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/evilcat.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile 2.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/mainmenu.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/particle1.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/particle2.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/pauseScreen.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/red.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_Imbaku.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_mini_Imbaku.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.4.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture1.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture2.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture3.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/timesnewroman.spritefont</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/top tile sprite 2.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/transparent.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/tutorialfont.spritefont</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wall tile 2.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/You Died.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

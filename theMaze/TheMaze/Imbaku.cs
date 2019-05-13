@@ -15,14 +15,14 @@ namespace TheMaze
         public Rectangle imbakuRectangleHitbox;
         //En lista som håller "the path"
         public List<Vector2> path;
-        public bool isActive, isAttacking;
+        public bool isActive, isAttacking, miniIsAlive;
         Vector2 newDirection, imbakuCircleHitboxPos;
         private float chaseTimer = 0f, resetTimer = 300f;
         private float creatingMiniTimer = 0f, resetMiniTimer = 2f;
         public Circle imbakuCircleHitbox;
 
-        MiniMonster miniMonster;
-        List<MiniMonster> miniMonsterList;
+        public MiniMonster miniMonster;
+        public List<MiniMonster> miniMonsterList;
 
         public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
@@ -44,6 +44,7 @@ namespace TheMaze
             speed = 50f;
 
             miniMonsterList = new List<MiniMonster>();
+            miniIsAlive = true;
         }
 
         public override void Update(GameTime gameTime, Player player)
@@ -82,6 +83,7 @@ namespace TheMaze
                 UpdateSourceRectangle();
                 Pathfinding(gameTime);
                 ImbakuStates(gameTime);
+                
 
                 foreach (MiniMonster mini in miniMonsterList)
                 {
@@ -262,10 +264,12 @@ namespace TheMaze
                     miniMonsterList.Add(miniMonster);
                     creatingMiniTimer = resetMiniTimer;
                 }
-                Console.WriteLine(miniMonsterList.Count);
-           
+
+
             }
 
         }
+
+        
     }
 }

@@ -5,10 +5,14 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/darksoulsamomentspeace.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/creepysoundhigh.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/creepysoundlow.wav</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/walking.wav</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/characterspritesheet1.png</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible view.png</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible.png</File>
@@ -22,6 +26,7 @@
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/pauseScreen.png</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/red.png</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_Imbaku.png</File>
+    <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_mini_Imbaku.png</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet1.4.png</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture1.png</File>
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture2.png</File>
@@ -34,6 +39,11 @@
     <File>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/You Died.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</SourceFile>
   <SourceTime>2019-05-12T12:23:49.9490143+02:00</SourceTime>
   <DestFile>C:/Users/Sandra/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Audio/SFX/lampswitchon.xnb</DestFile>
-  <DestTime>2019-05-12T12:38:21.9457304+02:00</DestTime>
+  <DestTime>2019-05-13T22:18:24.921251+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

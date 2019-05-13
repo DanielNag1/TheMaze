@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    class MiniMonster:Imbaku
+    public class MiniMonster:Imbaku
     {
         protected Random random = new Random();
+        public Circle miniCircleHitbox;
+        public Rectangle miniRectangleHitbox;
+        public Vector2 miniCircleHitboxPos;
 
 
         public MiniMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
@@ -18,7 +21,13 @@ namespace TheMaze
             position = new Vector2(imbakuRectangleHitbox.Width/2, imbakuRectangleHitbox.Height/2);
             currentSourceRect = new Rectangle(frame, frameSize, 41, 81);
 
-            hitbox = new Circle(position, 20);
+            miniRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
+
+            miniCircleHitboxPos = new Vector2(miniRectangleHitbox.X,miniRectangleHitbox.Y);
+            miniCircleHitbox = new Circle(miniCircleHitboxPos, 40f);
+
+            hitbox = new Circle(position, 100);
+            health = 400;
 
             
         }
@@ -26,15 +35,29 @@ namespace TheMaze
         public override void Update(GameTime gameTime, Player player)
         {
             base.Update(gameTime, player);
+
+
             currentSourceRect.X = frame * 41;
             currentSourceRect.Y = frameSize * 81;
+
+            miniRectangleHitbox.X = (int)position.X - currentSourceRect.Width/6+10;
+            miniRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height/6+10;
+
+
+            miniCircleHitboxPos = new Vector2(miniRectangleHitbox.X+20, miniRectangleHitbox.Y+40);
+            miniCircleHitbox = new Circle(miniCircleHitboxPos, 30f);
+
+            
+
+            
             
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            hitbox.Draw(spriteBatch);
-            spriteBatch.Draw(texture, position, currentSourceRect, Color.White);
+            //miniCircleHitbox.Draw(spriteBatch);
+            //spriteBatch.Draw(TextureManager.RedTexture, miniRectangleHitbox, Color.Red);
+            spriteBatch.Draw(texture, position, currentSourceRect, Color.Crimson);
             
         }
     }
