@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    //DANIELS FASZ-KOD
+
 
     public class Imbaku : Monster
     {
         public Rectangle imbakuRectangleHitbox;
         //En lista som håller "the path"
         public List<Vector2> path;
-        public bool active;
-        Vector2 newDirection,imbakuCircleHitboxPos;
+        public bool isActive;
+        Vector2 newDirection, imbakuCircleHitboxPos;
         private float chaseTimer = 0f, resetTimer = 300f;
         public Circle imbakuCircleHitbox;
-        
+
         public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;
@@ -28,20 +28,21 @@ namespace TheMaze
             nrFrames = 5;
             timeIntervall = 120;
 
-            imbakuRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight+120);
+            imbakuRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight + 120);
 
             imbakuCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
 
             path = new List<Vector2>();
             isAlive = true;
+            isActive = false;
             health = 3000;
             speed = 50f;
         }
 
         public override void Update(GameTime gameTime, Player player)
         {
-            if(health<=0)
+            if (health <= 0)
             {
                 isAlive = false;
             }
@@ -56,22 +57,11 @@ namespace TheMaze
                 imbakuCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
                 imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
 
-                imbakuRectangleHitbox.X = (int)position.X - currentSourceRect.Width / 4+30;
-                imbakuRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height / 4-35;
+                imbakuRectangleHitbox.X = (int)position.X - currentSourceRect.Width / 4 + 30;
+                imbakuRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height / 4 - 35;
 
 
-                timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
-                if (timer <= 0)
-                {
-                    timer = timeIntervall;
-                    frame++;
-                    if (frame >= nrFrames)
-                    {
-                        frame = 0;
-                    }
-
-                }
 
                 //tid som räknar ner för att inte köra patfindingen för ofta
                 chaseTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -85,52 +75,50 @@ namespace TheMaze
 
                 UpdateSourceRectangle();
                 Pathfinding(gameTime);
+                ImbakuStates(gameTime);
 
-                
+
             }
         }
 
         private void Pathfinding(GameTime gameTime)
         {
-            if (active)
+
+
+            if (moving)
             {
-                if (!moving)
+
+                //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
+                if (path.Count != 0)
                 {
+                    //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
+                    newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
+                    //använder metoden som random movement också använder
+                    ChangeDirection(newDirection);
 
-                    //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
-                    if (path.Count != 0)
-                    {
-                        //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
-                        newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
-                        //använder metoden som random movement också använder
-                        ChangeDirection(newDirection);
-                        
-                    }
-                }
-
-                else
-                {
-                    position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                    if (Vector2.Distance(Position, destination) < 1)
-                    {
-                        position = destination;
-                        moving = false;
-                        //kollar igen så att listan med "the path" inte är tom för att motverka krasch
-                        //tar sen bort första elementet i listan så att vi kan kalla på path.first() med nästa mål
-                        if (path.Count != 0)
-                        {
-                            path.RemoveAt(0);
-                        }
-                    }
                 }
             }
+
             else
             {
-                Moving(gameTime);
-            }
+                position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+                if (Vector2.Distance(Position, destination) < 1)
+                {
+                    position = destination;
+                    moving = false;
+                    //kollar igen så att listan med "the path" inte är tom för att motverka krasch
+                    //tar sen bort första elementet i listan så att vi kan kalla på path.first() med nästa mål
+                    if (path.Count != 0)
+                    {
+                        path.RemoveAt(0);
+                    }
+                }
+            }
         }
+
+
+
 
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -145,24 +133,93 @@ namespace TheMaze
 
         protected void UpdateSourceRectangle()
         {
-            if (direction == new Vector2(1, 0))
+            if (isActive)
             {
-                frameSize = 5;
-            }
-            if (direction == new Vector2(-1, 0))
-            {
-                frameSize = 4;
+                if (direction == new Vector2(1, 0))
+                {
+                    frameSize = 5;
+                }
+                if (direction == new Vector2(-1, 0))
+                {
+                    frameSize = 4;
+                }
+
+                if (direction == new Vector2(0, 1))
+                {
+                    frameSize = 6;
+                }
+
+                if (direction == new Vector2(0, -1))
+                {
+                    frameSize = 7;
+                }
+
             }
 
-            if (direction == new Vector2(0, 1))
+            else
             {
-                frameSize = 6;
+                if (direction == new Vector2(1, 0))
+                {
+                    frameSize = 1;
+                }
+                if (direction == new Vector2(-1, 0))
+                {
+                    frameSize = 0;
+                }
+
+                if (direction == new Vector2(0, 1))
+                {
+                    frameSize = 2;
+                }
+
+                if (direction == new Vector2(0, -1))
+                {
+                    frameSize = 3;
+                }
             }
 
-            if (direction == new Vector2(0, -1))
+        }
+
+
+        private void ImbakuStates(GameTime gameTime)
+        {
+            timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if (isActive)
             {
-                frameSize = 7;
+                if (timer <= 0)
+                {
+                    timer = timeIntervall;
+                    frame++;
+                    if (frame >= nrFrames)
+                    {
+                        
+                    }
+
+                }
+
+
             }
+
+            else
+            {
+
+                if (timer <= 0)
+                {
+                    timer = timeIntervall;
+                    frame++;
+                    if (frame >= nrFrames)
+                    {
+                        frame = 0;
+                    }
+
+                }
+
+            }
+
+
+
+
         }
     }
 }

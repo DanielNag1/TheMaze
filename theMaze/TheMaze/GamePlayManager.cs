@@ -224,6 +224,15 @@ namespace TheMaze
                 //killed = true;
             }
 
+            if(Vector2.Distance(player.Position, imbaku.Position) < 400)
+            {
+                imbaku.isActive = true;
+            }
+            else
+            {
+                imbaku.isActive = false;
+            }
+
             if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && imbaku.isAlive)
             {
                 if (player.currentWeapon.color == Color.Red)
@@ -360,10 +369,10 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
 
                     levelManager.Draw(spriteBatch);
-                    //foreach (WallMonster wM in levelManager.wallMonsters)
-                    //{
-                    //    wM.Draw(spriteBatch);
-                    //}
+                    foreach (WallMonster wM in levelManager.wallMonsters)
+                    {
+                        wM.Draw(spriteBatch);
+                    }
                     foreach (Collectible c in levelManager.collectibles)
                     {
                         c.Draw(spriteBatch);

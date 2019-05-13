@@ -717,3 +717,19 @@ C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.c
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_Imbaku.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchoff.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchon.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.wma
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible view.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu2.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_Imbaku.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture1.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture2.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture3.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\tutorialfont.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\You Died.xnb
