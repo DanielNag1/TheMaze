@@ -192,7 +192,7 @@ namespace TheMaze
 
         private void PlayerInput()
         {
-            if (X.IsKeyPressed(Keys.G) || X.IsKeyPressed(Keys.G))
+            if (X.IsKeyPressed(Keys.G))
             {
                 Console.WriteLine(markers);
                 Console.WriteLine(markerList.Count);

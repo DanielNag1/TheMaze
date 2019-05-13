@@ -223,21 +223,19 @@ namespace TheMaze
                 //killed = true;
             }
 
-            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && imbaku.isAlive)
+            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && imbaku.isAlive && player.currentWeapon.color == Color.Red)
             {
-                if (player.currentWeapon.color == Color.Red)
-                {
                     MonsterTakeDamage(imbaku, gameTime);
-                }
+                
 
-                else if (player.currentWeapon.color == Color.Goldenrod)
-                {
-                    imbaku.speed = 25;
-                }
-                else if (player.currentWeapon.color == Color.MediumBlue)
-                {
-                    imbaku.speed = 0;
-                }
+                //else if (player.currentWeapon.color == Color.Goldenrod)
+                //{
+                //    imbaku.speed = 25;
+                //}
+                //else if (player.currentWeapon.color == Color.MediumBlue)
+                //{
+                //    imbaku.speed = 0;
+                //}
 
             }
 
