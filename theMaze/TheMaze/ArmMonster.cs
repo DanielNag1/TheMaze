@@ -23,7 +23,7 @@ namespace TheMaze
         private Stopwatch activationTimer = new Stopwatch();
         private Stopwatch accelerationTimer = new Stopwatch();
         private List<Vector2> path;
-        private Vector2 newDirection, armMonsterCircleHitboxPos, armDirection;
+        private Vector2 newDirection, armMonsterCircleHitboxPos, setDirection, armDirection;
         private float chaseTimer = 0f;
         private float resetTimer = 300f;
         private float armSpeed = 100f, maxSpeed = 250f;
@@ -62,7 +62,7 @@ namespace TheMaze
                     armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
 
                     //Pathfinding(gameTime);
-                    ChaseDirection(gameTime);
+                    ChooseDirection(gameTime, player);
                     Acceleration(gameTime);
                     Collision(levelManager);
                 }
@@ -139,21 +139,16 @@ namespace TheMaze
             }
         }
 
-        private void ChaseDirection(GameTime gameTime)
+        private void ChooseDirection(GameTime gameTime, Player player)
         {
-            if (!moving)
-            { 
-                if (path.Count != 0)
-                {
-                    armDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
+            setDirection = player.Position - position;
 
-                    Console.WriteLine(armDirection);
-                }
-                else
-                {
-                    position += armDirection * armSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                }
-            }  
+            setDirection.Normalize();
+
+            armDirection = setDirection;
+
+            position += armDirection * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Console.WriteLine(setDirection);
         }
 
         private void Pathfinding(GameTime gameTime)
