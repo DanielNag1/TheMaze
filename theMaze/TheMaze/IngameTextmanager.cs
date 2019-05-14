@@ -27,10 +27,13 @@ namespace TheMaze
         {
             spriteBatch.DrawString(TextureManager.TutorialFont, "Turn off your lantern with 'E'.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
         }
-        public static void DrawCollectibleViewer(SpriteBatch spriteBatch)
+        public static void DrawProgress(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(TextureManager.TutorialFont, "Return to your saferoom to view your collected items.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
+            spriteBatch.DrawString(TextureManager.TutorialFont, "Kill yourself with 'ENTER'.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
         }
-
+        public static void DrawReturn(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(TextureManager.TutorialFont, "Respawn with 'ENTER'.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
+        }
     }
 }

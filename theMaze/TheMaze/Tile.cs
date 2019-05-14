@@ -22,6 +22,7 @@ namespace TheMaze
 
         protected bool isWall = true;
         protected bool isHull = false;
+        public static bool black;
 
         public bool IsWall
         {
@@ -222,12 +223,16 @@ namespace TheMaze
                 default:
                     {
                         texture = TextureManager.FloorTileTex;
+
+                        //texture = TextureManager.WaterTileTex;
+
                         sourceRect = new Rectangle(0, 0, frameSize, frameSize);
                         isWall = false;
                         break;
                     }
             }
         }
+
 
         public static readonly Vector2[] tilePoints =
         {

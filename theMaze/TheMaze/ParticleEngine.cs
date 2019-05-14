@@ -63,7 +63,7 @@ namespace TheMaze
                         (float)random.NextDouble(),
                         (float)random.NextDouble(),
                         (float)random.NextDouble());
-            float size = random.Next(2, 9)*.1f;
+            float size = random.Next(2, 7)*.1f;
             int ttl = 15 + random.Next(4);
 
 

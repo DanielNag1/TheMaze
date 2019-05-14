@@ -26,7 +26,7 @@ namespace TheMaze
         {
             collectiblePositions = new List<Vector2>();
         }
-        public void ReadLiveMap()
+        public void ReadLevel2()
         {
             Tiles = GenerateMap("testbana.txt");
             Pathfind.FillGridFromMap(Tiles);
@@ -35,9 +35,9 @@ namespace TheMaze
         {
             Tiles = GenerateMap("deathbana.txt");
         }
-        public void LoadLevel1()
+        public void ReadLevel1()
         {
-            Tiles = GenerateLevel1("level1.txt");
+            Tiles = GenerateMap("level1.txt");
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -96,41 +96,5 @@ namespace TheMaze
             return tiles;
         }
 
-        private Tile[,] GenerateLevel1(string map)
-        {
-            string[] mapData = File.ReadAllLines(map);
-            collectibles = new List<Collectible>();
-            int width = mapData[0].Length;
-            int height = mapData.Length;
-            Tile[,] tiles = new Tile[width, height];
-
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    Vector2 tilePosition = new Vector2(x * ConstantValues.tileWidth, y * ConstantValues.tileHeight);
-                    if (mapData[y][x] == '0')
-                    {
-                        StartPositionSafeRoom = tilePosition;
-                    }
-
-                    if (mapData[y][x] == '1')
-                    {
-                        StartPositionPlayer = new Vector2(tilePosition.X, tilePosition.Y - ConstantValues.tileHeight);
-                    }
-                    
-                    if (mapData[y][x] == '3')
-                    {
-                        collectible = new Collectible(TextureManager.CollectibleTex, tilePosition);
-                        Vector2 collectiblePositionForLight = new Vector2(collectible.Position.X + collectible.texture.Width / 2, collectible.Position.Y + collectible.texture.Height / 2);
-                        collectiblePositions.Add(collectiblePositionForLight);
-                        collectibles.Add(collectible);
-                    }
-                    
-                    tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
-                }
-            }
-            return tiles;
-        }
     }
 }

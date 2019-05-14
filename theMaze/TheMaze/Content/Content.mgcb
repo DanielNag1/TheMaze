@@ -15,12 +15,6 @@
 
 #begin Audio/BGM/ambientnoise.wav
 /importer:WavImporter
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Audio/BGM/ambientnoise.wav
-
-#begin Audio/BGM/ambientnoise.wav
-/importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/BGM/ambientnoise.wav
@@ -49,18 +43,6 @@
 /processorParam:Quality=Best
 /build:Audio/SFX/lampswitchoff.wav
 
-#begin Audio/SFX/lampswitchoff.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/SFX/lampswitchoff.wav
-
-#begin Audio/SFX/lampswitchon.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/SFX/lampswitchon.wav
-
 #begin Audio/SFX/lampswitchon.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -72,18 +54,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/SFX/step1.wav
-
-#begin Audio/SFX/step1.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/SFX/step1.wav
-
-#begin Audio/SFX/step2.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/SFX/step2.wav
 
 #begin Audio/SFX/step2.wav
 /importer:WavImporter
@@ -374,4 +344,28 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:You Died.png
+
+#begin desk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:desk.png
+
+#begin water tile.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:water tile.png
 

@@ -739,3 +739,19 @@ C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\C
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\walking.xnb
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
 C:\Users\Sandra\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\walking.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\walking.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet_Imbaku.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\tutorialfont.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\desk.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_Imbaku.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\water tile.xnb

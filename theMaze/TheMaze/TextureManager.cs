@@ -20,7 +20,10 @@ namespace TheMaze
         public static Texture2D MiniMonsterTex { get; private set; }
         //public static Texture2D FlareTex { get; private set; }
         //public static Texture2D RangeTex { get; private set; }
+        public static Texture2D WaterTileTex { get; private set; }
+
         public static Texture2D FloorTileTex { get; private set; }
+
         public static Texture2D WallSheetTex { get; private set; }
         public static Texture2D TopWallSheetTex { get; private set; }
         public static Texture2D CollectibleTex { get; private set; }
@@ -34,6 +37,8 @@ namespace TheMaze
 
         public static Texture2D TransparentTex { get; private set; }
         public static Texture2D RedTexture { get; private set; }
+
+        public static Texture2D DeskTexture { get; private set; }
 
         public static List<Texture2D> hitParticles { get; private set; }
         public static List<Texture2D> storyTextures { get; private set; }
@@ -59,6 +64,7 @@ namespace TheMaze
             //FlareTex = Content.Load<Texture2D>("Flare5_00000");
             //RangeTex = Content.Load<Texture2D>("rangecircle");
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");
+            WaterTileTex = Content.Load<Texture2D>("water tile");
             WallSheetTex = Content.Load<Texture2D>("wall tile 2");
             TopWallSheetTex = Content.Load<Texture2D>("top tile sprite 2");
             CollectibleTex = Content.Load<Texture2D>("collectible");
@@ -93,6 +99,7 @@ namespace TheMaze
             storyTextures.Add(storyTexture2);
             storyTextures.Add(storyTexture3);
 
+            DeskTexture = Content.Load<Texture2D>("desk");
         }
     }
 }

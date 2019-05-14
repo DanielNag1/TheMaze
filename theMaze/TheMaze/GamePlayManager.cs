@@ -16,12 +16,13 @@ namespace TheMaze
         enum LevelState { Live, Death, CollectibleMenu }
         LevelState currentState = LevelState.Live;
         enum Level { Level1, Level2, Level3 }
-        Level currentLevel = Level.Level2;
+        Level currentLevel = Level.Level1;
         LevelManager levelManager, deathManager;
         Player player;
         public Imbaku imbaku;
         MiniMonster miniMonster;
         SFX sfx;
+        private bool level1loaded, level2loaded;
 
         Saferoom saferoom;
 
@@ -35,64 +36,97 @@ namespace TheMaze
             //levelManager.LoadLevel1();
             deathManager = new LevelManager();
             deathManager.ReadDeathMap();
-            switch (currentLevel)
-            {
-                case Level.Level1:
-                    levelManager.LoadLevel1();
-                    break;
-                case Level.Level2:
-                    levelManager.ReadLiveMap();
-                    imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
-                    particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
-                    break;
-                case Level.Level3:
-                    break;
-            }
+            LoadLevel1(levelManager);
+            
+            //LoadLevel2(levelManager);
+            //switch (currentLevel)
+            //{
+            //    case Level.Level1:
+            //        levelManager.ReadLevel1();
+            //        break;
+            //    case Level.Level2:
+            //        levelManager.ReadLevel2();
+            //        imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+            //        particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
+            //        break;
+            //    case Level.Level3:
+            //        break;
+            //}
 
-            player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
-            saferoom = new Saferoom(levelManager);
-            lights = new Lights(levelManager, saferoom);
-            sfx = new SFX();
+            //player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
+            //saferoom = new Saferoom(levelManager);
+            //lights = new Lights(levelManager, saferoom);
+            //sfx = new SFX();
 
             particleEngines = new List<ParticleEngine>();
 
             X.player = player;
             //X.imbaku = imbaku;
             X.LoadCamera();
-            Game1.penumbra.Initialize();
+            //            Game1.penumbra.Initialize();
             Game1.penumbra.Transform = X.camera.Transform;
-
-
-
-            foreach (Tile t in levelManager.Tiles)
-            {
-                if (t.IsHull == true)
-                {
-                    Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
-                }
-            }
 
         }
 
 
 
 
-        public void Update(GameTime gameTime)
+        public void LoadLevel1(LevelManager levelManager)
         {
-            if (X.IsKeyPressed(Keys.Enter))
+            if (!level1loaded)
             {
-                if (currentState == LevelState.Live)
+                levelManager.ReadLevel1();
+
+                player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
+                saferoom = new Saferoom(levelManager);
+                lights = new Lights(levelManager, saferoom);
+                sfx = new SFX();
+
+
+                foreach (Tile t in levelManager.Tiles)
                 {
-                    currentState = LevelState.Death;
-                    player.SetPosition(deathManager.StartPositionPlayer);
+                    if (t.IsHull == true)
+                    {
+                        Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
+                    }
+                }
+                level1loaded = true;
+            }
+        }
+
+        public void LoadLevel2(LevelManager levelManager)
+        {
+            if (!level2loaded)
+            {
+                levelManager.ReadLevel2();
+                if (player != null)
+                {
+                    player.SetPosition(levelManager.StartPositionPlayer);
                 }
                 else
                 {
-                    currentState = LevelState.Live;
-                    player.SetPosition(levelManager.StartPositionPlayer);
+                    player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
                 }
-            }
+                saferoom = new Saferoom(levelManager);
+                lights = new Lights(levelManager, saferoom);
+                sfx = new SFX();
 
+                imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+                particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
+
+                foreach (Tile t in levelManager.Tiles)
+                {
+                    if (t.IsHull == true)
+                    {
+                        Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
+                    }
+                }
+
+                level2loaded = true;
+            }
+        }
+        public void Update(GameTime gameTime)
+        {
             player.Update(gameTime);
 
             saferoom.Update(gameTime);
@@ -104,24 +138,12 @@ namespace TheMaze
                     Level1TutorialUpdate();
                     break;
                 case Level.Level2:
-
-                    particleEngine.Update();
-                    imbaku.Update(gameTime, player);
-                    ImbakuCollision(gameTime);
-                    MiniCollision();
-                    foreach (WallMonster wM in levelManager.wallMonsters)
-                    {
-                        wM.Update(gameTime);
-                        WallMonsterCollision(wM);
-                    }
-
-
-
+                    Level2Update(gameTime);
                     break;
                 case Level.Level3:
                     break;
             }
-
+            //Självmord
             switch (currentState)
             {
                 case LevelState.Live:
@@ -130,12 +152,16 @@ namespace TheMaze
                     TakeItem();
                     player.Collision(levelManager);
 
+                    if (X.IsKeyPressed(Keys.Enter))
+                    {
+                        currentState = LevelState.Death;
+                        player.SetPosition(deathManager.StartPositionPlayer);
+                        
+                    }
+
                     break;
 
                 case LevelState.Death:
-                    deathManager = new LevelManager();
-                    deathManager.ReadDeathMap();
-
                     RemoveMarkers();
 
                     foreach (WallMonster wM in levelManager.wallMonsters)
@@ -146,6 +172,12 @@ namespace TheMaze
 
                     player.Collision(deathManager);
 
+                    if (X.IsKeyPressed(Keys.Enter))
+                    {
+                        ChangeLevel();
+                        currentState = LevelState.Live;
+                        player.SetPosition(levelManager.StartPositionPlayer);
+                    }
                     break;
             }
         }
@@ -201,6 +233,7 @@ namespace TheMaze
         {
             TutorialManager.buttonPressCheck();
         }
+
         public void Level1TutorialDraw(SpriteBatch spriteBatch)
         {
             if (!TutorialManager.tutorialMovingDone)
@@ -221,7 +254,7 @@ namespace TheMaze
             }
             if (X.player.collectibles.Count >= 3 && !X.player.insaferoom)
             {
-                IngameTextmanager.DrawCollectibleViewer(spriteBatch);
+                IngameTextmanager.DrawProgress(spriteBatch);
             }
         }
         public void ImbakuCollision(GameTime gameTime)
@@ -252,22 +285,9 @@ namespace TheMaze
                 imbaku.isActive = false;
             }
 
-            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && imbaku.isAlive)
+            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && player.currentWeapon.color == Color.Red && imbaku.isAlive)
             {
-                if (player.currentWeapon.color == Color.Red)
-                {
-                    MonsterTakeDamage(imbaku, gameTime);
-                }
-
-                else if (player.currentWeapon.color == Color.Goldenrod)
-                {
-                    imbaku.speed = 25;
-                }
-                else if (player.currentWeapon.color == Color.MediumBlue)
-                {
-                    imbaku.speed = 0;
-                }
-
+                MonsterTakeDamage(imbaku, gameTime);
             }
 
             else
@@ -291,7 +311,7 @@ namespace TheMaze
         {
             foreach (MiniMonster mini in imbaku.miniMonsterList)
             {
-                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox))
+                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox) && player.currentWeapon.color==Color.Red)
                 {
                     imbaku.miniMonster.health--;
                     if (imbaku.miniMonster.health <= 0)
@@ -356,15 +376,16 @@ namespace TheMaze
         public void MonsterTakeDamage(Imbaku imbaku, GameTime gameTime)
         {
             particleEngines.Add(particleEngine);
-            particleEngine.EmitterLocation = imbaku.Position;
+            particleEngine.EmitterLocation = new Vector2(imbaku.imbakuRectangleHitbox.Center.X,imbaku.imbakuRectangleHitbox.Center.Y);
             particleEngine.isHit = true;
             imbaku.health -= gameTime.ElapsedGameTime.TotalMilliseconds / 2;
         }
 
         public void Desk(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(TextureManager.RedTexture, saferoom.deskHitbox, Color.White);
+            spriteBatch.Draw(TextureManager.DeskTexture, saferoom.deskHitbox, Color.White);
         }
+
         public void Level1Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             switch (currentState)
@@ -393,6 +414,7 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     deathManager.Draw(spriteBatch);
                     player.Draw(spriteBatch);
+                    IngameTextmanager.DrawReturn(spriteBatch);
                     spriteBatch.End();
                     break;
 
@@ -415,6 +437,7 @@ namespace TheMaze
                     {
                         c.Draw(spriteBatch);
                     }
+
                     imbaku.Draw(spriteBatch);
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
@@ -435,5 +458,46 @@ namespace TheMaze
 
             }
         }
+
+        public void Level2Update(GameTime gameTime)
+        {
+            particleEngine.Update();
+            imbaku.Update(gameTime, player);
+            ImbakuCollision(gameTime);
+            MiniCollision();
+            foreach (WallMonster wM in levelManager.wallMonsters)
+            {
+                wM.Update(gameTime);
+                WallMonsterCollision(wM);
+            }
+
+        }
+
+        public void ChangeLevel()
+        {
+
+            if(player.collectibles.Count==3)
+            {
+                currentLevel = Level.Level2;
+            }
+            else
+            {
+                currentLevel = Level.Level1;
+            }
+            
+            switch(currentLevel)
+            {
+                case Level.Level1:
+                    LoadLevel1(levelManager);
+                    break;
+                case Level.Level2:
+                    LoadLevel2(levelManager);
+                    break;
+
+            }
+
+        }
+
+
     }
 }
