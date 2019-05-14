@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Button.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="ChasingMonster.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Collectible.cs" />
     <Compile Include="CollectibleViewer.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Tile.cs" />
     <Compile Include="TutorialManager.cs" />
     <Compile Include="WallMonster.cs" />
+    <Compile Include="WanderingMonster.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="X.cs" />
   </ItemGroup>

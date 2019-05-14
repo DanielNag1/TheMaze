@@ -14,6 +14,7 @@ namespace TheMaze
         public Circle miniCircleHitbox;
         public Rectangle miniRectangleHitbox;
         public Vector2 miniCircleHitboxPos;
+        public int health;
 
 
         public MiniMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
@@ -30,7 +31,6 @@ namespace TheMaze
             health = 400;
 
             speed = random.Next(50, 500);
-
             
         }
 
@@ -38,20 +38,14 @@ namespace TheMaze
         {
             base.Update(gameTime, player);
 
-
             currentSourceRect.X = frame * 41;
             currentSourceRect.Y = frameSize * 81;
 
             miniRectangleHitbox.X = (int)position.X - currentSourceRect.Width/6+10;
             miniRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height/6+10;
 
-
             miniCircleHitboxPos = new Vector2(miniRectangleHitbox.X+20, miniRectangleHitbox.Y+40);
             miniCircleHitbox = new Circle(miniCircleHitboxPos, 30f);
-
-            
-
-            
             
         }
 

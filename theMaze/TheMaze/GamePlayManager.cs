@@ -243,7 +243,7 @@ namespace TheMaze
         }
         public void ImbakuCollision(GameTime gameTime)
         {
-            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true && imbaku.isAlive)
+            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true)
             {
                 //killed = true;
             }
@@ -269,7 +269,12 @@ namespace TheMaze
                 imbaku.isActive = false;
             }
 
-            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && player.currentWeapon.color == Color.Red && imbaku.isAlive)
+            if (Vector2.Distance(player.Position,imbaku.Position)>2500 || Vector2.Distance(player.Position, imbaku.Position) < 600)
+            {
+                imbaku.isChasing = true;
+            }
+
+            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && player.currentWeapon.color == Color.Red)
             {
                 MonsterTakeDamage(imbaku, gameTime);
             }
@@ -362,7 +367,7 @@ namespace TheMaze
             particleEngines.Add(particleEngine);
             particleEngine.EmitterLocation = new Vector2(imbaku.imbakuRectangleHitbox.Center.X,imbaku.imbakuRectangleHitbox.Center.Y);
             particleEngine.isHit = true;
-            imbaku.health -= gameTime.ElapsedGameTime.TotalMilliseconds / 2;
+            
         }
 
         public void Desk(SpriteBatch spriteBatch)

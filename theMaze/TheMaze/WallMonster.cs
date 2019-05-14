@@ -9,16 +9,12 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    public class WallMonster : GameObject
+    public class WallMonster : Monster
     {
         public Rectangle hitBoxRect;
-        public Vector2 hitboxPos;
         public bool active, coolDown;
         public Stopwatch coolDownTimer,attackTimer;
-        public Color color;
-        public Circle hitbox;
-        public Rectangle currentSourceRect;
-        public int frameSize;
+        
 
         public WallMonster(Texture2D texture, Vector2 position) : base(texture, position)
         {
@@ -33,7 +29,7 @@ namespace TheMaze
 
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             States();
 
@@ -46,7 +42,7 @@ namespace TheMaze
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
                     ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
 
-            //spriteBatch.Draw(TextureManager.hitboxPosTex, hitBoxRect , Color.Red);
+            
 
         }
 

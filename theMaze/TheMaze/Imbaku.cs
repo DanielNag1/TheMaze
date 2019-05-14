@@ -10,15 +10,14 @@ namespace TheMaze
 {
 
 
-    public class Imbaku : Monster
+    public class Imbaku : ChasingMonster
     {
         public Rectangle imbakuRectangleHitbox;
-        //En lista som håller "the path"
-        public List<Vector2> path;
-        public bool isActive, isAttacking, miniIsAlive;
-        Vector2 newDirection, imbakuCircleHitboxPos;
-        private float chaseTimer = 0f, resetTimer = 300f;
-        private float creatingMiniTimer = 0f, resetMiniTimer = 2f;
+
+        public bool isActive, miniIsAlive, isChasing;
+        Vector2 imbakuCircleHitboxPos;
+        
+        private float creatingMiniTimer = 0f, resetMiniTimer = 3f;
         public Circle imbakuCircleHitbox;
 
         public MiniMonster miniMonster;
@@ -38,9 +37,8 @@ namespace TheMaze
             imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
 
             path = new List<Vector2>();
-            isAlive = true;
+            
             isActive = false;
-            health = 3000;
             speed = 50f;
 
             miniMonsterList = new List<MiniMonster>();
@@ -49,101 +47,33 @@ namespace TheMaze
 
         public override void Update(GameTime gameTime, Player player)
         {
-            if (health <= 0)
+
+            currentSourceRect.X = frame * 125;
+            currentSourceRect.Y = frameSize * 250;
+
+            hitboxPos = new Vector2(imbakuRectangleHitbox.X, imbakuRectangleHitbox.Y);
+
+            imbakuCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
+            imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
+
+            imbakuRectangleHitbox.X = (int)position.X - currentSourceRect.Width / 4 + 30;
+            imbakuRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height / 4 - 35;
+
+            UpdateImbakuSourceRectangle();
+            ImbakuStates(gameTime, player);
+            
+
+            foreach (MiniMonster mini in miniMonsterList)
             {
-                isAlive = false;
+                mini.Update(gameTime, player);
             }
-
-            if (isAlive)
-            {
-                currentSourceRect.X = frame * 125;
-                currentSourceRect.Y = frameSize * 250;
-
-                hitboxPos = new Vector2(imbakuRectangleHitbox.X, imbakuRectangleHitbox.Y);
-
-                imbakuCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
-                imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
-
-                imbakuRectangleHitbox.X = (int)position.X - currentSourceRect.Width / 4 + 30;
-                imbakuRectangleHitbox.Y = (int)position.Y - currentSourceRect.Height / 4 - 35;
-
-
-
-
-                //tid som räknar ner för att inte köra patfindingen för ofta
-                chaseTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
-                if (chaseTimer < 0)
-                {
-                    path = Pathfind.CreatePath(Position, player.playerHitbox.Center.ToVector2());
-                    chaseTimer = resetTimer;
-                }
-
-
-                UpdateSourceRectangle();
-                Pathfinding(gameTime);
-                ImbakuStates(gameTime);
-                
-
-                foreach (MiniMonster mini in miniMonsterList)
-                {
-                    mini.Update(gameTime, player);
-
-                }
-
-
-            }
-
 
         }
-
-        protected void Pathfinding(GameTime gameTime)
-        {
-
-            if (!moving)
-            {
-
-                //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
-                if (path.Count != 0)
-                {
-                    //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
-                    newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
-                    //använder metoden som random movement också använder
-                    ChangeDirection(newDirection);
-
-                }
-            }
-
-            else
-            {
-                position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                if (Vector2.Distance(Position, destination) < 1)
-                {
-                    position = destination;
-                    moving = false;
-                    //kollar igen så att listan med "the path" inte är tom för att motverka krasch
-                    //tar sen bort första elementet i listan så att vi kan kalla på path.first() med nästa mål
-                    if (path.Count != 0)
-                    {
-                        path.RemoveAt(0);
-                    }
-                }
-            }
-        }
-
-
-
-
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (isAlive)
-            {
-                //imbakuCircleHitbox.Draw(spriteBatch);
-                //spriteBatch.Draw(TextureManager.RedTexture, imbakuRectangleHitbox, Color.White);
-                spriteBatch.Draw(texture, imbakuRectangleHitbox, currentSourceRect, Color.White);
-            }
+            spriteBatch.Draw(texture, imbakuRectangleHitbox, currentSourceRect, Color.White);
+
             foreach (MiniMonster mini in miniMonsterList)
             {
                 mini.Draw(spriteBatch);
@@ -151,7 +81,7 @@ namespace TheMaze
 
         }
 
-        protected void UpdateSourceRectangle()
+        protected void UpdateImbakuSourceRectangle()
         {
             if (isActive)
             {
@@ -176,35 +106,12 @@ namespace TheMaze
 
             }
 
-            else
-            {
-                if (direction == new Vector2(1, 0))
-                {
-                    frameSize = 1;
-                }
-                if (direction == new Vector2(-1, 0))
-                {
-                    frameSize = 0;
-                }
-
-                if (direction == new Vector2(0, 1))
-                {
-                    frameSize = 2;
-                }
-
-                if (direction == new Vector2(0, -1))
-                {
-                    frameSize = 3;
-                }
-            }
-
         }
 
 
-        protected void ImbakuStates(GameTime gameTime)
+        protected void ImbakuStates(GameTime gameTime, Player player)
         {
             timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
-
 
             if (isActive)
             {
@@ -226,8 +133,6 @@ namespace TheMaze
                     CreateMini(gameTime);
                 }
 
-
-
             }
 
             else
@@ -248,10 +153,21 @@ namespace TheMaze
 
             }
 
+            if (isChasing)
+            {
+                Pathfinding(gameTime, player);
+            }
 
+            else
+            {
+                Moving(gameTime);
+            }
 
 
         }
+
+        
+
 
         protected void CreateMini(GameTime gameTime)
         {
@@ -266,11 +182,10 @@ namespace TheMaze
                     creatingMiniTimer = resetMiniTimer;
                 }
 
-
             }
 
         }
 
-        
+
     }
 }
