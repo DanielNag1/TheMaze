@@ -66,7 +66,7 @@ namespace TheMaze
 
         public virtual void Update(GameTime gameTime, Player player)
         {
-            if (moving)
+            if (!moving)
             {
                 timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
@@ -92,7 +92,7 @@ namespace TheMaze
             hitbox = new Circle(hitboxPos, 50f);
 
             //UpdateSourceRectangle();
-            //Moving(gameTime);
+            Moving(gameTime);
         }
 
         public void SetPosition(Vector2 newPosition)
@@ -178,43 +178,8 @@ namespace TheMaze
             Direction = possibleDirections[random.Next(0, possibleDirections.Count)];
         }
 
-        //protected void UpdateSourceRectangle()
-        //{
-        //    if (Direction == Up)
-        //    {
-        //        nextSourceRect.Y = 0 * frameSize;
-        //    }
-        //    if (Direction == Down)
-        //    {
-        //        nextSourceRect.Y = 2 * frameSize;
-        //    }
-        //    if (Direction == Right)
-        //    {
-        //        nextSourceRect.Y = 1 * frameSize;
-        //    }
-        //    if (Direction == Left)
-        //    {
-        //        nextSourceRect.Y = 0 * frameSize;
-        //    }
-        //}
-
-        //protected void UpdateSourceRectangle()
-        //{
-        //    if(Pathfind.SetDirectionFromNextPosition())
-        //    if ( == Right)
-        //    {
-        //        frameSize = 1;
-        //    }
-        //    if (Direction == Left)
-        //    {
-        //        frameSize = 0;
-        //    }
-
-        //    if (Direction == Down)
-        //    {
-        //        frameSize = 2;
-        //    }
-        //}
+        
+        
 
 
     }

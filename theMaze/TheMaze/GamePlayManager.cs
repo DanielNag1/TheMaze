@@ -16,11 +16,12 @@ namespace TheMaze
         enum LevelState { Live, Death, CollectibleMenu }
         LevelState currentState = LevelState.Live;
         enum Level { Level1, Level2, Level3 }
-        Level currentLevel = Level.Level1;
+        Level currentLevel = Level.Level2;
         LevelManager levelManager, deathManager;
         Player player;
         public Imbaku imbaku;
-        MiniMonster miniMonster;
+        Golem golem;
+      
         SFX sfx;
         private bool level1loaded, level2loaded;
 
@@ -36,27 +37,9 @@ namespace TheMaze
             //levelManager.LoadLevel1();
             deathManager = new LevelManager();
             deathManager.ReadDeathMap();
-            LoadLevel1(levelManager);
+            LoadLevel2(levelManager);
             
-            //LoadLevel2(levelManager);
-            //switch (currentLevel)
-            //{
-            //    case Level.Level1:
-            //        levelManager.ReadLevel1();
-            //        break;
-            //    case Level.Level2:
-            //        levelManager.ReadLevel2();
-            //        imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
-            //        particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
-            //        break;
-            //    case Level.Level3:
-            //        break;
-            //}
-
-            //player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
-            //saferoom = new Saferoom(levelManager);
-            //lights = new Lights(levelManager, saferoom);
-            //sfx = new SFX();
+            
 
             particleEngines = new List<ParticleEngine>();
 
@@ -112,6 +95,7 @@ namespace TheMaze
                 sfx = new SFX();
 
                 imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+                golem = new Golem(TextureManager.MonsterTex, levelManager.GolemStartPosition, levelManager);
                 particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
 
                 foreach (Tile t in levelManager.Tiles)
@@ -439,6 +423,7 @@ namespace TheMaze
                     }
 
                     imbaku.Draw(spriteBatch);
+                    golem.Draw(spriteBatch);
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
                     spriteBatch.End();
@@ -463,6 +448,7 @@ namespace TheMaze
         {
             particleEngine.Update();
             imbaku.Update(gameTime, player);
+            golem.Update(gameTime,player);
             ImbakuCollision(gameTime);
             MiniCollision();
             foreach (WallMonster wM in levelManager.wallMonsters)

@@ -262,6 +262,7 @@ namespace TheMaze
                 {
                     miniMonster = new MiniMonster(TextureManager.MiniMonsterTex, position, levelManager);
                     miniMonsterList.Add(miniMonster);
+                    Console.WriteLine(miniMonster.speed);
                     creatingMiniTimer = resetMiniTimer;
                 }
 

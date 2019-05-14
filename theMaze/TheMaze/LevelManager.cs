@@ -15,6 +15,7 @@ namespace TheMaze
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionSafeRoom { get; private set; }
         public Vector2 ImbakuStartPosition { get; private set; }
+        public Vector2 GolemStartPosition { get; private set; }
         public List<WallMonster> wallMonsters;
         public List<Vector2> collectiblePositions;
         public WallMonster wallMonster;
@@ -28,7 +29,7 @@ namespace TheMaze
         }
         public void ReadLevel2()
         {
-            Tiles = GenerateMap("testbana.txt");
+            Tiles = GenerateMap("level2.txt");
             Pathfind.FillGridFromMap(Tiles);
         }
         public void ReadDeathMap()
@@ -89,6 +90,10 @@ namespace TheMaze
                     {
                         wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
+                    }
+                    if (mapData[y][x] == '5')
+                    {
+                        GolemStartPosition = tilePosition;
                     }
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }

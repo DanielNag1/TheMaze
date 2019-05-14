@@ -29,6 +29,8 @@ namespace TheMaze
             hitbox = new Circle(position, 100);
             health = 400;
 
+            speed = random.Next(50, 500);
+
             
         }
 

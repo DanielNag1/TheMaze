@@ -260,7 +260,6 @@ C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Th
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.dll
-C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
@@ -755,3 +754,10 @@ C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_mini_Imbaku.xnb
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\water tile.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\walking.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\desk.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\water tile.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll

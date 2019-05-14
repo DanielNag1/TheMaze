@@ -50,6 +50,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameStateManager.cs" />
+    <Compile Include="Golem.cs" />
     <Compile Include="Imbaku.cs" />
     <Compile Include="IngameTextmanager.cs" />
     <Compile Include="LevelManager.cs" />
