@@ -17,8 +17,8 @@ namespace TheMaze
 
         public GlitchMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
-            frameSize = 128;
-            currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
+            frameSize = 0;
+            //currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             glitchMonsterRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
             nrFrames = 4;
         }
@@ -26,7 +26,6 @@ namespace TheMaze
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-
             glitchMonsterRectangleHitbox.X = (int)position.X;
             glitchMonsterRectangleHitbox.Y = (int)position.Y;
             
@@ -34,7 +33,7 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(TextureManager.RedTexture, glitchMonsterRectangleHitbox, Color.Red);
+            //spriteBatch.Draw(TextureManager.RedTexture, glitchMonsterRectangleHitbox, Color.Red);
             spriteBatch.Draw(texture, glitchMonsterRectangleHitbox, currentSourceRect, Color.White);
 
         }

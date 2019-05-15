@@ -30,7 +30,7 @@ namespace TheMaze
             nextSourceRect = currentSourceRect;
             timer = 100;
             timeIntervall = 160;
-            currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
+            currentSourceRect = new Rectangle(frame, frameSize, ConstantValues.tileWidth, ConstantValues.tileHeight);
         }
 
         public virtual void Update(GameTime gameTime)
