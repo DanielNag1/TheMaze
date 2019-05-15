@@ -26,7 +26,7 @@ namespace TheMaze
         private Vector2 newDirection, armMonsterCircleHitboxPos, setDirection, armDirection;
         private float chaseTimer = 0f;
         private float resetTimer = 300f;
-        private float armSpeed = 100f, maxSpeed = 250f;
+        private float armSpeed = 25f, maxSpeed = 250f;
 
         public ArmMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
@@ -48,6 +48,11 @@ namespace TheMaze
                 chaseTimer = resetTimer;
             }
 
+            if (cooldown)
+            {
+                Cooldown(gameTime);
+            }
+
             if (toActivate)
             {
                 activationTimer.Start();
@@ -55,16 +60,15 @@ namespace TheMaze
                 {
                     activated = true;
 
+                    Pathfinding(gameTime);
+                    Acceleration(gameTime);
+                    Collision(levelManager);
+
                     armMonsterRectangleHitbox.X = (int)position.X;
                     armMonsterRectangleHitbox.Y = (int)position.Y;
 
                     armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
                     armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
-
-                    //Pathfinding(gameTime);
-                    ChooseDirection(gameTime, player);
-                    Acceleration(gameTime);
-                    Collision(levelManager);
                 }
             }
         }
@@ -74,7 +78,7 @@ namespace TheMaze
             if (cooldown == false)
             {
                 cooldown = true;
-                Cooldown(gameTime);
+ 
                 int ifActivating = random.Next(0, 0);
 
                 if (ifActivating == 0)
@@ -88,11 +92,10 @@ namespace TheMaze
         {
             cooldownTimer.Start();
             if (cooldownTimer.ElapsedMilliseconds >= 2000)
-            {
-                cooldown = false;
+            {  
                 cooldownTimer.Reset();
+                cooldown = false;
             }
-
         }
 
         private void Acceleration(GameTime gameTime)
@@ -102,7 +105,7 @@ namespace TheMaze
             {
                 if ((armSpeed < maxSpeed) && !slowedDown)
                 {
-                    //armSpeed = armSpeed + 25f;
+                    armSpeed = armSpeed + 25f;
                 }
                 else if (slowedDown)
                 {
@@ -139,48 +142,28 @@ namespace TheMaze
             }
         }
 
-        private void ChooseDirection(GameTime gameTime, Player player)
-        {
-            setDirection = player.Position - position;
-
-            setDirection.Normalize();
-
-            armDirection = setDirection;
-
-            position += armDirection * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Console.WriteLine(setDirection);
-        }
-
         private void Pathfinding(GameTime gameTime)
         {
             if (!moving)
             {
                 //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
-                if (path.Count != 0)
+                if (path.Count > 1)
                 {
                     //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
-                    newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
-                    Console.WriteLine(newDirection);
+                    newDirection = Pathfind.SetDirectionFromNextPosition(Position, path[1]);
+
                     //använder metoden som random movement också använder
                     ChangeDirection(newDirection);
-                    
                 }
             }
 
             else
             {
-                position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                position += direction * armSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (Vector2.Distance(Position, destination) < 1)
                 {
                     position = destination;
-                    moving = false;
-                    //kollar igen så att listan med "the path" inte är tom för att motverka krasch
-                    //tar sen bort första elementet i listan så att vi kan kalla på path.first() med nästa mål
-                    if (path.Count != 0)
-                    {
-                        path.RemoveAt(0);
-                    }
                 }
             }
         }

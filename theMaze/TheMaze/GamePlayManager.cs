@@ -263,21 +263,24 @@ namespace TheMaze
         {
             if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox))
             {
-                armMonster.Activating(gameTime);
                 if (armMonster.activated)
                 {
                     killed = true;
                 }
+                else
+                {
+                    armMonster.Activating(gameTime);
+                }
             }
 
-            /*if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated)
+            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated && player.currentWeapon.color == Color.Goldenrod)
             {
                 armMonster.slowedDown = true;
             }
             else
             {
                 armMonster.slowedDown = false;
-            }*/
+            }
         }
 
         public void Resurrect()
