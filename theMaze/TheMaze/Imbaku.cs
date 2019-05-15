@@ -29,7 +29,6 @@ namespace TheMaze
             currentSourceRect = new Rectangle(frame, frameSize, 125, 245);
 
             nrFrames = 5;
-            timeIntervall = 120;
 
             imbakuRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight + 120);
 
@@ -138,16 +137,17 @@ namespace TheMaze
             else
             {
 
-                if (timer <= 0)
-                {
-                    timer = timeIntervall;
-                    frame++;
-                    if (frame >= nrFrames)
-                    {
-                        frame = 0;
-                    }
+                Animation(gameTime);
+                //if (timer <= 0)
+                //{
+                //    timer = timeIntervall;
+                //    frame++;
+                //    if (frame >= nrFrames)
+                //    {
+                //        frame = 0;
+                //    }
 
-                }
+                //}
 
                 speed = 50f;
 

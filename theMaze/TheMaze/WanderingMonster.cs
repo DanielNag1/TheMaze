@@ -31,12 +31,14 @@ namespace TheMaze
 
             random = new Random();
 
+            speed = 50f;
             moving = false;
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            Moving(gameTime);
             UpdateSourceRectangle();
             
         }
