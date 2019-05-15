@@ -22,6 +22,7 @@ namespace TheMaze
         public Imbaku imbaku;
         Golem golem;
         GlitchMonster glitchMonster;
+        Stalker stalker;
       
         SFX sfx;
         private bool level1loaded, level2loaded;
@@ -98,6 +99,7 @@ namespace TheMaze
                 imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
                 golem = new Golem(TextureManager.MonsterTex, levelManager.GolemStartPosition, levelManager);
                 glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
+                stalker = new Stalker(TextureManager.PlayerTex, levelManager.StalkerStartPosition, levelManager);
                 particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
 
                 foreach (Tile t in levelManager.Tiles)

@@ -73,6 +73,7 @@
     <Compile Include="Sound\BGM.cs" />
     <Compile Include="Sound\SFX.cs" />
     <Compile Include="Sound\SoundManager.cs" />
+    <Compile Include="Stalker.cs" />
     <Compile Include="StoryButton.cs" />
     <Compile Include="TextureManager.cs" />
     <Compile Include="Tile.cs" />
