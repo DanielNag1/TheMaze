@@ -104,7 +104,7 @@ namespace TheMaze
                     }
                     if (mapData[y][x] == '7')
                     {
-                        GlitchMonsterStartPosition = tilePosition;
+                        StalkerStartPosition = tilePosition;
                     }
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }

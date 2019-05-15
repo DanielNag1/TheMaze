@@ -25,9 +25,9 @@ namespace TheMaze
         
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = ConstantValues.screenWidth/2;
-            graphics.PreferredBackBufferHeight = ConstantValues.screenHeight/2;
-            //graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = ConstantValues.screenWidth;
+            graphics.PreferredBackBufferHeight = ConstantValues.screenHeight;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             IsMouseVisible = true;
 
@@ -40,7 +40,7 @@ namespace TheMaze
             SoundManager.LoadContent(Content);
             TextureManager.LoadContent(Content);
             gameStateManager = new GameStateManager();
-            penumbra.AmbientColor = Color.White;
+            penumbra.AmbientColor = Color.Black;
         }
 
         protected override void UnloadContent()

@@ -99,7 +99,7 @@ namespace TheMaze
                 imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
                 golem = new Golem(TextureManager.MonsterTex, levelManager.GolemStartPosition, levelManager);
                 glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
-                stalker = new Stalker(TextureManager.PlayerTex, levelManager.StalkerStartPosition, levelManager);
+                stalker = new Stalker(TextureManager.MonsterTex, levelManager.StalkerStartPosition, levelManager);
                 particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
 
                 foreach (Tile t in levelManager.Tiles)
@@ -216,6 +216,51 @@ namespace TheMaze
             }
 
         }
+
+        public void StalkerCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(stalker.stalkerRectangleHitbox) && !stalker.stalkerStunned)
+            {
+                killed = true;
+            }
+
+            if (Vector2.Distance(player.Position, stalker.Position) < 1500)
+            {
+                int stalkerPlayerDistance = (int)Math.Truncate(Vector2.Distance(player.Position, stalker.Position));
+
+                int lightFail = stalker.stalkerRandom.Next(0, stalkerPlayerDistance / 5);
+                
+                if (lightFail == 0 && player.currentWeapon.enabled == true && !stalker.stalkerStunned)
+                {
+                    stalker.stalkerFlashTimer.Start();
+                    player.currentWeapon.enabled = false;
+                    
+                }
+
+                if (stalker.stalkerFlashTimer.ElapsedMilliseconds > 100)
+                {
+                    player.currentWeapon.enabled = true;
+                    stalker.stalkerFlashTimer.Reset();
+                }
+            }
+
+            if (player.weaponHitbox.Intersects(stalker.stalkerCircleHitbox) && player.currentWeapon.color == Color.Goldenrod)
+            {
+                stalker.stalkerStunned = true;
+            }
+
+            if ((!player.weaponHitbox.Intersects(stalker.stalkerCircleHitbox) || player.currentWeapon.color != Color.Goldenrod) && stalker.stalkerStunned)
+            {
+                stalker.stalkerStunnedTimer.Start();
+            }
+
+            if (stalker.stalkerStunnedTimer.ElapsedMilliseconds > 2000)
+            {
+                stalker.stalkerStunnedTimer.Reset();
+                stalker.stalkerStunned = false;
+            }
+        }
+
         public void GlitchMonsterCollision(GameTime gameTime)
         {
             if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
@@ -351,6 +396,7 @@ namespace TheMaze
                 currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);
                 imbaku.SetPosition(levelManager.ImbakuStartPosition);
+                stalker.SetPosition(levelManager.StalkerStartPosition);
             }
         }
 
@@ -460,6 +506,7 @@ namespace TheMaze
                     golem.Draw(spriteBatch);
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
+                    stalker.Draw(spriteBatch);
                     spriteBatch.End();
 
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
@@ -483,8 +530,10 @@ namespace TheMaze
             particleEngine.Update();
             imbaku.Update(gameTime, player);
             golem.Update(gameTime,player);
+            stalker.Update(gameTime, player);
             ImbakuCollision(gameTime);
             glitchMonster.Update(gameTime);
+            StalkerCollision(gameTime);
             MiniCollision();
             GlitchMonsterCollision(gameTime);
             foreach (WallMonster wM in levelManager.wallMonsters)
