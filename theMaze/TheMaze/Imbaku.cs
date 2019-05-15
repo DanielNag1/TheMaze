@@ -138,16 +138,7 @@ namespace TheMaze
             {
 
                 Animation(gameTime);
-                //if (timer <= 0)
-                //{
-                //    timer = timeIntervall;
-                //    frame++;
-                //    if (frame >= nrFrames)
-                //    {
-                //        frame = 0;
-                //    }
-
-                //}
+                
 
                 speed = 50f;
 

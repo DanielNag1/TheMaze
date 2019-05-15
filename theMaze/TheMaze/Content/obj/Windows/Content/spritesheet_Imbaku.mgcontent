@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/spritesheet_Imbaku.png</SourceFile>
-  <SourceTime>2019-05-14T14:10:36.6489462+02:00</SourceTime>
+  <SourceTime>2019-05-15T12:30:16.1889705+02:00</SourceTime>
   <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/spritesheet_Imbaku.xnb</DestFile>
-  <DestTime>2019-05-14T14:50:59.6745457+02:00</DestTime>
+  <DestTime>2019-05-15T13:12:06.9713081+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

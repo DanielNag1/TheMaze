@@ -22,6 +22,7 @@ namespace TheMaze
         public Imbaku imbaku;
         Golem golem;
         GlitchMonster glitchMonster;
+        ArmMonster armMonster;
       
         SFX sfx;
         private bool level1loaded, level2loaded;
@@ -98,6 +99,7 @@ namespace TheMaze
                 imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
                 golem = new Golem(TextureManager.MonsterTex, levelManager.GolemStartPosition, levelManager);
                 glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
+                armMonster = new ArmMonster(TextureManager.MonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
                 particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
 
                 foreach (Tile t in levelManager.Tiles)
@@ -341,6 +343,36 @@ namespace TheMaze
 
         }
 
+        public void ArmMonsterCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && !armMonster.coolDown)
+            {
+                if (armMonster.isActive)
+                {
+                    player.color = Color.HotPink;
+                }
+                else
+                {
+                    armMonster.activated = true;
+                    armMonster.coolDown = true;
+                }
+            }
+
+            if (!player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && armMonster.coolDown)
+            {
+                armMonster.coolDown = false;
+            }
+
+            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated && player.currentWeapon.color == Color.Goldenrod)
+            {
+                armMonster.slowedDown = true;
+            }
+            else
+            {
+                armMonster.slowedDown = false;
+            }
+        }
+
         public void Resurrect()
         {
             if (X.IsKeyPressed(Keys.Space) && killed)
@@ -348,8 +380,15 @@ namespace TheMaze
                 killed = false;
                 currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);
-                imbaku.SetPosition(levelManager.ImbakuStartPosition);
+                ResetMonsterPosition();
             }
+        }
+
+        public void ResetMonsterPosition()
+        {
+            imbaku.SetPosition(levelManager.ImbakuStartPosition);
+            glitchMonster.SetPosition(levelManager.GlitchMonsterStartPosition);
+            armMonster.ResetArmMonster();
         }
 
         public void RemoveMarkers()
@@ -456,6 +495,7 @@ namespace TheMaze
                     imbaku.Draw(spriteBatch);
                     glitchMonster.Draw(spriteBatch);
                     golem.Draw(spriteBatch);
+                    armMonster.Draw(spriteBatch);
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
                     spriteBatch.End();
@@ -483,8 +523,11 @@ namespace TheMaze
             golem.Update(gameTime,player);
             ImbakuCollision(gameTime);
             glitchMonster.Update(gameTime);
+            ArmMonsterCollision(gameTime);
+            armMonster.Update(gameTime,player);
             MiniCollision();
             GlitchMonsterCollision(gameTime);
+            
             foreach (WallMonster wM in levelManager.wallMonsters)
             {
                 wM.Update(gameTime);

@@ -21,9 +21,7 @@ namespace TheMaze
         protected double timer, timeIntervall;
 
         public float speed;
-        protected Color color;
-
-        
+        public Color color;
 
         public Monster(Texture2D texture, Vector2 position) : base(texture, position)
         {
@@ -31,6 +29,7 @@ namespace TheMaze
             timer = 100;
             timeIntervall = 160;
             currentSourceRect = new Rectangle(frame, frameSize, ConstantValues.tileWidth, ConstantValues.tileHeight);
+            color = Color.White;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -43,7 +42,6 @@ namespace TheMaze
         {
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
                 ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
-
         }
 
 
@@ -59,9 +57,8 @@ namespace TheMaze
                 {
                     frame = 0;
                 }
-                //currentSourceRect.X = frame * frameSize;
+                
             }
-            //currentSourceRect.Y = nextSourceRect.Y;
 
         }
 

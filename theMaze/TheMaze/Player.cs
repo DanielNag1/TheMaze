@@ -57,6 +57,8 @@ namespace TheMaze
         public static int markers;
         public List<Collectible> collectibles;
 
+        public Color color;
+
 
         public void SetPosition(Vector2 newPosition)
         {
@@ -80,6 +82,8 @@ namespace TheMaze
 
             isInverse = false;
             oldPosition = position;
+
+            color = Color.White;
 
             CreatePlayerLights();
             CreateWeapons();
@@ -137,7 +141,7 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, color);
         }
 
 

@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/walking.wav</SourceFile>
   <SourceTime>2019-05-13T15:10:17.6561488+02:00</SourceTime>
   <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/walking.xnb</DestFile>
-  <DestTime>2019-05-14T14:50:58.5545474+02:00</DestTime>
+  <DestTime>2019-05-15T13:12:05.8532288+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
