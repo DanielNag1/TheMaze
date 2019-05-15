@@ -15,10 +15,9 @@ namespace TheMaze
         private bool toActivate = false;
         public bool activated = false;
         public bool slowedDown = false;
-        private bool chosenDirection = false;
         public Rectangle armMonsterRectangleHitbox;
         public Circle armMonsterCircleHitbox;
-        private bool cooldown = false;
+        public bool cooldown = false;
         private Stopwatch cooldownTimer = new Stopwatch();
         private Stopwatch activationTimer = new Stopwatch();
         private Stopwatch accelerationTimer = new Stopwatch();
@@ -48,11 +47,6 @@ namespace TheMaze
                 chaseTimer = resetTimer;
             }
 
-            if (cooldown)
-            {
-                Cooldown(gameTime);
-            }
-
             if (toActivate)
             {
                 activationTimer.Start();
@@ -75,26 +69,11 @@ namespace TheMaze
 
         public void Activating(GameTime gameTime)
         {
-            if (cooldown == false)
+            int ifActivating = random.Next(0, 0);
+
+            if (ifActivating == 0)
             {
-                cooldown = true;
- 
-                int ifActivating = random.Next(0, 0);
-
-                if (ifActivating == 0)
-                {
-                    toActivate = true;
-                }
-            }
-        }
-
-        private void Cooldown(GameTime gameTime)
-        {
-            cooldownTimer.Start();
-            if (cooldownTimer.ElapsedMilliseconds >= 2000)
-            {  
-                cooldownTimer.Reset();
-                cooldown = false;
+                toActivate = true;
             }
         }
 
@@ -119,10 +98,17 @@ namespace TheMaze
         {
             toActivate = false;
             activated = false;
+            cooldown = false;
             activationTimer.Reset();
             cooldownTimer.Reset();
             armSpeed = 25f;
             SetPosition(levelManager.ArmMonsterStartPosition);
+
+            armMonsterRectangleHitbox.X = (int)position.X;
+            armMonsterRectangleHitbox.Y = (int)position.Y;
+
+            armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
+            armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
         }
 
         public void Collision(LevelManager levelManager)
@@ -172,6 +158,7 @@ namespace TheMaze
         {
             if (activated)
             {
+                //spriteBatch.Draw(TextureManager.RedTexture, armMonsterRectangleHitbox, Color.Red);
                 spriteBatch.Draw(texture, armMonsterRectangleHitbox, currentSourceRect, Color.Red);
             }
         }

@@ -55,6 +55,7 @@ namespace TheMaze
             if (gamePlayManager.killed == true)
             {
                 currentGameState = GameState.Killed; Console.WriteLine(currentGameState);
+                gamePlayManager.ResetMonsterPosition();
             }
 
         }

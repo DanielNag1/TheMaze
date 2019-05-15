@@ -261,7 +261,7 @@ namespace TheMaze
 
         public void ArmMonsterCollision(GameTime gameTime)
         {
-            if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox))
+            if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && !armMonster.cooldown && currentState == LevelState.Live)
             {
                 if (armMonster.activated)
                 {
@@ -270,7 +270,13 @@ namespace TheMaze
                 else
                 {
                     armMonster.Activating(gameTime);
+                    armMonster.cooldown = true;
                 }
+            }
+
+            if (!player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && armMonster.cooldown)
+            {
+                armMonster.cooldown = false;
             }
 
             if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated && player.currentWeapon.color == Color.Goldenrod)
@@ -287,14 +293,17 @@ namespace TheMaze
         {
             if (X.IsKeyPressed(Keys.Space) && killed)
             {
+                player.SetPosition(levelManager.StartPositionPlayer);
                 killed = false;
                 currentState = LevelState.Live;
-                imbaku.SetPosition(levelManager.ImbakuStartPosition);
-                glitchMonster.SetPosition(levelManager.GlitchMonsterStartPosition);
-                //armMonster.SetPosition(levelManager.ArmMonsterStartPosition);
-                armMonster.ResetArmMonster();
-                player.SetPosition(levelManager.StartPositionPlayer);
             }
+        }
+
+        public void ResetMonsterPosition()
+        {
+            imbaku.SetPosition(levelManager.ImbakuStartPosition);
+            glitchMonster.SetPosition(levelManager.GlitchMonsterStartPosition);
+            armMonster.ResetArmMonster();
         }
 
         public void RemoveMarkers()
