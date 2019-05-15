@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step2.wav</SourceFile>
   <SourceTime>2019-05-06T23:40:11.4483029+02:00</SourceTime>
   <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/step2.xnb</DestFile>
-  <DestTime>2019-05-12T00:07:53.3086793+02:00</DestTime>
+  <DestTime>2019-05-15T02:29:50.6145648+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

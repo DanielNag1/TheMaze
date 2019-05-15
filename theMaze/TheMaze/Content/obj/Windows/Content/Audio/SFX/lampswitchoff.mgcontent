@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</SourceFile>
   <SourceTime>2019-05-12T01:02:23.5871346+02:00</SourceTime>
   <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/lampswitchoff.xnb</DestFile>
-  <DestTime>2019-05-12T01:03:18.0792067+02:00</DestTime>
+  <DestTime>2019-05-15T02:29:49.9019639+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

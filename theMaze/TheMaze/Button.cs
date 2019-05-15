@@ -15,10 +15,10 @@ namespace TheMaze
 
         private SpriteFont spriteFont;
         private Texture2D tex;
-        private Vector2 pos;
-        private Rectangle rect;
+        public Vector2 pos;
+        public Rectangle rect;
 
-        private string text;
+        public string text;
 
         public Button(Texture2D tex, Vector2 pos, SpriteFont spriteFont, string text, Color fontColor)
         {
@@ -57,6 +57,18 @@ namespace TheMaze
             }
 
             return isClicked;
+        }
+
+        public void HighlightButtonText()
+        {
+            if (IsMouseHoveringOverButton())
+            {
+                fontColor = Color.White;
+            }
+            else
+            {
+                fontColor = Color.LightGray;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

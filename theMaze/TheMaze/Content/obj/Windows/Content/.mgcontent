@@ -14,6 +14,7 @@
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectible.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectiblemenu.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/collectiblemenu2.png</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/controlsmenu.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/evilcat.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/floor tile 2.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/mainmenu.png</File>
@@ -28,10 +29,13 @@
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/timesnewroman.spritefont</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/top tile sprite 2.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/transparent.png</File>
+    <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/tutorialfont.spritefont</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wall tile 2.png</File>
     <File>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/You Died.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

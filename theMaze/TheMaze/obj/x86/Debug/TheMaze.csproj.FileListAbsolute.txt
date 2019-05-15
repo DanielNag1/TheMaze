@@ -622,7 +622,6 @@ C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Sh
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
-C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.xml
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
 C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
@@ -684,3 +683,5 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture2.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture3.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\tutorialfont.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\tutorialfont.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\controlsmenu.xnb

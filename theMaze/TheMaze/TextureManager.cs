@@ -11,6 +11,7 @@ namespace TheMaze
     static class TextureManager
     {
         public static Texture2D MainMenuTex { get; private set; }
+        public static Texture2D ControlsMenuTex { get; private set; }
         public static Texture2D PauseScreen { get; private set; }
         public static Texture2D KilledScreen { get; private set; }
 
@@ -69,6 +70,7 @@ namespace TheMaze
             //CollectibleMenu = Content.Load<Texture2D>("collectiblemenu2");
             //StoryPanelTex = Content.Load<Texture2D>("storypanel");
             MainMenuTex = Content.Load<Texture2D>("mainmenu");
+            ControlsMenuTex = Content.Load<Texture2D>("controlsmenu");
             PauseScreen = Content.Load<Texture2D>("pauseScreen");
             RedTexture = Content.Load<Texture2D>("red");
             TransparentTex = Content.Load<Texture2D>("transparent");
