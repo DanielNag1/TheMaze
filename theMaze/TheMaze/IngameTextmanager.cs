@@ -33,7 +33,7 @@ namespace TheMaze
         }
         public static void DrawReturn(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(TextureManager.TutorialFont, "Respawn with 'ENTER'.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
+            spriteBatch.DrawString(TextureManager.TutorialFont, "Go to the LIGHT.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
         }
     }
 }

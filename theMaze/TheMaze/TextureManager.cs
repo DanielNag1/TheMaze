@@ -24,17 +24,19 @@ namespace TheMaze
 
         public static Texture2D FloorTileTex { get; private set; }
 
+        public static Texture2D Vitadelen { get; private set; }
+        public static Texture2D WhiteWallTex { get; private set; }
+        public static Texture2D HallWayBackground { get; private set; }
+        public static Texture2D Svartadelen { get; private set; }
+        public static Texture2D WhiteTopWallSheetTex { get; private set; }
+
+
         public static Texture2D WallSheetTex { get; private set; }
         public static Texture2D TopWallSheetTex { get; private set; }
         public static Texture2D CollectibleTex { get; private set; }
         public static Texture2D CollectibleTex2 { get; private set; }
         public static Texture2D CollectibleMenu { get; private set; }
-        //public static Texture2D VignetteOverlay { get; private set; }
-        //public static Texture2D LetterboxOverlay { get; private set; }
-        //public static Texture2D DarkOverlay { get; private set; }
-        //public static Texture2D CollectibleMenu { get; private set; }
-        //public static Texture2D StoryPanelTex { get; private set; }
-
+        
         public static Texture2D TransparentTex { get; private set; }
         public static Texture2D RedTexture { get; private set; }
 
@@ -100,6 +102,14 @@ namespace TheMaze
             storyTextures.Add(storyTexture3);
 
             DeskTexture = Content.Load<Texture2D>("desk");
+
+
+            Vitadelen = Content.Load<Texture2D>("whitehallwayforeground");
+            WhiteTopWallSheetTex = Content.Load<Texture2D>("white top tile sprite 2");
+            WhiteWallTex = Content.Load<Texture2D>("whitewalltile");
+            WhiteWallTex = Content.Load<Texture2D>("whitewalltileflower");
+            HallWayBackground = Content.Load<Texture2D>("whitehallwaybackground1");
+            Svartadelen = Content.Load<Texture2D>("hallwaybackground2");
         }
     }
 }

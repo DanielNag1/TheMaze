@@ -18,9 +18,10 @@ namespace TheMaze
         public List<WallMonster> wallMonsters;
         public List<Vector2> collectiblePositions;
         public WallMonster wallMonster;
-
+        public Vector2 SuicideHallwayStopPosition { get; private set; }
         public List<Collectible> collectibles;
         public Collectible collectible;
+        private bool isWhite;
 
         public LevelManager()
         {
@@ -28,16 +29,16 @@ namespace TheMaze
         }
         public void ReadLevel2()
         {
-            Tiles = GenerateMap("testbana.txt");
+            Tiles = GenerateMap("testbana.txt",false);
             Pathfind.FillGridFromMap(Tiles);
         }
         public void ReadDeathMap()
         {
-            Tiles = GenerateMap("deathbana.txt");
+            Tiles = GenerateMap("deathbana.txt",true);
         }
         public void ReadLevel1()
         {
-            Tiles = GenerateMap("level1.txt");
+            Tiles = GenerateMap("level1.txt",false);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -52,7 +53,7 @@ namespace TheMaze
             return Tiles[(int)vector.X / ConstantValues.tileWidth, (int)vector.Y / ConstantValues.tileHeight];
         }
 
-        private Tile[,] GenerateMap(string map)
+        private Tile[,] GenerateMap(string map,bool iswhite)
         {
             string[] mapData = File.ReadAllLines(map);
             collectibles = new List<Collectible>();
@@ -60,7 +61,7 @@ namespace TheMaze
             int width = mapData[0].Length;
             int height = mapData.Length;
             Tile[,] tiles = new Tile[width, height];
-
+            this.isWhite = iswhite;
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
@@ -90,7 +91,12 @@ namespace TheMaze
                         wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
                     }
-                    tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
+                    if (mapData[y][x] == '9')
+                    {
+                        SuicideHallwayStopPosition = tilePosition;
+                    }
+                    
+                    tiles[x, y] = new Tile(tilePosition, mapData[y][x],isWhite);
                 }
             }
             return tiles;

@@ -22,8 +22,7 @@ namespace TheMaze
 
         protected bool isWall = true;
         protected bool isHull = false;
-        public static bool black;
-
+        public bool isWhite;
         public bool IsWall
         {
             get { return isWall; }
@@ -33,9 +32,10 @@ namespace TheMaze
             get { return isHull; }
         }
 
-        public Tile(Vector2 position, char identifier)
-        {
 
+        public Tile(Vector2 position, char identifier, bool isWhite)
+        {
+            this.isWhite = isWhite;
             this.position = position;
             this.identifier = identifier;
             sourceRect = Rectangle.Empty;
@@ -152,7 +152,15 @@ namespace TheMaze
                     }
                 case 'w':
                     {
-                        texture = TextureManager.TopWallSheetTex;
+                        if (isWhite)
+                        {
+                            texture = TextureManager.WhiteTopWallSheetTex;
+                        }
+                        else
+                        {
+                            texture = TextureManager.TopWallSheetTex;
+
+                        }
                         sourceRect = new Rectangle(2 * frameSize, 0 * frameSize, frameSize, frameSize);
                         HullHitbox = new Rectangle(Hitbox.X - 20, Hitbox.Y + 25, ConstantValues.tileWidth + 70, ConstantValues.tileHeight / 3);
                         isHull = true;
@@ -168,13 +176,27 @@ namespace TheMaze
                     }
                 case 'H':
                     {
-                        texture = TextureManager.WallSheetTex;
+                        if (isWhite)
+                        {
+                            texture = TextureManager.WhiteWallTex;
+                        }
+                        else
+                        {
+                            texture = TextureManager.WallSheetTex;
+                        }
                         sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
                         break;
                     }
                 case 'B':
                     {
-                        texture = TextureManager.WallSheetTex;
+                        if (isWhite)
+                        {
+                            texture = TextureManager.WhiteWallTex;
+                        }
+                        else
+                        {
+                            texture = TextureManager.WallSheetTex;
+                        } 
                         sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
                         break;
                     }
@@ -222,9 +244,13 @@ namespace TheMaze
                     }
                 default:
                     {
-                        texture = TextureManager.FloorTileTex;
+                        if (isWhite)
+                        {
+                            texture = TextureManager.WaterTileTex;
+                        }
+                        else
 
-                        //texture = TextureManager.WaterTileTex;
+                            texture = TextureManager.FloorTileTex;
 
                         sourceRect = new Rectangle(0, 0, frameSize, frameSize);
                         isWall = false;

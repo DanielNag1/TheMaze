@@ -20,15 +20,15 @@ namespace TheMaze
         LevelManager levelManager, deathManager;
         Player player;
         public Imbaku imbaku;
-        MiniMonster miniMonster;
         SFX sfx;
         private bool level1loaded, level2loaded;
-
+        public static bool black;
         Saferoom saferoom;
 
         Lights lights;
         ParticleEngine particleEngine;
         List<ParticleEngine> particleEngines;
+        Rectangle toRespawnRectangle;
 
         public GamePlayManager()
         {
@@ -36,34 +36,16 @@ namespace TheMaze
             //levelManager.LoadLevel1();
             deathManager = new LevelManager();
             deathManager.ReadDeathMap();
-            LoadLevel1(levelManager);
             
-            //LoadLevel2(levelManager);
-            //switch (currentLevel)
-            //{
-            //    case Level.Level1:
-            //        levelManager.ReadLevel1();
-            //        break;
-            //    case Level.Level2:
-            //        levelManager.ReadLevel2();
-            //        imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
-            //        particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
-            //        break;
-            //    case Level.Level3:
-            //        break;
-            //}
-
-            //player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
-            //saferoom = new Saferoom(levelManager);
-            //lights = new Lights(levelManager, saferoom);
-            //sfx = new SFX();
+            LoadLevel1(levelManager);
+            toRespawnRectangle = new Rectangle((int)deathManager.SuicideHallwayStopPosition.X, (int)deathManager.SuicideHallwayStopPosition.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
 
             particleEngines = new List<ParticleEngine>();
 
             X.player = player;
             //X.imbaku = imbaku;
             X.LoadCamera();
-            //            Game1.penumbra.Initialize();
+            //Game1.penumbra.Initialize();
             Game1.penumbra.Transform = X.camera.Transform;
 
         }
@@ -147,6 +129,7 @@ namespace TheMaze
             switch (currentState)
             {
                 case LevelState.Live:
+                    black = true;
                     Game1.penumbra.Transform = X.camera.Transform;
 
                     TakeItem();
@@ -162,8 +145,9 @@ namespace TheMaze
                     break;
 
                 case LevelState.Death:
+                    black = false;
                     RemoveMarkers();
-
+                    X.player.insaferoom = false;
                     foreach (WallMonster wM in levelManager.wallMonsters)
                     {
                         wM.active = false;
@@ -172,12 +156,14 @@ namespace TheMaze
 
                     player.Collision(deathManager);
 
-                    if (X.IsKeyPressed(Keys.Enter))
+                    if(player.middleHitbox.Intersects(toRespawnRectangle))
                     {
                         ChangeLevel();
                         currentState = LevelState.Live;
                         player.SetPosition(levelManager.StartPositionPlayer);
+
                     }
+                    
                     break;
             }
         }
@@ -195,7 +181,7 @@ namespace TheMaze
                 case Level.Level3:
                     break;
             }
-
+            
         }
 
         public void WallMonsterCollision(WallMonster wallMonster)
@@ -411,11 +397,7 @@ namespace TheMaze
                     break;
 
                 case LevelState.Death:
-                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
-                    deathManager.Draw(spriteBatch);
-                    player.Draw(spriteBatch);
-                    IngameTextmanager.DrawReturn(spriteBatch);
-                    spriteBatch.End();
+                    DeathDraw(spriteBatch);
                     break;
 
             }
@@ -450,13 +432,23 @@ namespace TheMaze
                     break;
 
                 case LevelState.Death:
-                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
-                    deathManager.Draw(spriteBatch);
-                    player.Draw(spriteBatch);
-                    spriteBatch.End();
+                    DeathDraw(spriteBatch);
                     break;
 
             }
+        }
+
+        public void DeathDraw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.TransformHallway);
+            spriteBatch.Draw(TextureManager.HallWayBackground, new Vector2(toRespawnRectangle.Center.X - (TextureManager.Vitadelen.Width + 1000), toRespawnRectangle.Center.Y - 760), Color.White);
+            deathManager.Draw(spriteBatch);
+            player.Draw(spriteBatch);
+            spriteBatch.Draw(TextureManager.Vitadelen, new Vector2(toRespawnRectangle.Center.X - TextureManager.Vitadelen.Width / 2 - 500, toRespawnRectangle.Center.Y - 768), Color.White);
+            spriteBatch.Draw(TextureManager.Svartadelen, new Vector2(toRespawnRectangle.Center.X - TextureManager.Svartadelen.Width - 100, toRespawnRectangle.Center.Y - 760), Color.White);
+            IngameTextmanager.DrawReturn(spriteBatch);
+
+            spriteBatch.End();
         }
 
         public void Level2Update(GameTime gameTime)

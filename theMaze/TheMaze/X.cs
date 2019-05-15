@@ -28,6 +28,7 @@ namespace TheMaze
             camera.SetPosition(player.Position);
         }
 
+
         public static void Update(GameTime gameTime)
         {
             oldmouseState = mouseState;
