@@ -21,6 +21,7 @@ namespace TheMaze
         Player player;
         public Imbaku imbaku;
         Golem golem;
+        GlitchMonster glitchMonster;
       
         SFX sfx;
         private bool level1loaded, level2loaded;
@@ -96,6 +97,7 @@ namespace TheMaze
 
                 imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
                 golem = new Golem(TextureManager.MonsterTex, levelManager.GolemStartPosition, levelManager);
+                glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
                 particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
 
                 foreach (Tile t in levelManager.Tiles)
@@ -211,6 +213,30 @@ namespace TheMaze
 
             }
 
+        }
+        public void GlitchMonsterCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
+            {
+                player.isInverse = true;
+            }
+
+            if (player.isInverse)
+            {
+                glitchMonster.glitchMonsterTimer.Start();
+
+                if (player.currentWeapon.enabled == false)
+                {
+                    player.isInverse = false;
+                    glitchMonster.glitchMonsterTimer.Reset();
+                }
+                else if (glitchMonster.glitchMonsterTimer.ElapsedMilliseconds >= 4000)
+                {
+                    player.isInverse = false;
+                    glitchMonster.glitchMonsterTimer.Reset();
+                    //killed = true;
+                }
+            }
         }
 
         public void Level1TutorialUpdate()
@@ -428,6 +454,7 @@ namespace TheMaze
                     }
 
                     imbaku.Draw(spriteBatch);
+                    glitchMonster.Draw(spriteBatch);
                     golem.Draw(spriteBatch);
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
@@ -455,7 +482,9 @@ namespace TheMaze
             imbaku.Update(gameTime, player);
             golem.Update(gameTime,player);
             ImbakuCollision(gameTime);
+            glitchMonster.Update(gameTime);
             MiniCollision();
+            GlitchMonsterCollision(gameTime);
             foreach (WallMonster wM in levelManager.wallMonsters)
             {
                 wM.Update(gameTime);

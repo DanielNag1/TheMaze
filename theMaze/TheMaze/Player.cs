@@ -17,6 +17,8 @@ namespace TheMaze
         public Vector2 Direction { get; set; }
         private Vector2 oldPosition;
 
+        public bool isInverse;
+
         private Rectangle footHitbox;
         public Rectangle FootHitbox
         {
@@ -76,6 +78,7 @@ namespace TheMaze
             middleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width / 8, currentSourceRect.Height - 10);
             playerHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
 
+            isInverse = false;
             oldPosition = position;
 
             CreatePlayerLights();
@@ -192,6 +195,7 @@ namespace TheMaze
 
         private void PlayerInput()
         {
+            
             if (X.IsKeyPressed(Keys.G) || X.IsKeyPressed(Keys.G))
             {
                 Console.WriteLine(markers);
@@ -210,40 +214,50 @@ namespace TheMaze
                 }
             }
 
-            if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
+            if (isInverse)
             {
-                Direction = new Vector2(0, -1);
-
-                nextSourceRect.Y = 1 * frameSizeY;
-
-                moving = true;
-            }
-            else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
-            {
-                Direction = new Vector2(0, 1);
-
-                nextSourceRect.Y = 0 * frameSizeY;
-
-                moving = true;
-            }
-            else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
-            {
-                Direction = new Vector2(-1, 0);
-                nextSourceRect.Y = 2 * frameSizeY;
-
-                moving = true;
-            }
-            else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
-            {
-                Direction = new Vector2(1, 0);
-
-                nextSourceRect.Y = 3 * frameSizeY;
-                moving = true;
+                InversePlayerInput();
             }
             else
             {
-                moving = false;
+                if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
+                {
+                    Direction = new Vector2(0, -1);
+
+                    nextSourceRect.Y = 1 * frameSizeY;
+
+                    moving = true;
+                }
+                else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
+                {
+                    Direction = new Vector2(0, 1);
+
+                    nextSourceRect.Y = 0 * frameSizeY;
+
+                    moving = true;
+                }
+                else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
+                {
+                    Direction = new Vector2(-1, 0);
+                    nextSourceRect.Y = 2 * frameSizeY;
+
+                    moving = true;
+                }
+                else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
+                {
+                    Direction = new Vector2(1, 0);
+
+                    nextSourceRect.Y = 3 * frameSizeY;
+                    moving = true;
+                }
+                else
+                {
+                    moving = false;
+                }
             }
+            
+
+            
         }
 
         private void WeaponInput()
@@ -383,6 +397,45 @@ namespace TheMaze
 
             playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
             playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
+
+        }
+
+        private void InversePlayerInput()
+        {
+            if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
+            {
+                Direction = new Vector2(0, 1);
+
+                nextSourceRect.Y = 0 * frameSizeY;
+
+                moving = true;
+            }
+            else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
+            {
+                Direction = new Vector2(0, -1);
+
+                nextSourceRect.Y = 1 * frameSizeY;
+
+                moving = true;
+            }
+            else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
+            {
+                Direction = new Vector2(1, 0);
+                nextSourceRect.Y = 3 * frameSizeY;
+
+                moving = true;
+            }
+            else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
+            {
+                Direction = new Vector2(-1, 0);
+
+                nextSourceRect.Y = 2 * frameSizeY;
+                moving = true;
+            }
+            else
+            {
+                moving = false;
+            }
 
         }
 

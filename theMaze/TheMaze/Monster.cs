@@ -27,9 +27,10 @@ namespace TheMaze
 
         public Monster(Texture2D texture, Vector2 position) : base(texture, position)
         {
-            nextSourceRect = currentSourceRect;
+            //nextSourceRect = currentSourceRect;
             timer = 100;
             timeIntervall = 100;
+            currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
         }
 
         public virtual void Update(GameTime gameTime)

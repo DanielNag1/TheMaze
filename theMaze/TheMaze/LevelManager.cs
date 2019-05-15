@@ -16,6 +16,7 @@ namespace TheMaze
         public Vector2 StartPositionSafeRoom { get; private set; }
         public Vector2 ImbakuStartPosition { get; private set; }
         public Vector2 GolemStartPosition { get; private set; }
+        public Vector2 GlitchMonsterStartPosition { get; private set; }
         public List<WallMonster> wallMonsters;
         public List<Vector2> collectiblePositions;
         public WallMonster wallMonster;
@@ -94,6 +95,11 @@ namespace TheMaze
                     if (mapData[y][x] == '5')
                     {
                         GolemStartPosition = tilePosition;
+                    }
+
+                    if (mapData[y][x] == '6')
+                    {
+                        GlitchMonsterStartPosition = tilePosition;
                     }
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }

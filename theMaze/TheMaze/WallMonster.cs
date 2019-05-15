@@ -25,7 +25,7 @@ namespace TheMaze
             color = Color.White;
             frameSize = 128;
 
-            currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
+            //currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
 
         }
 
