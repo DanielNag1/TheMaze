@@ -21,6 +21,8 @@ namespace TheMaze
 
         public bool stalkerStunned = false;
 
+        public int monsterDamage = 1;
+
         public Stalker(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;

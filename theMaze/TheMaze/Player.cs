@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,10 @@ namespace TheMaze
 
         private int frame = 0, nrFrames = 4;
         private double timer = 100, timeIntervall = 100;
+
+        public int playerHealth = 3;
+        Stopwatch playerImmunityTimer = new Stopwatch();
+        public bool playerImmunity = false;
 
         private float speed = 3f;
 
@@ -127,6 +132,11 @@ namespace TheMaze
             UpdateHitboxPosition();
             UpdateLights();
 
+            if (playerImmunity)
+            {
+                PlayerImmunity(gameTime);
+            }
+
             if (canChangeWeapon)
             {
                 PowerDrain(gameTime);
@@ -137,7 +147,18 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            if (playerHealth == 3)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            }
+            else if (playerHealth == 2)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.Red);
+            }
+            else if (playerHealth == 1)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.DarkRed);
+            }
         }
 
 
@@ -459,6 +480,17 @@ namespace TheMaze
             {
                 lampPosition = new Vector2(Position.X + 77, Position.Y + 110);
 
+            }
+        }
+
+        public void PlayerImmunity(GameTime gameTime)
+        {
+            playerImmunityTimer.Start();
+
+            if (playerImmunityTimer.ElapsedMilliseconds > 2000)
+            {
+                playerImmunity = false;
+                playerImmunityTimer.Reset();
             }
         }
 

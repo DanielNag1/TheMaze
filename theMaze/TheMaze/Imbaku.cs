@@ -23,6 +23,8 @@ namespace TheMaze
         public MiniMonster miniMonster;
         public List<MiniMonster> miniMonsterList;
 
+        public int monsterDamage = 1;
+
         public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;

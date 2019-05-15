@@ -219,9 +219,9 @@ namespace TheMaze
 
         public void StalkerCollision(GameTime gameTime)
         {
-            if (player.middleHitbox.Intersects(stalker.stalkerRectangleHitbox) && !stalker.stalkerStunned)
+            if (player.middleHitbox.Intersects(stalker.stalkerRectangleHitbox) && !stalker.stalkerStunned && !player.playerImmunity)
             {
-                killed = true;
+                PlayerDamage(stalker.monsterDamage);
             }
 
             if (Vector2.Distance(player.Position, stalker.Position) < 1500)
@@ -281,7 +281,7 @@ namespace TheMaze
                 {
                     player.isInverse = false;
                     glitchMonster.glitchMonsterTimer.Reset();
-                    //killed = true;
+                    PlayerDamage(glitchMonster.monsterDamage);
                 }
             }
         }
@@ -318,7 +318,7 @@ namespace TheMaze
         {
             if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true)
             {
-                //killed = true;
+                PlayerDamage(imbaku.monsterDamage);
             }
 
             if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) < ConstantValues.tileHeight * 2.5 &&
@@ -369,6 +369,17 @@ namespace TheMaze
 
         }
 
+        public void PlayerDamage(int monsterDamage)
+        {
+            player.playerHealth = player.playerHealth - monsterDamage;
+            player.playerImmunity = true;
+
+            if (player.playerHealth <= 0)
+            {
+                killed = true;
+            }
+        }
+
         public void MiniCollision()
         {
             foreach (MiniMonster mini in imbaku.miniMonsterList)
@@ -392,6 +403,7 @@ namespace TheMaze
         {
             if (X.IsKeyPressed(Keys.Space) && killed)
             {
+                player.playerHealth = 3;
                 killed = false;
                 currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);

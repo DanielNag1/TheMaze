@@ -15,6 +15,8 @@ namespace TheMaze
 
         public Stopwatch glitchMonsterTimer = new Stopwatch();
 
+        public int monsterDamage = 1;
+
         public GlitchMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;

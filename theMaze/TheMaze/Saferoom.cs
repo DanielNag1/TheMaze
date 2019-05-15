@@ -108,6 +108,7 @@ namespace TheMaze
                 X.player.insaferoom = true;
                 Player.markers = 15;
                 visible = true;
+                X.player.playerHealth = 3;
 
                 if (X.mouseRect.Intersects(deskHitbox) && X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton==ButtonState.Released)
                 {
