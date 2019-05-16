@@ -11,15 +11,18 @@ namespace TheMaze
 {
     class MainMenu
     {
-        private Button startButton, controlsButton, exitButton;
-        private Vector2 startPos, controlsPos, exitPos;
+        private Button startButton, controlsButton, exitButton, creditsButton;
+        private Vector2 startPos, controlsPos, exitPos, creditsPos, creditsRoll;
 
-        private bool drawControlsMenu;
+        private bool drawControlsMenu, showCredits;
+
+        private float creditsTimer;
 
         public MainMenu()
         {
-            startPos = new Vector2(10, 1000 - TextureManager.TimesNewRomanFont.LineSpacing);
-            controlsPos = new Vector2(10, 1000);
+            startPos = new Vector2(10, 1000 - TextureManager.TimesNewRomanFont.LineSpacing * 2);
+            controlsPos = new Vector2(10, 1000 - TextureManager.TimesNewRomanFont.LineSpacing);
+            creditsPos = new Vector2(10, 1000);
             exitPos = new Vector2(10, 1000 + TextureManager.TimesNewRomanFont.LineSpacing);
             startButton = new Button(TextureManager.TransparentTex, startPos, TextureManager.TimesNewRomanFont,
                 "START GAME", Color.LightGray);
@@ -27,19 +30,38 @@ namespace TheMaze
                 "CONTROLS", Color.LightGray);
             exitButton = new Button(TextureManager.TransparentTex, exitPos,
                 TextureManager.TimesNewRomanFont, "EXIT GAME", Color.LightGray);
+            creditsButton = new Button(TextureManager.TransparentTex, creditsPos, TextureManager.TimesNewRomanFont,
+                "CREDITS", Color.LightGray);
 
             drawControlsMenu = false;
+            showCredits = false;
+
+            creditsRoll = new Vector2(0, 0);
+            creditsTimer = 120f;
         }
 
         public void Update()
         {
-            if (!drawControlsMenu)
+            if (!showCredits)
             {
-                StartButton();
-                ExitButton();
+                if (!drawControlsMenu)
+                {
+                    StartButton();
+                    ControlsButton();
+                    CreditsButton();
+                    ExitButton();
+                }
+                else
+                {
+                    ControlsButton();
+                }
+            }
+            else
+            {
+                CreditsButton();
             }
 
-            ControlsButton();
+            RollCredits();
         }
 
         public void StartButton()
@@ -65,9 +87,9 @@ namespace TheMaze
             if (drawControlsMenu)
             {
                 controlsButton.text = "BACK";
-                controlsButton.pos = Vector2.Zero;
-                controlsButton.rect.X = (int)Vector2.Zero.X;
-                controlsButton.rect.Y = (int)Vector2.Zero.Y;
+                controlsButton.pos = exitPos;
+                controlsButton.rect.X = (int)exitPos.X;
+                controlsButton.rect.Y = (int)exitPos.Y;
             }
             else
             {
@@ -88,20 +110,73 @@ namespace TheMaze
             }
         }
 
+        public void CreditsButton()
+        {
+            creditsButton.HighlightButtonText();
+
+            if (creditsButton.IsClicked())
+            {
+                if (!showCredits) showCredits = true;
+                else              showCredits = false;
+            }
+
+            if (showCredits)
+            {
+                creditsButton.text = "BACK";
+                creditsButton.pos = exitPos;
+                creditsButton.rect.X = (int)exitPos.X;
+                creditsButton.rect.Y = (int)exitPos.Y;
+            }
+            else
+            {
+                creditsButton.text = "CREDITS";
+                creditsButton.pos = creditsPos;
+                creditsButton.rect.X = (int)creditsPos.X;
+                creditsButton.rect.Y = (int)creditsPos.Y;
+            }
+        }
+
+        public void RollCredits()
+        {
+            if (showCredits)
+            {
+                creditsTimer -= 1f;
+                if (creditsTimer <= 0)
+                {
+                    creditsRoll.Y -= 1;
+                }
+            }
+            else
+            {
+                creditsRoll = new Vector2(0, 0);
+                creditsTimer = 120f;
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
-            spriteBatch.Draw(TextureManager.MainMenuTex, Vector2.Zero, Color.White);
-            startButton.Draw(spriteBatch);
-            exitButton.Draw(spriteBatch);
-
-            if (drawControlsMenu)
+            if (!showCredits)
             {
-                spriteBatch.Draw(TextureManager.ControlsMenuTex, Vector2.Zero, Color.White);
+                spriteBatch.Draw(TextureManager.MainMenuTex, Vector2.Zero, Color.White);
+                startButton.Draw(spriteBatch);
+                exitButton.Draw(spriteBatch);
+                creditsButton.Draw(spriteBatch);
+
+                if (drawControlsMenu)
+                {
+                    spriteBatch.Draw(TextureManager.ControlsMenuTex, Vector2.Zero, Color.White);
+                }
+
+                controlsButton.Draw(spriteBatch);
+            }
+            else
+            {
+                spriteBatch.Draw(TextureManager.CreditsTex, creditsRoll, Color.White);
+                creditsButton.Draw(spriteBatch);
             }
 
-            controlsButton.Draw(spriteBatch);
 
             spriteBatch.End();
         }

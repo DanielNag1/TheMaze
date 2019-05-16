@@ -880,3 +880,4 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\whitehallwayforeground.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\whitewalltile.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\whitewalltileflower.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\credits.xnb

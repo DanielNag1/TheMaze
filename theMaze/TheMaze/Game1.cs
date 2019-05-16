@@ -27,7 +27,7 @@ namespace TheMaze
         {
             graphics.PreferredBackBufferWidth = ConstantValues.screenWidth;
             graphics.PreferredBackBufferHeight = ConstantValues.screenHeight;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             IsMouseVisible = true;
 
@@ -58,7 +58,7 @@ namespace TheMaze
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.Black);
             gameStateManager.Draw(spriteBatch,gameTime);
             
         }
