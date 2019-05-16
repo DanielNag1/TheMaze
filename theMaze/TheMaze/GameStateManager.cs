@@ -99,6 +99,7 @@ namespace TheMaze
                     if (X.IsKeyPressed(Keys.P))
                     {
                         currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
+                        pauseMenu.drawControlsMenu = false;
                     }
                     if (X.player.viewCollectible)
                     {
