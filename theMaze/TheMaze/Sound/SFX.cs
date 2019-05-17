@@ -21,7 +21,7 @@ namespace TheMaze
 
         private bool playFootstep1, playFootstep2;
         private bool playLampSwitchOn, playLampSwitchOff;
-        public bool playCreepySoundHigh;
+        public bool playCreepySoundHigh, playCreepySoundLow;
 
         public SFX()
         {
@@ -35,17 +35,18 @@ namespace TheMaze
             pickWeapon = SoundManager.PickWeapon.CreateInstance();
             pickWeapon.Volume = 0.2f;
             stepTimer = 700;
-            imbakuTimer = 45;
-            imbakuTimerReset = 45;
+            imbakuTimer = 120;
+            imbakuTimerReset = 120;
 
             playFootstep1 = true;
             playFootstep2 = false;
             playLampSwitchOn = true;
             playLampSwitchOff = false;
             playCreepySoundHigh = true;
+            playCreepySoundLow = true;
         }
 
-        public void Footsteps(GameTime gameTime) //Prova med att göra SoundEffectInstance istället, så som BGM för saferoomBGM och ambientnoise
+        public void Footsteps(GameTime gameTime) //Prova med att göra SoundEffectInstance istället, så som BGM för saferoomBGM och ambientnoise - kommentar från zirko till framtida zirko
         {
             switch (currentFootstepPlayState)
             {
@@ -126,17 +127,18 @@ namespace TheMaze
             }
         }
 
-        public void GlitchEncounter()
+        public void WallMonsterEncounterOn()
         {
-            creepySoundLow.Play();
+            if (playCreepySoundLow)
+            {
+                creepySoundLow.Play();
+                playCreepySoundLow = false;
+            }
         }
 
-        public void GlitchEncounterOff()
+        public void WallMonsterEncounterOff()
         {
-            if (creepySoundLow.State == SoundState.Playing)
-            {
-                creepySoundLow.Stop();
-            }
+            playCreepySoundLow = true;
         }
 
         public void ImbakuEncounter()

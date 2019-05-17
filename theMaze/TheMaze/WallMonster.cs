@@ -20,6 +20,8 @@ namespace TheMaze
         public Rectangle currentSourceRect;
         public int frameSize;
 
+        private SFX sfx;
+
         public WallMonster(Texture2D texture, Vector2 position) : base(texture, position)
         {
             hitBoxRect = new Rectangle((int)position.X + ConstantValues.tileWidth / 2, (int)position.Y + ConstantValues.tileHeight * 2, ConstantValues.tileWidth / 8, ConstantValues.tileHeight);
@@ -31,6 +33,7 @@ namespace TheMaze
 
             currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
 
+            sfx = new SFX();
         }
 
         public void Update(GameTime gameTime)
@@ -55,6 +58,7 @@ namespace TheMaze
             if (active)
             {
                 color = Color.Red;
+                sfx.WallMonsterEncounterOn();
             }
 
             if (coolDown)
@@ -69,7 +73,7 @@ namespace TheMaze
                 coolDown = false;
                 color = Color.White;
                 coolDownTimer.Reset();
-
+                sfx.WallMonsterEncounterOff();
             }
 
         }

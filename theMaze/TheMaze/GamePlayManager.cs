@@ -197,13 +197,11 @@ namespace TheMaze
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
             {
                 wallMonster.active = true;
-                sfx.GlitchEncounter();
             }
 
             if (wallMonster.active)
             {
                 player.moving = false;
-
             }
 
             if (player.weaponHitbox.Intersects(wallMonster.hitbox) && wallMonster.active && player.currentWeapon.color == Color.MediumBlue)
@@ -215,8 +213,6 @@ namespace TheMaze
                 {
                     wallMonster.coolDown = true;
                     wallMonster.attackTimer.Reset();
-
-                    sfx.GlitchEncounterOff();
                 }
 
             }
