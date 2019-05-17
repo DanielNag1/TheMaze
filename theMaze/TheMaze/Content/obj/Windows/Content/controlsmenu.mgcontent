@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/controlsmenu.png</SourceFile>
-  <SourceTime>2019-05-16T14:45:32.6561188+02:00</SourceTime>
-  <DestFile>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/bin/Windows/Content/controlsmenu.xnb</DestFile>
-  <DestTime>2019-05-16T14:46:05.8121361+02:00</DestTime>
+  <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/controlsmenu.png</SourceFile>
+  <SourceTime>2019-05-17T21:36:18.9421116+02:00</SourceTime>
+  <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/controlsmenu.xnb</DestFile>
+  <DestTime>2019-05-17T21:37:20.1626608+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
+  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
+  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

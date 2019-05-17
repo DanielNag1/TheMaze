@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step2.wav</SourceFile>
-  <SourceTime>2019-05-14T12:22:07.2413624+02:00</SourceTime>
-  <DestFile>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/step2.xnb</DestFile>
-  <DestTime>2019-05-14T12:32:31.5931307+02:00</DestTime>
+  <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/step2.wav</SourceFile>
+  <SourceTime>2019-05-06T23:40:11.4483029+02:00</SourceTime>
+  <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/step2.xnb</DestFile>
+  <DestTime>2019-05-17T21:37:17.8890045+02:00</DestTime>
   <Importer>WavImporter</Importer>
-  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
+  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
-  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
+  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
   <Parameters>
     <Key>Quality</Key>
     <Value>Best</Value>
