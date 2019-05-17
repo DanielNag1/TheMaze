@@ -13,7 +13,7 @@ namespace TheMaze
     class GameStateManager
     {
         public enum GameState { MainMenu, Play, Pause,Killed,CollectibleMenu}
-        public static GameState currentGameState = GameState.Play;
+        public static GameState currentGameState = GameState.MainMenu;
         GamePlayManager gamePlayManager;
         MainMenu mainMenu;
         PauseMenu pauseMenu;

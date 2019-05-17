@@ -37,7 +37,7 @@ namespace TheMaze
         public bool moving = false;
 
         public bool lightsOn = false;
-        public bool canChangeWeapon,insaferoom,viewCollectible;
+        public bool canChangeWeapon, insaferoom, viewCollectible;
 
         public static Vector2 playerLightPosition, playerSpotLightPosition;
         public Vector2 lampPosition, markerPos;
@@ -172,18 +172,30 @@ namespace TheMaze
 
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
+                if (selectedColor != new Color(0, 0, 0, 0))
+                { 
+                    sfx.PickWeapon();
+                }
                 weaponSlot2.color = selectedColor;
                 playerPointLight.Color = selectedColor;
                 playerPointLight.Enabled = true;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D3))
             {
+                if (selectedColor != new Color(0, 0, 0, 0))
+                {
+                    sfx.PickWeapon();
+                }
                 weaponSlot3.color = selectedColor;
                 playerPointLight.Color = selectedColor;
                 playerPointLight.Enabled = true;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D4))
             {
+                if (selectedColor != new Color(0, 0, 0, 0))
+                {
+                    sfx.PickWeapon();
+                }
                 weaponSlot4.color = selectedColor;
                 playerPointLight.Color = selectedColor;
                 playerPointLight.Enabled = true;
@@ -197,7 +209,7 @@ namespace TheMaze
                 Console.WriteLine(markers);
                 Console.WriteLine(markerList.Count);
 
-                if(markerList.Count<15)
+                if (markerList.Count < 15)
                 {
                     markers--;
                     Light markerLight = new PointLight();
@@ -270,19 +282,27 @@ namespace TheMaze
             }
             else if (KeyPressed(Keys.D2))
             {
-                currentWeapon = weaponSlot2;
-                weaponSlot2.enabled = true;
-
+                if (weaponSlot2.color != new Color(0, 0, 0, 255))
+                {
+                    currentWeapon = weaponSlot2;
+                    weaponSlot2.enabled = true;
+                }
             }
             else if (KeyPressed(Keys.D3))
             {
-                currentWeapon = weaponSlot3;
-                weaponSlot3.enabled = true;
+                if (weaponSlot3.color != new Color(0, 0, 0, 255))
+                {
+                    currentWeapon = weaponSlot3;
+                    weaponSlot3.enabled = true;
+                }
             }
             else if (KeyPressed(Keys.D4))
             {
-                currentWeapon = weaponSlot4;
-                weaponSlot4.enabled = true;
+                if (weaponSlot4.color != new Color(0, 0, 0, 255))
+                {
+                    currentWeapon = weaponSlot4;
+                    weaponSlot4.enabled = true;
+                }
             }
 
         }
@@ -358,7 +378,7 @@ namespace TheMaze
 
             weaponHitbox = new Circle(X.worldMouse, weaponHitboxRadius);
             weaponHitboxRadius = Vector2.Distance(X.worldMouse, lampPosition) / 2;
-            
+
         }
 
         private void UpdateLights()

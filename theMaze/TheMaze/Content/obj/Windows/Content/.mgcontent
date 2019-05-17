@@ -6,18 +6,24 @@
   <SourceFiles>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/BGM/darksoulsamomentspeace.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/BGM/whiteambient.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/creepysoundhigh.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/creepysoundlow.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step3.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step4.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/takeCollectible.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/walking.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/weaponpick.wav</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/characterspritesheet1.png</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectible view.png</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectible.png</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectiblemenu.png</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectiblemenu2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/controlsmenu.png</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/desk.png</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/evilcat.png</File>
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/floor tile 2.png</File>
@@ -49,6 +55,12 @@
     <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/You Died.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

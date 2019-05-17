@@ -13,15 +13,16 @@ namespace TheMaze
     public class Saferoom
     {
         public Vector2 saferoomPos,saferoomLight1Pos,saferoomLight2Pos,saferoomLight3Pos,saferoomLight4Pos,saferoomLight5Pos,saferoomLight6Pos;
-        public Vector2 weaponLight1Pos, weaponLight2Pos, weaponLight3Pos, healingPos,deskPos;
-        public Rectangle weaponLight1Rectangle, weaponLight2Rectangle, weaponLight3Rectangle;
+        public Vector2 weaponLight1Pos, weaponLight2Pos, healingPos,deskPos;
+        public Rectangle weaponLight1Rectangle, weaponLight2Rectangle;
         public Vector2 saferoomLightScale,saferoomWeaponLightScale;
         public float saferoomLightIntensity,saferoomWeaponLightIntensity;
         public Rectangle saferoomHitBox,healingHitbox,deskHitbox;
         public List<Vector2> saferoomLightPositions,saferoomWeaponLightPositions;
         public bool visible;
         public int r, g, b;
-        public Color saferoomLightColor,weaponLight1Color,weaponLight2Color,weaponLight3Color;
+        public Color saferoomLightColor, weaponLight1Color, weaponLight2Color;
+        SFX sfx = new SFX();
         
         public Saferoom(LevelManager levelManager)
         {
@@ -53,31 +54,29 @@ namespace TheMaze
             saferoomLightScale = new Vector2(700, 700);
 
 
-            weaponLight1Pos = new Vector2(saferoomPos.X + 125, saferoomPos.Y);
-            weaponLight2Pos = new Vector2(saferoomPos.X + 325, saferoomPos.Y);
-            weaponLight3Pos = new Vector2(saferoomPos.X + 525, saferoomPos.Y);
-
+            weaponLight1Pos = new Vector2(saferoomPos.X + 225, saferoomPos.Y);
+            weaponLight2Pos = new Vector2(saferoomPos.X + 425, saferoomPos.Y);
+            
             saferoomWeaponLightPositions.Add(weaponLight1Pos);
             saferoomWeaponLightPositions.Add(weaponLight2Pos);
-            saferoomWeaponLightPositions.Add(weaponLight3Pos);
 
             weaponLight1Rectangle = new Rectangle((int)weaponLight1Pos.X - 50, (int)weaponLight1Pos.Y - 50,100,100);
             weaponLight2Rectangle = new Rectangle((int)weaponLight2Pos.X - 50, (int)weaponLight2Pos.Y - 50, 100, 100);
-            weaponLight3Rectangle = new Rectangle((int)weaponLight3Pos.X - 50, (int)weaponLight3Pos.Y - 50, 100, 100);
-
+            
             weaponLight1Color = Color.Red;
             weaponLight2Color = Color.Goldenrod;
-            weaponLight3Color = Color.MediumBlue;
-
+            
             saferoomWeaponLightIntensity = .9f;
             saferoomWeaponLightScale = new Vector2(150, 150);
-            
+
+            sfx = new SFX();
         }
 
         public void SelectWeapon()
         {
             if(X.mouseRect.Intersects(weaponLight1Rectangle) && X.mouseState.LeftButton==ButtonState.Pressed && X.oldmouseState.LeftButton==ButtonState.Released)
             {
+                
                 Player.selectedColor = weaponLight1Color;
                 X.player.playerPointLight.Color = weaponLight1Color;
                 
@@ -86,15 +85,8 @@ namespace TheMaze
             {
                 Player.selectedColor = weaponLight2Color;
                 X.player.playerPointLight.Color = weaponLight2Color;
-                
             }
-            if (X.mouseRect.Intersects(weaponLight3Rectangle) && X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
-            {
-                Player.selectedColor = weaponLight3Color;
-                X.player.playerPointLight.Color = weaponLight3Color;
-                
-            }
-
+            
             X.player.ApplyWeapon();
 
         }

@@ -18,10 +18,19 @@ namespace TheMaze
         // SFX
         public static SoundEffect Footstep1 { get; private set; }
         public static SoundEffect Footstep2 { get; private set; }
+
+        public static SoundEffect Footstep3 { get; private set; }
+        public static SoundEffect Footstep4 { get; private set; }
+
         public static SoundEffect LampSwitchOn { get; private set; }
         public static SoundEffect LampSwitchOff { get; private set; }
         public static SoundEffect CreepySoundHigh { get; private set; }
         public static SoundEffect CreepySoundLow { get; private set; }
+
+        public static SoundEffect TakeCollectible { get; private set; }
+        public static SoundEffect PickWeapon { get; private set; }
+
+        public static SoundEffect WhiteAmbient { get; private set; }
 
         public static void LoadContent(ContentManager content)
         {
@@ -32,10 +41,18 @@ namespace TheMaze
             // SFX
             Footstep1 = content.Load<SoundEffect>("Audio/SFX/step1");
             Footstep2 = content.Load<SoundEffect>("Audio/SFX/step2");
+            Footstep3 = content.Load<SoundEffect>("Audio/SFX/step3");
+            Footstep4 = content.Load<SoundEffect>("Audio/SFX/step4");
+
             LampSwitchOn = content.Load<SoundEffect>("Audio/SFX/lampswitchon");
             LampSwitchOff = content.Load<SoundEffect>("Audio/SFX/lampswitchoff");
             CreepySoundHigh = content.Load<SoundEffect>("Audio/SFX/creepysoundhigh");
             CreepySoundLow = content.Load<SoundEffect>("Audio/SFX/creepysoundlow");
+
+            TakeCollectible = content.Load<SoundEffect>("Audio/SFX/takeCollectible");
+            PickWeapon = content.Load<SoundEffect>("Audio/SFX/weaponpick");
+
+            WhiteAmbient = content.Load<SoundEffect>("Audio/BGM/whiteambient");
         }
 
     }

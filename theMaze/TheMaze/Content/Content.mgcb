@@ -25,6 +25,12 @@
 /processorParam:Quality=Best
 /build:Audio/BGM/darksoulsamomentspeace.wav
 
+#begin Audio/BGM/whiteambient.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/BGM/whiteambient.wav
+
 #begin Audio/SFX/creepysoundhigh.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -61,11 +67,35 @@
 /processorParam:Quality=Best
 /build:Audio/SFX/step2.wav
 
+#begin Audio/SFX/step3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step3.wav
+
+#begin Audio/SFX/step4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/step4.wav
+
+#begin Audio/SFX/takeCollectible.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/takeCollectible.wav
+
 #begin Audio/SFX/walking.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/SFX/walking.wav
+
+#begin Audio/SFX/weaponpick.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/weaponpick.wav
 
 #begin characterspritesheet1.png
 /importer:TextureImporter
@@ -126,6 +156,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:collectiblemenu2.png
+
+#begin controlsmenu.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:controlsmenu.png
 
 #begin desk.png
 /importer:TextureImporter
@@ -464,16 +506,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:You Died.png
-
-#begin controlsmenu.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:controlsmenu.png
 

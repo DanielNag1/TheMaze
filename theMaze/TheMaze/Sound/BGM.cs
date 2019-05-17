@@ -13,7 +13,7 @@ namespace TheMaze
         private enum PlayState { InSafeRoom, OutsideSafeRoom }
         private PlayState currentPlayState;
 
-        private SoundEffectInstance ambientNoise, safeRoomBGM;
+        private SoundEffectInstance ambientNoise, safeRoomBGM,whiteBGM;
 
         private bool playAmbientNoise, playSafeRoomBGM;
 
@@ -21,6 +21,8 @@ namespace TheMaze
         {
             ambientNoise = SoundManager.AmbientNoise.CreateInstance();
             safeRoomBGM = SoundManager.DarkSoulsTrack31.CreateInstance();
+            whiteBGM = SoundManager.WhiteAmbient.CreateInstance();
+            whiteBGM.Volume = 0.2f;
             ambientNoise.IsLooped = true;
             safeRoomBGM.IsLooped = true;
 
@@ -46,11 +48,11 @@ namespace TheMaze
                             //ambientNoise.Stop();
 
                             AmbientNoiseFadeOut();
-                            SafeRoomBGMFadeIn();
+                            FadeIn(safeRoomBGM);
                         }
                         else
                         {
-                            SafeRoomBGMFadeOut();
+                            FadeOut(safeRoomBGM);
                             AmbientNoiseFadeIn();
                         }
 
@@ -59,30 +61,64 @@ namespace TheMaze
             }
         }
 
-        private void SafeRoomBGMFadeIn()
+        public void PlayWhiteBGM()
         {
-            if (safeRoomBGM.State != SoundState.Playing)
+            if (GamePlayManager.currentState == GamePlayManager.LevelState.Death)
             {
-                safeRoomBGM.Volume = 0.1f;
-                safeRoomBGM.Play();
+                FadeIn(whiteBGM);
             }
-            if (safeRoomBGM.Volume < 0.1f)
+            else
             {
-                safeRoomBGM.Volume += 0.01f;
+                FadeOut(whiteBGM);
             }
         }
+        private void FadeIn(SoundEffectInstance BGM)
+        {
+            if (BGM.State != SoundState.Playing)
+            {
+                BGM.Volume = 0.1f;
+                BGM.Play();
+            }
+            if (BGM.Volume < 0.1f)
+            {
+                BGM.Volume += 0.01f;
+            }
+        }
+        private void FadeOut(SoundEffectInstance BGM)
+        {
+            if (BGM.Volume > 0.001f)
+            {
+                BGM.Volume -= 0.001f;
+            }
+            else if (BGM.Volume <= 0.001f)
+            {
+                BGM.Stop();
+            }
+        }
+        //private void SafeRoomBGMFadeIn()
+        //{
+        //    if (safeRoomBGM.State != SoundState.Playing)
+        //    {
+        //        safeRoomBGM.Volume = 0.1f;
+        //        safeRoomBGM.Play();
+        //    }
+        //    if (safeRoomBGM.Volume < 0.1f)
+        //    {
+        //        safeRoomBGM.Volume += 0.01f;
+        //    }
+        //}
 
-        private void SafeRoomBGMFadeOut()
-        {
-            if (safeRoomBGM.Volume > 0.001f)
-            {
-                safeRoomBGM.Volume -= 0.001f;
-            }
-            else if (safeRoomBGM.Volume <= 0.001f)
-            {
-                safeRoomBGM.Stop();
-            }
-        }
+        //private void SafeRoomBGMFadeOut()
+        //{
+        //    if (safeRoomBGM.Volume > 0.001f)
+        //    {
+        //        safeRoomBGM.Volume -= 0.001f;
+        //    }
+        //    else if (safeRoomBGM.Volume <= 0.001f)
+        //    {
+        //        safeRoomBGM.Stop();
+        //    }
+        //}
 
         private void AmbientNoiseFadeIn()
         {

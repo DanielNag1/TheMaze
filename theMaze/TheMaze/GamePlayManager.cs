@@ -13,14 +13,16 @@ namespace TheMaze
     public class GamePlayManager
     {
         public bool killed = false;
-        enum LevelState { Live, Death, CollectibleMenu }
-        LevelState currentState = LevelState.Live;
+        public enum LevelState { Live, Death, CollectibleMenu }
+        public static LevelState currentState = LevelState.Live;
         enum Level { Level1, Level2, Level3 }
         Level currentLevel = Level.Level1;
         LevelManager levelManager, deathManager;
         Player player;
         public Imbaku imbaku;
         SFX sfx;
+        BGM bgm;
+
         private bool level1loaded, level2loaded;
         public static bool black;
         Saferoom saferoom;
@@ -29,15 +31,16 @@ namespace TheMaze
         ParticleEngine particleEngine;
         List<ParticleEngine> particleEngines;
         Rectangle toRespawnRectangle;
+        IngameTextmanager ingameTextmanager;
 
         public GamePlayManager()
         {
             levelManager = new LevelManager();
-            //levelManager.LoadLevel1();
             deathManager = new LevelManager();
             deathManager.ReadDeathMap();
-            
+
             LoadLevel1(levelManager);
+            //LoadLevel2(levelManager);
             toRespawnRectangle = new Rectangle((int)deathManager.SuicideHallwayStopPosition.X, (int)deathManager.SuicideHallwayStopPosition.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
 
             particleEngines = new List<ParticleEngine>();
@@ -48,6 +51,7 @@ namespace TheMaze
             //Game1.penumbra.Initialize();
             Game1.penumbra.Transform = X.camera.Transform;
 
+            bgm = new BGM();
         }
 
 
@@ -58,7 +62,7 @@ namespace TheMaze
             if (!level1loaded)
             {
                 levelManager.ReadLevel1();
-
+                
                 player = new Player(TextureManager.PlayerTex, levelManager.StartPositionPlayer);
                 saferoom = new Saferoom(levelManager);
                 lights = new Lights(levelManager, saferoom);
@@ -80,6 +84,7 @@ namespace TheMaze
         {
             if (!level2loaded)
             {
+                ingameTextmanager = new IngameTextmanager();
                 levelManager.ReadLevel2();
                 if (player != null)
                 {
@@ -145,6 +150,7 @@ namespace TheMaze
                     break;
 
                 case LevelState.Death:
+
                     black = false;
                     RemoveMarkers();
                     X.player.insaferoom = false;
@@ -166,6 +172,8 @@ namespace TheMaze
                     
                     break;
             }
+
+            bgm.PlayWhiteBGM();
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -228,10 +236,13 @@ namespace TheMaze
             }
             if (TutorialManager.onItem)
             {
+                TutorialManager.tutorialMovingDone = true;
+                TutorialManager.tutorialLampDone = true;
                 IngameTextmanager.DrawPickUpTutorial(spriteBatch);
             }
             if (!X.player.insaferoom && !TutorialManager.q && !TutorialManager.tutorialLampDone)
             {
+                TutorialManager.tutorialMovingDone = true;
                 IngameTextmanager.DrawLampOn(spriteBatch);
             }
             if (!X.player.insaferoom && !TutorialManager.e && !TutorialManager.tutorialLampDone)
@@ -351,6 +362,7 @@ namespace TheMaze
             {
                 if (player.FootHitbox.Intersects(c.hitbox) && X.IsKeyPressed(Keys.F))
                 {
+                    sfx.TakeItem();
                     TutorialManager.onItem = false;
                     levelManager.collectibles.Remove(c);
                     player.collectibles.Add(c);
@@ -428,6 +440,7 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
                     particleEngine.Draw(spriteBatch);
+                    ingameTextmanager.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
 
@@ -453,10 +466,14 @@ namespace TheMaze
 
         public void Level2Update(GameTime gameTime)
         {
+            if (player.viewCollectible == false)
+            { ingameTextmanager.CheckProgression(gameTime); }
+
             particleEngine.Update();
             imbaku.Update(gameTime, player);
             ImbakuCollision(gameTime);
             MiniCollision();
+            
             foreach (WallMonster wM in levelManager.wallMonsters)
             {
                 wM.Update(gameTime);

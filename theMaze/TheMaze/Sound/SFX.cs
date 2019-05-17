@@ -14,6 +14,7 @@ namespace TheMaze
         private FootstepPlayState currentFootstepPlayState;
 
         SoundEffectInstance creepySoundLow, creepySoundHigh;
+        SoundEffectInstance takeCollectible,pickWeapon;
 
         private double stepTimer;
         private double imbakuTimer, imbakuTimerReset;
@@ -29,6 +30,10 @@ namespace TheMaze
             creepySoundLow = SoundManager.CreepySoundLow.CreateInstance();
             creepySoundHigh = SoundManager.CreepySoundHigh.CreateInstance();
 
+            takeCollectible = SoundManager.TakeCollectible.CreateInstance();
+            takeCollectible.Volume = 0.3f;
+            pickWeapon = SoundManager.PickWeapon.CreateInstance();
+            pickWeapon.Volume = 0.2f;
             stepTimer = 700;
             imbakuTimer = 45;
             imbakuTimerReset = 45;
@@ -49,7 +54,14 @@ namespace TheMaze
                         if (playFootstep1)
                         {
                             stepTimer = 700;
-                            SoundManager.Footstep1.Play();
+                            if (GamePlayManager.currentState == GamePlayManager.LevelState.Live)
+                            {
+                                SoundManager.Footstep1.Play();
+                            }
+                            else
+                            {
+                                SoundManager.Footstep3.Play();
+                            }
                             playFootstep1 = false;
                         }
                         else
@@ -69,7 +81,14 @@ namespace TheMaze
                         if (playFootstep2)
                         {
                             stepTimer = 700;
-                            SoundManager.Footstep2.Play();
+                            if (GamePlayManager.currentState == GamePlayManager.LevelState.Live)
+                            {
+                                SoundManager.Footstep2.Play();
+                            }
+                            else
+                            {
+                                SoundManager.Footstep4.Play();
+                            }
                             playFootstep2 = false;
                         }
                         else
@@ -140,6 +159,16 @@ namespace TheMaze
                     imbakuTimer = imbakuTimerReset;
                 }
             }
+        }
+
+        public void TakeItem()
+        {
+            takeCollectible.Play();
+        }
+
+        public void PickWeapon()
+        {
+            pickWeapon.Play();
         }
     }
 }

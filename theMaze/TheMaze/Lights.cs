@@ -68,7 +68,6 @@ namespace TheMaze
             {
                 saferoomWeaponList[0].Color = saferoom.weaponLight1Color;
                 saferoomWeaponList[1].Color = saferoom.weaponLight2Color;
-                saferoomWeaponList[2].Color = saferoom.weaponLight3Color;
                 l.Intensity = saferoom.saferoomWeaponLightIntensity;
             }
 
