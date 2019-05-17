@@ -10,12 +10,12 @@ namespace TheMaze
 {
     public class MiniMonster:Imbaku
     {
-        protected Random random = new Random();
         public Circle miniCircleHitbox;
         public Rectangle miniRectangleHitbox;
         public Vector2 miniCircleHitboxPos;
-        public int health;
 
+        public int health;
+        protected Random random = new Random();
 
         public MiniMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {

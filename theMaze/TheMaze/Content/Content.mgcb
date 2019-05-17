@@ -127,6 +127,18 @@
 /processorParam:TextureFormat=Color
 /build:collectiblemenu2.png
 
+#begin desk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:desk.png
+
 #begin evilcat.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -333,7 +345,7 @@
 /processorParam:TextureFormat=Color
 /build:wall tile 2.png
 
-#begin You Died.png
+#begin wallmonster2.2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -343,19 +355,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:You Died.png
-
-#begin desk.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:desk.png
+/build:wallmonster2.2.png
 
 #begin water tile.png
 /importer:TextureImporter
@@ -368,4 +368,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:water tile.png
+
+#begin You Died.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:You Died.png
 

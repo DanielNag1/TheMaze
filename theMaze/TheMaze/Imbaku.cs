@@ -13,32 +13,31 @@ namespace TheMaze
     public class Imbaku : ChasingMonster
     {
         public Rectangle imbakuRectangleHitbox;
+        public Circle imbakuCircleHitbox;
+        Vector2 imbakuCircleHitboxPos;
 
         public bool isActive, miniIsAlive, isChasing;
-        Vector2 imbakuCircleHitboxPos;
         
         private float creatingMiniTimer = 0f, resetMiniTimer = 3f;
-        public Circle imbakuCircleHitbox;
-
         public MiniMonster miniMonster;
         public List<MiniMonster> miniMonsterList;
+
 
         public Imbaku(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;
             currentSourceRect = new Rectangle(frame, frameSize, 125, 245);
-
             nrFrames = 5;
 
             imbakuRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight + 120);
-
             imbakuCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
-
-            path = new List<Vector2>();
             
             isActive = false;
+            isChasing = false;
+
             speed = 50f;
+            //monsterDamage = 1;
 
             miniMonsterList = new List<MiniMonster>();
             miniIsAlive = true;
@@ -46,7 +45,6 @@ namespace TheMaze
 
         public override void Update(GameTime gameTime, Player player)
         {
-
             currentSourceRect.X = frame * 125;
             currentSourceRect.Y = frameSize * 250;
 
@@ -60,13 +58,11 @@ namespace TheMaze
 
             UpdateImbakuSourceRectangle();
             ImbakuStates(gameTime, player);
-            
 
             foreach (MiniMonster mini in miniMonsterList)
             {
                 mini.Update(gameTime, player);
             }
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -102,9 +98,7 @@ namespace TheMaze
                 {
                     frameSize = 7;
                 }
-
             }
-
         }
 
 
@@ -122,26 +116,20 @@ namespace TheMaze
                     {
                         frame = 5;
                     }
-
                 }
 
-                speed = 0;
+                //speed = 0;
 
                 if (miniMonsterList.Count <= 4)
                 {
                     CreateMini(gameTime);
                 }
-
             }
 
             else
             {
-
                 Animation(gameTime);
-                
-
-                speed = 50f;
-
+                //speed = 50f;
             }
 
             if (isChasing)
@@ -153,12 +141,7 @@ namespace TheMaze
             {
                 Moving(gameTime);
             }
-
-
         }
-
-        
-
 
         protected void CreateMini(GameTime gameTime)
         {
@@ -172,11 +155,7 @@ namespace TheMaze
                     Console.WriteLine(miniMonster.speed);
                     creatingMiniTimer = resetMiniTimer;
                 }
-
             }
-
         }
-
-
     }
 }

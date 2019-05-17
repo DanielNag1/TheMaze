@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</SourceFile>
-  <SourceTime>2019-05-15T12:30:11.3265434+02:00</SourceTime>
-  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.xnb</DestFile>
-  <DestTime>2019-05-15T13:12:00.9311382+02:00</DestTime>
+  <SourceFile>C:/Users/sandr/Desktop/TheMaze-RS3-Monster/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</SourceFile>
+  <SourceTime>2019-05-15T18:25:42.3502016+02:00</SourceTime>
+  <DestFile>C:/Users/sandr/Desktop/TheMaze-RS3-Monster/theMaze/TheMaze/Content/bin/Windows/Content/Audio/BGM/ambientnoise.xnb</DestFile>
+  <DestTime>2019-05-16T11:25:15.2525669+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

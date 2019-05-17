@@ -18,6 +18,7 @@ namespace TheMaze
         public static Texture2D MonsterTex { get; private set; }
         public static Texture2D ImbakuTex { get; private set; }
         public static Texture2D MiniMonsterTex { get; private set; }
+        public static Texture2D WallMonsterTex { get; private set; }
         //public static Texture2D FlareTex { get; private set; }
         //public static Texture2D RangeTex { get; private set; }
         public static Texture2D WaterTileTex { get; private set; }
@@ -61,6 +62,7 @@ namespace TheMaze
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
             ImbakuTex = Content.Load<Texture2D>("spritesheet_Imbaku");
             MiniMonsterTex = Content.Load<Texture2D>("spritesheet_mini_imbaku");
+            WallMonsterTex = Content.Load<Texture2D>("wallmonster2.2");
             //FlareTex = Content.Load<Texture2D>("Flare5_00000");
             //RangeTex = Content.Load<Texture2D>("rangecircle");
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");

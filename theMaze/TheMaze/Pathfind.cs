@@ -25,7 +25,7 @@ namespace TheMaze
             {
                 for (int x = 0; x < width; x++)
                 {
-                    if (map[x, y].IsWall)
+                    if (map[x, y].IsWall || map[x,y].IsEntrance)
                     {
                         grid.BlockCell(new Position(x, y));
                     }

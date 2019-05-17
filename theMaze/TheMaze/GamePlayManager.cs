@@ -22,8 +22,8 @@ namespace TheMaze
         public Imbaku imbaku;
         Golem golem;
         GlitchMonster glitchMonster;
-        ArmMonster armMonster;
-      
+        Stalker stalker;
+
         SFX sfx;
         private bool level1loaded, level2loaded;
 
@@ -40,8 +40,8 @@ namespace TheMaze
             deathManager = new LevelManager();
             deathManager.ReadDeathMap();
             LoadLevel2(levelManager);
-            
-            
+
+
 
             particleEngines = new List<ParticleEngine>();
 
@@ -99,7 +99,7 @@ namespace TheMaze
                 imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
                 golem = new Golem(TextureManager.MonsterTex, levelManager.GolemStartPosition, levelManager);
                 glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
-                armMonster = new ArmMonster(TextureManager.MonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
+                stalker = new Stalker(TextureManager.MonsterTex, levelManager.StalkerStartPosition, levelManager);
                 particleEngine = new ParticleEngine(TextureManager.hitParticles, imbaku.Position);
 
                 foreach (Tile t in levelManager.Tiles)
@@ -144,7 +144,7 @@ namespace TheMaze
                     {
                         currentState = LevelState.Death;
                         player.SetPosition(deathManager.StartPositionPlayer);
-                        
+
                     }
 
                     break;
@@ -216,6 +216,75 @@ namespace TheMaze
             }
 
         }
+
+        public void StalkerCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(stalker.stalkerRectangleHitbox) && !stalker.stalkerStunned && !player.playerImmunity)
+            {
+                PlayerDamage(stalker.monsterDamage);
+            }
+
+            if (Vector2.Distance(player.Position, stalker.Position) < 1500)
+            {
+                int stalkerPlayerDistance = (int)Math.Truncate(Vector2.Distance(player.Position, stalker.Position));
+
+                int lightFail = stalker.stalkerRandom.Next(0, stalkerPlayerDistance / 5);
+
+                if (lightFail == 0 && player.currentWeapon.enabled == true && !stalker.stalkerStunned)
+                {
+                    stalker.stalkerFlashTimer.Start();
+                    player.currentWeapon.enabled = false;
+
+                }
+
+                if (stalker.stalkerFlashTimer.ElapsedMilliseconds > 100)
+                {
+                    player.currentWeapon.enabled = true;
+                    stalker.stalkerFlashTimer.Reset();
+                }
+            }
+
+            if (player.weaponHitbox.Intersects(stalker.stalkerCircleHitbox) && player.currentWeapon.color == Color.Goldenrod)
+            {
+                stalker.stalkerStunned = true;
+            }
+
+            if ((!player.weaponHitbox.Intersects(stalker.stalkerCircleHitbox) || player.currentWeapon.color != Color.Goldenrod) && stalker.stalkerStunned)
+            {
+                stalker.stalkerStunnedTimer.Start();
+            }
+
+            if (stalker.stalkerStunnedTimer.ElapsedMilliseconds > 2000)
+            {
+                stalker.stalkerStunnedTimer.Reset();
+                stalker.stalkerStunned = false;
+            }
+        }
+
+        public void GolemCollision(GameTime gameTime)
+        {
+
+            if (player.weaponHitbox.Intersects(golem.golemCircleHitbox))
+            {
+                if (golem.isSleeping)
+                {
+                    golem.isActive = true;
+                }
+            }
+
+            else
+            {
+                golem.isActive = false;
+            }
+
+            if (Vector2.Distance(player.Position, golem.Position) <= 1000 && !golem.isActive)
+            {
+                golem.isSleeping = true;
+            }
+
+
+        }
+
         public void GlitchMonsterCollision(GameTime gameTime)
         {
             if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
@@ -236,7 +305,7 @@ namespace TheMaze
                 {
                     player.isInverse = false;
                     glitchMonster.glitchMonsterTimer.Reset();
-                    //killed = true;
+                    PlayerDamage(glitchMonster.monsterDamage);
                 }
             }
         }
@@ -273,7 +342,7 @@ namespace TheMaze
         {
             if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true)
             {
-                //killed = true;
+                PlayerDamage(imbaku.monsterDamage);
             }
 
             if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) < ConstantValues.tileHeight * 2.5 &&
@@ -297,7 +366,7 @@ namespace TheMaze
                 imbaku.isActive = false;
             }
 
-            if (Vector2.Distance(player.Position,imbaku.Position)>2500 || Vector2.Distance(player.Position, imbaku.Position) < 600)
+            if (Vector2.Distance(player.Position, imbaku.Position) > 2500 || Vector2.Distance(player.Position, imbaku.Position) < 600)
             {
                 imbaku.isChasing = true;
             }
@@ -309,7 +378,6 @@ namespace TheMaze
 
             else
             {
-                //imbaku.speed = 50;
                 foreach (ParticleEngine p in particleEngines)
                 {
                     if (particleEngines.Count > 0)
@@ -324,11 +392,22 @@ namespace TheMaze
 
         }
 
+        public void PlayerDamage(int monsterDamage)
+        {
+            player.playerHealth = player.playerHealth - monsterDamage;
+            player.playerImmunity = true;
+
+            if (player.playerHealth <= 0)
+            {
+                killed = true;
+            }
+        }
+
         public void MiniCollision()
         {
             foreach (MiniMonster mini in imbaku.miniMonsterList)
             {
-                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox) && player.currentWeapon.color==Color.Red)
+                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
                 {
                     imbaku.miniMonster.health--;
                     if (imbaku.miniMonster.health <= 0)
@@ -343,52 +422,17 @@ namespace TheMaze
 
         }
 
-        public void ArmMonsterCollision(GameTime gameTime)
-        {
-            if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && !armMonster.coolDown)
-            {
-                if (armMonster.isActive)
-                {
-                    player.color = Color.HotPink;
-                }
-                else
-                {
-                    armMonster.activated = true;
-                    armMonster.coolDown = true;
-                }
-            }
-
-            if (!player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && armMonster.coolDown)
-            {
-                armMonster.coolDown = false;
-            }
-
-            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated && player.currentWeapon.color == Color.Goldenrod)
-            {
-                armMonster.slowedDown = true;
-            }
-            else
-            {
-                armMonster.slowedDown = false;
-            }
-        }
-
         public void Resurrect()
         {
             if (X.IsKeyPressed(Keys.Space) && killed)
             {
+                player.playerHealth = 3;
                 killed = false;
                 currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);
-                ResetMonsterPosition();
+                imbaku.SetPosition(levelManager.ImbakuStartPosition);
+                stalker.SetPosition(levelManager.StalkerStartPosition);
             }
-        }
-
-        public void ResetMonsterPosition()
-        {
-            imbaku.SetPosition(levelManager.ImbakuStartPosition);
-            glitchMonster.SetPosition(levelManager.GlitchMonsterStartPosition);
-            armMonster.ResetArmMonster();
         }
 
         public void RemoveMarkers()
@@ -430,9 +474,9 @@ namespace TheMaze
         public void MonsterTakeDamage(Imbaku imbaku, GameTime gameTime)
         {
             particleEngines.Add(particleEngine);
-            particleEngine.EmitterLocation = new Vector2(imbaku.imbakuRectangleHitbox.Center.X,imbaku.imbakuRectangleHitbox.Center.Y);
+            particleEngine.EmitterLocation = new Vector2(imbaku.imbakuRectangleHitbox.Center.X, imbaku.imbakuRectangleHitbox.Center.Y);
             particleEngine.isHit = true;
-            
+
         }
 
         public void Desk(SpriteBatch spriteBatch)
@@ -495,9 +539,9 @@ namespace TheMaze
                     imbaku.Draw(spriteBatch);
                     glitchMonster.Draw(spriteBatch);
                     golem.Draw(spriteBatch);
-                    armMonster.Draw(spriteBatch);
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
+                    stalker.Draw(spriteBatch);
                     spriteBatch.End();
 
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
@@ -520,14 +564,14 @@ namespace TheMaze
         {
             particleEngine.Update();
             imbaku.Update(gameTime, player);
-            golem.Update(gameTime,player);
+            golem.Update(gameTime, player);
+            stalker.Update(gameTime, player);
             ImbakuCollision(gameTime);
+            GolemCollision(gameTime);
             glitchMonster.Update(gameTime);
-            ArmMonsterCollision(gameTime);
-            armMonster.Update(gameTime,player);
+            StalkerCollision(gameTime);
             MiniCollision();
             GlitchMonsterCollision(gameTime);
-            
             foreach (WallMonster wM in levelManager.wallMonsters)
             {
                 wM.Update(gameTime);
@@ -539,7 +583,7 @@ namespace TheMaze
         public void ChangeLevel()
         {
 
-            if(player.collectibles.Count==3)
+            if (player.collectibles.Count == 3)
             {
                 currentLevel = Level.Level2;
             }
@@ -547,8 +591,8 @@ namespace TheMaze
             {
                 currentLevel = Level.Level1;
             }
-            
-            switch(currentLevel)
+
+            switch (currentLevel)
             {
                 case Level.Level1:
                     LoadLevel1(levelManager);

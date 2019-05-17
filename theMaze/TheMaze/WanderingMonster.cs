@@ -79,7 +79,7 @@ namespace TheMaze
             Vector2 newDestination = Position + direction * ConstantValues.tileWidth;
 
             Tile tile = levelManager.GetTileAtPosition(direction);
-            if (tile.IsWall)
+            if (tile.IsWall || tile.IsEntrance)
             {
                 destination = newDestination;
                 moving = true;

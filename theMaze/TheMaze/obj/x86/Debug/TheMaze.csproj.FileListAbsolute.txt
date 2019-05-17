@@ -460,7 +460,6 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\transparent.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\wall tile 2.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\You Died.xnb
-C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb
 C:\Users\Spellabb2018\Desktop\TheMaze-9680cb3cfdd5f1a79a8d60c301f9de2cc8c27cd8\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\step1.xnb
 C:\Users\Spellabb2018\Desktop\TheMaze-9680cb3cfdd5f1a79a8d60c301f9de2cc8c27cd8\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\step2.xnb
@@ -578,7 +577,6 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible text.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu.xnb
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu.xnb
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
@@ -760,3 +758,108 @@ C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Co
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\desk.xnb
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\water tile.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\lampswitchoff.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\lampswitchon.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\walking.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\ambientnoise.wma
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\ambientnoise.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.wma
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectible view.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectible.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectiblemenu.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectiblemenu2.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\particle1.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\particle2.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet_Imbaku.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture1.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture2.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture3.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\tutorialfont.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\You Died.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchoff.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchon.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\walking.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\desk.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\water tile.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible view.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu2.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\desk.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_Imbaku.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture1.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture2.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture3.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\tutorialfont.xnb
+C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\water tile.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.wma
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchoff.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchon.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step1.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step2.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\walking.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\characterspritesheet1.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible view.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu2.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\desk.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\evilcat.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\floor tile 2.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\mainmenu.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\pauseScreen.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\red.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet1.4.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_Imbaku.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture1.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture2.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture3.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\timesnewroman.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\top tile sprite 2.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\transparent.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\tutorialfont.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wall tile 2.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\water tile.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\You Died.xnb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
+C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wallmonster2.2.xnb

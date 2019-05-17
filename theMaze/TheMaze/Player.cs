@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,11 +35,14 @@ namespace TheMaze
         private int frame = 0, nrFrames = 4;
         private double timer = 100, timeIntervall = 100;
 
+        public int playerHealth = 3;
+        Stopwatch playerImmunityTimer = new Stopwatch();
+        public bool playerImmunity = false;
+
         private float speed = 3f;
 
         public bool moving = false;
-
-        public bool lightsOn = false;
+        
         public bool canChangeWeapon,insaferoom,viewCollectible;
 
         public static Vector2 playerLightPosition, playerSpotLightPosition;
@@ -56,8 +60,6 @@ namespace TheMaze
         public Circle weaponHitbox;
         public static int markers;
         public List<Collectible> collectibles;
-
-        public Color color;
 
 
         public void SetPosition(Vector2 newPosition)
@@ -82,8 +84,6 @@ namespace TheMaze
 
             isInverse = false;
             oldPosition = position;
-
-            color = Color.White;
 
             CreatePlayerLights();
             CreateWeapons();
@@ -131,6 +131,11 @@ namespace TheMaze
             UpdateHitboxPosition();
             UpdateLights();
 
+            if (playerImmunity)
+            {
+                PlayerImmunity(gameTime);
+            }
+
             if (canChangeWeapon)
             {
                 PowerDrain(gameTime);
@@ -141,7 +146,18 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, color);
+            if (playerHealth == 3)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            }
+            else if (playerHealth == 2)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.Red);
+            }
+            else if (playerHealth == 1)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.DarkRed);
+            }
         }
 
 
@@ -463,6 +479,17 @@ namespace TheMaze
             {
                 lampPosition = new Vector2(Position.X + 77, Position.Y + 110);
 
+            }
+        }
+
+        public void PlayerImmunity(GameTime gameTime)
+        {
+            playerImmunityTimer.Start();
+
+            if (playerImmunityTimer.ElapsedMilliseconds > 2000)
+            {
+                playerImmunity = false;
+                playerImmunityTimer.Reset();
             }
         }
 

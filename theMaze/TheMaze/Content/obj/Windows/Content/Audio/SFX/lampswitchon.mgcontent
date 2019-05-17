@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</SourceFile>
-  <SourceTime>2019-05-15T12:30:12.9000722+02:00</SourceTime>
-  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/lampswitchon.xnb</DestFile>
-  <DestTime>2019-05-15T13:12:05.3488431+02:00</DestTime>
+  <SourceFile>C:/Users/sandr/Desktop/TheMaze-RS3-Monster/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</SourceFile>
+  <SourceTime>2019-05-15T18:25:43.3295642+02:00</SourceTime>
+  <DestFile>C:/Users/sandr/Desktop/TheMaze-RS3-Monster/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/lampswitchon.xnb</DestFile>
+  <DestTime>2019-05-16T11:25:17.3823171+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

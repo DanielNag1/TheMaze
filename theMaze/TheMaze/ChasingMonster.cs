@@ -12,7 +12,7 @@ namespace TheMaze
     {
         //En lista som håller "the path"
         public List<Vector2> path;
-        protected Vector2 newDirection;
+        Vector2 newDirection;
 
         protected float chaseTimer = 0f, resetTimer = 300f;
 
@@ -25,9 +25,10 @@ namespace TheMaze
         public virtual void Update(GameTime gameTime, Player player)
         {
             Animation(gameTime);
-            
 
         }
+
+
 
         public override void Draw(SpriteBatch spriteBatch)
         {

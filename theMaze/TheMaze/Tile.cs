@@ -22,6 +22,7 @@ namespace TheMaze
 
         protected bool isWall = true;
         protected bool isHull = false;
+        protected bool isEntrance = true;
         public static bool black;
 
         public bool IsWall
@@ -31,6 +32,10 @@ namespace TheMaze
         public bool IsHull
         {
             get { return isHull; }
+        }
+        public bool IsEntrance
+        {
+            get { return isEntrance; }
         }
 
         public Tile(Vector2 position, char identifier)
@@ -218,6 +223,14 @@ namespace TheMaze
                     {
                         texture = TextureManager.WallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        break;
+                    }
+                case 'Y':
+                    {
+                        texture = TextureManager.FloorTileTex;
+                        sourceRect = new Rectangle(0, 0, frameSize, frameSize);
+                        isEntrance = true;
+                        isWall = false;
                         break;
                     }
                 default:

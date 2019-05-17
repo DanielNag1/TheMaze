@@ -17,7 +17,7 @@ namespace TheMaze
         public Vector2 ImbakuStartPosition { get; private set; }
         public Vector2 GolemStartPosition { get; private set; }
         public Vector2 GlitchMonsterStartPosition { get; private set; }
-        public Vector2 ArmMonsterStartPosition { get; private set; }
+        public Vector2 StalkerStartPosition { get; private set; }
         public List<WallMonster> wallMonsters;
         public List<Vector2> collectiblePositions;
         public WallMonster wallMonster;
@@ -90,23 +90,23 @@ namespace TheMaze
                     }
                     if (mapData[y][x] == '4')
                     {
-                        wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
+                        wallMonster = new WallMonster(TextureManager.WallMonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
                     }
                     if (mapData[y][x] == '5')
                     {
-                        GlitchMonsterStartPosition = tilePosition;
+                        GolemStartPosition = tilePosition;
                     }
 
                     if (mapData[y][x] == '6')
                     {
-                        ArmMonsterStartPosition = tilePosition;
+                        GlitchMonsterStartPosition = tilePosition;
                     }
-
                     if (mapData[y][x] == '7')
                     {
-                        GolemStartPosition = tilePosition;
+                        StalkerStartPosition = tilePosition;
                     }
+
                     tiles[x, y] = new Tile(tilePosition, mapData[y][x]);
                 }
             }

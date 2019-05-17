@@ -18,14 +18,19 @@ namespace TheMaze
 
         public WallMonster(Texture2D texture, Vector2 position) : base(texture, position)
         {
-            hitBoxRect = new Rectangle((int)position.X + ConstantValues.tileWidth / 2, (int)position.Y + ConstantValues.tileHeight * 2, ConstantValues.tileWidth / 8, ConstantValues.tileHeight);
+
+            frameSize = 0;
+            currentSourceRect = new Rectangle(0,frameSize, TextureManager.WallMonsterTex.Width, TextureManager.WallMonsterTex.Height+50);
+
+
+            hitBoxRect = new Rectangle((int)position.X + ConstantValues.tileWidth / 2+35, (int)position.Y + ConstantValues.tileHeight * 2, ConstantValues.tileWidth / 8, ConstantValues.tileHeight);
             attackTimer = new Stopwatch();
             active = false;
             coolDownTimer = new Stopwatch();
             color = Color.White;
             frameSize = 128;
 
-            //currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
+            
 
         }
 
@@ -39,10 +44,20 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
-                    ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
+            //spriteBatch.Draw(TextureManager.RedTexture, hitBoxRect, Color.White);
+            //spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
+            //        currentSourceRect.Width, currentSourceRect.Height), currentSourceRect, color);
 
-            
+
+            if (active)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
+                    currentSourceRect.Width, currentSourceRect.Height), currentSourceRect, color);
+
+            }
+
+
+
 
         }
 
@@ -50,7 +65,7 @@ namespace TheMaze
         {
             if (active)
             {
-                color = Color.Red;
+                //color = Color.Red;
             }
 
             if (coolDown)
