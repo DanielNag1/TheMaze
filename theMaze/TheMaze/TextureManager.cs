@@ -19,8 +19,9 @@ namespace TheMaze
         public static Texture2D MonsterTex { get; private set; }
         public static Texture2D ImbakuTex { get; private set; }
         public static Texture2D MiniMonsterTex { get; private set; }
-        //public static Texture2D FlareTex { get; private set; }
-        //public static Texture2D RangeTex { get; private set; }
+        public static Texture2D WallMonsterTex { get; private set; }
+
+
         public static Texture2D WaterTileTex { get; private set; }
 
         public static Texture2D FloorTileTex { get; private set; }
@@ -64,8 +65,9 @@ namespace TheMaze
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
             ImbakuTex = Content.Load<Texture2D>("spritesheet_Imbaku");
             MiniMonsterTex = Content.Load<Texture2D>("spritesheet_mini_imbaku");
-            //FlareTex = Content.Load<Texture2D>("Flare5_00000");
-            //RangeTex = Content.Load<Texture2D>("rangecircle");
+            WallMonsterTex = Content.Load<Texture2D>("wallmonster2.2");
+
+
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");
             WaterTileTex = Content.Load<Texture2D>("water tile");
             WallSheetTex = Content.Load<Texture2D>("wall tile 2");
@@ -73,12 +75,7 @@ namespace TheMaze
             CollectibleTex = Content.Load<Texture2D>("collectible");
             CollectibleTex2 = Content.Load<Texture2D>("collectible view");
             CollectibleMenu = Content.Load<Texture2D>("collectiblemenu2");
-            //particleTextures.Add(Content.Load<Texture2D>("particle2"));
-            //VignetteOverlay = Content.Load<Texture2D>("vignette");
-            //LetterboxOverlay = Content.Load<Texture2D>("letterbox");
-            //DarkOverlay = Content.Load<Texture2D>("darkOverlay");
-            //CollectibleMenu = Content.Load<Texture2D>("collectiblemenu2");
-            //StoryPanelTex = Content.Load<Texture2D>("storypanel");
+
             MainMenuTex = Content.Load<Texture2D>("mainmenu");
             ControlsMenuTex = Content.Load<Texture2D>("controlsmenu");
             PauseScreen = Content.Load<Texture2D>("pauseScreen");

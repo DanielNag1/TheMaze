@@ -41,8 +41,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ArmMonster.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="ChasingMonster.cs" />
     <Compile Include="Circle.cs" />
     <Compile Include="Collectible.cs" />
     <Compile Include="CollectibleViewer.cs" />
@@ -50,6 +52,8 @@
     <Compile Include="Game1.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameStateManager.cs" />
+    <Compile Include="GlitchMonster.cs" />
+    <Compile Include="Golem.cs" />
     <Compile Include="Imbaku.cs" />
     <Compile Include="IngameTextmanager.cs" />
     <Compile Include="LevelManager.cs" />
@@ -70,11 +74,13 @@
     <Compile Include="Sound\BGM.cs" />
     <Compile Include="Sound\SFX.cs" />
     <Compile Include="Sound\SoundManager.cs" />
+    <Compile Include="Stalker.cs" />
     <Compile Include="StoryButton.cs" />
     <Compile Include="TextureManager.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TutorialManager.cs" />
     <Compile Include="WallMonster.cs" />
+    <Compile Include="WanderingMonster.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="X.cs" />
   </ItemGroup>

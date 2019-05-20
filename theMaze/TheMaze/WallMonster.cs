@@ -9,34 +9,32 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    public class WallMonster : GameObject
+    public class WallMonster : Monster
     {
         public Rectangle hitBoxRect;
-        public Vector2 hitboxPos;
         public bool active, coolDown;
-        public Stopwatch coolDownTimer,attackTimer;
-        public Color color;
-        public Circle hitbox;
-        public Rectangle currentSourceRect;
-        public int frameSize;
+        public Stopwatch coolDownTimer, attackTimer;
 
-        private SFX sfx;
 
         public WallMonster(Texture2D texture, Vector2 position) : base(texture, position)
         {
-            hitBoxRect = new Rectangle((int)position.X + ConstantValues.tileWidth / 2, (int)position.Y + ConstantValues.tileHeight * 2, ConstantValues.tileWidth / 8, ConstantValues.tileHeight);
+
+            frameSize = 0;
+            currentSourceRect = new Rectangle(0, frameSize, TextureManager.WallMonsterTex.Width, TextureManager.WallMonsterTex.Height + 50);
+
+
+            hitBoxRect = new Rectangle((int)position.X + ConstantValues.tileWidth / 2 + 35, (int)position.Y + ConstantValues.tileHeight * 2, ConstantValues.tileWidth / 8, ConstantValues.tileHeight);
             attackTimer = new Stopwatch();
             active = false;
             coolDownTimer = new Stopwatch();
             color = Color.White;
             frameSize = 128;
 
-            currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
 
-            sfx = new SFX();
+
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             States();
 
@@ -46,10 +44,20 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
-                    ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
+            //spriteBatch.Draw(TextureManager.RedTexture, hitBoxRect, Color.White);
+            //spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
+            //        currentSourceRect.Width, currentSourceRect.Height), currentSourceRect, color);
 
-            //spriteBatch.Draw(TextureManager.hitboxPosTex, hitBoxRect , Color.Red);
+
+            if (active)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
+                    currentSourceRect.Width, currentSourceRect.Height), currentSourceRect, color);
+
+            }
+
+
+
 
         }
 
@@ -57,8 +65,7 @@ namespace TheMaze
         {
             if (active)
             {
-                color = Color.Red;
-                sfx.WallMonsterEncounterOn();
+                //color = Color.Red;
             }
 
             if (coolDown)
@@ -73,7 +80,7 @@ namespace TheMaze
                 coolDown = false;
                 color = Color.White;
                 coolDownTimer.Reset();
-                sfx.WallMonsterEncounterOff();
+
             }
 
         }

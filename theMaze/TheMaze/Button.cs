@@ -48,7 +48,7 @@ namespace TheMaze
         {
             bool isClicked = false;
 
-            if (rect.Intersects(X.menumouseRect))
+            if (rect.Contains(X.mousePos))
             {
                 if (X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
                 {

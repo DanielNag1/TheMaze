@@ -236,6 +236,14 @@ namespace TheMaze
                         sourceRect = new Rectangle(0 * frameSize, 1 * frameSize, frameSize, frameSize);
                         break;
                     }
+                case '_':
+                    {
+                        texture = TextureManager.RedTexture;
+                        sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        HullHitbox = new Rectangle(Hitbox.X, Hitbox.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
+                        isHull = true;
+                        break;
+                    }
                 case '4':
                     {
                         texture = TextureManager.WallSheetTex;

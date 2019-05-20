@@ -14,7 +14,13 @@ namespace TheMaze
         public Tile[,] Tiles { get; private set; }
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionSafeRoom { get; private set; }
+
         public Vector2 ImbakuStartPosition { get; private set; }
+        public Vector2 GolemStartPosition { get; private set; }
+        public Vector2 GlitchMonsterStartPosition { get; private set; }
+        public Vector2 StalkerStartPosition { get; private set; }
+        public Vector2 ArmMonsterStartPosition { get; private set; }
+
         public List<WallMonster> wallMonsters;
         public List<Vector2> collectiblePositions;
         public WallMonster wallMonster;
@@ -29,7 +35,7 @@ namespace TheMaze
         }
         public void ReadLevel2()
         {
-            Tiles = GenerateMap("testbana.txt",false);
+            Tiles = GenerateMap("level2.txt",false);
             Pathfind.FillGridFromMap(Tiles);
         }
         public void ReadDeathMap()
@@ -38,7 +44,7 @@ namespace TheMaze
         }
         public void ReadLevel1()
         {
-            Tiles = GenerateMap("level1.txt",false);
+            Tiles = GenerateMap("level2.txt",false);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -91,6 +97,25 @@ namespace TheMaze
                         wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
                     }
+
+                    if (mapData[y][x] == '5')
+                    {
+                        GolemStartPosition = tilePosition;
+                    }
+
+                    if (mapData[y][x] == '6')
+                    {
+                        GlitchMonsterStartPosition = tilePosition;
+                    }
+                    if (mapData[y][x] == '7')
+                    {
+                        StalkerStartPosition = tilePosition;
+                    }
+                    if (mapData[y][x] == '8')
+                    {
+                        ArmMonsterStartPosition = tilePosition;
+                    }
+
                     if (mapData[y][x] == '9')
                     {
                         SuicideHallwayStopPosition = tilePosition;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,8 +36,8 @@ namespace TheMaze
         private float speed = 3f;
 
         public bool moving = false;
+        public bool isInverse;
 
-        public bool lightsOn = false;
         public bool canChangeWeapon, insaferoom, viewCollectible;
 
         public static Vector2 playerLightPosition, playerSpotLightPosition;
@@ -54,6 +55,10 @@ namespace TheMaze
         public Circle weaponHitbox;
         public static int markers;
         public List<Collectible> collectibles;
+
+        public int playerHealth = 3;
+        Stopwatch playerImmunityTimer = new Stopwatch();
+        public bool playerImmunity = false;
 
 
         public void SetPosition(Vector2 newPosition)
@@ -83,6 +88,8 @@ namespace TheMaze
 
             markerList = new List<Light>();
             collectibles = new List<Collectible>();
+
+            isInverse = false;
         }
 
         public void Update(GameTime gameTime)
@@ -124,6 +131,11 @@ namespace TheMaze
             UpdateHitboxPosition();
             UpdateLights();
 
+            if(playerImmunity)
+            {
+                PlayerImmunity(gameTime);
+            }
+
             if (canChangeWeapon)
             {
                 PowerDrain(gameTime);
@@ -134,7 +146,18 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            if (playerHealth == 3)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
+            }
+            else if (playerHealth == 2)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.Red);
+            }
+            else if (playerHealth == 1)
+            {
+                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.DarkRed);
+            }
         }
 
 
@@ -220,6 +243,11 @@ namespace TheMaze
                     markerList.Add(markerLight);
                     Game1.penumbra.Lights.Add(markerLight);
                 }
+            }
+
+            if(isInverse)
+            {
+                InversePlayerInput();
             }
 
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
@@ -427,6 +455,56 @@ namespace TheMaze
                 lampPosition = new Vector2(Position.X + 77, Position.Y + 110);
 
             }
+        }
+
+        public void PlayerImmunity(GameTime gameTime)
+        {
+            playerImmunityTimer.Start();
+
+            if (playerImmunityTimer.ElapsedMilliseconds > 2000)
+            {
+                playerImmunity = false;
+                playerImmunityTimer.Reset();
+            }
+        }
+
+        private void InversePlayerInput()
+        {
+            if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
+            {
+                Direction = new Vector2(0, 1);
+
+                nextSourceRect.Y = 0 * frameSizeY;
+
+                moving = true;
+            }
+            else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
+            {
+                Direction = new Vector2(0, -1);
+
+                nextSourceRect.Y = 1 * frameSizeY;
+
+                moving = true;
+            }
+            else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
+            {
+                Direction = new Vector2(1, 0);
+                nextSourceRect.Y = 3 * frameSizeY;
+
+                moving = true;
+            }
+            else if (KeyPressed(Keys.Right) || KeyPressed(Keys.D))
+            {
+                Direction = new Vector2(-1, 0);
+
+                nextSourceRect.Y = 2 * frameSizeY;
+                moving = true;
+            }
+            else
+            {
+                moving = false;
+            }
+
         }
 
         public static Vector2 ReturnPosition(Vector2 position)

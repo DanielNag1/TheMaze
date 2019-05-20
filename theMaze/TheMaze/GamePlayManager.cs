@@ -18,8 +18,15 @@ namespace TheMaze
         enum Level { Level1, Level2, Level3 }
         Level currentLevel = Level.Level1;
         LevelManager levelManager, deathManager;
+
         Player player;
-        public Imbaku imbaku;
+
+        Imbaku imbaku;
+        Golem golem;
+        Stalker stalker;
+        GlitchMonster glitchMonster;
+        WallMonster wallMonster;
+
         SFX sfx;
         BGM bgm;
 
@@ -192,33 +199,7 @@ namespace TheMaze
             
         }
 
-        public void WallMonsterCollision(WallMonster wallMonster)
-        {
-            if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
-            {
-                wallMonster.active = true;
-            }
-
-            if (wallMonster.active)
-            {
-                player.moving = false;
-            }
-
-            if (player.weaponHitbox.Intersects(wallMonster.hitbox) && wallMonster.active && player.currentWeapon.color == Color.MediumBlue)
-            {
-
-                wallMonster.attackTimer.Start();
-
-                if (wallMonster.attackTimer.ElapsedMilliseconds >= 3000)
-                {
-                    wallMonster.coolDown = true;
-                    wallMonster.attackTimer.Reset();
-                }
-
-            }
-
-        }
-
+        
         public void Level1TutorialUpdate()
         {
             TutorialManager.buttonPressCheck();
@@ -250,75 +231,8 @@ namespace TheMaze
                 IngameTextmanager.DrawProgress(spriteBatch);
             }
         }
-        public void ImbakuCollision(GameTime gameTime)
-        {
-            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true && imbaku.isAlive)
-            {
-                //killed = true;
-            }
-
-            if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) < ConstantValues.tileHeight * 2.5 &&
-                player.currentWeapon.enabled && !X.player.insaferoom)
-            {
-                sfx.ImbakuEncounter();
-            }
-            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) >
-                ConstantValues.tileHeight * 2.5 && !X.player.insaferoom)
-            {
-                sfx.ImbakuEncounter();
-            }
-
-
-            if (Vector2.Distance(player.Position, imbaku.Position) < 400)
-            {
-                imbaku.isActive = true;
-            }
-            else
-            {
-                imbaku.isActive = false;
-            }
-
-            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && player.currentWeapon.color == Color.Red && imbaku.isAlive)
-            {
-                MonsterTakeDamage(imbaku, gameTime);
-            }
-
-            else
-            {
-                //imbaku.speed = 50;
-                foreach (ParticleEngine p in particleEngines)
-                {
-                    if (particleEngines.Count > 0)
-                    {
-                        p.isHit = false;
-                        particleEngines.Remove(p);
-                        break;
-                    }
-                }
-
-            }
-
-        }
-
-        public void MiniCollision()
-        {
-            foreach (MiniMonster mini in imbaku.miniMonsterList)
-            {
-                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox) && player.currentWeapon.color==Color.Red)
-                {
-                    imbaku.miniMonster.health--;
-                    if (imbaku.miniMonster.health <= 0)
-                    {
-                        imbaku.miniMonsterList.Remove(mini);
-                        break;
-                    }
-
-                }
-
-            }
-
-        }
-
+        
+        
         public void Resurrect()
         {
             if (X.IsKeyPressed(Keys.Space) && killed)
@@ -372,7 +286,6 @@ namespace TheMaze
             particleEngines.Add(particleEngine);
             particleEngine.EmitterLocation = new Vector2(imbaku.imbakuRectangleHitbox.Center.X,imbaku.imbakuRectangleHitbox.Center.Y);
             particleEngine.isHit = true;
-            imbaku.health -= gameTime.ElapsedGameTime.TotalMilliseconds / 2;
         }
 
         public void Desk(SpriteBatch spriteBatch)
@@ -502,6 +415,219 @@ namespace TheMaze
             }
 
         }
+
+
+        public void WallMonsterCollision(WallMonster wallMonster)
+        {
+            if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
+            {
+                wallMonster.active = true;
+                sfx.WallMonsterEncounterOn();
+            }
+
+            if (wallMonster.active)
+            {
+                player.moving = false;
+
+            }
+
+            if (player.weaponHitbox.Intersects(wallMonster.hitbox) && wallMonster.active && player.currentWeapon.color == Color.MediumBlue)
+            {
+
+                wallMonster.attackTimer.Start();
+
+                if (wallMonster.attackTimer.ElapsedMilliseconds >= 3000)
+                {
+                    wallMonster.coolDown = true;
+                    wallMonster.attackTimer.Reset();
+
+                    sfx.WallMonsterEncounterOff();
+                }
+
+            }
+
+        }
+
+        public void StalkerCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(stalker.stalkerRectangleHitbox) && !stalker.stalkerStunned && !player.playerImmunity)
+            {
+                PlayerDamage(stalker.monsterDamage);
+            }
+
+            if (Vector2.Distance(player.Position, stalker.Position) < 1500)
+            {
+                int stalkerPlayerDistance = (int)Math.Truncate(Vector2.Distance(player.Position, stalker.Position));
+
+                int lightFail = stalker.stalkerRandom.Next(0, stalkerPlayerDistance / 5);
+
+                if (lightFail == 0 && player.currentWeapon.enabled == true && !stalker.stalkerStunned)
+                {
+                    stalker.stalkerFlashTimer.Start();
+                    player.currentWeapon.enabled = false;
+
+                }
+
+                if (stalker.stalkerFlashTimer.ElapsedMilliseconds > 100)
+                {
+                    player.currentWeapon.enabled = true;
+                    stalker.stalkerFlashTimer.Reset();
+                }
+            }
+
+            if (player.weaponHitbox.Intersects(stalker.stalkerCircleHitbox) && player.currentWeapon.color == Color.Goldenrod)
+            {
+                stalker.stalkerStunned = true;
+            }
+
+            if ((!player.weaponHitbox.Intersects(stalker.stalkerCircleHitbox) || player.currentWeapon.color != Color.Goldenrod) && stalker.stalkerStunned)
+            {
+                stalker.stalkerStunnedTimer.Start();
+            }
+
+            if (stalker.stalkerStunnedTimer.ElapsedMilliseconds > 2000)
+            {
+                stalker.stalkerStunnedTimer.Reset();
+                stalker.stalkerStunned = false;
+            }
+        }
+
+        public void GolemCollision(GameTime gameTime)
+        {
+
+            if (player.weaponHitbox.Intersects(golem.golemCircleHitbox))
+            {
+                if (golem.isSleeping)
+                {
+                    golem.isActive = true;
+                }
+            }
+
+            else
+            {
+                golem.isActive = false;
+            }
+
+            if (Vector2.Distance(player.Position, golem.Position) <= 1000 && !golem.isActive)
+            {
+                golem.isSleeping = true;
+            }
+
+
+        }
+
+        public void GlitchMonsterCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
+            {
+                player.isInverse = true;
+            }
+
+            if (player.isInverse)
+            {
+                glitchMonster.glitchMonsterTimer.Start();
+
+                if (player.currentWeapon.enabled == false)
+                {
+                    player.isInverse = false;
+                    glitchMonster.glitchMonsterTimer.Reset();
+                }
+                else if (glitchMonster.glitchMonsterTimer.ElapsedMilliseconds >= 4000)
+                {
+                    player.isInverse = false;
+                    glitchMonster.glitchMonsterTimer.Reset();
+                    PlayerDamage(glitchMonster.monsterDamage);
+                }
+            }
+        }
+
+        public void ImbakuCollision(GameTime gameTime)
+        {
+            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true)
+            {
+                PlayerDamage(imbaku.monsterDamage);
+            }
+
+            if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) < ConstantValues.tileHeight * 2.5 &&
+                player.currentWeapon.enabled && !X.player.insaferoom)
+            {
+                sfx.ImbakuEncounter();
+            }
+            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) >
+                ConstantValues.tileHeight * 2.5 && !X.player.insaferoom)
+            {
+                sfx.ImbakuEncounter();
+            }
+
+
+            if (Vector2.Distance(player.Position, imbaku.Position) < 400)
+            {
+                imbaku.isActive = true;
+            }
+            else
+            {
+                imbaku.isActive = false;
+            }
+
+            if (Vector2.Distance(player.Position, imbaku.Position) > 2500 || Vector2.Distance(player.Position, imbaku.Position) < 600)
+            {
+                imbaku.isChasing = true;
+            }
+
+            if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && player.currentWeapon.color == Color.Red)
+            {
+                MonsterTakeDamage(imbaku, gameTime);
+            }
+
+            else
+            {
+                foreach (ParticleEngine p in particleEngines)
+                {
+                    if (particleEngines.Count > 0)
+                    {
+                        p.isHit = false;
+                        particleEngines.Remove(p);
+                        break;
+                    }
+                }
+
+            }
+
+        }
+
+        public void MiniCollision()
+        {
+            foreach (MiniMonster mini in imbaku.miniMonsterList)
+            {
+                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
+                {
+                    imbaku.miniMonster.health--;
+                    if (imbaku.miniMonster.health <= 0)
+                    {
+                        imbaku.miniMonsterList.Remove(mini);
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
+
+        public void PlayerDamage(int monsterDamage)
+        {
+            player.playerHealth = player.playerHealth - monsterDamage;
+            player.playerImmunity = true;
+
+            if (player.playerHealth <= 0)
+            {
+                killed = true;
+            }
+        }
+
+
+
+
 
 
     }
