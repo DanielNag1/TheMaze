@@ -44,7 +44,8 @@ namespace TheMaze
         }
         public void ReadLevel1()
         {
-            Tiles = GenerateMap("level2.txt",false);
+            Tiles = GenerateMap("level1.txt",false);
+            Pathfind.FillGridFromMap(Tiles);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

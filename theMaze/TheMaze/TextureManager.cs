@@ -20,7 +20,7 @@ namespace TheMaze
         public static Texture2D ImbakuTex { get; private set; }
         public static Texture2D MiniMonsterTex { get; private set; }
         public static Texture2D WallMonsterTex { get; private set; }
-
+        public static Texture2D StalkerTex { get; private set; }
 
         public static Texture2D WaterTileTex { get; private set; }
 
@@ -66,6 +66,7 @@ namespace TheMaze
             ImbakuTex = Content.Load<Texture2D>("spritesheet_Imbaku");
             MiniMonsterTex = Content.Load<Texture2D>("spritesheet_mini_imbaku");
             WallMonsterTex = Content.Load<Texture2D>("wallmonster2.2");
+            StalkerTex = Content.Load<Texture2D>("stalker_spritesheet");
 
 
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");

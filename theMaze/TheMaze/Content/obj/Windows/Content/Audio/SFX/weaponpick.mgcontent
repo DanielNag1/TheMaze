@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/weaponpick.wav</SourceFile>
-  <SourceTime>2019-05-20T16:06:34.3708968+02:00</SourceTime>
-  <DestFile>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/weaponpick.xnb</DestFile>
-  <DestTime>2019-05-20T16:07:31.7210026+02:00</DestTime>
+  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/SFX/weaponpick.wav</SourceFile>
+  <SourceTime>2019-05-20T18:27:47.2899733+02:00</SourceTime>
+  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/Audio/SFX/weaponpick.xnb</DestFile>
+  <DestTime>2019-05-20T18:37:42.8894942+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

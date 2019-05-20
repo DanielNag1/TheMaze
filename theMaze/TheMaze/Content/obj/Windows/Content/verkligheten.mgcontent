@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/verkligheten.png</SourceFile>
-  <SourceTime>2019-05-20T16:06:35.7905207+02:00</SourceTime>
-  <DestFile>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/bin/Windows/Content/verkligheten.xnb</DestFile>
-  <DestTime>2019-05-20T16:07:35.5353161+02:00</DestTime>
+  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/verkligheten.png</SourceFile>
+  <SourceTime>2019-05-20T18:27:48.0141558+02:00</SourceTime>
+  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/verkligheten.xnb</DestFile>
+  <DestTime>2019-05-20T18:37:47.5141452+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -75,6 +75,7 @@ namespace TheMaze
                 lights = new Lights(levelManager, saferoom);
                 sfx = new SFX();
 
+                stalker = new Stalker(TextureManager.StalkerTex, levelManager.StalkerStartPosition, levelManager);
 
                 foreach (Tile t in levelManager.Tiles)
                 {
@@ -130,6 +131,7 @@ namespace TheMaze
             {
                 case Level.Level1:
                     Level1TutorialUpdate();
+                    Level1Update(gameTime);
                     break;
                 case Level.Level2:
                     Level2Update(gameTime);
@@ -203,6 +205,11 @@ namespace TheMaze
         public void Level1TutorialUpdate()
         {
             TutorialManager.buttonPressCheck();
+        }
+         public void Level1Update(GameTime gameTime)
+        {
+            stalker.Update(gameTime, player);
+            StalkerCollision(gameTime);
         }
 
         public void Level1TutorialDraw(SpriteBatch spriteBatch)
@@ -309,6 +316,7 @@ namespace TheMaze
                     }
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
+                    stalker.Draw(spriteBatch);
                     spriteBatch.End();
 
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
