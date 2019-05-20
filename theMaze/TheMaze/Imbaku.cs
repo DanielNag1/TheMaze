@@ -37,7 +37,7 @@ namespace TheMaze
             isChasing = false;
 
             speed = 50f;
-            //monsterDamage = 1;
+            
 
             miniMonsterList = new List<MiniMonster>();
             miniIsAlive = true;
@@ -129,7 +129,7 @@ namespace TheMaze
             else
             {
                 Animation(gameTime);
-                //speed = 50f;
+                speed = 50f;
             }
 
             if (isChasing)

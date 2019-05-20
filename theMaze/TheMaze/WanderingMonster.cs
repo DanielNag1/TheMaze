@@ -40,7 +40,7 @@ namespace TheMaze
             base.Update(gameTime);
             Moving(gameTime);
             UpdateSourceRectangle();
-            
+
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -79,7 +79,7 @@ namespace TheMaze
             Vector2 newDestination = Position + direction * ConstantValues.tileWidth;
 
             Tile tile = levelManager.GetTileAtPosition(direction);
-            if (tile.IsWall || tile.IsEntrance)
+            if (tile.IsWall)
             {
                 destination = newDestination;
                 moving = true;
@@ -106,8 +106,11 @@ namespace TheMaze
                 //Kollar om det inte är en vägg
                 if (!tile.IsWall)
                 {
-                    //Om det inte är en vägg, lägger till den i listan "possibleDirections"
+
                     possibleDirections.Add(direction);
+
+                    //Om det inte är en vägg, lägger till den i listan "possibleDirections"
+
                 }
             }
 

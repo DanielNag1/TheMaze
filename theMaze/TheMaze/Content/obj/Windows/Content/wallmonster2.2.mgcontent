@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/sandr/Desktop/TheMaze-RS3-Monster/theMaze/TheMaze/Content/wallmonster2.2.png</SourceFile>
+  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/wallmonster2.2.png</SourceFile>
   <SourceTime>2019-05-16T18:24:41.9100021+02:00</SourceTime>
-  <DestFile>C:/Users/sandr/Desktop/TheMaze-RS3-Monster/theMaze/TheMaze/Content/bin/Windows/Content/wallmonster2.2.xnb</DestFile>
-  <DestTime>2019-05-16T18:29:08.0586008+02:00</DestTime>
+  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/wallmonster2.2.xnb</DestFile>
+  <DestTime>2019-05-20T13:09:00.0762033+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

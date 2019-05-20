@@ -22,7 +22,7 @@ namespace TheMaze
 
         protected bool isWall = true;
         protected bool isHull = false;
-        protected bool isEntrance = true;
+        protected bool isEntrance = false;
         public static bool black;
 
         public bool IsWall

@@ -863,3 +863,5 @@ C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze
 C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
 C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
 C:\Users\sandr\Desktop\TheMaze-RS3-Monster\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wallmonster2.2.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wallmonster2.2.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
