@@ -357,7 +357,7 @@ namespace TheMaze
             }
 
 
-            if (Vector2.Distance(player.Position, imbaku.Position) < 400)
+            if (Vector2.Distance(player.Position, imbaku.Position) < 500)
             {
                 imbaku.isActive = true;
             }
@@ -366,9 +366,13 @@ namespace TheMaze
                 imbaku.isActive = false;
             }
 
-            if (Vector2.Distance(player.Position, imbaku.Position) > 2500 || Vector2.Distance(player.Position, imbaku.Position) < 600)
+            if (Vector2.Distance(player.Position, imbaku.Position) > 3500 || Vector2.Distance(player.Position, imbaku.Position) < 1000)
             {
                 imbaku.isChasing = true;
+            }
+            else
+            {
+                imbaku.isChasing = false;
             }
 
             if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && player.currentWeapon.color == Color.Red)
@@ -407,10 +411,10 @@ namespace TheMaze
         {
             foreach (MiniMonster mini in imbaku.miniMonsterList)
             {
-                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
+                if (player.weaponHitbox.Intersects(mini.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
                 {
-                    imbaku.miniMonster.health--;
-                    if (imbaku.miniMonster.health <= 0)
+                    mini.health--;
+                    if (mini.health <= 0)
                     {
                         imbaku.miniMonsterList.Remove(mini);
                         break;
@@ -418,6 +422,21 @@ namespace TheMaze
 
                 }
 
+            }
+
+            List<MiniMonster> miniMonsterToRemove = new List<MiniMonster>();
+
+            foreach (MiniMonster mini in imbaku.miniMonsterList)
+            {
+                if (player.middleHitbox.Intersects(mini.miniRectangleHitbox) || Vector2.Distance(player.Position, mini.Position) > 650)
+                {
+                    miniMonsterToRemove.Add(mini);
+                }
+            }
+
+            foreach (MiniMonster miniRemove in miniMonsterToRemove)
+            {
+                imbaku.miniMonsterList.Remove(miniRemove);
             }
 
         }

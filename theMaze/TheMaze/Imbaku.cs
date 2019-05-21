@@ -19,7 +19,6 @@ namespace TheMaze
         public bool isActive, miniIsAlive, isChasing;
         
         private float creatingMiniTimer = 0f, resetMiniTimer = 3f;
-        public MiniMonster miniMonster;
         public List<MiniMonster> miniMonsterList;
 
 
@@ -34,7 +33,7 @@ namespace TheMaze
             imbakuCircleHitbox = new Circle(imbakuCircleHitboxPos, 90f);
             
             isActive = false;
-            isChasing = false;
+            isChasing = true;
 
             speed = 50f;
             //monsterDamage = 1;
@@ -99,6 +98,10 @@ namespace TheMaze
                     frameSize = 7;
                 }
             }
+            else
+            {
+                frameSize = 0;
+            }
         }
 
 
@@ -114,22 +117,23 @@ namespace TheMaze
                     frame++;
                     if (frame >= nrFrames)
                     {
-                        frame = 5;
+                        frame = 0;
                     }
                 }
 
                 //speed = 0;
 
-                if (miniMonsterList.Count <= 4)
+                if (miniMonsterList.Count <= 8)
                 {
                     CreateMini(gameTime);
                 }
+
             }
 
             else
             {
                 Animation(gameTime);
-                //speed = 50f;
+                //Pathfinding(gameTime, player);
             }
 
             if (isChasing)
@@ -145,12 +149,12 @@ namespace TheMaze
 
         protected void CreateMini(GameTime gameTime)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 9; i++)
             {
                 creatingMiniTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (creatingMiniTimer <= 0)
                 {
-                    miniMonster = new MiniMonster(TextureManager.MiniMonsterTex, position, levelManager);
+                    MiniMonster miniMonster = new MiniMonster(TextureManager.MiniMonsterTex, position, levelManager);
                     miniMonsterList.Add(miniMonster);
                     Console.WriteLine(miniMonster.speed);
                     creatingMiniTimer = resetMiniTimer;
