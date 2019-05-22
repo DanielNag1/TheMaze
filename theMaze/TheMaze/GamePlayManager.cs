@@ -407,23 +407,8 @@ namespace TheMaze
             }
         }
 
-        public void MiniCollision()
+        public void MiniCollision(LevelManager levelManager)
         {
-            foreach (MiniMonster mini in imbaku.miniMonsterList)
-            {
-                if (player.weaponHitbox.Intersects(mini.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
-                {
-                    mini.health--;
-                    if (mini.health <= 0)
-                    {
-                        imbaku.miniMonsterList.Remove(mini);
-                        break;
-                    }
-
-                }
-
-            }
-
             List<MiniMonster> miniMonsterToRemove = new List<MiniMonster>();
 
             foreach (MiniMonster mini in imbaku.miniMonsterList)
@@ -432,13 +417,36 @@ namespace TheMaze
                 {
                     miniMonsterToRemove.Add(mini);
                 }
+
+                for (int i = 0; i < levelManager.Tiles.GetLength(0); i++)
+                {
+                    for (int j = 0; j < levelManager.Tiles.GetLength(1); j++)
+                    {
+                        if (levelManager.Tiles[i, j].IsWall)
+                        {
+                            if (mini.miniRectangleHitbox.Intersects(levelManager.Tiles[i, j].Hitbox))
+                            {
+                                miniMonsterToRemove.Add(mini);
+                            }
+                        }
+                    }
+                }
+
+                if (player.weaponHitbox.Intersects(mini.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
+                {
+                    mini.health--;
+                    if (mini.health <= 0)
+                    {
+                        miniMonsterToRemove.Add(mini);
+                        break;
+                    }
+                }
             }
 
             foreach (MiniMonster miniRemove in miniMonsterToRemove)
             {
                 imbaku.miniMonsterList.Remove(miniRemove);
             }
-
         }
 
         public void Resurrect()
@@ -589,7 +597,7 @@ namespace TheMaze
             GolemCollision(gameTime);
             glitchMonster.Update(gameTime);
             StalkerCollision(gameTime);
-            MiniCollision();
+            MiniCollision(levelManager);
             GlitchMonsterCollision(gameTime);
             foreach (WallMonster wM in levelManager.wallMonsters)
             {

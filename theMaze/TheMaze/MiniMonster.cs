@@ -30,7 +30,7 @@ namespace TheMaze
             hitbox = new Circle(position, 100);
             health = 400;
 
-            speed = random.Next(75, 125);
+            speed = random.Next(75, 225);
         }
 
         public override void Update(GameTime gameTime, Player player)
