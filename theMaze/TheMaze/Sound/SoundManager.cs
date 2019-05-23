@@ -31,12 +31,12 @@ namespace TheMaze
         public static SoundEffect PickWeapon { get; private set; }
 
         public static SoundEffect WhiteAmbient { get; private set; }
-        
 
         public static SoundEffect GetHit { get; private set; }
         public static SoundEffect Suicide { get; private set; }
         public static SoundEffect Sprint { get; private set; }
         public static SoundEffect LowHP { get; private set; }
+        public static SoundEffect LightAttack { get; private set; }
 
         public static SoundEffect GolemScream { get; private set; }
         public static SoundEffect GolemSong { get; private set; }
@@ -72,6 +72,7 @@ namespace TheMaze
             Suicide = content.Load<SoundEffect>("Audio/SFX/suicide");
             Sprint = content.Load<SoundEffect>("Audio/SFX/run");
             LowHP = content.Load<SoundEffect>("Audio/SFX/lowhp2");
+            LightAttack = content.Load<SoundEffect>("Audio/SFX/icespell");
 
             GolemScream = content.Load<SoundEffect>("Audio/SFX/psychoscream");
             GolemSong = content.Load<SoundEffect>("Audio/SFX/golemsong");

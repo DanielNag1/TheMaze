@@ -722,3 +722,9 @@
 /processorParam:Quality=Best
 /build:Audio/SFX/whispering.wav
 
+#begin Audio/SFX/icespell.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/icespell.wav
+

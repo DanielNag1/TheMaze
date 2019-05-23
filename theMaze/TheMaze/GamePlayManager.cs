@@ -649,7 +649,7 @@ namespace TheMaze
 
             if (player.weaponHitbox.Intersects(wallMonster.hitbox) && wallMonster.active && player.currentWeapon.color == Color.Red)
             {
-
+                sfx.LightMonsterCollision();
                 wallMonster.attackTimer.Start();
 
                 if (wallMonster.attackTimer.ElapsedMilliseconds >= 3000)

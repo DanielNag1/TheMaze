@@ -14,7 +14,7 @@ namespace TheMaze
     class GameStateManager
     {
         public enum GameState { MainMenu, Play, Pause, Killed, CollectibleMenu, Cutscene }
-        public static GameState currentGameState = GameState.MainMenu;
+        public static GameState currentGameState;
         GamePlayManager gamePlayManager;
         MainMenu mainMenu;
         PauseMenu pauseMenu;
@@ -41,7 +41,8 @@ namespace TheMaze
 
             videoplayer.Play(video);
             videoTexture = videoplayer.GetTexture();
-
+            videoplayer.Stop();
+            currentGameState = GameState.MainMenu;
         }
 
         public void Update(GameTime gameTime)
@@ -53,7 +54,6 @@ namespace TheMaze
             {
                 case GameState.MainMenu:
                     mainMenu.Update();
-                    //videoplayer.Stop();
                     X.IsMouseVisible = true;
                     break;
                 case GameState.Play:
