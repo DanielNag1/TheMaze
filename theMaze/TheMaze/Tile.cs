@@ -32,6 +32,8 @@ namespace TheMaze
             get { return isHull; }
         }
 
+        public bool IsEntrance { get; private set; }
+
 
         public Tile(Vector2 position, char identifier, bool isWhite)
         {
@@ -40,7 +42,7 @@ namespace TheMaze
             this.identifier = identifier;
             sourceRect = Rectangle.Empty;
             Hitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
-
+            IsEntrance = false;
 
             DeterminTexture();
         }
@@ -248,6 +250,14 @@ namespace TheMaze
                     {
                         texture = TextureManager.WallSheetTex;
                         sourceRect = new Rectangle(0 * frameSize, 0 * frameSize, frameSize, frameSize);
+                        break;
+                    }
+                case 'Y':
+                    {
+                        texture = TextureManager.FloorTileTex;
+                        sourceRect = new Rectangle(0, 0, frameSize, frameSize);
+                        isWall = false;
+                        IsEntrance = true;
                         break;
                     }
                 default:

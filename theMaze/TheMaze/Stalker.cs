@@ -45,7 +45,7 @@ namespace TheMaze
 
         public override void Update(GameTime gameTime, Player player)
         {
-            base.Update(gameTime);
+            base.Update(gameTime, player);
             currentSourceRect.X = frame * 125;
             currentSourceRect.Y = frameSize * 250;
 

@@ -11,7 +11,7 @@ namespace TheMaze
     public class Monster : GameObject
     {
         public Vector2 destination, hitboxPos;
-        
+
 
         public Circle hitbox;
 
@@ -28,7 +28,7 @@ namespace TheMaze
             currentSourceRect = new Rectangle(frame, frameSize, ConstantValues.tileWidth, ConstantValues.tileHeight);
         }
 
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime, Player player)
         {
             Animation(gameTime);
             UpdateSourceRectangle();

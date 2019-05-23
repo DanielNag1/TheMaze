@@ -22,7 +22,7 @@ namespace TheMaze
 
         }
 
-        public virtual void Update(GameTime gameTime, Player player)
+        public override void Update(GameTime gameTime, Player player)
         {
             Animation(gameTime);
 
@@ -37,47 +37,49 @@ namespace TheMaze
 
         protected void Pathfinding(GameTime gameTime, Player player)
         {
-            chaseTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
-            if (chaseTimer < 0)
+            if (!X.player.insaferoom)
             {
-                path = Pathfind.CreatePath(Position, player.playerHitbox.Center.ToVector2());
-                chaseTimer = resetTimer;
-            }
+                chaseTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-
-            if (!moving)
-            {
-
-                //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
-                if (path.Count != 0)
+                if (chaseTimer < 0)
                 {
-                    //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
-                    newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
-                    //använder metoden som random movement också använder
-                    ChangeDirection(newDirection);
-
+                    path = Pathfind.CreatePath(Position, player.FootHitbox.Center.ToVector2());
+                    chaseTimer = resetTimer;
                 }
-            }
 
-            else
-            {
-                position += direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                if (Vector2.Distance(Position, destination) < 1)
+                if (!moving)
                 {
-                    position = destination;
-                    moving = false;
-                    //kollar igen så att listan med "the path" inte är tom för att motverka krasch
-                    //tar sen bort första elementet i listan så att vi kan kalla på path.first() med nästa mål
+
+                    //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar
                     if (path.Count != 0)
                     {
-                        path.RemoveAt(0);
-                    }
+                        //newDirection kallar på en metod i Pathfind som ger en vector där x och y antingen är 1 eller 0
+                        newDirection = Pathfind.SetDirectionFromNextPosition(Position, path.First());
+                        //använder metoden som random movement också använder
+                        ChangeDirection(newDirection);
 
+                    }
+                }
+
+                else
+                {
+                    position += Direction * speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (Vector2.Distance(Position, destination) < 1)
+                    {
+                        position = destination;
+                        moving = false;
+                        //kollar igen så att listan med "the path" inte är tom för att motverka krasch
+                        //tar sen bort första elementet i listan så att vi kan kalla på path.first() med nästa mål
+                        if (path.Count != 0)
+                        {
+                            path.RemoveAt(0);
+                        }
+
+                    }
                 }
             }
-
         }
 
 

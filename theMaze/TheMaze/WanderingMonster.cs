@@ -17,7 +17,7 @@ namespace TheMaze
         private readonly Vector2 Left = new Vector2(-1, 0);
         private readonly Vector2 Right = new Vector2(1, 0);
 
-        public Vector2 Direction { get; private set; }
+        public Vector2 Direction { get; protected set; }
 
         private Random random;
 
@@ -35,9 +35,9 @@ namespace TheMaze
             moving = false;
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime, Player player)
         {
-            base.Update(gameTime);
+            base.Update(gameTime, player);
             Moving(gameTime);
             UpdateSourceRectangle();
 
@@ -75,10 +75,10 @@ namespace TheMaze
 
         protected void ChangeDirection(Vector2 newDirection)
         {
-            direction = newDirection;
-            Vector2 newDestination = Position + direction * ConstantValues.tileWidth;
+            Direction = newDirection;
+            Vector2 newDestination = Position + Direction * ConstantValues.tileWidth;
 
-            Tile tile = levelManager.GetTileAtPosition(direction);
+            Tile tile = levelManager.GetTileAtPosition(Direction);
             if (tile.IsWall)
             {
                 destination = newDestination;
@@ -106,9 +106,10 @@ namespace TheMaze
                 //Kollar om det inte är en vägg
                 if (!tile.IsWall)
                 {
-
-                    possibleDirections.Add(direction);
-
+                    if (!tile.IsEntrance)
+                    {
+                        possibleDirections.Add(direction);
+                    }
                     //Om det inte är en vägg, lägger till den i listan "possibleDirections"
 
                 }
@@ -124,26 +125,26 @@ namespace TheMaze
             Direction = possibleDirections[random.Next(0, possibleDirections.Count)];
         }
 
-        //public void UpdateSourceRectangle()
-        //{
-        //    if (direction == new Vector2(1, 0))
-        //    {
-        //        frameSize = 1;
-        //    }
-        //    if (direction == new Vector2(-1, 0))
-        //    {
-        //        frameSize = 0;
-        //    }
+        public void UpdateSourceRectangle()
+        {
+            if (Direction == new Vector2(1, 0))
+            {
+                frameSize = 1;
+            }
+            if (Direction == new Vector2(-1, 0))
+            {
+                frameSize = 0;
+            }
 
-        //    if (direction == new Vector2(0, 1))
-        //    {
-        //        frameSize = 2;
-        //    }
+            if (Direction == new Vector2(0, 1))
+            {
+                frameSize = 2;
+            }
 
-        //    if (direction == new Vector2(0, -1))
-        //    {
-        //        frameSize = 3;
-        //    }
-        //}
+            if (Direction == new Vector2(0, -1))
+            {
+                frameSize = 3;
+            }
+        }
     }
 }

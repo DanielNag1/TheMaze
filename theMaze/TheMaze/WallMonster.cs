@@ -34,7 +34,7 @@ namespace TheMaze
 
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime, Player player)
         {
             States();
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture3.png</SourceFile>
-  <SourceTime>2019-05-14T12:08:46.82491+02:00</SourceTime>
+  <SourceTime>2019-05-23T13:58:05.7305827+02:00</SourceTime>
   <DestFile>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/storyTexture3.xnb</DestFile>
-  <DestTime>2019-05-16T13:18:38.2529832+02:00</DestTime>
+  <DestTime>2019-05-23T14:00:12.6324773+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
