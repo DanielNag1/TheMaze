@@ -483,6 +483,8 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
                     ingameTextmanager.Draw(spriteBatch);
+                    DrawHPWarning(spriteBatch);
+
                     spriteBatch.End();
                     break;
 
@@ -537,6 +539,8 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
                     ingameTextmanager.Draw(spriteBatch);
+                    DrawHPWarning(spriteBatch);
+
                     spriteBatch.End();
                     break;
 
@@ -584,6 +588,8 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
                     ingameTextmanager.Draw(spriteBatch);
+                    DrawHPWarning(spriteBatch);
+
                     spriteBatch.End();
                     break;
 
