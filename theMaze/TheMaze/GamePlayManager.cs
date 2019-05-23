@@ -81,7 +81,7 @@ namespace TheMaze
                 ////stalker = new Stalker(TextureManager.StalkerTex, levelManager.StalkerStartPosition, levelManager);
                 //glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
                 //armMonster = new ArmMonster(TextureManager.ArmMonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
-                golem = new Golem(TextureManager.GolemTex, levelManager.GolemStartPosition, levelManager);
+                //golem = new Golem(TextureManager.GolemTex, levelManager.GolemStartPosition, levelManager);
                 //imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
 
                 foreach (Tile t in levelManager.Tiles)
@@ -312,13 +312,13 @@ namespace TheMaze
         {
             //glitchMonster.Update(gameTime, player);
             //armMonster.Update(gameTime, player);
-            golem.Update(gameTime, player);
+            //golem.Update(gameTime, player);
             //stalker.Update(gameTime, player);
             //imbaku.Update(gameTime,player);
 
             //GlitchMonsterCollision(gameTime);
             //ArmMonsterCollision(gameTime);
-            GolemCollision(gameTime);
+            //GolemCollision(gameTime);
             //StalkerCollision(gameTime);
             //ImbakuCollision(gameTime);
             //MiniCollision(levelManager);
@@ -450,7 +450,7 @@ namespace TheMaze
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
                     //armMonster.Draw(spriteBatch);
-                    golem.Draw(spriteBatch);
+                    //golem.Draw(spriteBatch);
                     //stalker.Draw(spriteBatch);
                     //imbaku.Draw(spriteBatch);
 

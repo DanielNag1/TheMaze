@@ -41,7 +41,7 @@ namespace TheMaze
             SoundManager.LoadContent(Content);
             TextureManager.LoadContent(Content);
             gameStateManager = new GameStateManager();
-            penumbra.AmbientColor = Color.White;
+            penumbra.AmbientColor = Color.Black;
             
         }
 
