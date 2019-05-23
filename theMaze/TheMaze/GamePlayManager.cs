@@ -753,7 +753,7 @@ namespace TheMaze
             {
                 glitchMonster.glitchMonsterTimer.Start();
 
-                if (player.currentWeapon.enabled == false)
+                if (X.IsKeyPressed(Keys.E) && player.currentWeapon.enabled == true)
                 {
                     player.isInverse = false;
                     glitchMonster.glitchMonsterTimer.Reset();
