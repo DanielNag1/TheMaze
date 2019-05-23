@@ -577,7 +577,6 @@ C:\Users\Spellabb2018\Desktop\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
-C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu.xnb
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu.xnb
 C:\Users\Nagy Dániel\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb

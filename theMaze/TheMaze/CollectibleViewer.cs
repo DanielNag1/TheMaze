@@ -14,9 +14,11 @@ namespace TheMaze
         private StoryButton collectibleButton;
         public List<StoryButton> collectibleButtons;
 
-        private Vector2 startPos;
+        private Vector2 startPos, spacePos;
         private int numberToWrite, numberOfAvailableButtons;
         public bool inMenu;
+
+        private Button space;
 
         enum View { menu, story }
         View currentView = View.menu;
@@ -25,6 +27,11 @@ namespace TheMaze
         {
             collectibleButtons = new List<StoryButton>();
             CreateButtons();
+
+            spacePos = new Vector2(960 - TextureManager.TimesNewRomanFont.MeasureString("'SPACE' TO EXIT").Length() / 2, 1020);
+
+            space = new Button(TextureManager.TransparentTex, spacePos, TextureManager.TimesNewRomanFont,
+                "'SPACE' TO EXIT", Color.White);
         }
 
         public void Update()
@@ -53,9 +60,13 @@ namespace TheMaze
                         b.Draw(spriteBatch);
                     }
 
+                    space.Draw(spriteBatch);
+
                     break;
                 case View.story:
                     DrawStory(spriteBatch);
+
+                    space.Draw(spriteBatch);
                     break;
             }
             spriteBatch.End();
@@ -174,7 +185,8 @@ namespace TheMaze
         }
         public void DrawStory(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(TextureManager.storyTextures[numberOfAvailableButtons], new Vector2(500, 0), Color.White);
+            spriteBatch.Draw(TextureManager.storyTextures[numberOfAvailableButtons], 
+                new Vector2(960 - TextureManager.storyTexture1.Width/2, 0), Color.White);
         }
 
         public void MenuUpdate()
