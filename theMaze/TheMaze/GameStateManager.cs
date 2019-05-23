@@ -53,7 +53,7 @@ namespace TheMaze
             {
                 case GameState.MainMenu:
                     mainMenu.Update();
-                    //videoplayer.Stop();
+                    videoplayer.Stop();
                     X.IsMouseVisible = true;
                     break;
                 case GameState.Play:

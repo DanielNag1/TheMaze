@@ -78,11 +78,11 @@ namespace TheMaze
                 saferoom = new Saferoom(levelManager);
                 lights = new Lights(levelManager, saferoom);
 
-                //stalker = new Stalker(TextureManager.StalkerTex, levelManager.StalkerStartPosition, levelManager);
-                glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
-                armMonster = new ArmMonster(TextureManager.ArmMonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
+                ////stalker = new Stalker(TextureManager.StalkerTex, levelManager.StalkerStartPosition, levelManager);
+                //glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
+                //armMonster = new ArmMonster(TextureManager.ArmMonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
                 golem = new Golem(TextureManager.GolemTex, levelManager.GolemStartPosition, levelManager);
-                imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+                //imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
 
                 foreach (Tile t in levelManager.Tiles)
                 {
@@ -310,18 +310,18 @@ namespace TheMaze
 
         public void Level1Update(GameTime gameTime)
         {
-            glitchMonster.Update(gameTime, player);
-            armMonster.Update(gameTime, player);
+            //glitchMonster.Update(gameTime, player);
+            //armMonster.Update(gameTime, player);
             golem.Update(gameTime, player);
             //stalker.Update(gameTime, player);
-            imbaku.Update(gameTime,player);
+            //imbaku.Update(gameTime,player);
 
-            GlitchMonsterCollision(gameTime);
-            ArmMonsterCollision(gameTime);
+            //GlitchMonsterCollision(gameTime);
+            //ArmMonsterCollision(gameTime);
             GolemCollision(gameTime);
             //StalkerCollision(gameTime);
-            ImbakuCollision(gameTime);
-            MiniCollision(levelManager);
+            //ImbakuCollision(gameTime);
+            //MiniCollision(levelManager);
 
             foreach (WallMonster wM in levelManager.wallMonsters)
             {
@@ -449,15 +449,15 @@ namespace TheMaze
 
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
-                    armMonster.Draw(spriteBatch);
+                    //armMonster.Draw(spriteBatch);
                     golem.Draw(spriteBatch);
                     //stalker.Draw(spriteBatch);
-                    imbaku.Draw(spriteBatch);
+                    //imbaku.Draw(spriteBatch);
 
-                    foreach(WallMonster wM in levelManager.wallMonsters)
-                    {
-                        wM.Draw(spriteBatch);
-                    }
+                    //foreach(WallMonster wM in levelManager.wallMonsters)
+                    //{
+                    //    wM.Draw(spriteBatch);
+                    //}
 
                     spriteBatch.End();
 
@@ -715,11 +715,12 @@ namespace TheMaze
         public void GolemCollision(GameTime gameTime)
         {
 
-            if (player.weaponHitbox.Intersects(golem.golemCircleHitbox))
+            if (player.weaponHitbox.Intersects(golem.golemCircleHitbox) && player.currentWeapon.enabled == true)
             {
                 if (golem.isSleeping)
                 {
                     golem.isActive = true;
+                    sfx.GolemEncounter(gameTime);
                 }
             }
 
@@ -728,9 +729,13 @@ namespace TheMaze
                 golem.isActive = false;
             }
 
-            if (Vector2.Distance(player.Position, golem.Position) <= 1000 && !golem.isActive)
+            if (Vector2.Distance(player.Position, golem.Position) <= 800 && !golem.isActive)
             {
                 golem.isSleeping = true;
+            }
+            else
+            {
+                golem.isSleeping = false;
             }
 
 
