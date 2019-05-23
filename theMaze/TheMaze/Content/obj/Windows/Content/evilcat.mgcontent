@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/evilcat.png</SourceFile>
-  <SourceTime>2019-05-14T12:21:59.3901658+02:00</SourceTime>
-  <DestFile>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/bin/Windows/Content/evilcat.xnb</DestFile>
-  <DestTime>2019-05-20T18:28:12.7396801+02:00</DestTime>
+  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/evilcat.png</SourceFile>
+  <SourceTime>2019-05-15T18:25:41.3332896+02:00</SourceTime>
+  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/evilcat.xnb</DestFile>
+  <DestTime>2019-05-23T12:25:19.1308293+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

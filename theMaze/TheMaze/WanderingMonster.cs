@@ -124,26 +124,26 @@ namespace TheMaze
             Direction = possibleDirections[random.Next(0, possibleDirections.Count)];
         }
 
-        public void UpdateSourceRectangle()
-        {
-            if (direction == new Vector2(1, 0))
-            {
-                frameSize = 1;
-            }
-            if (direction == new Vector2(-1, 0))
-            {
-                frameSize = 0;
-            }
+        //public void UpdateSourceRectangle()
+        //{
+        //    if (direction == new Vector2(1, 0))
+        //    {
+        //        frameSize = 1;
+        //    }
+        //    if (direction == new Vector2(-1, 0))
+        //    {
+        //        frameSize = 0;
+        //    }
 
-            if (direction == new Vector2(0, 1))
-            {
-                frameSize = 2;
-            }
+        //    if (direction == new Vector2(0, 1))
+        //    {
+        //        frameSize = 2;
+        //    }
 
-            if (direction == new Vector2(0, -1))
-            {
-                frameSize = 3;
-            }
-        }
+        //    if (direction == new Vector2(0, -1))
+        //    {
+        //        frameSize = 3;
+        //    }
+        //}
     }
 }
