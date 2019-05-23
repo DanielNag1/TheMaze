@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Audio/BGM/darksoulsamomentspeace.wav</SourceFile>
-  <SourceTime>2019-05-22T23:32:57.6781389+02:00</SourceTime>
+  <SourceTime>2019-05-23T00:32:05.9822837+02:00</SourceTime>
   <DestFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Audio/BGM/darksoulsamomentspeace.xnb</DestFile>
-  <DestTime>2019-05-22T23:35:19.3959204+02:00</DestTime>
+  <DestTime>2019-05-23T00:34:56.8143633+02:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

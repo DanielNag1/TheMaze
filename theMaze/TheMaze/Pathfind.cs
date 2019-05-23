@@ -43,7 +43,7 @@ namespace TheMaze
 
             //if (CheckGridPos(start) && CheckGridPos(end))
             //{
-            //    Console.WriteLine("###### Returning empty path.");
+                //Console.WriteLine("###### Returning empty path.");
             //    return pathPos;
             //}
 
