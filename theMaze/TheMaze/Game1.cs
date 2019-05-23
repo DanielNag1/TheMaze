@@ -28,7 +28,7 @@ namespace TheMaze
         {
             graphics.PreferredBackBufferWidth = ConstantValues.screenWidth;
             graphics.PreferredBackBufferHeight = ConstantValues.screenHeight;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             IsMouseVisible = true;
 

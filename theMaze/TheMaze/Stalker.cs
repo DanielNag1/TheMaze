@@ -58,7 +58,7 @@ namespace TheMaze
             stalkerCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             stalkerCircleHitbox = new Circle(stalkerCircleHitboxPos, 90f);
 
-            //sfx.StalkerWhispers(gameTime);
+            sfx.StalkerWhispers(gameTime);
 
             if (!stalkerStunned)
             {

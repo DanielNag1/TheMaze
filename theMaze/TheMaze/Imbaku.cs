@@ -36,7 +36,7 @@ namespace TheMaze
             isChasing = false;
 
             speed = 50f;
-            //monsterDamage = 1;
+            monsterDamage = 2;
 
             miniMonsterList = new List<MiniMonster>();
             miniIsAlive = true;

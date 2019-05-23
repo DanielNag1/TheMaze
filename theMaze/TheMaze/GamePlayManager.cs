@@ -14,7 +14,7 @@ namespace TheMaze
     {
         public bool killed = false;
         public static bool gameCompleted;
-        public enum LevelState { Live, Death, CollectibleMenu }
+        public enum LevelState { Live, Death }
         public static LevelState currentState = LevelState.Live;
         public enum Level { Level1, Level2, Level3, Level4 }
         public static Level currentLevel = Level.Level1;
@@ -190,6 +190,9 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
+
+            Console.WriteLine(ingameTextmanager.currentStage);
+            Console.WriteLine(player.collectibles.Count);
             player.Update(gameTime);
 
             saferoom.Update(gameTime);
@@ -352,7 +355,7 @@ namespace TheMaze
                 killed = false;
                 currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);
-                
+
             }
         }
 
@@ -542,6 +545,7 @@ namespace TheMaze
 
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
+                    ingameTextmanager.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
 
@@ -576,7 +580,7 @@ namespace TheMaze
                     {
                         wallMonster.Draw(spriteBatch);
                     }
-                    
+
                     foreach (Stalker stalker in levelManager.stalkerList)
                     {
                         stalker.Draw(spriteBatch);
@@ -588,12 +592,15 @@ namespace TheMaze
 
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
                     Game1.penumbra.Draw(gameTime);
-                    Level1TutorialDraw(spriteBatch);
+                    ingameTextmanager.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
 
                 case LevelState.Death:
                     DeathDraw(spriteBatch);
+                    spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.TransformHallway);
+                    ingameTextmanager.Draw(spriteBatch);
+                    spriteBatch.End();
                     break;
 
             }
@@ -607,7 +614,11 @@ namespace TheMaze
             player.Draw(spriteBatch);
             spriteBatch.Draw(TextureManager.Vitadelen, new Vector2(toRespawnRectangle.Center.X - TextureManager.Vitadelen.Width / 2 - 500, toRespawnRectangle.Center.Y - 768), Color.White);
             spriteBatch.Draw(TextureManager.Svartadelen, new Vector2(toRespawnRectangle.Center.X - TextureManager.Svartadelen.Width - 100, toRespawnRectangle.Center.Y - 760), Color.White);
-            IngameTextmanager.DrawReturn(spriteBatch);
+
+            if (currentLevel != Level.Level4)
+            {
+                IngameTextmanager.DrawReturn(spriteBatch);
+            }
 
             spriteBatch.End();
         }
@@ -737,7 +748,7 @@ namespace TheMaze
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
             {
                 wallMonster.active = true;
-                
+
             }
 
             if (wallMonster.active)
@@ -748,6 +759,7 @@ namespace TheMaze
 
             if (player.weaponHitbox.Intersects(wallMonster.hitbox) && wallMonster.active && player.currentWeapon.color == Color.Red)
             {
+                sfx.LightMonsterCollision();
                 wallMonster.attackTimer.Start();
 
                 if (wallMonster.attackTimer.ElapsedMilliseconds >= 3000)
@@ -755,7 +767,7 @@ namespace TheMaze
                     wallMonster.coolDown = true;
                     wallMonster.attackTimer.Reset();
 
-                    
+
                 }
 
             }
@@ -766,7 +778,7 @@ namespace TheMaze
         {
             if (player.middleHitbox.Intersects(stalker.stalkerRectangleHitbox) && !stalker.stalkerStunned && !player.playerImmunity)
             {
-                //PlayerDamage(stalker.monsterDamage);
+                PlayerDamage(stalker.monsterDamage);
             }
 
             if (Vector2.Distance(player.Position, stalker.Position) < 1500)
@@ -851,7 +863,7 @@ namespace TheMaze
             {
                 glitchMonster.glitchMonsterTimer.Start();
 
-                if (player.currentWeapon.enabled == false)
+                if (X.IsKeyPressed(Keys.E) && player.currentWeapon.enabled == true)
                 {
                     player.isInverse = false;
                     glitchMonster.glitchMonsterTimer.Reset();
@@ -905,18 +917,18 @@ namespace TheMaze
 
         public void ImbakuCollision(GameTime gameTime, Imbaku imbaku)
         {
-            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true)
+            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox))
             {
                 //DAMAGE
                 PlayerDamage(imbaku.monsterDamage);
             }
 
-            if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) < ConstantValues.tileHeight * 2.5 &&
-                player.currentWeapon.enabled && !X.player.insaferoom)
+            if (Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) < ConstantValues.tileHeight * 2.5
+                && player.currentWeapon.enabled && !X.player.insaferoom)
             {
                 sfx.ImbakuEncounter();
             }
-            //KONSTIGT
+            //INTE LÄNGRE KONSTIGT
             if (player.weaponHitbox.Intersects(imbaku.imbakuCircleHitbox) && Vector2.Distance(player.middleHitbox.Center.ToVector2(), imbaku.imbakuCircleHitbox.Center) >
                 ConstantValues.tileHeight * 2.5 && !X.player.insaferoom)
             {
@@ -979,10 +991,10 @@ namespace TheMaze
             foreach (MiniMonster miniRemove in miniMonsterToRemove)
             {
                 imbaku.miniMonsterList.Remove(miniRemove);
-                
+
             }
         }
-
+        //SPELAREN SKADAS
         public void PlayerDamage(int monsterDamage)
         {
             sfx.GetHit();

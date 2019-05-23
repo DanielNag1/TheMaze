@@ -18,9 +18,10 @@ namespace TheMaze
         SoundEffectInstance suicide, gettingHit, sprint, lowhp;
 
         SoundEffectInstance golemScream, golemSong;
-        SoundEffectInstance stalkerGrowlNear;
+        SoundEffectInstance stalkerGrowlNear,stalkerGrowlFar;
         SoundEffectInstance armMonsterCrackle;
         SoundEffectInstance glitchMonsterSound;
+        SoundEffectInstance lightAttack;
 
         private double stepTimer;
         private double imbakuTimer, imbakuTimerReset;
@@ -42,6 +43,7 @@ namespace TheMaze
             gettingHit = SoundManager.GetHit.CreateInstance();
             sprint = SoundManager.Sprint.CreateInstance();
             lowhp = SoundManager.LowHP.CreateInstance();
+            lightAttack = SoundManager.LightAttack.CreateInstance();
 
             suicide.Volume = 0.2f;
             creepySoundLow = SoundManager.CreepySoundLow.CreateInstance();
@@ -59,7 +61,7 @@ namespace TheMaze
             golemSong = SoundManager.GolemSong.CreateInstance();
             golemSong.Volume = 0.02f;
 
-            
+            stalkerGrowlFar = SoundManager.StalkerGrowlFar.CreateInstance();
             stalkerGrowlNear = SoundManager.StalkerGrowlNear.CreateInstance();
 
             armMonsterCrackle = SoundManager.ArmMonsterCrackle.CreateInstance();
@@ -254,6 +256,11 @@ namespace TheMaze
             lowhp.Play();
         }
 
+        public void LightMonsterCollision()
+        {
+            lightAttack.Play();
+        }
+
         public void GolemEncounter(GameTime gameTime)
         {
 
@@ -298,7 +305,7 @@ namespace TheMaze
 
             if (stalkerTimer <= 0)
             {
-                //SoundManager.StalkerGrowlFar.Play();
+                SoundManager.StalkerGrowlFar.Play();
                 stalkerTimer = stalkerTimerReset;
             }
         }
