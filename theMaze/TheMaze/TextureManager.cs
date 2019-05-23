@@ -74,7 +74,7 @@ namespace TheMaze
         {
             hitParticles = new List<Texture2D>();
             storyTextures = new List<Texture2D>();
-            PlayerTex = Content.Load<Texture2D>("characterspritesheet1");
+            PlayerTex = Content.Load<Texture2D>("character_spritesheet");
             MonsterTex = Content.Load<Texture2D>("evilcat"); // Placeholder evil cat texture
             ImbakuTex = Content.Load<Texture2D>("spritesheet_Imbaku");
             MiniMonsterTex = Content.Load<Texture2D>("spritesheet_mini_imbaku");
