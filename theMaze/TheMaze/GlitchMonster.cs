@@ -20,7 +20,6 @@ namespace TheMaze
             frameSize = 0;
             //currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             glitchMonsterRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
-            nrFrames = 4;
         }
 
         public override void Update(GameTime gameTime)
@@ -33,8 +32,7 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(TextureManager.RedTexture, glitchMonsterRectangleHitbox, Color.Red);
-            spriteBatch.Draw(texture, glitchMonsterRectangleHitbox, currentSourceRect, Color.White);
+            spriteBatch.Draw(texture, position, currentSourceRect, Color.White);
 
         }
     }

@@ -20,6 +20,7 @@ namespace TheMaze
         public BGM()
         {
             ambientNoise = SoundManager.AmbientNoise.CreateInstance();
+            ambientNoise.Volume = 0.1f;
             safeRoomBGM = SoundManager.DarkSoulsTrack31.CreateInstance();
             whiteBGM = SoundManager.WhiteAmbient.CreateInstance();
             whiteBGM.Volume = 0.2f;
@@ -127,7 +128,7 @@ namespace TheMaze
                 ambientNoise.Volume = 0f;
                 ambientNoise.Play();
             }
-            if (ambientNoise.Volume < 0.99f)
+            if (ambientNoise.Volume < 0.1f)
             {
                 ambientNoise.Volume += 0.01f;
             }

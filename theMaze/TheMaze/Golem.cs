@@ -13,18 +13,27 @@ namespace TheMaze
         public Rectangle golemRectangleHitbox;
         public Circle golemCircleHitbox;
         public Vector2 golemCircleHitboxPos;
+        public Vector2 drawingOffset;
+
+        public SFX sfx;
 
         public bool isActive, isSleeping;
 
         public Golem(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;
-            golemRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
+            currentSourceRect = new Rectangle(frame, frameSize, 117, 200);
+            golemRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
 
             golemCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             golemCircleHitbox = new Circle(golemCircleHitboxPos, 90f);
 
-            color = Color.Brown;
+            drawingOffset = new Vector2((int)position.X, (int)position.Y - 75);
+
+            sfx = new SFX();
+
+            color = Color.White;
+
             speed = 50f;
             monsterDamage = 1;
 
@@ -34,12 +43,17 @@ namespace TheMaze
 
         public override void Update(GameTime gameTime, Player player)
         {
-            //base.Update(gameTime, player);
+            currentSourceRect.X = frame * 117;
+            currentSourceRect.Y = frameSize * 200;
+
             golemRectangleHitbox.X = (int)position.X;
             golemRectangleHitbox.Y = (int)position.Y;
 
             golemCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y + ConstantValues.tileWidth / 2);
             golemCircleHitbox = new Circle(golemCircleHitboxPos, 90f);
+
+            drawingOffset.X = (int)position.X;
+            drawingOffset.Y = (int)position.Y - 75;
 
             GolemStates();
             Pathfinding(gameTime, player);
@@ -47,23 +61,19 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //golemCircleHitbox.Draw(spriteBatch);
-            //spriteBatch.Draw(TextureManager.RedTexture, golemRectangleHitbox, Color.Red);
-            spriteBatch.Draw(texture, golemRectangleHitbox, currentSourceRect, color);
+            spriteBatch.Draw(texture, drawingOffset, currentSourceRect, color);
         }
 
         public void GolemStates()
         {
             if (isSleeping)
             {
-                color = Color.Gray;
                 speed = 0;
             }
 
             if (isActive)
             {
-                color = Color.Red;
-                speed = 100;
+                speed = 120;
             }
 
 

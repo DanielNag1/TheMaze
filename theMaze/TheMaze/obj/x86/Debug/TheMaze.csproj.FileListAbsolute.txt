@@ -984,3 +984,26 @@ C:\Users\Mac-Windows\Desktop\daniel story\theMaze\TheMaze\obj\x86\Debug\TheMaze.
 C:\Users\Mac-Windows\Desktop\daniel story\theMaze\TheMaze\obj\x86\Debug\TheMaze.exe
 C:\Users\Mac-Windows\Desktop\daniel story\theMaze\TheMaze\obj\x86\Debug\TheMaze.pdb
 C:\Users\Mac-Windows\Desktop\daniel story\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wallmonster2.2.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wallmonster2.2.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture4.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture5.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture6.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture7.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture8.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture9.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Cutscene final wmv.wmv
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Cutscene final wmv.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\gettingHit.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\suicide.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\redhp.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\run.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lowhp2.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientsound.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\breathingghost.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\glitch.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\golemsong.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\metalclang.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\psychoscream.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\armmonster_spritesheet2.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\golem.xnb
+C:\Users\Mac-Windows\Documents\GitHub\theMaze\TheMaze\bin\Windows\x86\Debug\Content\stalker_spritesheet.xnb

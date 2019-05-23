@@ -33,18 +33,26 @@ namespace TheMaze
         {
             collectiblePositions = new List<Vector2>();
         }
-        public void ReadLevel2()
-        {
-            Tiles = GenerateMap("level2.txt",false);
-            Pathfind.FillGridFromMap(Tiles);
-        }
         public void ReadDeathMap()
         {
             Tiles = GenerateMap("deathbana.txt",true);
         }
         public void ReadLevel1()
         {
-            Tiles = GenerateMap("level2.txt",false);
+            Tiles = GenerateMap("level1.txt",false);
+            Pathfind.FillGridFromMap(Tiles);
+        }
+        public void ReadLevel2()
+        {
+            Tiles = GenerateMap("level2testtest.txt", false);
+        }
+        public void ReadLevel3()
+        {
+            Tiles = GenerateMap("level3.txt", false);
+        }
+        public void ReadLevel4()
+        {
+            Tiles = GenerateMap("level4testtest.txt", false);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -94,7 +102,7 @@ namespace TheMaze
                     }
                     if (mapData[y][x] == '4')
                     {
-                        wallMonster = new WallMonster(TextureManager.MonsterTex, tilePosition);
+                        wallMonster = new WallMonster(TextureManager.WallMonsterTex, tilePosition);
                         wallMonsters.Add(wallMonster);
                     }
 

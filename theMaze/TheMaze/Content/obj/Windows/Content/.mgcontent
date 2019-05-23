@@ -4,58 +4,100 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/BGM/darksoulsamomentspeace.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/BGM/whiteambient.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/creepysoundhigh.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/creepysoundlow.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/step3.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/step4.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/takeCollectible.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/walking.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/Audio/SFX/weaponpick.wav</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/characterspritesheet1.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/collectible view.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/collectible.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/collectiblemenu.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/collectiblemenu2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/controlsmenu.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/desk.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/evilcat.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/floor tile 2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/hallwaybackground.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/hallwaybackground2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/mainmenu.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/particle1.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/particle2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/pauseScreen.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/red.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/spritesheet_Imbaku.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/spritesheet_mini_Imbaku.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/spritesheet1.4.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/storyTexture1.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/storyTexture2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/storyTexture3.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/timesnewroman.spritefont</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/top tile sprite 2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/transparent.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/tutorialfont.spritefont</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/verkligheten.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/wall tile 2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/wallmonster2.2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/water tile.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/white top tile sprite 2.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/whitehallwaybackground1.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/whitehallwayforeground.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/whitewalltile.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/whitewalltileflower.png</File>
-    <File>C:/Users/Mac-Windows/Desktop/daniel story/theMaze/TheMaze/Content/You Died.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/armmonster_spritesheet2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/BGM/ambientnoise.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/BGM/ambientsound.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/BGM/darksoulsamomentspeace.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/BGM/whiteambient.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/breathingghost.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/creepysoundhigh.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/creepysoundlow.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/gettingHit.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/glitch.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/golemsong.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/lampswitchoff.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/lampswitchon.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/lowhp2.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/metalclang.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/psychoscream.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/run.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step1.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step2.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step3.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/step4.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/suicide.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/takeCollectible.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/walking.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Audio/SFX/weaponpick.wav</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/characterspritesheet1.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectible view.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectible.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectiblemenu.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/collectiblemenu2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/controlsmenu.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/Cutscene final wmv.wmv</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/desk.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/evilcat.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/floor tile 2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/golem.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/hallwaybackground.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/hallwaybackground2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/mainmenu.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/particle1.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/particle2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/pauseScreen.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/red.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/redhp.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/spritesheet_Imbaku.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/spritesheet_mini_Imbaku.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/spritesheet1.4.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/stalker_spritesheet.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture1.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture3.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture4.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture5.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture6.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture7.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture8.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/storyTexture9.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/timesnewroman.spritefont</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/top tile sprite 2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/transparent.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/tutorialfont.spritefont</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/verkligheten.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/wall tile 2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/wallmonster2.2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/water tile.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/white top tile sprite 2.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/whitehallwaybackground1.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/whitehallwayforeground.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/whitewalltile.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/whitewalltileflower.png</File>
+    <File>C:/Users/Mac-Windows/Documents/GitHub/theMaze/TheMaze/Content/You Died.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

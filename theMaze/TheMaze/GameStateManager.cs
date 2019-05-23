@@ -7,12 +7,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace TheMaze
 {
     class GameStateManager
     {
-        public enum GameState { MainMenu, Play, Pause,Killed,CollectibleMenu}
+        public enum GameState { MainMenu, Play, Pause, Killed, CollectibleMenu, Cutscene }
         public static GameState currentGameState = GameState.MainMenu;
         GamePlayManager gamePlayManager;
         MainMenu mainMenu;
@@ -20,6 +21,11 @@ namespace TheMaze
         LevelManager levelManager;
         CollectibleViewer collectibleviewer;
         BGM bgm;
+
+        Video video;
+        VideoPlayer videoplayer;
+        Texture2D videoTexture;
+        float videotimer;
 
         public GameStateManager()
         {
@@ -29,23 +35,30 @@ namespace TheMaze
             levelManager = new LevelManager();
             collectibleviewer = new CollectibleViewer();
             bgm = new BGM();
+
+            videoplayer = new VideoPlayer();
+            video = TextureManager.Cutscene;
+
+            videoplayer.Play(video);
+            videoTexture = videoplayer.GetTexture();
+
         }
 
         public void Update(GameTime gameTime)
         {
             X.Update(gameTime);
             PauseGame(gameTime);
-            bgm.PlayBGM();
             
-            switch(currentGameState)
+            switch (currentGameState)
             {
                 case GameState.MainMenu:
                     mainMenu.Update();
+                    videoplayer.Stop();
                     X.IsMouseVisible = true;
                     break;
-
                 case GameState.Play:
                     gamePlayManager.Update(gameTime);
+                    bgm.PlayBGM();
                     break;
                 case GameState.Pause:
                     pauseMenu.Update();
@@ -56,6 +69,17 @@ namespace TheMaze
                     break;
                 case GameState.CollectibleMenu:
                     break;
+                case GameState.Cutscene:
+                    if (videoplayer.State == MediaState.Stopped)
+                    {
+                        videoplayer.Play(video);
+                    }
+                    if (videoplayer.State == MediaState.Playing)
+                    {
+                        videoTexture = videoplayer.GetTexture();
+                    }
+                    break;
+
             }
 
             if (gamePlayManager.killed == true)
@@ -65,7 +89,7 @@ namespace TheMaze
 
         }
 
-        public void Draw(SpriteBatch spriteBatch,GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             switch (currentGameState)
             {
@@ -73,7 +97,7 @@ namespace TheMaze
                     mainMenu.Draw(spriteBatch);
                     break;
                 case GameState.Play:
-                    gamePlayManager.Draw(spriteBatch,gameTime);
+                    gamePlayManager.Draw(spriteBatch, gameTime);
                     break;
                 case GameState.Pause:
                     pauseMenu.Draw(spriteBatch);
@@ -84,8 +108,11 @@ namespace TheMaze
                 case GameState.CollectibleMenu:
                     collectibleviewer.Draw(spriteBatch);
                     break;
+                case GameState.Cutscene:
+                    DrawCutscene(spriteBatch);
+                    break;
             }
-            
+
         }
 
         public void PauseGame(GameTime gameTime)
@@ -118,7 +145,7 @@ namespace TheMaze
                     {
                         gamePlayManager.Resurrect();
                         currentGameState = GameState.Play; Console.WriteLine(currentGameState);
-                        
+
                     }
                     break;
                 case GameState.CollectibleMenu:
@@ -131,13 +158,21 @@ namespace TheMaze
                     break;
             }
         }
-        
+
         public void DrawKilledScreen(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(TextureManager.KilledScreen, Vector2.Zero, Color.White);
             spriteBatch.End();
         }
-        
+
+        public void DrawCutscene(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(videoTexture, new Rectangle(0, 0, 1920, 1080), Color.White);
+            spriteBatch.End();
+        }
+
+
     }
 }

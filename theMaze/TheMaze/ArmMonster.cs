@@ -18,18 +18,24 @@ namespace TheMaze
         private Stopwatch cooldownTimer = new Stopwatch();
         private Stopwatch activationTimer = new Stopwatch();
         private Stopwatch accelerationTimer = new Stopwatch();
+        private Stopwatch musicTimer = new Stopwatch();
 
         private Random random;
         private float armSpeed = 25f, maxSpeed = 250f;
         private int spawning;
-        public bool coolDown, activated, isActive, slowedDown;
+        public bool coolDown, activated, isActive, slowedDown,pathfindingActivated;
 
+        SFX sfx;
 
         public ArmMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;
+            color = Color.White;
+            currentSourceRect = new Rectangle(frame, frameSize, ConstantValues.tileWidth, ConstantValues.tileHeight);
 
-            armMonsterRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
+            sfx = new SFX();
+
+            armMonsterRectangleHitbox = new Rectangle((int)position.X + currentSourceRect.Width/4, (int)position.Y+currentSourceRect.Height/4, currentSourceRect.Width/2, currentSourceRect.Height/2);
             armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
 
@@ -38,11 +44,19 @@ namespace TheMaze
             coolDown = false;
             isActive = false;
             slowedDown = false;
+            pathfindingActivated = false;
+
         }
 
         public new void Update(GameTime gameTime, Player player)
         {
             chaseTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            currentSourceRect.X = frame * ConstantValues.tileWidth;
+            currentSourceRect.Y = frameSize * ConstantValues.tileHeight;
+
+            armMonsterRectangleHitbox.X = (int)position.X + currentSourceRect.Width / 4;
+            armMonsterRectangleHitbox.Y = (int)position.Y + currentSourceRect.Height / 4;
 
             if (chaseTimer < 0)
             {
@@ -51,7 +65,7 @@ namespace TheMaze
             }
 
             ActivatingArmMonster(gameTime, player);
-
+            UpdateSourceRectangle();
         }
 
         private void Acceleration(GameTime gameTime)
@@ -75,14 +89,19 @@ namespace TheMaze
         public void ResetArmMonster()
         {
             isActive = false;
+            activated = false;
             coolDown = false;
+            moving = false;
+            musicTimer.Reset();
             activationTimer.Reset();
             cooldownTimer.Reset();
+
             armSpeed = 25f;
             SetPosition(levelManager.ArmMonsterStartPosition);
 
-            armMonsterRectangleHitbox.X = (int)position.X;
-            armMonsterRectangleHitbox.Y = (int)position.Y;
+
+            armMonsterRectangleHitbox.X = (int)position.X + currentSourceRect.Width / 4;
+            armMonsterRectangleHitbox.Y = (int)position.Y + currentSourceRect.Height / 4;
 
             armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
@@ -113,16 +132,31 @@ namespace TheMaze
 
                 if (spawning == 0)
                 {
+                    pathfindingActivated = true;
                     activationTimer.Start();
+                    musicTimer.Start();
+
+                    if(musicTimer.ElapsedMilliseconds >= 900)
+                    {
+                        sfx.ArmMonsterEncounter(gameTime);
+                        musicTimer.Reset();
+                    }
+
                     if (activationTimer.ElapsedMilliseconds >= 2500)
                     {
+                        if(pathfindingActivated)
+                        {
+                            ArmMonsterPathfinding(gameTime, player);
+                            pathfindingActivated = false;
+                        }
+
                         isActive = true;
-                        ArmMonsterPathfinding(gameTime, player);
+                        
                         Acceleration(gameTime);
                         CollisionWithWall(levelManager);
 
-                        armMonsterRectangleHitbox.X = (int)position.X;
-                        armMonsterRectangleHitbox.Y = (int)position.Y;
+                        armMonsterRectangleHitbox.X = (int)position.X + currentSourceRect.Width / 4;
+                        armMonsterRectangleHitbox.Y = (int)position.Y + currentSourceRect.Height / 4;
 
                         armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
                         armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
@@ -158,7 +192,7 @@ namespace TheMaze
                 if (Vector2.Distance(Position, destination) < 1)
                 {
                     position = destination;
-
+                    moving = false;
                 }
             }
         }
@@ -168,7 +202,7 @@ namespace TheMaze
         {
             if (isActive)
             {
-                spriteBatch.Draw(texture, armMonsterRectangleHitbox, currentSourceRect, Color.Red);
+                spriteBatch.Draw(texture, position, currentSourceRect, color);
             }
         }
     }

@@ -56,7 +56,8 @@ namespace TheMaze
         public static int markers;
         public List<Collectible> collectibles;
 
-        public int playerHealth = 3;
+        public float stamina;
+        public int playerHealth;
         Stopwatch playerImmunityTimer = new Stopwatch();
         public bool playerImmunity = false;
 
@@ -90,10 +91,20 @@ namespace TheMaze
             collectibles = new List<Collectible>();
 
             isInverse = false;
+            
+            stamina = 5000f;
+            playerHealth = 3;
+            insaferoom = true;
+
         }
 
         public void Update(GameTime gameTime)
         {
+            if(playerHealth==1)
+            {
+                sfx.LowHP();
+            }
+
             if (moving)
             {
                 //timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -111,7 +122,7 @@ namespace TheMaze
 
                 sfx.Footsteps(gameTime);
 
-                PlayerInput();
+                PlayerInput(gameTime);
 
                 currentSourceRect.Y = nextSourceRect.Y;
 
@@ -122,7 +133,7 @@ namespace TheMaze
             }
             else
             {
-                PlayerInput();
+                PlayerInput(gameTime);
                 frame = 0;
 
                 currentSourceRect.X = frame * frameSizeX;
@@ -131,7 +142,7 @@ namespace TheMaze
             UpdateHitboxPosition();
             UpdateLights();
 
-            if(playerImmunity)
+            if (playerImmunity)
             {
                 PlayerImmunity(gameTime);
             }
@@ -173,19 +184,19 @@ namespace TheMaze
             {
                 if (currentWeapon == weaponSlot1)
                 {
-                    weaponSlot1.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+                    weaponSlot1.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
                 }
                 if (currentWeapon == weaponSlot2)
                 {
-                    weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+                    weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
                 }
                 if (currentWeapon == weaponSlot3)
                 {
-                    weaponSlot3.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+                    weaponSlot3.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
                 }
                 if (currentWeapon == weaponSlot4)
                 {
-                    weaponSlot4.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 500000;
+                    weaponSlot4.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
                 }
             }
         }
@@ -196,7 +207,7 @@ namespace TheMaze
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
                 if (selectedColor != new Color(0, 0, 0, 0))
-                { 
+                {
                     sfx.PickWeapon();
                 }
                 weaponSlot2.color = selectedColor;
@@ -225,7 +236,7 @@ namespace TheMaze
             }
         }
 
-        private void PlayerInput()
+        private void PlayerInput(GameTime gameTime)
         {
             if (X.IsKeyPressed(Keys.G) || X.IsKeyPressed(Keys.G))
             {
@@ -244,10 +255,32 @@ namespace TheMaze
                     Game1.penumbra.Lights.Add(markerLight);
                 }
             }
-
-            if(isInverse)
+            
+            if (isInverse)
             {
                 InversePlayerInput();
+            }
+
+            if (KeyPressed(Keys.LeftShift))
+            {
+                if (stamina >= 0)
+                {
+                    sfx.Sprint();
+                    speed = 3.72f;
+                    stamina -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                }
+                else
+                {
+                    speed = 3f;
+                }
+            }
+
+            else
+            {
+                speed = 3f;
+                sfx.StopSprint();
+                if (stamina <= 5000)
+                    stamina += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
 
             if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
@@ -370,7 +403,7 @@ namespace TheMaze
             }
         }
 
-        private void CreatePlayerLights()
+        public void CreatePlayerLights()
         {
             playerPointLight = new PointLight();
             playerPointLight.Scale = new Vector2(700, 700);

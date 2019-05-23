@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-
+using Microsoft.Xna.Framework.Media;
 namespace TheMaze
 {
     static class TextureManager
@@ -20,6 +20,9 @@ namespace TheMaze
         public static Texture2D ImbakuTex { get; private set; }
         public static Texture2D MiniMonsterTex { get; private set; }
         public static Texture2D WallMonsterTex { get; private set; }
+        public static Texture2D StalkerTex { get; private set; }
+        public static Texture2D GolemTex { get; private set; }
+        public static Texture2D ArmMonsterTex { get; private set; }
 
 
         public static Texture2D WaterTileTex { get; private set; }
@@ -42,6 +45,8 @@ namespace TheMaze
         public static Texture2D TransparentTex { get; private set; }
         public static Texture2D RedTexture { get; private set; }
 
+        public static Texture2D RedHPTexture { get; private set; }
+
         public static Texture2D DeskTexture { get; private set; }
 
         public static List<Texture2D> hitParticles { get; private set; }
@@ -51,6 +56,14 @@ namespace TheMaze
         public static Texture2D storyTexture1 { get; private set; }
         public static Texture2D storyTexture2 { get; private set; }
         public static Texture2D storyTexture3 { get; private set; }
+        public static Texture2D storyTexture4 { get; private set; }
+        public static Texture2D storyTexture5 { get; private set; }
+        public static Texture2D storyTexture6 { get; private set; }
+        public static Texture2D storyTexture7 { get; private set; }
+        public static Texture2D storyTexture8 { get; private set; }
+        public static Texture2D storyTexture9 { get; private set; }
+        public static Video Cutscene { get; private set; }
+
 
         public static SpriteFont TimesNewRomanFont { get; private set; }
         public static SpriteFont TutorialFont { get; private set; }
@@ -66,7 +79,9 @@ namespace TheMaze
             ImbakuTex = Content.Load<Texture2D>("spritesheet_Imbaku");
             MiniMonsterTex = Content.Load<Texture2D>("spritesheet_mini_imbaku");
             WallMonsterTex = Content.Load<Texture2D>("wallmonster2.2");
-
+            StalkerTex = Content.Load<Texture2D>("stalker_spritesheet");
+            GolemTex = Content.Load<Texture2D>("golem");
+            ArmMonsterTex = Content.Load<Texture2D>("armmonster_spritesheet2");
 
             FloorTileTex = Content.Load<Texture2D>("floor tile 2");
             WaterTileTex = Content.Load<Texture2D>("water tile");
@@ -74,7 +89,7 @@ namespace TheMaze
             TopWallSheetTex = Content.Load<Texture2D>("top tile sprite 2");
             CollectibleTex = Content.Load<Texture2D>("collectible");
             CollectibleTex2 = Content.Load<Texture2D>("collectible view");
-            CollectibleMenu = Content.Load<Texture2D>("collectiblemenu2");
+            CollectibleMenu = Content.Load<Texture2D>("collectiblemenu");
 
             MainMenuTex = Content.Load<Texture2D>("mainmenu");
             ControlsMenuTex = Content.Load<Texture2D>("controlsmenu");
@@ -94,11 +109,23 @@ namespace TheMaze
             storyTexture1 = Content.Load<Texture2D>("storyTexture1");
             storyTexture2 = Content.Load<Texture2D>("storyTexture2");
             storyTexture3 = Content.Load<Texture2D>("storyTexture3");
+            storyTexture4 = Content.Load<Texture2D>("storyTexture4");
+            storyTexture5 = Content.Load<Texture2D>("storyTexture5");
+            storyTexture6 = Content.Load<Texture2D>("storyTexture6");
+            storyTexture7 = Content.Load<Texture2D>("storyTexture7");
+            storyTexture8 = Content.Load<Texture2D>("storyTexture8");
+            storyTexture9 = Content.Load<Texture2D>("storyTexture9");
 
 
             storyTextures.Add(storyTexture1);
             storyTextures.Add(storyTexture2);
             storyTextures.Add(storyTexture3);
+            storyTextures.Add(storyTexture4);
+            storyTextures.Add(storyTexture5);
+            storyTextures.Add(storyTexture6);
+            storyTextures.Add(storyTexture7);
+            storyTextures.Add(storyTexture8);
+            storyTextures.Add(storyTexture9);
 
             DeskTexture = Content.Load<Texture2D>("desk");
 
@@ -109,6 +136,10 @@ namespace TheMaze
             WhiteWallTex = Content.Load<Texture2D>("whitewalltileflower");
             HallWayBackground = Content.Load<Texture2D>("whitehallwaybackground1");
             Svartadelen = Content.Load<Texture2D>("hallwaybackground2");
+
+            Cutscene = Content.Load<Video>("Cutscene final wmv");
+
+            RedHPTexture = Content.Load<Texture2D>("redhp");
         }
     }
 }

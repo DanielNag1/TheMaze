@@ -11,8 +11,11 @@ namespace TheMaze
 {
     public class IngameTextmanager
     {
-        public enum Textstage { Q, W, E, R, T, Y, U, I, O, P, Å, A, S, D, F, G, H, J, K, L, Ö, Ä, Z, X, C, V, B, N, M,
-        QW,QE,QR,QT,QY,QU,QI,QO,QP,QÅ,QA,QS,QD,QF,QG,QH,QJ,QK,QL}
+        public enum Textstage
+        {
+            Q, W, E, R, T, Y, U, I, O, P, Å, A, S, D, F, G, H, J, K, L, Ö, Ä, Z, X, C, V, B, N, M,
+            QW, QE, QR, QT, QY, QU, QI, QO, QP, QÅ, QA, QS, QD, QF, QG, QH, QJ, QK, QL
+        }
         public Textstage currentStage;
         private string text;
         private float textTimer;
@@ -20,13 +23,12 @@ namespace TheMaze
         public IngameTextmanager()
         {
             text = " ";
-            currentStage = Textstage.Q;
             textTimer = 3000f;
         }
 
         public void CheckProgression(GameTime gameTime)
         {
-            
+
             switch (currentStage)
             {
                 case Textstage.Q:
@@ -60,7 +62,7 @@ namespace TheMaze
                         currentStage = Textstage.U;
                     break;
                 case Textstage.U:
-                    text = "Let's do this...You can start with that desk in the saferoom. Click on it.";
+                    text = "Let's do this...Click on the desk in the saferoom.";
                     if (X.IsKeyPressed(Keys.Space))
                         currentStage = Textstage.I;
                     break;
@@ -75,47 +77,60 @@ namespace TheMaze
                         currentStage = Textstage.P;
                     break;
                 case Textstage.P:
-                    text = "Don't be mistaken..I'm not just a videogame character.";
+                    text = "We are in this together.";
                     if (X.IsKeyPressed(Keys.Space))
                         currentStage = Textstage.Å;
                     break;
                 case Textstage.Å:
+
                     textTimer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-                    if (textTimer>=0)
+                    if (textTimer >= 0)
                     {
-                        text = "And neither are you...";
+                        text = "You have a bigger part than you think...";
                     }
                     else
                     {
                         text = " ";
                     }
-                    if (X.player.collectibles.Count == 4)
+                    if (X.player.collectibles.Count == 3)
                         currentStage = Textstage.A;
                     break;
                 case Textstage.A:
-                    text = "Another piece! We could go back to the saferoom right away.";
+                    text = "Another piece! We should go back to the saferoom and read it!";
                     if (X.IsKeyPressed(Keys.Space))
                         currentStage = Textstage.S;
                     break;
                 case Textstage.S:
-                    text = "If you press 'ENTER' you would kill me. But do not worry! I can take it! I get a respawn in the saferoom.";
+                    if (X.player.collectibles.Count == 4)
+                    {
+                        text = "This is going well, don't you think?";
                         if (X.IsKeyPressed(Keys.Space))
-                        currentStage = Textstage.D;
+                            currentStage = Textstage.D;
+                    }
+                    else
+                    {
+                        text = " ";
+                    }
                     break;
                 case Textstage.D:
-                    text = " ";
-                    if (X.player.collectibles.Count==5)
+                    text = "We'll be out of here in no time!";
+
+                    if (X.IsKeyPressed(Keys.Space))
                         currentStage = Textstage.F;
                     break;
                 case Textstage.F:
-                    text = "";
-                    if (X.IsKeyPressed(Keys.Space))
+                    text = " ";
+
+                    if (X.player.collectibles.Count == 5)
+                    {
                         currentStage = Textstage.G;
+                    }
+
                     break;
                 case Textstage.G:
-                    text = "FOUR";
-                    if (X.IsKeyPressed(Keys.Space))
-                        currentStage = Textstage.H;
+                    text = "Hurry before the monsters come! Press 'ENTER' !!!";
+                    if (X.IsKeyPressed(Keys.Space) || X.IsKeyPressed(Keys.Enter))
+                        text = " ";
                     break;
                 case Textstage.H:
                     text = "FOUR";
@@ -207,7 +222,7 @@ namespace TheMaze
         }
         public static void DrawProgress(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(TextureManager.TutorialFont, "Press 'ENTER' to take suicide.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
+            spriteBatch.DrawString(TextureManager.TutorialFont, "Press 'ENTER' to commit suicide.", new Vector2(X.player.Position.X, X.player.Position.Y - 25), Color.White);
         }
         public static void DrawReturn(SpriteBatch spriteBatch)
         {

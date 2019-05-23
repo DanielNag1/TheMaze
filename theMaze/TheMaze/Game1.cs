@@ -21,6 +21,7 @@ namespace TheMaze
             penumbra = new PenumbraComponent(this);
             Components.Add(penumbra);
             Content.RootDirectory = "Content";
+            graphics.GraphicsProfile = GraphicsProfile.HiDef;
         }
         
         protected override void Initialize()
@@ -41,6 +42,7 @@ namespace TheMaze
             TextureManager.LoadContent(Content);
             gameStateManager = new GameStateManager();
             penumbra.AmbientColor = Color.Black;
+            
         }
 
         protected override void UnloadContent()
@@ -71,7 +73,6 @@ namespace TheMaze
             }
             
         }
-
         public void MouseCheck()
         {
             if(X.IsMouseVisible==true)

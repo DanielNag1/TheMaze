@@ -38,22 +38,71 @@ namespace TheMaze
             {
                 collectibleLight = new PointLight();
                 collectibleLight.Color = Color.BlueViolet;
+                collectibleLight.Rotation = 2f;
                 collectibleLight.Position = position;
                 collectibleLight.Intensity = .5f;
                 collectibleLight.Scale = new Vector2(200, 200);
                 Game1.penumbra.Lights.Add(collectibleLight);
             }
 
-            
-            foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
+            switch (GamePlayManager.currentLevel)
             {
-                saferoomLight = new PointLight();
-                saferoomLight.Position = weaponposition;
-                saferoomLight.Intensity = saferoom.saferoomWeaponLightIntensity;
-                saferoomLight.Scale = saferoom.saferoomWeaponLightScale;
-                saferoomWeaponList.Add(saferoomLight);
-                Game1.penumbra.Lights.Add(saferoomLight);
+                case GamePlayManager.Level.Level1:
+                    break;
+                case GamePlayManager.Level.Level2:
+                    foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
+                    {
+                        saferoomLight = new PointLight();
+                        saferoomLight.Position = weaponposition;
+                        saferoomLight.Intensity = saferoom.saferoomWeaponLightIntensity;
+                        saferoomLight.Scale = saferoom.saferoomWeaponLightScale;
+                        saferoomWeaponList.Add(saferoomLight);
+                        Game1.penumbra.Lights.Add(saferoomLight);
+                    }
+
+                    foreach (Light l in saferoomWeaponList)
+                    {
+                        saferoomWeaponList[0].Color = saferoom.weaponLight1Color;
+                        
+                    }
+
+                    break;
+                case GamePlayManager.Level.Level3:
+                    foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
+                    {
+                        saferoomLight = new PointLight();
+                        saferoomLight.Position = weaponposition;
+                        saferoomLight.Intensity = saferoom.saferoomWeaponLightIntensity;
+                        saferoomLight.Scale = saferoom.saferoomWeaponLightScale;
+                        saferoomWeaponList.Add(saferoomLight);
+                        Game1.penumbra.Lights.Add(saferoomLight);
+                    }
+
+                    foreach (Light l in saferoomWeaponList)
+                    {
+                        saferoomWeaponList[0].Color = saferoom.weaponLight1Color;
+                        saferoomWeaponList[1].Color = saferoom.weaponLight2Color;
+                    }
+                    break;
+                case GamePlayManager.Level.Level4:
+                    foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
+                    {
+                        saferoomLight = new PointLight();
+                        saferoomLight.Position = weaponposition;
+                        saferoomLight.Intensity = saferoom.saferoomWeaponLightIntensity;
+                        saferoomLight.Scale = saferoom.saferoomWeaponLightScale;
+                        saferoomWeaponList.Add(saferoomLight);
+                        Game1.penumbra.Lights.Add(saferoomLight);
+                    }
+
+                    foreach (Light l in saferoomWeaponList)
+                    {
+                        saferoomWeaponList[0].Color = saferoom.weaponLight1Color;
+                        saferoomWeaponList[1].Color = saferoom.weaponLight2Color;
+                    }
+                    break;
             }
+            
 
         }
 
@@ -64,10 +113,9 @@ namespace TheMaze
                 l.Color = saferoom.saferoomLightColor;
             }
 
+
             foreach(Light l in saferoomWeaponList)
             {
-                saferoomWeaponList[0].Color = saferoom.weaponLight1Color;
-                saferoomWeaponList[1].Color = saferoom.weaponLight2Color;
                 l.Intensity = saferoom.saferoomWeaponLightIntensity;
             }
 

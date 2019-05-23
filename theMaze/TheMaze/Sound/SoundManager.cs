@@ -31,12 +31,28 @@ namespace TheMaze
         public static SoundEffect PickWeapon { get; private set; }
 
         public static SoundEffect WhiteAmbient { get; private set; }
+        
+
+        public static SoundEffect GetHit { get; private set; }
+        public static SoundEffect Suicide { get; private set; }
+        public static SoundEffect Sprint { get; private set; }
+        public static SoundEffect LowHP { get; private set; }
+
+        public static SoundEffect GolemScream { get; private set; }
+        public static SoundEffect GolemSong { get; private set; }
+
+        public static SoundEffect StalkerGrowlFar { get; private set; }
+        public static SoundEffect StalkerGrowlNear { get; private set; }
+
+        public static SoundEffect ArmMonsterCrackle { get; private set; }
+        public static SoundEffect GlitchMonsterSound { get; private set; }
 
         public static void LoadContent(ContentManager content)
         {
             // BGM
-            AmbientNoise = content.Load<SoundEffect>("Audio/BGM/ambientnoise");
+            AmbientNoise = content.Load<SoundEffect>("Audio/BGM/ambientsound");
             DarkSoulsTrack31 = content.Load<SoundEffect>("Audio/BGM/darksoulsamomentspeace");
+            WhiteAmbient = content.Load<SoundEffect>("Audio/BGM/whiteambient");
 
             // SFX
             Footstep1 = content.Load<SoundEffect>("Audio/SFX/step1");
@@ -52,7 +68,20 @@ namespace TheMaze
             TakeCollectible = content.Load<SoundEffect>("Audio/SFX/takeCollectible");
             PickWeapon = content.Load<SoundEffect>("Audio/SFX/weaponpick");
 
-            WhiteAmbient = content.Load<SoundEffect>("Audio/BGM/whiteambient");
+            GetHit = content.Load<SoundEffect>("Audio/SFX/gettingHit");
+            Suicide = content.Load<SoundEffect>("Audio/SFX/suicide");
+            Sprint = content.Load<SoundEffect>("Audio/SFX/run");
+            LowHP = content.Load<SoundEffect>("Audio/SFX/lowhp2");
+
+            GolemScream = content.Load<SoundEffect>("Audio/SFX/psychoscream");
+            GolemSong = content.Load<SoundEffect>("Audio/SFX/golemsong");
+
+            ArmMonsterCrackle = content.Load<SoundEffect>("Audio/SFX/metalclang");
+            GlitchMonsterSound = content.Load<SoundEffect>("Audio/SFX/glitch");
+
+            //StalkerGrowlFar = content.Load<SoundEffect>("Audio/SFX/whispering");
+            StalkerGrowlNear = content.Load<SoundEffect>("Audio/SFX/breathingghost");
+
         }
 
     }

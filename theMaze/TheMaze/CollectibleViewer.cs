@@ -124,6 +124,51 @@ namespace TheMaze
 
                 }
             }
+            if (collectibleButtons.Count > 5)
+            {
+                if (collectibleButtons[numberToWrite - 6].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 6;
+
+                }
+            }
+            if (collectibleButtons.Count > 6)
+            {
+                if (collectibleButtons[numberToWrite - 7].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 7;
+
+                }
+            }
+            if (collectibleButtons.Count > 7)
+            {
+                if (collectibleButtons[numberToWrite - 8].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 8;
+
+                }
+            }
+            if (collectibleButtons.Count > 8)
+            {
+                if (collectibleButtons[numberToWrite - 9].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 9;
+
+                }
+            }
+            if (collectibleButtons.Count > 9)
+            {
+                if (collectibleButtons[numberToWrite - 10].IsClicked())
+                {
+                    currentView = View.story;
+                    numberOfAvailableButtons = numberToWrite - 10;
+
+                }
+            }
 
 
         }

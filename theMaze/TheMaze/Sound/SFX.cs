@@ -15,18 +15,35 @@ namespace TheMaze
 
         SoundEffectInstance creepySoundLow, creepySoundHigh;
         SoundEffectInstance takeCollectible,pickWeapon;
+        SoundEffectInstance suicide, gettingHit,sprint,lowhp;
+
+        SoundEffectInstance golemScream, golemSong;
+        SoundEffectInstance stalkerGrowlNear, stalkerGrowlFar;
+        SoundEffectInstance armMonsterCrackle;
+        SoundEffectInstance glitchMonsterSound;
 
         private double stepTimer;
         private double imbakuTimer, imbakuTimerReset;
+        private double golemTimer, golemTimerReset, golemSongTimer, golemSongTimerReset;
+        private double armMonsterTimer, armMonsterTimerReset;
+        private int stalkerTimer, stalkerTimerReset;
 
         private bool playFootstep1, playFootstep2;
         private bool playLampSwitchOn, playLampSwitchOff;
         public bool playCreepySoundHigh, playCreepySoundLow;
 
+        public bool playGolemScream, playStalkerScream, playArmMonsterCrackle;
+
         public SFX()
         {
             currentFootstepPlayState = FootstepPlayState.Footstep1;
 
+            suicide = SoundManager.Suicide.CreateInstance();
+            gettingHit = SoundManager.GetHit.CreateInstance();
+            sprint = SoundManager.Sprint.CreateInstance();
+            lowhp = SoundManager.LowHP.CreateInstance();
+
+            suicide.Volume = 0.2f;
             creepySoundLow = SoundManager.CreepySoundLow.CreateInstance();
             creepySoundHigh = SoundManager.CreepySoundHigh.CreateInstance();
 
@@ -37,6 +54,30 @@ namespace TheMaze
             stepTimer = 700;
             imbakuTimer = 120;
             imbakuTimerReset = 120;
+
+            golemScream = SoundManager.GolemScream.CreateInstance();
+            golemSong = SoundManager.GolemSong.CreateInstance();
+            golemSong.Volume = 0.02f;
+
+            //stalkerGrowlFar = SoundManager.StalkerGrowlFar.CreateInstance();
+            stalkerGrowlNear = SoundManager.StalkerGrowlNear.CreateInstance();
+
+            armMonsterCrackle = SoundManager.ArmMonsterCrackle.CreateInstance();
+
+            glitchMonsterSound = SoundManager.GlitchMonsterSound.CreateInstance();
+
+            imbakuTimer = 120;
+            imbakuTimerReset = 120;
+
+            golemTimer = 0;
+            golemTimerReset = 1000;
+            golemSongTimer = 0;
+            golemSongTimerReset = 60;
+            armMonsterTimer = 0;
+            armMonsterTimerReset = 5000;
+
+            stalkerTimer = 12;
+            stalkerTimerReset = 60;
 
             playFootstep1 = true;
             playFootstep2 = false;
@@ -54,7 +95,14 @@ namespace TheMaze
                     {
                         if (playFootstep1)
                         {
-                            stepTimer = 700;
+                            if (sprint.State == SoundState.Playing)
+                            {
+                                stepTimer = 150;
+                            }
+                            else
+                            {
+                                stepTimer = 700;
+                            }
                             if (GamePlayManager.currentState == GamePlayManager.LevelState.Live)
                             {
                                 SoundManager.Footstep1.Play();
@@ -81,7 +129,14 @@ namespace TheMaze
                     {
                         if (playFootstep2)
                         {
-                            stepTimer = 700;
+                            if (sprint.State == SoundState.Playing)
+                            {
+                                stepTimer = 150;
+                            }
+                            else
+                            {
+                                stepTimer = 700;
+                            }
                             if (GamePlayManager.currentState == GamePlayManager.LevelState.Live)
                             {
                                 SoundManager.Footstep2.Play();
@@ -172,5 +227,113 @@ namespace TheMaze
         {
             pickWeapon.Play();
         }
+
+        public void GetHit()
+        {
+            gettingHit.Play();
+        }
+
+        public void Suicide()
+        {
+            suicide.Play();
+        }
+
+        public void Sprint()
+        {
+            sprint.Play();
+        }
+
+        public void StopSprint()
+        {
+            sprint.Stop();
+        }
+
+        public void LowHP()
+        {
+            lowhp.Play();
+        }
+
+        public void GolemEncounter(GameTime gameTime)
+        {
+
+            if (playGolemScream)
+            {
+                SoundManager.GolemScream.Play();
+                playGolemScream = false;
+            }
+
+            if (!playGolemScream)
+            {
+                golemTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+
+                if (golemTimer <= 0)
+                {
+                    playGolemScream = true;
+                    golemTimer = golemTimerReset;
+                }
+            }
+
+        }
+
+        public void GolemSong(GameTime gameTime)
+        {
+            golemSongTimer -= gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (golemSongTimer <= 0)
+            {
+                SoundManager.GolemSong.Play();
+                golemSongTimer = golemSongTimerReset;
+            }
+        }
+
+        public void StalkerEncounter()
+        {
+            stalkerGrowlNear.Play();
+        }
+
+        public void StalkerWhispers(GameTime gameTime)
+        {
+            stalkerTimer -= (int)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (stalkerTimer <= 0)
+            {
+                //SoundManager.StalkerGrowlFar.Play();
+                stalkerTimer = stalkerTimerReset;
+            }
+        }
+
+        public void ArmMonsterEncounter(GameTime gameTime)
+        {
+
+            if (playArmMonsterCrackle)
+            {
+                SoundManager.ArmMonsterCrackle.Play();
+                playArmMonsterCrackle = false;
+            }
+
+            if (!playArmMonsterCrackle)
+            {
+                armMonsterTimer -= gameTime.ElapsedGameTime.TotalMilliseconds;
+
+                if (armMonsterTimer <= 0)
+                {
+                    playArmMonsterCrackle = true;
+                    armMonsterTimer = armMonsterTimerReset;
+                }
+            }
+
+
+        }
+
+        public void GlitchMonsterEncounter(GameTime gameTime)
+        {
+            glitchMonsterSound.Play();
+
+        }
+        public void GlitchMonsterStop()
+        {
+            glitchMonsterSound.Pause();
+        }
+
     }
 }

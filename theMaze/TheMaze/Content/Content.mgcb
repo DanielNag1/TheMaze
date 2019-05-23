@@ -13,11 +13,29 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin armmonster_spritesheet2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:armmonster_spritesheet2.png
+
 #begin Audio/BGM/ambientnoise.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/BGM/ambientnoise.wav
+
+#begin Audio/BGM/ambientsound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/BGM/ambientsound.wav
 
 #begin Audio/BGM/darksoulsamomentspeace.wav
 /importer:WavImporter
@@ -31,6 +49,12 @@
 /processorParam:Quality=Best
 /build:Audio/BGM/whiteambient.wav
 
+#begin Audio/SFX/breathingghost.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/breathingghost.wav
+
 #begin Audio/SFX/creepysoundhigh.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -43,6 +67,24 @@
 /processorParam:Quality=Best
 /build:Audio/SFX/creepysoundlow.wav
 
+#begin Audio/SFX/gettingHit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/gettingHit.wav
+
+#begin Audio/SFX/glitch.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/glitch.wav
+
+#begin Audio/SFX/golemsong.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/golemsong.wav
+
 #begin Audio/SFX/lampswitchoff.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -54,6 +96,30 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/SFX/lampswitchon.wav
+
+#begin Audio/SFX/lowhp2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/lowhp2.wav
+
+#begin Audio/SFX/metalclang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/metalclang.wav
+
+#begin Audio/SFX/psychoscream.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/psychoscream.wav
+
+#begin Audio/SFX/run.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/run.wav
 
 #begin Audio/SFX/step1.wav
 /importer:WavImporter
@@ -78,6 +144,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/SFX/step4.wav
+
+#begin Audio/SFX/suicide.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/suicide.wav
 
 #begin Audio/SFX/takeCollectible.wav
 /importer:WavImporter
@@ -169,6 +241,11 @@
 /processorParam:TextureFormat=Color
 /build:controlsmenu.png
 
+#begin Cutscene final wmv.wmv
+/importer:WmvImporter
+/processor:VideoProcessor
+/build:Cutscene final wmv.wmv
+
 #begin desk.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -204,6 +281,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:floor tile 2.png
+
+#begin golem.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:golem.png
 
 #begin hallwaybackground.png
 /importer:TextureImporter
@@ -289,6 +378,18 @@
 /processorParam:TextureFormat=Color
 /build:red.png
 
+#begin redhp.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:redhp.png
+
 #begin spritesheet_Imbaku.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -325,6 +426,18 @@
 /processorParam:TextureFormat=Color
 /build:spritesheet1.4.png
 
+#begin stalker_spritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:stalker_spritesheet.png
+
 #begin storyTexture1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -360,6 +473,78 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:storyTexture3.png
+
+#begin storyTexture4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:storyTexture4.png
+
+#begin storyTexture5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:storyTexture5.png
+
+#begin storyTexture6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:storyTexture6.png
+
+#begin storyTexture7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:storyTexture7.png
+
+#begin storyTexture8.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:storyTexture8.png
+
+#begin storyTexture9.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:storyTexture9.png
 
 #begin timesnewroman.spritefont
 /importer:FontDescriptionImporter

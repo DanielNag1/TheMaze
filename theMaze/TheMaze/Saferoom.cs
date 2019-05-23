@@ -53,18 +53,40 @@ namespace TheMaze
             saferoomLightIntensity = .5f;
             saferoomLightScale = new Vector2(700, 700);
 
+            switch(GamePlayManager.currentLevel)
+            {
+                case GamePlayManager.Level.Level1:
+                    break;
+                case GamePlayManager.Level.Level2:
+                    weaponLight1Pos = new Vector2(saferoomPos.X + 225, saferoomPos.Y);
+                    weaponLight1Rectangle = new Rectangle((int)weaponLight1Pos.X - 50, (int)weaponLight1Pos.Y - 50, 100, 100);
+                    saferoomWeaponLightPositions.Add(weaponLight1Pos);
 
-            weaponLight1Pos = new Vector2(saferoomPos.X + 225, saferoomPos.Y);
-            weaponLight2Pos = new Vector2(saferoomPos.X + 425, saferoomPos.Y);
-            
-            saferoomWeaponLightPositions.Add(weaponLight1Pos);
-            saferoomWeaponLightPositions.Add(weaponLight2Pos);
+                    break;
+                case GamePlayManager.Level.Level3:
+                    weaponLight1Pos = new Vector2(saferoomPos.X + 225, saferoomPos.Y);
+                    weaponLight1Rectangle = new Rectangle((int)weaponLight1Pos.X - 50, (int)weaponLight1Pos.Y - 50, 100, 100);
+                    saferoomWeaponLightPositions.Add(weaponLight1Pos);
 
-            weaponLight1Rectangle = new Rectangle((int)weaponLight1Pos.X - 50, (int)weaponLight1Pos.Y - 50,100,100);
-            weaponLight2Rectangle = new Rectangle((int)weaponLight2Pos.X - 50, (int)weaponLight2Pos.Y - 50, 100, 100);
+                    weaponLight2Pos = new Vector2(saferoomPos.X + 425, saferoomPos.Y);
+                    weaponLight2Rectangle = new Rectangle((int)weaponLight2Pos.X - 50, (int)weaponLight2Pos.Y - 50, 100, 100);
+                    saferoomWeaponLightPositions.Add(weaponLight2Pos);
+
+                    break;
+                case GamePlayManager.Level.Level4:
+                    weaponLight1Pos = new Vector2(saferoomPos.X + 225, saferoomPos.Y);
+                    weaponLight1Rectangle = new Rectangle((int)weaponLight1Pos.X - 50, (int)weaponLight1Pos.Y - 50, 100, 100);
+                    saferoomWeaponLightPositions.Add(weaponLight1Pos);
+
+                    weaponLight2Pos = new Vector2(saferoomPos.X + 425, saferoomPos.Y);
+                    weaponLight2Rectangle = new Rectangle((int)weaponLight2Pos.X - 50, (int)weaponLight2Pos.Y - 50, 100, 100);
+                    saferoomWeaponLightPositions.Add(weaponLight2Pos);
+
+                    break;
+            }
             
-            weaponLight1Color = Color.Red;
-            weaponLight2Color = Color.Goldenrod;
+            weaponLight1Color = Color.Goldenrod;
+            weaponLight2Color = Color.Red;
             
             saferoomWeaponLightIntensity = .9f;
             saferoomWeaponLightScale = new Vector2(150, 150);
