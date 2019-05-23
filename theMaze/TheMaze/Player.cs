@@ -184,19 +184,19 @@ namespace TheMaze
             {
                 if (currentWeapon == weaponSlot1)
                 {
-                    weaponSlot1.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot1.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
                 if (currentWeapon == weaponSlot2)
                 {
-                    weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
                 if (currentWeapon == weaponSlot3)
                 {
-                    weaponSlot3.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot3.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
                 if (currentWeapon == weaponSlot4)
                 {
-                    weaponSlot4.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot4.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
             }
         }
