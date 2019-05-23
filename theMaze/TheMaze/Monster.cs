@@ -41,28 +41,7 @@ namespace TheMaze
                 ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
 
         }
-
-        //public void UpdateSourceRectangle()
-        //{
-        //    if (direction == new Vector2(1, 0))
-        //    {
-        //        frameSize = 1;
-        //    }
-        //    if (direction == new Vector2(-1, 0))
-        //    {
-        //        frameSize = 0;
-        //    }
-
-        //    if (direction == new Vector2(0, 1))
-        //    {
-        //        frameSize = 2;
-        //    }
-
-        //    if (direction == new Vector2(0, -1))
-        //    {
-        //        frameSize = 3;
-        //    }
-        //}
+        
 
     }
 }

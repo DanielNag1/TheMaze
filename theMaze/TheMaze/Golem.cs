@@ -55,8 +55,8 @@ namespace TheMaze
             drawingOffset.X = (int)position.X;
             drawingOffset.Y = (int)position.Y - 75;
 
-            GolemStates();
-            Pathfinding(gameTime, player);
+            GolemStates(gameTime, player);
+            //Pathfinding(gameTime, player);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -64,11 +64,16 @@ namespace TheMaze
             spriteBatch.Draw(texture, drawingOffset, currentSourceRect, color);
         }
 
-        public void GolemStates()
+        public void GolemStates(GameTime gameTime, Player player)
         {
             if (isSleeping)
             {
                 speed = 0;
+            }
+            else
+            {
+                Pathfinding(gameTime, player);
+                speed = 50;
             }
 
             if (isActive)

@@ -97,7 +97,7 @@ namespace TheMaze
             isInverse = false;
 
             stamina = 5000f;
-            playerHealth = 2;
+            playerHealth = 3;
             insaferoom = true;
 
         }

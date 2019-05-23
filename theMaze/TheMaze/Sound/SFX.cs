@@ -18,7 +18,7 @@ namespace TheMaze
         SoundEffectInstance suicide, gettingHit,sprint,lowhp;
 
         SoundEffectInstance golemScream, golemSong;
-        SoundEffectInstance stalkerGrowlNear, stalkerGrowlFar;
+        SoundEffectInstance stalkerGrowlNear;
         SoundEffectInstance armMonsterCrackle;
         SoundEffectInstance glitchMonsterSound;
 
@@ -32,7 +32,7 @@ namespace TheMaze
         private bool playLampSwitchOn, playLampSwitchOff;
         public bool playCreepySoundHigh, playCreepySoundLow;
 
-        public bool playGolemScream, playStalkerScream, playArmMonsterCrackle;
+        public bool playGolemScream, playArmMonsterCrackle;
 
         public SFX()
         {
@@ -70,8 +70,8 @@ namespace TheMaze
             imbakuTimerReset = 120;
 
             golemTimer = 0;
-            golemTimerReset = 1000;
-            golemSongTimer = 0;
+            golemTimerReset = 2000;
+            golemSongTimer = 30;
             golemSongTimerReset = 60;
             armMonsterTimer = 0;
             armMonsterTimerReset = 5000;
@@ -85,6 +85,7 @@ namespace TheMaze
             playLampSwitchOff = false;
             playCreepySoundHigh = true;
             playCreepySoundLow = true;
+            playGolemScream = false;
         }
 
         public void Footsteps(GameTime gameTime) //Prova med att göra SoundEffectInstance istället, så som BGM för saferoomBGM och ambientnoise - kommentar från zirko till framtida zirko
