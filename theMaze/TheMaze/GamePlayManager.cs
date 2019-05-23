@@ -78,11 +78,11 @@ namespace TheMaze
                 saferoom = new Saferoom(levelManager);
                 lights = new Lights(levelManager, saferoom);
 
-                stalker = new Stalker(TextureManager.StalkerTex, levelManager.StalkerStartPosition, levelManager);
+                //stalker = new Stalker(TextureManager.StalkerTex, levelManager.StalkerStartPosition, levelManager);
                 glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
                 armMonster = new ArmMonster(TextureManager.ArmMonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
                 golem = new Golem(TextureManager.GolemTex, levelManager.GolemStartPosition, levelManager);
-                //imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
+                imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
 
                 foreach (Tile t in levelManager.Tiles)
                 {
@@ -310,22 +310,22 @@ namespace TheMaze
 
         public void Level1Update(GameTime gameTime)
         {
-            glitchMonster.Update(gameTime);
-            armMonster.Update(gameTime,player);
+            glitchMonster.Update(gameTime, player);
+            armMonster.Update(gameTime, player);
             golem.Update(gameTime, player);
-            stalker.Update(gameTime, player);
-            //imbaku.Update(gameTime,player);
+            //stalker.Update(gameTime, player);
+            imbaku.Update(gameTime,player);
 
             GlitchMonsterCollision(gameTime);
             ArmMonsterCollision(gameTime);
             GolemCollision(gameTime);
-            StalkerCollision(gameTime);
-            //ImbakuCollision(gameTime);
-            //MiniCollision();
+            //StalkerCollision(gameTime);
+            ImbakuCollision(gameTime);
+            MiniCollision(levelManager);
 
             foreach (WallMonster wM in levelManager.wallMonsters)
             {
-                wM.Update(gameTime);
+                wM.Update(gameTime, player);
                 WallMonsterCollision(wM);
             }
 
@@ -451,8 +451,8 @@ namespace TheMaze
                     player.Draw(spriteBatch);
                     armMonster.Draw(spriteBatch);
                     golem.Draw(spriteBatch);
-                    stalker.Draw(spriteBatch);
-                    //imbaku.Draw(spriteBatch);
+                    //stalker.Draw(spriteBatch);
+                    imbaku.Draw(spriteBatch);
 
                     foreach(WallMonster wM in levelManager.wallMonsters)
                     {
@@ -830,30 +830,53 @@ namespace TheMaze
                 imbaku.isActive = false;
             }
 
-            if (Vector2.Distance(player.Position, imbaku.Position) > 2500 || Vector2.Distance(player.Position, imbaku.Position) < 600)
+            if (Vector2.Distance(player.Position, imbaku.Position) > 2500 || Vector2.Distance(player.Position, imbaku.Position) < 800)
             {
                 imbaku.isChasing = true;
             }
             
         }
 
-        public void MiniCollision()
+        public void MiniCollision(LevelManager levelManager)
         {
+            List<MiniMonster> miniMonsterToRemove = new List<MiniMonster>();
+
             foreach (MiniMonster mini in imbaku.miniMonsterList)
             {
-                if (player.weaponHitbox.Intersects(imbaku.miniMonster.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
+                if (player.middleHitbox.Intersects(mini.miniRectangleHitbox) || Vector2.Distance(player.Position, mini.Position) > 650)
                 {
-                    imbaku.miniMonster.health--;
-                    if (imbaku.miniMonster.health <= 0)
-                    {
-                        imbaku.miniMonsterList.Remove(mini);
-                        break;
-                    }
-
+                    miniMonsterToRemove.Add(mini);
                 }
 
+                for (int i = 0; i < levelManager.Tiles.GetLength(0); i++)
+                {
+                    for (int j = 0; j < levelManager.Tiles.GetLength(1); j++)
+                    {
+                        if (levelManager.Tiles[i, j].IsWall)
+                        {
+                            if (mini.miniRectangleHitbox.Intersects(levelManager.Tiles[i, j].Hitbox))
+                            {
+                                miniMonsterToRemove.Add(mini);
+                            }
+                        }
+                    }
+                }
+
+                if (player.weaponHitbox.Intersects(mini.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
+                {
+                    mini.health--;
+                    if (mini.health <= 0)
+                    {
+                        miniMonsterToRemove.Add(mini);
+                        break;
+                    }
+                }
             }
 
+            foreach (MiniMonster miniRemove in miniMonsterToRemove)
+            {
+                imbaku.miniMonsterList.Remove(miniRemove);
+            }
         }
 
         public void PlayerDamage(int monsterDamage)

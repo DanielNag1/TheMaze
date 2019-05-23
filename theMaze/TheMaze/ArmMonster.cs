@@ -60,7 +60,7 @@ namespace TheMaze
 
             if (chaseTimer < 0)
             {
-                path = Pathfind.CreatePath(Position, player.playerHitbox.Center.ToVector2());
+                path = Pathfind.CreatePath(Position, player.FootHitbox.Center.ToVector2());
                 chaseTimer = resetTimer;
             }
 
@@ -187,7 +187,7 @@ namespace TheMaze
 
             else
             {
-                position += direction * armSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                position += Direction * armSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 if (Vector2.Distance(Position, destination) < 1)
                 {
