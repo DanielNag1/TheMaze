@@ -18,7 +18,7 @@ namespace TheMaze
         protected int frame, nrFrames;
         protected double timer, timeIntervall;
 
-        protected Vector2 Direction;
+        public Vector2 Direction { get; protected set; }
 
         public Vector2 Position
         {

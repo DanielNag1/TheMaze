@@ -66,7 +66,10 @@ namespace TheMaze
         {
             if (GamePlayManager.currentState == GamePlayManager.LevelState.Death)
             {
+                AmbientNoiseFadeOut();
+                FadeOut(safeRoomBGM);
                 FadeIn(whiteBGM);
+                
             }
             else
             {

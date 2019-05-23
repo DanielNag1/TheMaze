@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    class Golem : ChasingMonster
+    public class Golem : ChasingMonster
     {
         public Rectangle golemRectangleHitbox;
         public Circle golemCircleHitbox;

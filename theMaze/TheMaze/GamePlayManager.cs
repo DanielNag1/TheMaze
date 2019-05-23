@@ -22,13 +22,6 @@ namespace TheMaze
 
         Player player;
 
-        Imbaku imbaku;
-        Golem golem;
-        Stalker stalker;
-        GlitchMonster glitchMonster;
-        WallMonster wallMonster;
-        ArmMonster armMonster;
-
         SFX sfx;
         BGM bgm;
 
@@ -53,7 +46,7 @@ namespace TheMaze
             //LoadLevel2(levelManager);
             //LoadLevel3(levelManager);
             toRespawnRectangle = new Rectangle((int)deathManager.SuicideHallwayStopPosition.X, (int)deathManager.SuicideHallwayStopPosition.Y, ConstantValues.tileWidth, ConstantValues.tileHeight);
-            
+
             X.player = player;
             X.LoadCamera();
             //Game1.penumbra.Initialize();
@@ -78,12 +71,6 @@ namespace TheMaze
                 saferoom = new Saferoom(levelManager);
                 lights = new Lights(levelManager, saferoom);
 
-                ////stalker = new Stalker(TextureManager.StalkerTex, levelManager.StalkerStartPosition, levelManager);
-                //glitchMonster = new GlitchMonster(TextureManager.MonsterTex, levelManager.GlitchMonsterStartPosition, levelManager);
-                //armMonster = new ArmMonster(TextureManager.ArmMonsterTex, levelManager.ArmMonsterStartPosition, levelManager);
-                golem = new Golem(TextureManager.GolemTex, levelManager.GolemStartPosition, levelManager);
-                //imbaku = new Imbaku(TextureManager.ImbakuTex, levelManager.ImbakuStartPosition, levelManager);
-
                 foreach (Tile t in levelManager.Tiles)
                 {
                     if (t.IsHull == true)
@@ -91,6 +78,8 @@ namespace TheMaze
                         Game1.penumbra.Hulls.Add(Tile.HullFromRectangle(t.HullHitbox, 1));
                     }
                 }
+
+
                 level1loaded = true;
             }
         }
@@ -119,7 +108,6 @@ namespace TheMaze
                 saferoom = new Saferoom(levelManager);
                 lights = new Lights(levelManager, saferoom);
 
-                
                 foreach (Tile t in levelManager.Tiles)
                 {
                     if (t.IsHull == true)
@@ -208,24 +196,35 @@ namespace TheMaze
             lights.Update(gameTime);
             IngameTextShowing(gameTime);
 
-            switch (currentLevel)
+
+
+            if (black)
             {
-                case Level.Level1:
-                    Level1TutorialUpdate();
-                    Level1Update(gameTime);
-                    break;
-                case Level.Level2:
-                    Level2Update(gameTime);
-                    break;
-                case Level.Level3:
-                    break;
-                case Level.Level4:
-                    break;
+                switch (currentLevel)
+                {
+                    case Level.Level1:
+                        Level1TutorialUpdate();
+                        Level1Update(gameTime);
+                        break;
+                    case Level.Level2:
+                        Level2Update(gameTime);
+                        break;
+                    case Level.Level3:
+                        Level3Update(gameTime);
+                        break;
+                    case Level.Level4:
+                        Level4Update(gameTime);
+                        break;
+                }
+
             }
+
+
             //Självmord
             switch (currentState)
             {
                 case LevelState.Live:
+                    bgm.PlayBGM();
                     black = true;
                     Game1.penumbra.Transform = X.camera.Transform;
 
@@ -242,7 +241,7 @@ namespace TheMaze
 
                         }
                     }
-                    if(currentLevel ==Level.Level4 && player.insaferoom)
+                    if (currentLevel == Level.Level4 && player.insaferoom)
                     {
                         if (X.IsKeyPressed(Keys.Enter))
                         {
@@ -261,10 +260,10 @@ namespace TheMaze
                     player.playerImmunity = true;
                     player.insaferoom = false;
 
-                    foreach (WallMonster wM in levelManager.wallMonsters)
+                    foreach (WallMonster wallMonster in levelManager.wallMonsterList)
                     {
-                        wM.active = false;
-                        wM.coolDownTimer.Reset();
+                        wallMonster.active = false;
+                        wallMonster.coolDownTimer.Reset();
                     }
 
                     player.Collision(deathManager);
@@ -310,26 +309,12 @@ namespace TheMaze
 
         public void Level1Update(GameTime gameTime)
         {
-            //glitchMonster.Update(gameTime, player);
-            //armMonster.Update(gameTime, player);
-            golem.Update(gameTime, player);
-            //stalker.Update(gameTime, player);
-            //imbaku.Update(gameTime,player);
-
-            //GlitchMonsterCollision(gameTime);
-            //ArmMonsterCollision(gameTime);
-            GolemCollision(gameTime);
-            //StalkerCollision(gameTime);
-            //ImbakuCollision(gameTime);
-            //MiniCollision(levelManager);
-
-            foreach (WallMonster wM in levelManager.wallMonsters)
+            foreach (WallMonster wallMonster in levelManager.wallMonsterList)
             {
-                wM.Update(gameTime, player);
-                WallMonsterCollision(wM);
+                wallMonster.Update(gameTime, player);
+                WallMonsterCollision(wallMonster);
             }
 
-            sfx.GolemSong(gameTime);
         }
 
         public void Level1TutorialDraw(SpriteBatch spriteBatch)
@@ -367,7 +352,7 @@ namespace TheMaze
                 killed = false;
                 currentState = LevelState.Live;
                 player.SetPosition(levelManager.StartPositionPlayer);
-                //imbaku.SetPosition(levelManager.ImbakuStartPosition);
+                
             }
         }
 
@@ -424,7 +409,7 @@ namespace TheMaze
 
         public void MonsterTakeDamage(Imbaku imbaku, GameTime gameTime)
         {
-            
+
         }
 
         public void Desk(SpriteBatch spriteBatch)
@@ -447,17 +432,12 @@ namespace TheMaze
                         c.Draw(spriteBatch);
                     }
 
+                    foreach (WallMonster wallMonster in levelManager.wallMonsterList)
+                    {
+                        wallMonster.Draw(spriteBatch);
+                    }
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
-                    //armMonster.Draw(spriteBatch);
-                    golem.Draw(spriteBatch);
-                    //stalker.Draw(spriteBatch);
-                    //imbaku.Draw(spriteBatch);
-
-                    //foreach(WallMonster wM in levelManager.wallMonsters)
-                    //{
-                    //    wM.Draw(spriteBatch);
-                    //}
 
                     spriteBatch.End();
 
@@ -486,13 +466,20 @@ namespace TheMaze
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
 
                     levelManager.Draw(spriteBatch);
-                    foreach (WallMonster wM in levelManager.wallMonsters)
-                    {
-                        wM.Draw(spriteBatch);
-                    }
+
+
                     foreach (Collectible c in levelManager.collectibles)
                     {
                         c.Draw(spriteBatch);
+                    }
+
+                    foreach (ArmMonster armMonster in levelManager.armMonsterList)
+                    {
+                        armMonster.Draw(spriteBatch);
+                    }
+                    foreach (Stalker stalker in levelManager.stalkerList)
+                    {
+                        stalker.Draw(spriteBatch);
                     }
 
                     Desk(spriteBatch);
@@ -528,6 +515,29 @@ namespace TheMaze
                     }
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
+
+                    foreach (ArmMonster armMonster in levelManager.armMonsterList)
+                    {
+                        armMonster.Draw(spriteBatch);
+                    }
+
+                    foreach (Imbaku imbaku in levelManager.imbakuList)
+                    {
+                        imbaku.Draw(spriteBatch);
+
+                        foreach (MiniMonster miniMonster in imbaku.miniMonsterList)
+                        {
+                            miniMonster.Draw(spriteBatch);
+
+                        }
+
+                    }
+
+                    foreach (Golem golem in levelManager.golemList)
+                    {
+                        golem.Draw(spriteBatch);
+                    }
+
                     spriteBatch.End();
 
                     spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, X.camera.Transform);
@@ -556,6 +566,22 @@ namespace TheMaze
                     {
                         c.Draw(spriteBatch);
                     }
+
+                    foreach (Golem golem in levelManager.golemList)
+                    {
+                        golem.Draw(spriteBatch);
+                    }
+
+                    foreach (WallMonster wallMonster in levelManager.wallMonsterList)
+                    {
+                        wallMonster.Draw(spriteBatch);
+                    }
+                    
+                    foreach (Stalker stalker in levelManager.stalkerList)
+                    {
+                        stalker.Draw(spriteBatch);
+                    }
+
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
                     spriteBatch.End();
@@ -588,7 +614,80 @@ namespace TheMaze
 
         public void Level2Update(GameTime gameTime)
         {
+            foreach (ArmMonster armMonster in levelManager.armMonsterList)
+            {
+                armMonster.Update(gameTime, player);
+                ArmMonsterCollision(gameTime, armMonster);
+            }
 
+            foreach (GlitchMonster glitchMonster in levelManager.glitchMonsterList)
+            {
+                glitchMonster.Update(gameTime, player);
+                GlitchMonsterCollision(gameTime, glitchMonster);
+            }
+            foreach (Stalker stalker in levelManager.stalkerList)
+            {
+                stalker.Update(gameTime, player);
+                StalkerCollision(gameTime, stalker);
+            }
+
+
+        }
+
+        public void Level3Update(GameTime gameTime)
+        {
+            foreach (ArmMonster armMonster in levelManager.armMonsterList)
+            {
+                armMonster.Update(gameTime, player);
+                ArmMonsterCollision(gameTime, armMonster);
+            }
+            foreach (Imbaku imbaku in levelManager.imbakuList)
+            {
+                imbaku.Update(gameTime, player);
+                ImbakuCollision(gameTime, imbaku);
+
+                foreach (MiniMonster miniMonster in imbaku.miniMonsterList)
+                {
+                    miniMonster.Update(gameTime, player);
+                }
+
+                MiniCollision(levelManager, imbaku);
+            }
+            foreach (Golem golem in levelManager.golemList)
+            {
+                golem.Update(gameTime, player);
+                GolemCollision(gameTime, golem);
+            }
+
+            sfx.GolemSong(gameTime);
+        }
+
+        public void Level4Update(GameTime gameTime)
+        {
+            foreach (Golem golem in levelManager.golemList)
+            {
+                golem.Update(gameTime, player);
+                GolemCollision(gameTime, golem);
+
+            }
+            foreach (WallMonster wallMonster in levelManager.wallMonsterList)
+            {
+                wallMonster.Update(gameTime, player);
+                WallMonsterCollision(wallMonster);
+            }
+            foreach (GlitchMonster glitchMonster in levelManager.glitchMonsterList)
+            {
+                glitchMonster.Update(gameTime, player);
+                GlitchMonsterCollision(gameTime, glitchMonster);
+            }
+
+            foreach (Stalker stalker in levelManager.stalkerList)
+            {
+                stalker.Update(gameTime, player);
+                StalkerCollision(gameTime, stalker);
+            }
+
+            sfx.GolemSong(gameTime);
         }
 
         public void ChangeLevel()
@@ -609,7 +708,7 @@ namespace TheMaze
             else if (player.collectibles.Count == 9)
             {
                 GameStateManager.currentGameState = GameStateManager.GameState.Cutscene;
-                
+
             }
 
 
@@ -638,7 +737,7 @@ namespace TheMaze
             if (player.middleHitbox.Intersects(wallMonster.hitBoxRect) && !wallMonster.coolDown)
             {
                 wallMonster.active = true;
-                sfx.WallMonsterEncounterOn();
+                
             }
 
             if (wallMonster.active)
@@ -649,7 +748,6 @@ namespace TheMaze
 
             if (player.weaponHitbox.Intersects(wallMonster.hitbox) && wallMonster.active && player.currentWeapon.color == Color.Red)
             {
-
                 wallMonster.attackTimer.Start();
 
                 if (wallMonster.attackTimer.ElapsedMilliseconds >= 3000)
@@ -657,14 +755,14 @@ namespace TheMaze
                     wallMonster.coolDown = true;
                     wallMonster.attackTimer.Reset();
 
-                    sfx.WallMonsterEncounterOff();
+                    
                 }
 
             }
 
         }
 
-        public void StalkerCollision(GameTime gameTime)
+        public void StalkerCollision(GameTime gameTime, Stalker stalker)
         {
             if (player.middleHitbox.Intersects(stalker.stalkerRectangleHitbox) && !stalker.stalkerStunned && !player.playerImmunity)
             {
@@ -690,7 +788,7 @@ namespace TheMaze
                     stalker.stalkerFlashTimer.Reset();
                 }
             }
-            if(Vector2.Distance(player.Position,stalker.Position)<400 && !player.insaferoom)
+            if (Vector2.Distance(player.Position, stalker.Position) < 600 && !player.insaferoom)
             {
                 sfx.StalkerEncounter();
             }
@@ -712,7 +810,7 @@ namespace TheMaze
             }
         }
 
-        public void GolemCollision(GameTime gameTime)
+        public void GolemCollision(GameTime gameTime, Golem golem)
         {
 
             if (player.weaponHitbox.Intersects(golem.golemCircleHitbox) && player.currentWeapon.enabled == true)
@@ -741,7 +839,7 @@ namespace TheMaze
 
         }
 
-        public void GlitchMonsterCollision(GameTime gameTime)
+        public void GlitchMonsterCollision(GameTime gameTime, GlitchMonster glitchMonster)
         {
             if (player.middleHitbox.Intersects(glitchMonster.glitchMonsterRectangleHitbox))
             {
@@ -767,11 +865,11 @@ namespace TheMaze
             }
         }
 
-        public void ArmMonsterCollision(GameTime gameTime)
+        public void ArmMonsterCollision(GameTime gameTime, ArmMonster armMonster)
         {
-            if(player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && !armMonster.coolDown)
+            if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && !armMonster.coolDown)
             {
-                if(armMonster.isActive)
+                if (armMonster.isActive)
                 {
                     //DAMAGE
                 }
@@ -782,12 +880,12 @@ namespace TheMaze
                 }
             }
 
-            if(!player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && armMonster.coolDown)
+            if (!player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && armMonster.coolDown)
             {
                 armMonster.coolDown = false;
             }
 
-            if(player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated && player.currentWeapon.color==Color.Goldenrod)
+            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated && player.currentWeapon.color == Color.Goldenrod)
             {
                 armMonster.slowedDown = true;
             }
@@ -805,7 +903,7 @@ namespace TheMaze
 
 
 
-        public void ImbakuCollision(GameTime gameTime)
+        public void ImbakuCollision(GameTime gameTime, Imbaku imbaku)
         {
             if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && player.currentWeapon.enabled == true)
             {
@@ -839,10 +937,10 @@ namespace TheMaze
             {
                 imbaku.isChasing = true;
             }
-            
+
         }
 
-        public void MiniCollision(LevelManager levelManager)
+        public void MiniCollision(LevelManager levelManager, Imbaku imbaku)
         {
             List<MiniMonster> miniMonsterToRemove = new List<MiniMonster>();
 
@@ -881,6 +979,7 @@ namespace TheMaze
             foreach (MiniMonster miniRemove in miniMonsterToRemove)
             {
                 imbaku.miniMonsterList.Remove(miniRemove);
+                
             }
         }
 
@@ -908,7 +1007,7 @@ namespace TheMaze
         {
             if (player.playerHealth == 1)
             {
-                spriteBatch.Draw(TextureManager.RedHPTexture,new Vector2(player.Position.X-960,player.Position.Y-540), Color.White);
+                spriteBatch.Draw(TextureManager.RedHPTexture, new Vector2(player.Position.X - 960, player.Position.Y - 540), Color.White);
             }
         }
 

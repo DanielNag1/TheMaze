@@ -58,7 +58,7 @@ namespace TheMaze
                     break;
                 case GameState.Play:
                     gamePlayManager.Update(gameTime);
-                    bgm.PlayBGM();
+                    
                     break;
                 case GameState.Pause:
                     pauseMenu.Update();

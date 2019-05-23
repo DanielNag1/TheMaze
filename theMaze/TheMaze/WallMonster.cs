@@ -15,6 +15,8 @@ namespace TheMaze
         public bool active, coolDown;
         public Stopwatch coolDownTimer, attackTimer;
 
+        public SFX sfx;
+
 
         public WallMonster(Texture2D texture, Vector2 position) : base(texture, position)
         {
@@ -30,7 +32,7 @@ namespace TheMaze
             color = Color.White;
             frameSize = 128;
 
-
+            sfx = new SFX();
 
         }
 
@@ -44,20 +46,11 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(TextureManager.RedTexture, hitBoxRect, Color.White);
-            //spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
-            //        currentSourceRect.Width, currentSourceRect.Height), currentSourceRect, color);
-
-
             if (active)
             {
                 spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y,
                     currentSourceRect.Width, currentSourceRect.Height), currentSourceRect, color);
-
             }
-
-
-
 
         }
 
@@ -65,14 +58,16 @@ namespace TheMaze
         {
             if (active)
             {
-                //color = Color.Red;
+                sfx.WallMonsterEncounterOn();
             }
 
+            
             if (coolDown)
             {
                 color = Color.Blue;
                 active = false;
                 coolDownTimer.Start();
+                
             }
 
             if (coolDownTimer.ElapsedMilliseconds >= 5000)
@@ -80,6 +75,7 @@ namespace TheMaze
                 coolDown = false;
                 color = Color.White;
                 coolDownTimer.Reset();
+                sfx.WallMonsterEncounterOff();
 
             }
 

@@ -15,7 +15,7 @@ namespace TheMaze
     {
         private SFX sfx;
 
-        public Vector2 Direction { get; set; }
+        
         private Vector2 oldPosition;
 
         private Rectangle footHitbox;
@@ -104,7 +104,7 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
-            PlayerInput(gameTime);
+            
 
             if (playerHealth == 1)
             {
@@ -113,7 +113,7 @@ namespace TheMaze
 
             if (moving)
             {
-
+                PlayerInput(gameTime);
                 currentSourceRect.X = frame * frameSizeX;
                 currentSourceRect.Y = frameSize * frameSizeY;
                 UpdateSourceRectangle();
@@ -128,7 +128,7 @@ namespace TheMaze
             }
             else
             {
-
+                PlayerInput(gameTime);
                 currentSourceRect.X = frame * frameSizeX;
             }
 
@@ -167,19 +167,19 @@ namespace TheMaze
             {
                 if (currentWeapon == weaponSlot1)
                 {
-                    weaponSlot1.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot1.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
                 if (currentWeapon == weaponSlot2)
                 {
-                    weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot2.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
                 if (currentWeapon == weaponSlot3)
                 {
-                    weaponSlot3.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot3.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
                 if (currentWeapon == weaponSlot4)
                 {
-                    weaponSlot4.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 200000;
+                    weaponSlot4.power -= (float)gameTime.ElapsedGameTime.TotalMilliseconds / 250000;
                 }
             }
         }
@@ -474,11 +474,11 @@ namespace TheMaze
 
             if (Direction == new Vector2(1, 0))
             {
-                lampPosition = new Vector2(Position.X + 102, Position.Y + 123);
+                lampPosition = new Vector2(Position.X + 110, Position.Y + 140);
             }
             if (Direction == new Vector2(0, 1))
             {
-                lampPosition = new Vector2(Position.X + 28, Position.Y + 110);
+                lampPosition = new Vector2(Position.X + 16, Position.Y + 135);
             }
             if (Direction == new Vector2(-1, 0))
             {

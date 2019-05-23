@@ -17,7 +17,7 @@ namespace TheMaze
         private readonly Vector2 Left = new Vector2(-1, 0);
         private readonly Vector2 Right = new Vector2(1, 0);
 
-        public Vector2 Direction { get; protected set; }
+        
 
         private Random random;
 

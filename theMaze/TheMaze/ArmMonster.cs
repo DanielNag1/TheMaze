@@ -14,6 +14,7 @@ namespace TheMaze
         public Rectangle armMonsterRectangleHitbox;
         public Circle armMonsterCircleHitbox;
         private Vector2 armMonsterCircleHitboxPos;
+        private Vector2 startPosition;
 
         private Stopwatch cooldownTimer = new Stopwatch();
         private Stopwatch activationTimer = new Stopwatch();
@@ -38,6 +39,8 @@ namespace TheMaze
             armMonsterRectangleHitbox = new Rectangle((int)position.X + currentSourceRect.Width/4, (int)position.Y+currentSourceRect.Height/4, currentSourceRect.Width/2, currentSourceRect.Height/2);
             armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
+
+            startPosition = position;
 
             random = new Random();
             activated = false;
@@ -78,7 +81,7 @@ namespace TheMaze
                 {
                     armSpeed = armSpeed + 25f;
                 }
-                else if (slowedDown)
+                else if (slowedDown && armSpeed >= 25f)
                 {
                     armSpeed = armSpeed - 50f;
                 }
@@ -97,7 +100,7 @@ namespace TheMaze
             cooldownTimer.Reset();
 
             armSpeed = 25f;
-            SetPosition(levelManager.ArmMonsterStartPosition);
+            SetPosition(startPosition);
 
 
             armMonsterRectangleHitbox.X = (int)position.X + currentSourceRect.Width / 4;
@@ -128,7 +131,7 @@ namespace TheMaze
         {
             if (activated)
             {
-                spawning = random.Next(0, 0);
+                spawning = random.Next(0, 2);
 
                 if (spawning == 0)
                 {

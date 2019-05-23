@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace TheMaze
 {
-    class SFX
+    public class SFX
     {
         private enum FootstepPlayState { Footstep1, Footstep2 }
         private FootstepPlayState currentFootstepPlayState;
 
         SoundEffectInstance creepySoundLow, creepySoundHigh;
-        SoundEffectInstance takeCollectible,pickWeapon;
-        SoundEffectInstance suicide, gettingHit,sprint,lowhp;
+        SoundEffectInstance takeCollectible, pickWeapon;
+        SoundEffectInstance suicide, gettingHit, sprint, lowhp;
 
         SoundEffectInstance golemScream, golemSong;
         SoundEffectInstance stalkerGrowlNear;
@@ -59,7 +59,7 @@ namespace TheMaze
             golemSong = SoundManager.GolemSong.CreateInstance();
             golemSong.Volume = 0.02f;
 
-            //stalkerGrowlFar = SoundManager.StalkerGrowlFar.CreateInstance();
+            
             stalkerGrowlNear = SoundManager.StalkerGrowlNear.CreateInstance();
 
             armMonsterCrackle = SoundManager.ArmMonsterCrackle.CreateInstance();
@@ -71,8 +71,8 @@ namespace TheMaze
 
             golemTimer = 0;
             golemTimerReset = 2000;
-            golemSongTimer = 30;
-            golemSongTimerReset = 60;
+            golemSongTimer = 40;
+            golemSongTimerReset = 70;
             armMonsterTimer = 0;
             armMonsterTimerReset = 5000;
 

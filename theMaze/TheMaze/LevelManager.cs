@@ -15,15 +15,21 @@ namespace TheMaze
         public Vector2 StartPositionPlayer { get; private set; }
         public Vector2 StartPositionSafeRoom { get; private set; }
 
-        public Vector2 ImbakuStartPosition { get; private set; }
-        public Vector2 GolemStartPosition { get; private set; }
-        public Vector2 GlitchMonsterStartPosition { get; private set; }
-        public Vector2 StalkerStartPosition { get; private set; }
-        public Vector2 ArmMonsterStartPosition { get; private set; }
-
-        public List<WallMonster> wallMonsters;
         public List<Vector2> collectiblePositions;
+        public List<WallMonster> wallMonsterList;
+        public List<ArmMonster> armMonsterList;
+        public List<GlitchMonster> glitchMonsterList;
+        public List<Imbaku> imbakuList;
+        public List<Stalker> stalkerList;
+        public List<Golem> golemList;
+
+        public ArmMonster armMonster;
         public WallMonster wallMonster;
+        public GlitchMonster glitchMonster;
+        public Imbaku imbaku;
+        public Stalker stalker;
+        public Golem golem;
+
         public Vector2 SuicideHallwayStopPosition { get; private set; }
         public List<Collectible> collectibles;
         public Collectible collectible;
@@ -45,14 +51,23 @@ namespace TheMaze
         public void ReadLevel2()
         {
             Tiles = GenerateMap("level2testtest.txt", false);
+            Pathfind.FillGridFromMap(Tiles);
         }
         public void ReadLevel3()
         {
+            armMonsterList.Clear();
+            glitchMonsterList.Clear();
+            stalkerList.Clear();
             Tiles = GenerateMap("level3.txt", false);
+            Pathfind.FillGridFromMap(Tiles);
         }
         public void ReadLevel4()
         {
+            golemList.Clear();
+            imbakuList.Clear();
+            armMonsterList.Clear();
             Tiles = GenerateMap("level4testtest.txt", false);
+            Pathfind.FillGridFromMap(Tiles);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -71,7 +86,13 @@ namespace TheMaze
         {
             string[] mapData = File.ReadAllLines(map);
             collectibles = new List<Collectible>();
-            wallMonsters = new List<WallMonster>();
+            wallMonsterList = new List<WallMonster>();
+            glitchMonsterList = new List<GlitchMonster>();
+            armMonsterList = new List<ArmMonster>();
+            imbakuList = new List<Imbaku>();
+            stalkerList = new List<Stalker>();
+            golemList = new List<Golem>();
+
             int width = mapData[0].Length;
             int height = mapData.Length;
             Tile[,] tiles = new Tile[width, height];
@@ -91,7 +112,8 @@ namespace TheMaze
                     }
                     if (mapData[y][x] == '2')
                     {
-                        ImbakuStartPosition = tilePosition;
+                        imbaku = new Imbaku(TextureManager.ImbakuTex, tilePosition, this);
+                        imbakuList.Add(imbaku);
                     }
                     if (mapData[y][x] == '3')
                     {
@@ -103,25 +125,29 @@ namespace TheMaze
                     if (mapData[y][x] == '4')
                     {
                         wallMonster = new WallMonster(TextureManager.WallMonsterTex, tilePosition);
-                        wallMonsters.Add(wallMonster);
+                        wallMonsterList.Add(wallMonster);
                     }
 
                     if (mapData[y][x] == '5')
                     {
-                        GolemStartPosition = tilePosition;
+                        golem = new Golem(TextureManager.GolemTex, tilePosition, this);
+                        golemList.Add(golem);
                     }
 
                     if (mapData[y][x] == '6')
                     {
-                        GlitchMonsterStartPosition = tilePosition;
+                        glitchMonster = new GlitchMonster(TextureManager.FloorTileTex, tilePosition, this);
+                        glitchMonsterList.Add(glitchMonster);
                     }
                     if (mapData[y][x] == '7')
                     {
-                        StalkerStartPosition = tilePosition;
+                        stalker = new Stalker(TextureManager.StalkerTex, tilePosition, this);
+                        stalkerList.Add(stalker);
                     }
                     if (mapData[y][x] == '8')
                     {
-                        ArmMonsterStartPosition = tilePosition;
+                        armMonster = new ArmMonster(TextureManager.ArmMonsterTex, tilePosition, this);
+                        armMonsterList.Add(armMonster);
                     }
 
                     if (mapData[y][x] == '9')

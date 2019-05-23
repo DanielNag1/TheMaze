@@ -13,7 +13,7 @@ __bwwq-pwwwwwdmBBBBBm________mjHHHHHHmHHHHHHHm__
 _____m-m______m0----m________mJBBBBBBmBBBBBBBm__
 _____m-m______m-----m________m-------a-------bwq
 _____m-m______m--1--m________m-pwwwq-H-pwq-e-jHm
-_____m-m______m--33-m________m-m___m-B-m_m-m-JBm
+_____m-m______m-----m________m-m___m-B-m_m-m-JBm
 _____m-m______m-----m________m-m___m---m_m-m---m
 _____m-bwwwwwwzwo-cwzwwwwwwwwd-bwwwzwwwz_v-a-cwv
 _____m-iHHHHHHHHi-jHHHHHHHHHHi-jHHHHi____m-j-jHm
@@ -34,12 +34,12 @@ _____m-m---------------m-m______________________
 _____m-m------pwq------m-bwwwwwwq_______________
 _____m-m------mHm------m-jHHHHHim_______________
 _____m-m______mBm______m-JBBBBBIm_______________
-_____m-m______m-m______m--------m_______________
+_____m-m______m3m______m--------m_______________
 _____m-m______m-m______xwwwwwwq-m_______________
 _____m-m______m-m_____________m-m_______________
 _____m-bwwwwwwd-bwwwwwwwwwwwwwd-bwwwwwq_________
-_____m-iHHHHHHHHHHHHHHHHHHHHHHj-miHHHjm_________
-_____m-IBBBBBBBBBBBBBBBBBBBBBBJ-mIBBBJm_________
+_____m-iHHHHHHH-HHHHHHHHHHHHHHj-miHHHjm_________
+_____m-IBBBBBBB-BBBBBBBBBBBBBBJ-mIBBBJm_________
 _____m--------------------------------m_________
 _____bwwwwwwwwwwwwwwwwwwwwwwwwq-pwwwq-m_________
 ______________________________m-m___m-m_________
