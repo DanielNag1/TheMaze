@@ -79,7 +79,7 @@ namespace TheMaze
             ArmMonsterCrackle = content.Load<SoundEffect>("Audio/SFX/metalclang");
             GlitchMonsterSound = content.Load<SoundEffect>("Audio/SFX/glitch");
 
-            //StalkerGrowlFar = content.Load<SoundEffect>("Audio/SFX/whispering");
+            StalkerGrowlFar = content.Load<SoundEffect>("Audio/SFX/whispering");
             StalkerGrowlNear = content.Load<SoundEffect>("Audio/SFX/breathingghost");
 
         }
