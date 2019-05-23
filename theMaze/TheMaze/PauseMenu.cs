@@ -62,9 +62,9 @@ namespace TheMaze
             if (drawControlsMenu)
             {
                 controlsButton.text = "BACK";
-                controlsButton.pos = Vector2.Zero;
-                controlsButton.rect.X = (int)Vector2.Zero.X;
-                controlsButton.rect.Y = (int)Vector2.Zero.Y;
+                controlsButton.pos = exitPos;
+                controlsButton.rect.X = (int)exitPos.X;
+                controlsButton.rect.Y = (int)exitPos.Y;
             }
             else
             {
