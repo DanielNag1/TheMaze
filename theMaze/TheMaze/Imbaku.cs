@@ -19,7 +19,6 @@ namespace TheMaze
         public bool isActive, miniIsAlive, isChasing;
 
         private float creatingMiniTimer = 0f, resetMiniTimer = 3f;
-        public MiniMonster miniMonster;
         public List<MiniMonster> miniMonsterList;
 
 
@@ -80,24 +79,28 @@ namespace TheMaze
         {
             if (isActive)
             {
-                if (direction == new Vector2(1, 0))
+                if (Direction == new Vector2(1, 0))
                 {
                     frameSize = 5;
                 }
-                if (direction == new Vector2(-1, 0))
+                if (Direction == new Vector2(-1, 0))
                 {
                     frameSize = 4;
                 }
 
-                if (direction == new Vector2(0, 1))
+                if (Direction == new Vector2(0, 1))
                 {
                     frameSize = 6;
                 }
 
-                if (direction == new Vector2(0, -1))
+                if (Direction == new Vector2(0, -1))
                 {
                     frameSize = 7;
                 }
+            }
+            else
+            {
+                frameSize = 0;
             }
         }
 
@@ -114,22 +117,24 @@ namespace TheMaze
                     frame++;
                     if (frame >= nrFrames)
                     {
-                        frame = 5;
+                        frame = 0;
                     }
                 }
 
                 //speed = 0;
 
-                if (miniMonsterList.Count <= 4)
+                if (miniMonsterList.Count <= 8)
                 {
                     CreateMini(gameTime);
                 }
+
             }
 
             else
             {
+                UpdateSourceRectangle();
                 Animation(gameTime);
-                speed = 50f;
+                //Pathfinding(gameTime, player);
             }
 
             if (isChasing)
@@ -145,12 +150,12 @@ namespace TheMaze
 
         protected void CreateMini(GameTime gameTime)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 9; i++)
             {
                 creatingMiniTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (creatingMiniTimer <= 0)
                 {
-                    miniMonster = new MiniMonster(TextureManager.MiniMonsterTex, position, levelManager);
+                    MiniMonster miniMonster = new MiniMonster(TextureManager.MiniMonsterTex, position, levelManager);
                     miniMonsterList.Add(miniMonster);
                     Console.WriteLine(miniMonster.speed);
                     creatingMiniTimer = resetMiniTimer;

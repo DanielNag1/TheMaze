@@ -169,6 +169,18 @@
 /processorParam:Quality=Best
 /build:Audio/SFX/weaponpick.wav
 
+#begin character_spritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:character_spritesheet.png
+
 #begin characterspritesheet1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -703,4 +715,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:You Died.png
+
+#begin Audio/SFX/whispering.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/whispering.wav
+
+#begin Audio/SFX/icespell.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/SFX/icespell.wav
 

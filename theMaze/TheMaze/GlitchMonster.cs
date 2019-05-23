@@ -22,9 +22,9 @@ namespace TheMaze
             glitchMonsterRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime, Player player)
         {
-            base.Update(gameTime);
+            base.Update(gameTime, player);
             glitchMonsterRectangleHitbox.X = (int)position.X;
             glitchMonsterRectangleHitbox.Y = (int)position.Y;
 

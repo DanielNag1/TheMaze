@@ -28,7 +28,7 @@ namespace TheMaze
         {
             graphics.PreferredBackBufferWidth = ConstantValues.screenWidth;
             graphics.PreferredBackBufferHeight = ConstantValues.screenHeight;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             graphics.ApplyChanges();
             IsMouseVisible = true;
 
@@ -41,7 +41,7 @@ namespace TheMaze
             SoundManager.LoadContent(Content);
             TextureManager.LoadContent(Content);
             gameStateManager = new GameStateManager();
-            penumbra.AmbientColor = Color.Black;
+            penumbra.AmbientColor = Color.White;
             
         }
 

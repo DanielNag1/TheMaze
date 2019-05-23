@@ -25,13 +25,13 @@ namespace TheMaze
         }
         private int hitboxOffsetX, hitboxOffsetY;
 
-        private Rectangle currentSourceRect, nextSourceRect;
+        //private Rectangle currentSourceRect, nextSourceRect;
         public Rectangle middleHitbox, playerHitbox;
         public readonly int frameSizeX = 125;
-        public readonly int frameSizeY = 210;
+        public readonly int frameSizeY = 250;
 
-        private int frame = 0, nrFrames = 4;
-        private double timer = 100, timeIntervall = 100;
+        //private int frame = 0, nrFrames = 4;
+        //private double timer = 100, timeIntervall = 100;
 
         private float speed = 3f;
 
@@ -73,8 +73,12 @@ namespace TheMaze
             playerLights = new List<Light>();
             weapons = new List<Weapon>();
             Direction = new Vector2(0, 1);
-            currentSourceRect = new Rectangle(0, 0, frameSizeX, frameSizeY);
+            currentSourceRect = new Rectangle(frame, frameSize, frameSizeX, frameSizeY);
             nextSourceRect = currentSourceRect;
+
+            nrFrames = 3;
+            timer = 100;
+            timeIntervall = 100;
 
             hitboxOffsetX = frameSizeX / 8;
             hitboxOffsetY = frameSizeY / 4 * 3;
@@ -91,7 +95,7 @@ namespace TheMaze
             collectibles = new List<Collectible>();
 
             isInverse = false;
-            
+
             stamina = 5000f;
             playerHealth = 3;
             insaferoom = true;
@@ -100,32 +104,23 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
-            if(playerHealth==1)
+            PlayerInput(gameTime);
+
+            if (playerHealth == 1)
             {
                 sfx.LowHP();
             }
 
             if (moving)
             {
-                //timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
-                if (timer <= 0)
-                {
-                    timer = timeIntervall;
-                    frame++;
-                    if (frame >= nrFrames)
-                    {
-                        frame = 0;
-                    }
-                    currentSourceRect.X = frame * frameSizeX;
-                }
+                currentSourceRect.X = frame * frameSizeX;
+                currentSourceRect.Y = frameSize * frameSizeY;
+                UpdateSourceRectangle();
 
                 sfx.Footsteps(gameTime);
 
-                PlayerInput(gameTime);
-
-                currentSourceRect.Y = nextSourceRect.Y;
-
+                currentSourceRect = nextSourceRect;
                 oldPosition = position;
                 position += speed * Direction;
 
@@ -133,8 +128,6 @@ namespace TheMaze
             }
             else
             {
-                PlayerInput(gameTime);
-                frame = 0;
 
                 currentSourceRect.X = frame * frameSizeX;
             }
@@ -157,18 +150,8 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (playerHealth == 3)
-            {
-                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.White);
-            }
-            else if (playerHealth == 2)
-            {
-                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.Red);
-            }
-            else if (playerHealth == 1)
-            {
-                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, frameSizeX, frameSizeY), currentSourceRect, Color.DarkRed);
-            }
+            spriteBatch.Draw(texture, position, currentSourceRect, Color.White);
+
         }
 
 
@@ -255,7 +238,7 @@ namespace TheMaze
                     Game1.penumbra.Lights.Add(markerLight);
                 }
             }
-            
+
             if (isInverse)
             {
                 InversePlayerInput();
@@ -267,22 +250,34 @@ namespace TheMaze
                 {
                     Direction = new Vector2(0, -1);
 
-                    nextSourceRect.Y = 1 * frameSizeY;
+                    nextSourceRect.Y = 3 * frameSizeY;
 
                     moving = true;
                 }
                 else if (KeyPressed(Keys.Down) || KeyPressed(Keys.S))
                 {
                     Direction = new Vector2(0, 1);
+                    if (playerHealth == 3)
+                    {
+                        nextSourceRect.Y = 2 * frameSizeY;
+                    }
+                    else if (playerHealth == 2)
+                    {
+                        nextSourceRect.Y = 4 * frameSizeY;
+                    }
 
-                    nextSourceRect.Y = 0 * frameSizeY;
+                    else if (playerHealth == 1)
+                    {
+                        nextSourceRect.Y = 5 * frameSizeY;
+                    }
+                    
 
                     moving = true;
                 }
                 else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
                 {
                     Direction = new Vector2(-1, 0);
-                    nextSourceRect.Y = 2 * frameSizeY;
+                    nextSourceRect.Y = 0 * frameSizeY;
 
                     moving = true;
                 }
@@ -290,9 +285,10 @@ namespace TheMaze
                 {
                     Direction = new Vector2(1, 0);
 
-                    nextSourceRect.Y = 3 * frameSizeY;
+                    nextSourceRect.Y = 1 * frameSizeY;
                     moving = true;
                 }
+                
                 else
                 {
                     moving = false;
@@ -321,7 +317,7 @@ namespace TheMaze
                     stamina += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
 
-            
+
         }
 
         private void WeaponInput()
@@ -554,5 +550,6 @@ namespace TheMaze
         {
             return Keyboard.GetState().IsKeyDown(k);
         }
+
     }
 }

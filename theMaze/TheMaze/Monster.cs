@@ -11,14 +11,9 @@ namespace TheMaze
     public class Monster : GameObject
     {
         public Vector2 destination, hitboxPos;
-        protected Vector2 direction;
+
 
         public Circle hitbox;
-
-        protected Rectangle currentSourceRect, nextSourceRect;
-        public int frameSize;
-        protected int frame, nrFrames;
-        protected double timer, timeIntervall;
 
         public float speed;
         protected Color color;
@@ -33,9 +28,10 @@ namespace TheMaze
             currentSourceRect = new Rectangle(frame, frameSize, ConstantValues.tileWidth, ConstantValues.tileHeight);
         }
 
-        public virtual void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime, Player player)
         {
             Animation(gameTime);
+            UpdateSourceRectangle();
         }
 
 
@@ -45,30 +41,7 @@ namespace TheMaze
                 ConstantValues.tileWidth, ConstantValues.tileHeight), currentSourceRect, color);
 
         }
-
-
-        public void Animation(GameTime gameTime)
-        {
-            timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
-
-            if (timer <= 0)
-            {
-                timer = timeIntervall;
-                frame++;
-                if (frame >= nrFrames)
-                {
-                    frame = 0;
-                }
-
-            }
-
-        }
-
-
-
-
-
-
+        
 
     }
 }

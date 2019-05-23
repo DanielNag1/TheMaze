@@ -45,7 +45,7 @@ namespace TheMaze
 
         public override void Update(GameTime gameTime, Player player)
         {
-            base.Update(gameTime);
+            base.Update(gameTime, player);
             currentSourceRect.X = frame * 125;
             currentSourceRect.Y = frameSize * 250;
 
@@ -58,7 +58,7 @@ namespace TheMaze
             stalkerCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
             stalkerCircleHitbox = new Circle(stalkerCircleHitboxPos, 90f);
 
-            //sfx.StalkerWhispers(gameTime);
+            sfx.StalkerWhispers(gameTime);
 
             if (!stalkerStunned)
             {
