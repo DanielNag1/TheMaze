@@ -25,13 +25,10 @@ namespace TheMaze
         }
         private int hitboxOffsetX, hitboxOffsetY;
 
-        //private Rectangle currentSourceRect, nextSourceRect;
+        
         public Rectangle middleHitbox, playerHitbox;
         public readonly int frameSizeX = 125;
         public readonly int frameSizeY = 250;
-
-        //private int frame = 0, nrFrames = 4;
-        //private double timer = 100, timeIntervall = 100;
 
         private float speed = 3f;
 

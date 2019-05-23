@@ -312,11 +312,6 @@ namespace TheMaze
 
         public void Level1Update(GameTime gameTime)
         {
-            foreach (WallMonster wallMonster in levelManager.wallMonsterList)
-            {
-                wallMonster.Update(gameTime, player);
-                WallMonsterCollision(wallMonster);
-            }
 
         }
 
@@ -434,11 +429,7 @@ namespace TheMaze
                     {
                         c.Draw(spriteBatch);
                     }
-
-                    foreach (WallMonster wallMonster in levelManager.wallMonsterList)
-                    {
-                        wallMonster.Draw(spriteBatch);
-                    }
+                   
                     Desk(spriteBatch);
                     player.Draw(spriteBatch);
 
@@ -824,6 +815,10 @@ namespace TheMaze
 
         public void GolemCollision(GameTime gameTime, Golem golem)
         {
+            if(player.middleHitbox.Intersects(golem.golemRectangleHitbox) && golem.isActive)
+            {
+                PlayerDamage(golem.monsterDamage);
+            }
 
             if (player.weaponHitbox.Intersects(golem.golemCircleHitbox) && player.currentWeapon.enabled == true)
             {
@@ -883,7 +878,7 @@ namespace TheMaze
             {
                 if (armMonster.isActive)
                 {
-                    //DAMAGE
+                    PlayerDamage(armMonster.monsterDamage);
                 }
                 else
                 {
@@ -961,6 +956,11 @@ namespace TheMaze
                 if (player.middleHitbox.Intersects(mini.miniRectangleHitbox) || Vector2.Distance(player.Position, mini.Position) > 650)
                 {
                     miniMonsterToRemove.Add(mini);
+                }
+
+                if (player.middleHitbox.Intersects(mini.miniRectangleHitbox))
+                {
+                    PlayerDamage(mini.monsterDamage);
                 }
 
                 for (int i = 0; i < levelManager.Tiles.GetLength(0); i++)

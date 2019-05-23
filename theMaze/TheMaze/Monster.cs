@@ -25,6 +25,7 @@ namespace TheMaze
             nextSourceRect = currentSourceRect;
             timer = 100;
             timeIntervall = 160;
+            monsterDamage = 1;
             currentSourceRect = new Rectangle(frame, frameSize, ConstantValues.tileWidth, ConstantValues.tileHeight);
         }
 

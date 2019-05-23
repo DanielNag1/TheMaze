@@ -1109,3 +1109,5 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\character_spritesheet.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\whispering.xnb
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
+C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\whispering.xnb

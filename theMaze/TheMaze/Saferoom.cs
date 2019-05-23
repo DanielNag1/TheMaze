@@ -120,6 +120,7 @@ namespace TheMaze
             if (X.player.FootHitbox.Intersects(saferoomHitBox))
             {
                 X.player.insaferoom = true;
+                X.player.playerHealth = 3;
                 Player.markers = 15;
                 visible = true;
 
