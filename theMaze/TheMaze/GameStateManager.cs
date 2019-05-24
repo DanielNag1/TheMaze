@@ -49,7 +49,7 @@ namespace TheMaze
         {
             X.Update(gameTime);
             PauseGame(gameTime);
-            
+
             switch (currentGameState)
             {
                 case GameState.MainMenu:
@@ -58,7 +58,7 @@ namespace TheMaze
                     break;
                 case GameState.Play:
                     gamePlayManager.Update(gameTime);
-                    
+
                     break;
                 case GameState.Pause:
                     pauseMenu.Update();

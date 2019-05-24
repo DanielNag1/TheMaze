@@ -802,6 +802,7 @@ namespace TheMaze
 
             if (player.weaponHitbox.Intersects(stalker.stalkerCircleHitbox) && player.currentWeapon.color == Color.Goldenrod)
             {
+                sfx.LightMonsterCollision();
                 stalker.stalkerStunned = true;
             }
 
@@ -899,6 +900,7 @@ namespace TheMaze
             if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.isActive && player.currentWeapon.color == Color.Goldenrod)
             {
                 armMonster.slowedDown = true;
+                sfx.LightMonsterCollision();
             }
             else
             {
@@ -983,6 +985,8 @@ namespace TheMaze
 
                 if (player.weaponHitbox.Intersects(mini.miniCircleHitbox) && player.currentWeapon.color == Color.Red)
                 {
+                    sfx.LightMonsterCollision();
+
                     mini.health--;
                     if (mini.health <= 0)
                     {
