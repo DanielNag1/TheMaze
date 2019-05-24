@@ -367,7 +367,6 @@ C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.exe
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\TheMaze.pdb
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.dll
-C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.dll
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
@@ -375,9 +374,7 @@ C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Framework.xml
-C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\MonoGame.Penumbra.xml
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\RoyT.AStar.xml
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.xml
@@ -386,7 +383,6 @@ C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csprojAssemblyReference.cache
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CoreCompileInputs.cache
 C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\obj\x86\Debug\TheMaze.csproj.CopyComplete
@@ -1111,3 +1107,128 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\whispering.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\breathingghost.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\gettingHit.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\glitch.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\golemsong.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\lampswitchoff.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\lampswitchon.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\lowhp2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\metalclang.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\psychoscream.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\run.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\step3.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\step4.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\suicide.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\takeCollectible.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\walking.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\weaponpick.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\ambientnoise.wma
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\ambientnoise.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\ambientsound.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\BGM\whiteambient.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.wma
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\armmonster_spritesheet2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\character_spritesheet.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectible view.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectible.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectiblemenu.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\collectiblemenu2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\controlsmenu.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Cutscene final wmv.wmv
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Cutscene final wmv.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\desk.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\golem.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\hallwaybackground.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\hallwaybackground2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\particle1.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\particle2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\redhp.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet_Imbaku.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\stalker_spritesheet.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture1.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture3.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture4.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture5.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture6.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture7.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture8.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\storyTexture9.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\tutorialfont.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\verkligheten.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\wallmonster2.2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\water tile.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\white top tile sprite 2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\whitehallwaybackground1.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\whitehallwayforeground.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\whitewalltile.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\whitewalltileflower.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\You Died.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Cutscene final wmv.wmv
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\icespell.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Content\Audio\SFX\whispering.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\breathingghost.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundhigh.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\creepysoundlow.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\gettingHit.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\glitch.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\golemsong.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchoff.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lampswitchon.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lowhp2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\metalclang.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\psychoscream.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\run.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step3.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\step4.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\suicide.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\takeCollectible.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\walking.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\weaponpick.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\whispering.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientnoise.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientsound.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\darksoulsamomentspeace.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\whiteambient.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\armmonster_spritesheet2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\character_spritesheet.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible view.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectible.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\collectiblemenu2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\controlsmenu.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Cutscene final wmv.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\desk.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\golem.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\hallwaybackground.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\hallwaybackground2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle1.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\particle2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\redhp.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_Imbaku.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\spritesheet_mini_Imbaku.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\stalker_spritesheet.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture1.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture3.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture4.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture5.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture6.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture7.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture8.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture9.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\tutorialfont.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\verkligheten.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wallmonster2.2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\water tile.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\white top tile sprite 2.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\whitehallwaybackground1.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\whitehallwayforeground.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\whitewalltile.xnb
+C:\Users\Chris\OneDrive\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\whitewalltileflower.xnb

@@ -815,7 +815,7 @@ namespace TheMaze
 
         public void GolemCollision(GameTime gameTime, Golem golem)
         {
-            if(player.middleHitbox.Intersects(golem.golemRectangleHitbox) && golem.isActive)
+            if(player.middleHitbox.Intersects(golem.golemRectangleHitbox) && golem.isActive && !player.playerImmunity)
             {
                 PlayerDamage(golem.monsterDamage);
             }
@@ -858,7 +858,7 @@ namespace TheMaze
             {
                 glitchMonster.glitchMonsterTimer.Start();
 
-                if (X.IsKeyPressed(Keys.E) && player.currentWeapon.enabled == true)
+                if (X.IsKeyPressed(Keys.E))
                 {
                     player.isInverse = false;
                     glitchMonster.glitchMonsterTimer.Reset();
@@ -868,6 +868,7 @@ namespace TheMaze
                 {
                     player.isInverse = false;
                     glitchMonster.glitchMonsterTimer.Reset();
+                    sfx.GlitchMonsterStop();
                 }
             }
         }
@@ -876,7 +877,7 @@ namespace TheMaze
         {
             if (player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && !armMonster.coolDown)
             {
-                if (armMonster.isActive)
+                if (armMonster.isActive && !player.playerImmunity)
                 {
                     PlayerDamage(armMonster.monsterDamage);
                 }
@@ -886,13 +887,12 @@ namespace TheMaze
                     armMonster.coolDown = true;
                 }
             }
-
-            if (!player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && armMonster.coolDown)
+            else if (!player.middleHitbox.Intersects(armMonster.armMonsterRectangleHitbox) && armMonster.coolDown)
             {
                 armMonster.coolDown = false;
             }
 
-            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.activated && player.currentWeapon.color == Color.Goldenrod)
+            if (player.weaponHitbox.Intersects(armMonster.armMonsterCircleHitbox) && armMonster.isActive && player.currentWeapon.color == Color.Goldenrod)
             {
                 armMonster.slowedDown = true;
             }
@@ -912,7 +912,7 @@ namespace TheMaze
 
         public void ImbakuCollision(GameTime gameTime, Imbaku imbaku)
         {
-            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox))
+            if (player.middleHitbox.Intersects(imbaku.imbakuRectangleHitbox) && !player.playerImmunity)
             {
                 //DAMAGE
                 PlayerDamage(imbaku.monsterDamage);
@@ -958,7 +958,7 @@ namespace TheMaze
                     miniMonsterToRemove.Add(mini);
                 }
 
-                if (player.middleHitbox.Intersects(mini.miniRectangleHitbox))
+                if (player.middleHitbox.Intersects(mini.miniRectangleHitbox) && !player.playerImmunity)
                 {
                     PlayerDamage(mini.monsterDamage);
                 }
