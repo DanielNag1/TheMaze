@@ -68,7 +68,14 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, drawingOffset, currentSourceRect, Color.White);
+            if (!stalkerStunned)
+            {
+                spriteBatch.Draw(texture, drawingOffset, currentSourceRect, Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(texture, drawingOffset, currentSourceRect, Color.Goldenrod);
+            }
         }
     }
 }

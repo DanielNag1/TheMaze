@@ -49,6 +49,7 @@ namespace TheMaze
             slowedDown = false;
             pathfindingActivated = false;
 
+            monsterDamage = 1;
         }
 
         public new void Update(GameTime gameTime, Player player)
@@ -60,14 +61,26 @@ namespace TheMaze
 
             armMonsterRectangleHitbox.X = (int)position.X + currentSourceRect.Width / 4;
             armMonsterRectangleHitbox.Y = (int)position.Y + currentSourceRect.Height / 4;
-
-            if (chaseTimer < 0)
-            {
-                path = Pathfind.CreatePath(Position, player.FootHitbox.Center.ToVector2());
-                chaseTimer = resetTimer;
-            }
+            
 
             ActivatingArmMonster(gameTime, player);
+
+            
+            if (isActive)
+            {
+                Acceleration(gameTime);
+                CollisionWithWall(levelManager);
+                ArmMonsterPathfinding(gameTime, player);
+
+                armMonsterRectangleHitbox.X = (int)position.X + currentSourceRect.Width / 4;
+                armMonsterRectangleHitbox.Y = (int)position.Y + currentSourceRect.Height / 4;
+
+                armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
+                armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
+
+                spawning = 0;
+            }
+
             UpdateSourceRectangle();
         }
 
@@ -99,6 +112,7 @@ namespace TheMaze
             activationTimer.Reset();
             cooldownTimer.Reset();
 
+            spawning = 0;
             armSpeed = 25f;
             SetPosition(startPosition);
 
@@ -129,52 +143,41 @@ namespace TheMaze
 
         private void ActivatingArmMonster(GameTime gameTime, Player player)
         {
-            if (activated)
+            if (activated && !isActive)
             {
-                spawning = random.Next(0, 2);
+                spawning = random.Next(0, 3);
+                activated = false;
+            }
 
-                if (spawning == 0)
+            if (spawning == 2)
+            {
+                activationTimer.Start();
+                musicTimer.Start();
+
+                if (musicTimer.ElapsedMilliseconds >= 900)
                 {
-                    pathfindingActivated = true;
-                    activationTimer.Start();
-                    musicTimer.Start();
+                    sfx.ArmMonsterEncounter(gameTime);
+                    musicTimer.Reset();
+                }
 
-                    if(musicTimer.ElapsedMilliseconds >= 900)
-                    {
-                        sfx.ArmMonsterEncounter(gameTime);
-                        musicTimer.Reset();
-                    }
-
-                    if (activationTimer.ElapsedMilliseconds >= 2500)
-                    {
-                        if(pathfindingActivated)
-                        {
-                            ArmMonsterPathfinding(gameTime, player);
-                            pathfindingActivated = false;
-                        }
-
-                        isActive = true;
-                        
-                        Acceleration(gameTime);
-                        CollisionWithWall(levelManager);
-
-                        armMonsterRectangleHitbox.X = (int)position.X + currentSourceRect.Width / 4;
-                        armMonsterRectangleHitbox.Y = (int)position.Y + currentSourceRect.Height / 4;
-
-                        armMonsterCircleHitboxPos = new Vector2(position.X + ConstantValues.tileWidth / 2, position.Y);
-                        armMonsterCircleHitbox = new Circle(armMonsterCircleHitboxPos, 90f);
-
-                    }
+                if (activationTimer.ElapsedMilliseconds >= 2500)
+                {
+                    isActive = true;
 
                 }
 
             }
 
-
         }
 
         private void ArmMonsterPathfinding(GameTime gameTime, Player player)
         {
+            if (chaseTimer < 0)
+            {
+                path = Pathfind.CreatePath(Position, player.FootHitbox.Center.ToVector2());
+                chaseTimer = resetTimer;
+            }
+
             if (!moving)
             {
                 //koll så att listan med "the path" inte är tom för att motverka att programmet kraschar

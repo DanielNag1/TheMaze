@@ -18,6 +18,7 @@ namespace TheMaze
         public GlitchMonster(Texture2D texture, Vector2 position, LevelManager levelManager) : base(texture, position, levelManager)
         {
             frameSize = 0;
+            speed = 100;
             //currentSourceRect = new Rectangle(0, 0, frameSize, frameSize);
             glitchMonsterRectangleHitbox = new Rectangle((int)position.X, (int)position.Y, currentSourceRect.Width, currentSourceRect.Height);
         }

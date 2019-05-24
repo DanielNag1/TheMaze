@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Cutscene final wmv.wmv</SourceFile>
-  <SourceTime>2019-05-23T13:58:04.7352755+02:00</SourceTime>
-  <DestFile>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Cutscene final wmv.xnb</DestFile>
-  <DestTime>2019-05-23T14:00:11.8355987+02:00</DestTime>
+  <SourceFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/Cutscene final wmv.wmv</SourceFile>
+  <SourceTime>2019-05-24T00:30:27.1459954+02:00</SourceTime>
+  <DestFile>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Cutscene final wmv.xnb</DestFile>
+  <DestTime>2019-05-24T00:36:49.2905574+02:00</DestTime>
   <Importer>WmvImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>VideoProcessor</Processor>
@@ -11,6 +11,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>C:/Users/Spellabb2018/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Cutscene final wmv.wmv</string>
+    <string>C:/Users/Chris/OneDrive/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Cutscene final wmv.wmv</string>
   </BuildOutput>
 </PipelineBuildEvent>
