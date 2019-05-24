@@ -1111,3 +1111,29 @@ C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\D
 C:\Users\Spellabb2018\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
 C:\Users\sandr\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\whispering.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Cutscene final wmv.wmv
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\breathingghost.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\gettingHit.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\glitch.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\golemsong.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\icespell.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\lowhp2.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\metalclang.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\psychoscream.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\run.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\suicide.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\SFX\whispering.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Audio\BGM\ambientsound.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\armmonster_spritesheet2.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\character_spritesheet.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\Cutscene final wmv.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\golem.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\redhp.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\stalker_spritesheet.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture4.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture5.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture6.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture7.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture8.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\storyTexture9.xnb
+C:\Users\zirko\Documents\GitHub\TheMaze\theMaze\TheMaze\bin\Windows\x86\Debug\Content\wallmonster2.2.xnb

@@ -15,7 +15,7 @@ namespace TheMaze
     {
         private SFX sfx;
 
-        
+
         private Vector2 oldPosition;
 
         private Rectangle footHitbox;
@@ -25,7 +25,7 @@ namespace TheMaze
         }
         private int hitboxOffsetX, hitboxOffsetY;
 
-        
+
         public Rectangle middleHitbox, playerHitbox;
         public readonly int frameSizeX = 125;
         public readonly int frameSizeY = 250;
@@ -101,15 +101,28 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
-            
+
 
             if (playerHealth == 1)
             {
                 sfx.LowHP();
             }
+            else
+            {
+                sfx.LowHPStop();
+            }
 
             if (moving)
             {
+                if (KeyPressed(Keys.LeftShift))
+                {
+                    sfx.Sprint();
+                }
+                else
+                {
+                    sfx.StopSprint();
+                }
+
                 PlayerInput(gameTime);
                 currentSourceRect.X = frame * frameSizeX;
                 currentSourceRect.Y = frameSize * frameSizeY;
@@ -125,6 +138,7 @@ namespace TheMaze
             }
             else
             {
+                sfx.StopSprint();
                 PlayerInput(gameTime);
                 currentSourceRect.X = frame * frameSizeX;
             }
@@ -267,7 +281,7 @@ namespace TheMaze
                     {
                         nextSourceRect.Y = 5 * frameSizeY;
                     }
-                    
+
 
                     moving = true;
                 }
@@ -285,7 +299,7 @@ namespace TheMaze
                     nextSourceRect.Y = 1 * frameSizeY;
                     moving = true;
                 }
-                
+
                 else
                 {
                     moving = false;
@@ -296,7 +310,7 @@ namespace TheMaze
             {
                 if (stamina >= 0)
                 {
-                    sfx.Sprint();
+                    //sfx.Sprint();
                     speed = 3.72f;
                     stamina -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
                 }
@@ -309,7 +323,7 @@ namespace TheMaze
             else
             {
                 speed = 3f;
-                sfx.StopSprint();
+                //sfx.StopSprint();
                 if (stamina <= 5000)
                     stamina += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }

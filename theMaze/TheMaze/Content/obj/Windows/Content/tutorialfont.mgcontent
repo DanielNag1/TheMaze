@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/tutorialfont.spritefont</SourceFile>
-  <SourceTime>2019-05-15T18:25:42.0038626+02:00</SourceTime>
-  <DestFile>C:/Users/sandr/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/tutorialfont.xnb</DestFile>
-  <DestTime>2019-05-23T12:25:28.5247497+02:00</DestTime>
+  <SourceFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/tutorialfont.spritefont</SourceFile>
+  <SourceTime>2019-05-15T01:14:28.8772606+02:00</SourceTime>
+  <DestFile>C:/Users/zirko/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/Content/tutorialfont.xnb</DestFile>
+  <DestTime>2019-05-24T01:13:31.7488521+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
-  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
+  <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
-  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
+  <ProcessorTime>2018-09-23T23:55:52+02:00</ProcessorTime>
   <Parameters>
     <Key>PremultiplyAlpha</Key>
     <Value>True</Value>

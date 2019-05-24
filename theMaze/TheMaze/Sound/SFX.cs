@@ -42,11 +42,14 @@ namespace TheMaze
             suicide = SoundManager.Suicide.CreateInstance();
             gettingHit = SoundManager.GetHit.CreateInstance();
             sprint = SoundManager.Sprint.CreateInstance();
+            sprint.Volume = 0.25f;
             lowhp = SoundManager.LowHP.CreateInstance();
+            lowhp.Volume = 0.7f;
             lightAttack = SoundManager.LightAttack.CreateInstance();
 
             suicide.Volume = 0.2f;
             creepySoundLow = SoundManager.CreepySoundLow.CreateInstance();
+            creepySoundLow.Volume = 1f;
             creepySoundHigh = SoundManager.CreepySoundHigh.CreateInstance();
 
             takeCollectible = SoundManager.TakeCollectible.CreateInstance();
@@ -254,6 +257,11 @@ namespace TheMaze
         public void LowHP()
         {
             lowhp.Play();
+        }
+
+        public void LowHPStop()
+        {
+            lowhp.Stop();
         }
 
         public void LightMonsterCollision()

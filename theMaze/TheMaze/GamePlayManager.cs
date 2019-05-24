@@ -638,8 +638,6 @@ namespace TheMaze
                 stalker.Update(gameTime, player);
                 StalkerCollision(gameTime, stalker);
             }
-
-
         }
 
         public void Level3Update(GameTime gameTime)
