@@ -12,8 +12,8 @@ namespace TheMaze
     {
         private static Grid grid;
 
-        //Metod som skapar grid-objektet som pathfindingen använder sig av. 
-        //Behöver användas när man läser in kartan.
+        //Method for creating the "grid" object that the pathfinding uses
+        //Needs to be called when a map is read
         public static void FillGridFromMap(Tile[,] map)
         {
             int width = map.GetLength(0);
@@ -32,20 +32,14 @@ namespace TheMaze
                 }
             }
         }
-
-        //Metod som returnerar "the path" i en lista med positionerna för tiles man ska vandra på. 
-        //Används av de monster som ska ha pathfinding. 
+        
+        //Method that returns the path to use in an list of the positions of the tiles to walk on
+        //Used by the monsters that moves tilebased
         public static List<Vector2> CreatePath(Vector2 startPos, Vector2 endPos)
         {
             Position start = VectorToPosition(startPos);
             Position end = VectorToPosition(endPos);
             List<Vector2> pathPos = new List<Vector2>();
-
-            //if (CheckGridPos(start) && CheckGridPos(end))
-            //{
-            //    Console.WriteLine("###### Returning empty path.");
-            //    return pathPos;
-            //}
 
             Position[] path = grid.GetPath(start, end, MovementPatterns.LateralOnly);
 
@@ -56,20 +50,22 @@ namespace TheMaze
 
             return pathPos;
         }
-
-        //Converterar en Vektors position till ett Positions-objekt som pathfindingen använder sig av.
+        
+        //Converts from "Vector2" type to "Position" type
+        //The game uses vectors and the pathfinding library uses positions
         private static Position VectorToPosition(Vector2 position)
         {
             return new Position((int)(position.X / ConstantValues.tileWidth), (int)(position.Y / ConstantValues.tileHeight));
         }
-
-        //Converterar från ett Positions-objekt till en Vektors position som spelet använder sig av. 
+        
+        //Converts from "Position" type to "Vector2" type
+        //The game uses vectors and the pathfinding library uses positions
         private static Vector2 PositionToVector(Position position)
         {
             return new Vector2(position.X * ConstantValues.tileWidth, position.Y * ConstantValues.tileHeight);
         }
-
-        //Skapar en vektor med riktnigen mellan currentPos och nextPos för att kunna använda rörelse koden vi har.
+        
+        //Creates an vector with the direction between "currentPos" and "nextPos" that is needed for the movement code 
         public static Vector2 SetDirectionFromNextPosition(Vector2 currentPos, Vector2 nextPos)
         {
             int x = 0;

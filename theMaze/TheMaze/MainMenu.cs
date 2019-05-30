@@ -84,7 +84,7 @@ namespace TheMaze
 
             if (exitButton.IsClicked())
             {
-                X.Exit = true;
+                Utility.Exit = true;
             }
         }
 

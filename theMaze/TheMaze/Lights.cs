@@ -49,6 +49,7 @@ namespace TheMaze
             {
                 case GamePlayManager.Level.Level1:
                     break;
+
                 case GamePlayManager.Level.Level2:
                     foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
                     {
@@ -63,10 +64,10 @@ namespace TheMaze
                     foreach (Light l in saferoomWeaponList)
                     {
                         saferoomWeaponList[0].Color = saferoom.weaponLight1Color;
-                        
                     }
 
                     break;
+
                 case GamePlayManager.Level.Level3:
                     foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
                     {
@@ -84,6 +85,7 @@ namespace TheMaze
                         saferoomWeaponList[1].Color = saferoom.weaponLight2Color;
                     }
                     break;
+
                 case GamePlayManager.Level.Level4:
                     foreach (Vector2 weaponposition in saferoom.saferoomWeaponLightPositions)
                     {
@@ -102,8 +104,6 @@ namespace TheMaze
                     }
                     break;
             }
-            
-
         }
 
         public void Update(GameTime gameTime)
@@ -112,17 +112,11 @@ namespace TheMaze
             {
                 l.Color = saferoom.saferoomLightColor;
             }
-
-
+            
             foreach(Light l in saferoomWeaponList)
             {
                 l.Intensity = saferoom.saferoomWeaponLightIntensity;
             }
-
-            
-
         }
-
-
     }
 }

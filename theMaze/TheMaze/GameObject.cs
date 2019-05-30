@@ -10,13 +10,13 @@ namespace TheMaze
 {
     public abstract class GameObject
     {
-        public Texture2D texture { get; protected set; }
+        public Texture2D Texture { get; protected set; }
         protected Vector2 position;
 
         protected Rectangle currentSourceRect, nextSourceRect;
         public int frameSize;
         protected int frame, nrFrames;
-        protected double timer, timeIntervall;
+        protected double timer, timeInterval;
 
         public Vector2 Direction { get; protected set; }
 
@@ -27,29 +27,26 @@ namespace TheMaze
 
         public GameObject(Texture2D texture, Vector2 position)
         {
-            this.texture = texture;
+            this.Texture = texture;
             this.position = position;
             currentSourceRect = new Rectangle(frame, frameSize, ConstantValues.tileWidth, ConstantValues.tileHeight);
         }
 
         public abstract void Draw(SpriteBatch spriteBatch);
-
-
+        
         public void Animation(GameTime gameTime)
         {
             timer -= gameTime.ElapsedGameTime.TotalMilliseconds;
 
             if (timer <= 0)
             {
-                timer = timeIntervall;
+                timer = timeInterval;
                 frame++;
                 if (frame >= nrFrames)
                 {
                     frame = 0;
                 }
-
             }
-
         }
 
         public void UpdateSourceRectangle()

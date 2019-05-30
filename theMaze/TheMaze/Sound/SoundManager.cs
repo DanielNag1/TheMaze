@@ -82,9 +82,7 @@ namespace TheMaze
 
             StalkerGrowlFar = content.Load<SoundEffect>("Audio/SFX/whispering");
             StalkerGrowlNear = content.Load<SoundEffect>("Audio/SFX/breathingghost");
-
         }
-
     }
 }
 

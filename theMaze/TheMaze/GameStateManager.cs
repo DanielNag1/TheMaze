@@ -47,14 +47,14 @@ namespace TheMaze
 
         public void Update(GameTime gameTime)
         {
-            X.Update(gameTime);
+            Utility.Update(gameTime);
             PauseGame(gameTime);
 
             switch (currentGameState)
             {
                 case GameState.MainMenu:
                     mainMenu.Update();
-                    X.IsMouseVisible = true;
+                    Utility.IsMouseVisible = true;
                     break;
                 case GameState.Play:
                     gamePlayManager.Update(gameTime);
@@ -62,7 +62,7 @@ namespace TheMaze
                     break;
                 case GameState.Pause:
                     pauseMenu.Update();
-                    X.IsMouseVisible = true;
+                    Utility.IsMouseVisible = true;
                     break;
 
                 case GameState.Killed:
@@ -79,14 +79,12 @@ namespace TheMaze
                         videoTexture = videoplayer.GetTexture();
                     }
                     break;
-
             }
 
             if (gamePlayManager.killed == true)
             {
-                currentGameState = GameState.Killed; Console.WriteLine(currentGameState);
+                //currentGameState = GameState.Killed; Console.WriteLine(currentGameState);
             }
-
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -112,7 +110,6 @@ namespace TheMaze
                     DrawCutscene(spriteBatch);
                     break;
             }
-
         }
 
         public void PauseGame(GameTime gameTime)
@@ -123,34 +120,33 @@ namespace TheMaze
 
                     break;
                 case GameState.Play:
-                    if (X.IsKeyPressed(Keys.P))
+                    if (Utility.IsKeyPressed(Keys.P))
                     {
-                        currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
+                        //currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
                         pauseMenu.drawControlsMenu = false;
                     }
-                    if (X.player.viewCollectible)
+                    if (Utility.player.viewCollectible)
                     {
                         collectibleviewer.CreateButtons();
                         currentGameState = GameState.CollectibleMenu;
                     }
                     break;
                 case GameState.Pause:
-                    if (X.IsKeyPressed(Keys.P))
+                    if (Utility.IsKeyPressed(Keys.P))
                     {
-                        currentGameState = GameState.Play; Console.WriteLine(currentGameState);
+                        //currentGameState = GameState.Play; Console.WriteLine(currentGameState);
                     }
                     break;
                 case GameState.Killed:
-                    if (X.IsKeyPressed(Keys.Space) && gamePlayManager.killed)
+                    if (Utility.IsKeyPressed(Keys.Space) && gamePlayManager.killed)
                     {
                         gamePlayManager.Resurrect();
-                        currentGameState = GameState.Play; Console.WriteLine(currentGameState);
-
+                        //currentGameState = GameState.Play; Console.WriteLine(currentGameState);
                     }
                     break;
                 case GameState.CollectibleMenu:
                     collectibleviewer.Update();
-                    if (X.IsKeyPressed(Keys.Space) && collectibleviewer.inMenu)
+                    if (Utility.IsKeyPressed(Keys.Space) && collectibleviewer.inMenu)
                     {
                         currentGameState = GameState.Play;
                         //X.player.viewCollectible = false;
@@ -172,7 +168,5 @@ namespace TheMaze
             spriteBatch.Draw(videoTexture, new Rectangle(0, 0, 1920, 1080), Color.White);
             spriteBatch.End();
         }
-
-
     }
 }

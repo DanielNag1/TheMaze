@@ -36,7 +36,7 @@ namespace TheMaze
         {
             bool isMouseHovering = false;
 
-            if (rect.Contains(X.mousePos))
+            if (rect.Contains(Utility.mousePos))
             {
                 isMouseHovering = true;
             }
@@ -48,9 +48,9 @@ namespace TheMaze
         {
             bool isClicked = false;
 
-            if (rect.Contains(X.mousePos))
+            if (rect.Contains(Utility.mousePos))
             {
-                if (X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
+                if (Utility.mouseState.LeftButton == ButtonState.Pressed && Utility.oldmouseState.LeftButton == ButtonState.Released)
                 {
                     isClicked = true;
                 }

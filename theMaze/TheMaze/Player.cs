@@ -14,8 +14,7 @@ namespace TheMaze
     public class Player : GameObject
     {
         private SFX sfx;
-
-
+        
         private Vector2 oldPosition;
 
         private Rectangle footHitbox;
@@ -24,8 +23,7 @@ namespace TheMaze
             get { return footHitbox; }
         }
         private int hitboxOffsetX, hitboxOffsetY;
-
-
+        
         public Rectangle middleHitbox, playerHitbox;
         public readonly int frameSizeX = 125;
         public readonly int frameSizeY = 250;
@@ -57,8 +55,7 @@ namespace TheMaze
         public int playerHealth;
         Stopwatch playerImmunityTimer = new Stopwatch();
         public bool playerImmunity = false;
-
-
+        
         public void SetPosition(Vector2 newPosition)
         {
             position = newPosition;
@@ -75,7 +72,7 @@ namespace TheMaze
 
             nrFrames = 3;
             timer = 100;
-            timeIntervall = 100;
+            timeInterval = 100;
 
             hitboxOffsetX = frameSizeX / 8;
             hitboxOffsetY = frameSizeY / 4 * 3;
@@ -96,13 +93,10 @@ namespace TheMaze
             stamina = 5000f;
             playerHealth = 3;
             insaferoom = true;
-
         }
 
         public void Update(GameTime gameTime)
         {
-
-
             if (playerHealth == 1)
             {
                 sfx.LowHP();
@@ -133,8 +127,6 @@ namespace TheMaze
                 currentSourceRect = nextSourceRect;
                 oldPosition = position;
                 position += speed * Direction;
-
-
             }
             else
             {
@@ -156,16 +148,13 @@ namespace TheMaze
                 PowerDrain(gameTime);
                 WeaponInput();
             }
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, currentSourceRect, Color.White);
-
+            spriteBatch.Draw(Texture, position, currentSourceRect, Color.White);
         }
-
-
+        
         private void ChangeWeapon()
         {
             playerSpotLight.Color = currentWeapon.color;
@@ -197,7 +186,6 @@ namespace TheMaze
 
         public void ApplyWeapon()
         {
-
             if (Keyboard.GetState().IsKeyDown(Keys.D2))
             {
                 if (selectedColor != new Color(0, 0, 0, 0))
@@ -208,6 +196,7 @@ namespace TheMaze
                 playerPointLight.Color = selectedColor;
                 playerPointLight.Enabled = true;
             }
+
             if (Keyboard.GetState().IsKeyDown(Keys.D3))
             {
                 if (selectedColor != new Color(0, 0, 0, 0))
@@ -218,6 +207,7 @@ namespace TheMaze
                 playerPointLight.Color = selectedColor;
                 playerPointLight.Enabled = true;
             }
+
             if (Keyboard.GetState().IsKeyDown(Keys.D4))
             {
                 if (selectedColor != new Color(0, 0, 0, 0))
@@ -232,10 +222,10 @@ namespace TheMaze
 
         private void PlayerInput(GameTime gameTime)
         {
-            if (X.IsKeyPressed(Keys.G) || X.IsKeyPressed(Keys.G))
+            if (Utility.IsKeyPressed(Keys.G) || Utility.IsKeyPressed(Keys.G))
             {
-                Console.WriteLine(markers);
-                Console.WriteLine(markerList.Count);
+                //Console.WriteLine(markers);
+                //Console.WriteLine(markerList.Count);
 
                 if (markerList.Count < 15)
                 {
@@ -254,7 +244,6 @@ namespace TheMaze
             {
                 InversePlayerInput();
             }
-
             else
             {
                 if (KeyPressed(Keys.Up) || KeyPressed(Keys.W))
@@ -281,8 +270,7 @@ namespace TheMaze
                     {
                         nextSourceRect.Y = 5 * frameSizeY;
                     }
-
-
+                    
                     moving = true;
                 }
                 else if (KeyPressed(Keys.Left) || KeyPressed(Keys.A))
@@ -299,7 +287,6 @@ namespace TheMaze
                     nextSourceRect.Y = 1 * frameSizeY;
                     moving = true;
                 }
-
                 else
                 {
                     moving = false;
@@ -319,16 +306,15 @@ namespace TheMaze
                     speed = 3f;
                 }
             }
-
             else
             {
                 speed = 3f;
                 //sfx.StopSprint();
                 if (stamina <= 5000)
+                {
                     stamina += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                }
             }
-
-
         }
 
         private void WeaponInput()
@@ -377,7 +363,6 @@ namespace TheMaze
                     weaponSlot4.enabled = true;
                 }
             }
-
         }
 
         private void CreateWeapons()
@@ -397,7 +382,7 @@ namespace TheMaze
             currentWeapon = weaponSlot1;
         }
 
-        public void Collision(LevelManager levelManager)
+        public void WallCollision(LevelManager levelManager)
         {
             for (int i = 0; i < levelManager.Tiles.GetLength(0); i++)
             {
@@ -426,8 +411,8 @@ namespace TheMaze
             playerSpotLight = new Spotlight();
             playerSpotLight.Color = Color.White;
 
-            playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
-            playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
+            playerSpotLight.Scale = new Vector2(Utility.mouseLampDistance, Utility.mouseLampDistance);
+            playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(Utility.mousePlayerDirection.X, -Utility.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
 
             playerLights.Add(playerSpotLight);
             playerLights.Add(playerPointLight);
@@ -449,9 +434,8 @@ namespace TheMaze
             playerHitbox.X = (int)position.X;
             playerHitbox.Y = (int)position.Y;
 
-            weaponHitbox = new Circle(X.worldMouse, weaponHitboxRadius);
-            weaponHitboxRadius = Vector2.Distance(X.worldMouse, lampPosition) / 2;
-
+            weaponHitbox = new Circle(Utility.worldMouse, weaponHitboxRadius);
+            weaponHitboxRadius = Vector2.Distance(Utility.worldMouse, lampPosition) / 2;
         }
 
         private void UpdateLights()
@@ -462,7 +446,6 @@ namespace TheMaze
                 {
                     l.Enabled = true;
                 }
-
                 else
                 {
                     l.Enabled = false;
@@ -474,9 +457,8 @@ namespace TheMaze
 
             UpdateSpotLightPosition();
 
-            playerSpotLight.Scale = new Vector2(X.mouseLampDistance, X.mouseLampDistance);
-            playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(X.mousePlayerDirection.X, -X.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
-
+            playerSpotLight.Scale = new Vector2(Utility.mouseLampDistance, Utility.mouseLampDistance);
+            playerSpotLight.Rotation = (Convert.ToSingle(Math.Atan2(Utility.mousePlayerDirection.X, -Utility.mousePlayerDirection.Y))) - MathHelper.ToRadians(90f);
         }
 
         private void UpdateSpotLightPosition()
@@ -498,7 +480,6 @@ namespace TheMaze
             if (Direction == new Vector2(0, -1))
             {
                 lampPosition = new Vector2(Position.X + 77, Position.Y + 110);
-
             }
         }
 
@@ -549,7 +530,6 @@ namespace TheMaze
             {
                 moving = false;
             }
-
         }
 
         public static Vector2 ReturnPosition(Vector2 position)
@@ -561,6 +541,5 @@ namespace TheMaze
         {
             return Keyboard.GetState().IsKeyDown(k);
         }
-
     }
 }

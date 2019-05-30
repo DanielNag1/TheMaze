@@ -31,9 +31,9 @@ namespace TheMaze
         {
             bool isClicked = false;
 
-            if (rectangle.Intersects(X.menumouseRect))
+            if (rectangle.Intersects(Utility.menumouseRect))
             {
-                if (X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
+                if (Utility.mouseState.LeftButton == ButtonState.Pressed && Utility.oldmouseState.LeftButton == ButtonState.Released)
                 {
                     isClicked = true;
                 }
@@ -41,7 +41,6 @@ namespace TheMaze
 
             return isClicked;
         }
-        
 
         public void Draw(SpriteBatch spriteBatch)
         {

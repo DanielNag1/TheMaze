@@ -33,8 +33,7 @@ namespace TheMaze
         }
 
         public bool IsEntrance { get; private set; }
-
-
+        
         public Tile(Vector2 position, char identifier, bool isWhite)
         {
             this.isWhite = isWhite;
@@ -276,8 +275,7 @@ namespace TheMaze
                     }
             }
         }
-
-
+        
         public static readonly Vector2[] tilePoints =
         {
             new Vector2(0, 0), new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0)
@@ -291,6 +289,5 @@ namespace TheMaze
                 Scale = new Vector2(bounds.Width * width, bounds.Height)
             };
         }
-
     }
 }

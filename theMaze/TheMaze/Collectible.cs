@@ -11,8 +11,8 @@ namespace TheMaze
 {
     public class Collectible : GameObject
     {
-
         public Rectangle hitbox;
+
         public Collectible(Texture2D texture, Vector2 position) : base(texture, position)
         {
             hitbox = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
@@ -20,8 +20,7 @@ namespace TheMaze
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, hitbox, Color.White);
+            spriteBatch.Draw(Texture, hitbox, Color.White);
         }
-
     }
 }

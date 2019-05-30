@@ -44,7 +44,7 @@ namespace TheMaze
                     }
                 case GameStateManager.GameState.Play:
                     {
-                        if (X.player.insaferoom)
+                        if (Utility.player.insaferoom)
                         {
                             //ambientNoise.Stop();
 
@@ -69,13 +69,13 @@ namespace TheMaze
                 AmbientNoiseFadeOut();
                 FadeOut(safeRoomBGM);
                 FadeIn(whiteBGM);
-                
             }
             else
             {
                 FadeOut(whiteBGM);
             }
         }
+
         private void FadeIn(SoundEffectInstance BGM)
         {
             if (BGM.State != SoundState.Playing)
@@ -88,6 +88,7 @@ namespace TheMaze
                 BGM.Volume += 0.01f;
             }
         }
+
         private void FadeOut(SoundEffectInstance BGM)
         {
             if (BGM.Volume > 0.001f)
@@ -99,30 +100,6 @@ namespace TheMaze
                 BGM.Stop();
             }
         }
-        //private void SafeRoomBGMFadeIn()
-        //{
-        //    if (safeRoomBGM.State != SoundState.Playing)
-        //    {
-        //        safeRoomBGM.Volume = 0.1f;
-        //        safeRoomBGM.Play();
-        //    }
-        //    if (safeRoomBGM.Volume < 0.1f)
-        //    {
-        //        safeRoomBGM.Volume += 0.01f;
-        //    }
-        //}
-
-        //private void SafeRoomBGMFadeOut()
-        //{
-        //    if (safeRoomBGM.Volume > 0.001f)
-        //    {
-        //        safeRoomBGM.Volume -= 0.001f;
-        //    }
-        //    else if (safeRoomBGM.Volume <= 0.001f)
-        //    {
-        //        safeRoomBGM.Stop();
-        //    }
-        //}
 
         private void AmbientNoiseFadeIn()
         {
@@ -148,6 +125,5 @@ namespace TheMaze
                 ambientNoise.Stop();
             }
         }
-
     }
 }

@@ -47,7 +47,6 @@ namespace TheMaze
                     }
                 }
             }
-            
         }
 
         private Particle GenerateNewParticle()
@@ -65,11 +64,8 @@ namespace TheMaze
                         (float)random.NextDouble());
             float size = random.Next(2, 7)*.1f;
             int ttl = 15 + random.Next(4);
-
-
+            
             return new Particle(texture, position, velocity, angle, angularVelocity, Color.White, size, ttl);
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -82,7 +78,5 @@ namespace TheMaze
                 }
             }
         }
-        
-
     }
 }

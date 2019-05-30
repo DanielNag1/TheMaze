@@ -17,28 +17,28 @@ namespace TheMaze
         public static bool e = true;
         public static void buttonPressCheck()
         {
-            if(X.IsKeyPressed(Keys.W))
+            if(Utility.IsKeyPressed(Keys.W))
             {
                 w = true;
             }
-            if (X.IsKeyPressed(Keys.A))
+            if (Utility.IsKeyPressed(Keys.A))
             {
                 a = true;
             }
-            if (X.IsKeyPressed(Keys.S))
+            if (Utility.IsKeyPressed(Keys.S))
             {
                 s = true;
             }
-            if (X.IsKeyPressed(Keys.D))
+            if (Utility.IsKeyPressed(Keys.D))
             {
                 d = true;
             }
-            if (X.IsKeyPressed(Keys.Q))
+            if (Utility.IsKeyPressed(Keys.Q))
             {
                 q = true;
                 e = false;
             }
-            if (X.IsKeyPressed(Keys.E))
+            if (Utility.IsKeyPressed(Keys.E))
             {
                 e = true;
             }
@@ -49,10 +49,7 @@ namespace TheMaze
             if (q==true && e==true)
             {
                 tutorialLampDone = true;
-
             }
         }
-
-        
     }
 }

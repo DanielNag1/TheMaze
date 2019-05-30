@@ -20,6 +20,7 @@ namespace TheMaze
         {
             get { return transformhallway; }
         }
+
         public Matrix Transform
         {
             get { return transform; }
@@ -34,11 +35,11 @@ namespace TheMaze
         {
             this.position = position;
 
-            if (GamePlayManager.black)
+            if (GamePlayManager.inLiveMap)
             {
                 transform = Matrix.CreateTranslation(-position.X + view.Width / 2, -position.Y + view.Height / 2, 0f);
             }
-            if (!GamePlayManager.black)
+            if (!GamePlayManager.inLiveMap)
             {
                 if(position.X>=0 && position.X<788)
                 {
@@ -53,5 +54,4 @@ namespace TheMaze
             //transform = Matrix.CreateTranslation(-position.X + view.Width/2, -position.Y + view.Height/2, 0f) * Matrix.CreateScale(Zoom.X,Zoom.Y,1f);
         }
     }
-
 }

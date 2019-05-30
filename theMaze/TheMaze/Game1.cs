@@ -13,8 +13,7 @@ namespace TheMaze
         SpriteBatch spriteBatch;
         GameStateManager gameStateManager;
         public static PenumbraComponent penumbra;
-
-
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -42,7 +41,6 @@ namespace TheMaze
             TextureManager.LoadContent(Content);
             gameStateManager = new GameStateManager();
             penumbra.AmbientColor = Color.Black;
-            
         }
 
         protected override void UnloadContent()
@@ -62,20 +60,19 @@ namespace TheMaze
         {
             GraphicsDevice.Clear(Color.White);
             gameStateManager.Draw(spriteBatch,gameTime);
-            
         }
 
         public void ExitGame()
         {
-            if (X.Exit || (X.keyboardState.IsKeyDown(Keys.Escape) && X.oldkeyboardState.IsKeyUp(Keys.Escape)))
+            if (Utility.Exit || (Utility.keyboardState.IsKeyDown(Keys.Escape) && Utility.oldkeyboardState.IsKeyUp(Keys.Escape)))
             {
                 Exit();
             }
-            
         }
+
         public void MouseCheck()
         {
-            if(X.IsMouseVisible==true)
+            if(Utility.IsMouseVisible==true)
             {
                 IsMouseVisible = true;
             }

@@ -96,77 +96,71 @@ namespace TheMaze
 
         public void SelectWeapon()
         {
-            if(X.mouseRect.Intersects(weaponLight1Rectangle) && X.mouseState.LeftButton==ButtonState.Pressed && X.oldmouseState.LeftButton==ButtonState.Released)
+            if(Utility.mouseRect.Intersects(weaponLight1Rectangle) && Utility.mouseState.LeftButton==ButtonState.Pressed && Utility.oldmouseState.LeftButton==ButtonState.Released)
             {
-                
                 Player.selectedColor = weaponLight1Color;
-                X.player.playerPointLight.Color = weaponLight1Color;
-                
+                Utility.player.playerPointLight.Color = weaponLight1Color;
             }
-            if (X.mouseRect.Intersects(weaponLight2Rectangle) && X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton == ButtonState.Released)
+
+            if (Utility.mouseRect.Intersects(weaponLight2Rectangle) && Utility.mouseState.LeftButton == ButtonState.Pressed && Utility.oldmouseState.LeftButton == ButtonState.Released)
             {
                 Player.selectedColor = weaponLight2Color;
-                X.player.playerPointLight.Color = weaponLight2Color;
+                Utility.player.playerPointLight.Color = weaponLight2Color;
             }
             
-            X.player.ApplyWeapon();
-
+            Utility.player.ApplyWeapon();
         }
 
         public void Update(GameTime gameTime)
         {
             saferoomLightColor = new Color(r, g, b);
 
-            if (X.player.FootHitbox.Intersects(saferoomHitBox))
+            if (Utility.player.FootHitbox.Intersects(saferoomHitBox))
             {
-                X.player.insaferoom = true;
-                X.player.playerHealth = 3;
+                Utility.player.insaferoom = true;
+                Utility.player.playerHealth = 3;
                 Player.markers = 15;
                 visible = true;
 
-                if (X.mouseRect.Intersects(deskHitbox) && X.mouseState.LeftButton == ButtonState.Pressed && X.oldmouseState.LeftButton==ButtonState.Released)
+                if (Utility.mouseRect.Intersects(deskHitbox) && Utility.mouseState.LeftButton == ButtonState.Pressed && Utility.oldmouseState.LeftButton==ButtonState.Released)
                 {
-                    X.player.viewCollectible = true;
+                    Utility.player.viewCollectible = true;
                 }
                 else
                 {
-                    X.player.viewCollectible = false;
+                    Utility.player.viewCollectible = false;
                 }
-                    
             }
             else
             {
-                X.player.viewCollectible = false;
-                X.player.insaferoom = false;
+                Utility.player.viewCollectible = false;
+                Utility.player.insaferoom = false;
                 visible = false;
-                X.player.playerPointLight.Color = Color.White;
+                Utility.player.playerPointLight.Color = Color.White;
             }
-
             
             if(visible)
             {
-                X.IsMouseVisible = true;
+                Utility.IsMouseVisible = true;
                 LightsOn();
 
                 saferoomWeaponLightIntensity = .9f;
 
                 SelectWeapon();
 
-                foreach (Weapon w in X.player.weapons)
+                foreach (Weapon w in Utility.player.weapons)
                 {
                     w.power = .9f;
                     w.enabled = false;
                 }
                 
-
-                X.player.canChangeWeapon = false;
-
+                Utility.player.canChangeWeapon = false;
             }
             else
             {
-                X.IsMouseVisible = false;
+                Utility.IsMouseVisible = false;
                 LightsOff();
-                X.player.canChangeWeapon = true;
+                Utility.player.canChangeWeapon = true;
                 saferoomWeaponLightIntensity = 0f;
             }
         }
@@ -202,7 +196,5 @@ namespace TheMaze
                 g -= 2;
             }
         }
-
-
     }
 }

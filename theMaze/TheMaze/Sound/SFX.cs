@@ -271,7 +271,6 @@ namespace TheMaze
 
         public void GolemEncounter(GameTime gameTime)
         {
-
             if (playGolemScream)
             {
                 SoundManager.GolemScream.Play();
@@ -288,7 +287,6 @@ namespace TheMaze
                     golemTimer = golemTimerReset;
                 }
             }
-
         }
 
         public void GolemSong(GameTime gameTime)
@@ -320,7 +318,6 @@ namespace TheMaze
 
         public void ArmMonsterEncounter(GameTime gameTime)
         {
-
             if (playArmMonsterCrackle)
             {
                 SoundManager.ArmMonsterCrackle.Play();
@@ -337,19 +334,16 @@ namespace TheMaze
                     armMonsterTimer = armMonsterTimerReset;
                 }
             }
-
-
         }
 
         public void GlitchMonsterEncounter(GameTime gameTime)
         {
             glitchMonsterSound.Play();
-
         }
+
         public void GlitchMonsterStop()
         {
             glitchMonsterSound.Pause();
         }
-
     }
 }
