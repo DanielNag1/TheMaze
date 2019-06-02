@@ -83,7 +83,8 @@ namespace TheMaze
 
             if (gamePlayManager.killed == true)
             {
-                //currentGameState = GameState.Killed; Console.WriteLine(currentGameState);
+                currentGameState = GameState.Killed;
+                //Console.WriteLine(currentGameState);
             }
         }
 
@@ -122,7 +123,8 @@ namespace TheMaze
                 case GameState.Play:
                     if (Utility.IsKeyPressed(Keys.P))
                     {
-                        //currentGameState = GameState.Pause; Console.WriteLine(currentGameState);
+                        currentGameState = GameState.Pause;
+                        //Console.WriteLine(currentGameState);
                         pauseMenu.drawControlsMenu = false;
                     }
                     if (Utility.player.viewCollectible)
@@ -134,14 +136,16 @@ namespace TheMaze
                 case GameState.Pause:
                     if (Utility.IsKeyPressed(Keys.P))
                     {
-                        //currentGameState = GameState.Play; Console.WriteLine(currentGameState);
+                        currentGameState = GameState.Play;
+                        //Console.WriteLine(currentGameState);
                     }
                     break;
                 case GameState.Killed:
                     if (Utility.IsKeyPressed(Keys.Space) && gamePlayManager.killed)
                     {
                         gamePlayManager.Resurrect();
-                        //currentGameState = GameState.Play; Console.WriteLine(currentGameState);
+                        currentGameState = GameState.Play; 
+                        //Console.WriteLine(currentGameState);
                     }
                     break;
                 case GameState.CollectibleMenu:

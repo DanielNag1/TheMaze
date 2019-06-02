@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture9.png</SourceFile>
-  <SourceTime>2019-05-28T09:33:34.632727+02:00</SourceTime>
-  <DestFile>C:/Users/Malin/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/storyTexture9.xnb</DestFile>
-  <DestTime>2019-05-30T11:29:46.3903606+02:00</DestTime>
+  <SourceFile>C:/Users/Kezik/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/storyTexture9.png</SourceFile>
+  <SourceTime>2019-06-02T00:25:26.8482488+02:00</SourceTime>
+  <DestFile>C:/Users/Kezik/Documents/GitHub/TheMaze/theMaze/TheMaze/Content/bin/Windows/storyTexture9.xnb</DestFile>
+  <DestTime>2019-06-02T01:58:03.2167838+02:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
+  <ImporterTime>2015-04-29T19:14:44+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
+  <ProcessorTime>2015-04-29T19:14:44+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>
@@ -26,10 +26,6 @@
   </Parameters>
   <Parameters>
     <Key>ResizeToPowerOfTwo</Key>
-    <Value>False</Value>
-  </Parameters>
-  <Parameters>
-    <Key>MakeSquare</Key>
     <Value>False</Value>
   </Parameters>
   <Parameters>
